@@ -59,6 +59,7 @@ export default function Header() {
 
   const navLinks = [
     { href: '#cabinet', label: t('cabinet') },
+    { href: `/${locale}/a-propos`, label: t('apropos') },
     { href: `/${locale}/services`, label: t('services') },
     { href: `/${locale}/formations`, label: t('formations') },
     { href: '#partenariats', label: t('partenariats') },

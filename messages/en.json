@@ -5,6 +5,7 @@
   },
   "nav": {
     "cabinet": "Our firm",
+    "apropos": "About us",
     "services": "Services",
     "formations": "Training",
     "partenariats": "Partnerships",
@@ -517,6 +518,25 @@
       }
     ]
   },
+  "apropos": {
+    "chip": "About the firm",
+    "title": "Discover",
+    "titleHighlight": "Yo Mbi Consulting",
+    "description": "A Central African consulting, training and support firm specializing in HSE and business development, serving companies, public institutions and NGOs.",
+    "whoChip": "Who we are",
+    "statsChip": "The firm in numbers",
+    "valuesChip": "Our added value",
+    "valuesTitle": "What makes the difference at",
+    "valuesTitleHighlight": "Yo Mbi Consulting",
+    "pillarsChip": "Our approach",
+    "pillarsTitle": "Three pillars, one standard of",
+    "pillarsTitleHighlight": "quality",
+    "ctaTitle": "Want to learn more about our services?",
+    "ctaText": "Explore our services and training programs, or contact us directly to discuss your needs.",
+    "ctaServices": "View our services",
+    "ctaFormations": "View our training programs",
+    "ctaContact": "Contact us"
+  },
   "footer": {
     "newsletter": {
       "title": "Subscribe to our newsletter",
@@ -530,6 +550,7 @@
     "contact": "Contact",
     "links": {
       "home": "Home",
+      "apropos": "About us",
       "cabinet": "Our Firm",
       "services": "Our Services",
       "formations": "Training",

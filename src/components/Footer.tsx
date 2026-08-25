@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { MessageCircle, Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import { Link } from '@/i18n/navigation';
 import ServiceModal from './ServiceModal';
 
 export default function Footer() {
@@ -121,9 +122,18 @@ export default function Footer() {
             <ul className="space-y-1.5">
               {Object.entries(links).map(([key, label]) => (
                 <li key={key}>
-                  <a href={`#${key === 'home' ? 'accueil' : key}`} className="block text-[14.5px] font-semibold py-1.5 text-[#AABBD4] hover:text-white transition-colors">
-                    {label as string}
-                  </a>
+                  {key === 'apropos' ? (
+                    <Link
+                      href="/a-propos"
+                      className="block text-[14.5px] font-semibold py-1.5 text-[#AABBD4] hover:text-white transition-colors"
+                    >
+                      {label as string}
+                    </Link>
+                  ) : (
+                    <a href={`#${key === 'home' ? 'accueil' : key}`} className="block text-[14.5px] font-semibold py-1.5 text-[#AABBD4] hover:text-white transition-colors">
+                      {label as string}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

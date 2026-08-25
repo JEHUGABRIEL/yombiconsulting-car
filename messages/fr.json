@@ -5,6 +5,7 @@
   },
   "nav": {
     "cabinet": "Le cabinet",
+    "apropos": "À propos",
     "services": "Services",
     "formations": "Formations",
     "partenariats": "Partenariats",
@@ -517,6 +518,25 @@
       }
     ]
   },
+  "apropos": {
+    "chip": "À propos du cabinet",
+    "title": "Découvrez",
+    "titleHighlight": "Yo Mbi Consulting",
+    "description": "Cabinet centrafricain de conseil, de formation et d'accompagnement en HSSE et développement des entreprises, au service des entreprises, institutions publiques et ONG.",
+    "whoChip": "Qui sommes-nous",
+    "statsChip": "Le cabinet en chiffres",
+    "valuesChip": "Nos valeurs ajoutées",
+    "valuesTitle": "Ce qui fait la différence chez",
+    "valuesTitleHighlight": "Yo Mbi Consulting",
+    "pillarsChip": "Notre approche",
+    "pillarsTitle": "Trois piliers, une même exigence de",
+    "pillarsTitleHighlight": "qualité",
+    "ctaTitle": "Envie d'en savoir plus sur nos prestations ?",
+    "ctaText": "Explorez nos services et nos formations, ou contactez-nous directement pour discuter de vos besoins.",
+    "ctaServices": "Voir nos services",
+    "ctaFormations": "Voir nos formations",
+    "ctaContact": "Nous contacter"
+  },
   "footer": {
     "newsletter": {
       "title": "Abonnez-vous à notre lettre d'information",
@@ -530,6 +550,7 @@
     "contact": "Contact",
     "links": {
       "home": "Accueil",
+      "apropos": "À propos",
       "cabinet": "Le cabinet",
       "services": "Nos services",
       "formations": "Formations",
