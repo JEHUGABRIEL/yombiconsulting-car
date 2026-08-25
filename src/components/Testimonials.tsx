@@ -88,7 +88,7 @@ export default function Testimonials() {
                   className="shrink-0 px-3"
                   style={{ width: `${100 / visibleCount}%` }}
                 >
-                  <div className="bg-white border border-line rounded-[20px] p-8 shadow-[0_12px_32px_rgba(13,36,70,.06)] hover:shadow-[0_22px_48px_rgba(13,36,70,.12)] transition-all relative h-full">
+                  <div className="bg-white border border-line rounded-[20px] p-8 relative h-full">
                     {/* Quote icon */}
                     <Quote
                       size={48}

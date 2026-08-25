@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -10,13 +11,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const hdrs = await headers();
+  const nonce = hdrs.get('x-nonce') ?? undefined;
+
   return (
-    <html lang="fr">
+    <html lang="fr" nonce={nonce}>
       <body>{children}</body>
     </html>
   );

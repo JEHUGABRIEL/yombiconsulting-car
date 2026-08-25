@@ -44,7 +44,7 @@ export default function AProposPage() {
           />
           <div className="absolute inset-0 bg-navy/90" />
           <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-            <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+            <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-soft" />
               {t('chip')}
             </span>
@@ -103,7 +103,7 @@ export default function AProposPage() {
                 const Icon = pillarIcons[i];
                 return (
                   <ScrollReveal key={i}>
-                    <div className="bg-sky rounded-[20px] p-[30px] border border-line h-full hover:border-blue/20 transition-all duration-300">
+                    <div className="bg-sky rounded-[20px] p-[30px] border border-line h-full">
                       <span className="w-[54px] h-[54px] rounded-[16px] bg-blue flex items-center justify-center mb-5">
                         <Icon size={25} className="text-white" strokeWidth={1.8} />
                       </span>
@@ -135,7 +135,7 @@ export default function AProposPage() {
                 const Icon = valeurIcons[i % valeurIcons.length];
                 return (
                   <ScrollReveal key={i}>
-                    <div className="bg-white rounded-[20px] p-8 border border-line h-full hover:shadow-[0_16px_40px_rgba(13,36,70,.1)] transition-all duration-300">
+                    <div className="bg-white rounded-[20px] p-8 border border-line h-full">
                       <span className="w-12 h-12 rounded-[14px] bg-tint text-blue flex items-center justify-center mb-5">
                         <Icon size={22} strokeWidth={1.8} />
                       </span>

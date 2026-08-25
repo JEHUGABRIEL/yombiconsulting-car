@@ -7,9 +7,9 @@ import ScrollReveal from './ScrollReveal';
 import { formations, categoryLabels } from '@/data/formations';
 
 const catColors: Record<string, { text: string; dot: string }> = {
-  sec: { text: 'text-red-600', dot: 'bg-red-500' },
-  mgmt: { text: 'text-emerald-600', dot: 'bg-emerald-500' },
-  ent: { text: 'text-amber-600', dot: 'bg-amber-500' },
+  sec: { text: 'text-blue', dot: 'bg-blue' },
+  mgmt: { text: 'text-navy', dot: 'bg-navy' },
+  ent: { text: 'text-blue-deep', dot: 'bg-blue-deep' },
 };
 
 export default function Formations() {
@@ -56,7 +56,7 @@ export default function Formations() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/10 to-transparent" />
                     <span
-                      className={`absolute top-4 left-4 inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm ${colors.text} text-[11px] font-bold tracking-wide px-3 py-1.5 rounded-full`}
+                      className={`absolute top-4 left-4 inline-flex items-center gap-1.5 bg-white/95 ${colors.text} text-[11px] font-bold tracking-wide px-3 py-1.5 rounded-full`}
                     >
                       <span className={`w-1.5 h-1.5 rounded-full ${colors.dot}`} />
                       {categoryLabels[formation.category]}

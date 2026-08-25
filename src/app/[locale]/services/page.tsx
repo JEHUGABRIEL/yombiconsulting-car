@@ -31,7 +31,7 @@ export default function ServicesPage() {
           />
           <div className="absolute inset-0 bg-navy/90" />
           <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-            <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+            <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-soft" />
               {t('chip')}
             </span>

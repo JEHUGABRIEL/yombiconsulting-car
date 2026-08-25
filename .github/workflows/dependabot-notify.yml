@@ -1,0 +1,86 @@
+# Notifie Slack à chaque PR créée / mise à jour par Dependabot
+# ─────────────────────────────────────────────────────────────
+# 1. Créer un webhook Slack : https://api.slack.com/messaging/webhooks
+# 2. Ajouter l'URL comme secret repo : Settings → Secrets → Actions → SLACK_WEBHOOK_URL
+# 3. Ce workflow se lance automatiquement sur les events pull_request de Dependabot
+
+name: Dependabot → Slack
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  notify:
+    # Ne tourne que pour les PR ouvertes par Dependabot
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      # Récupère les métadonnées de la PR Dependabot
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      # Envoie la notification Slack
+      - name: Send Slack notification
+        uses: slackapi/slack-github-action@v2
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "📦 Dependabot — ${{ steps.metadata.outputs.update-type }}",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Package:*\n${{ steps.metadata.outputs.package-ecosystem }} / ${{ steps.metadata.outputs.dependency-names }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Version:*\n`${{ steps.metadata.outputs.previous-version }}` → `${{ steps.metadata.outputs.new-version }}`"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Update type:*\n${{ steps.metadata.outputs.update-type }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Semver impact:*\n${{ steps.metadata.outputs.semver-update-type }}"
+                    }
+                  ]
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Voir la PR"
+                      },
+                      "url": "${{ github.event.pull_request.html_url }}"
+                    }
+                  ]
+                }
+              ]
+            }

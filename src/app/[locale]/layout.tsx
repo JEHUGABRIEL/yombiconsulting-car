@@ -4,8 +4,9 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-  const messages = await getMessages({ locale: params.locale });
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const messages = await getMessages({ locale });
   const meta = (messages as any)?.meta;
   return {
     title: meta?.title || 'Cabinet Yo Mbi Consulting',
@@ -19,11 +20,12 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
-  params: { locale },
+  params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
 
   setRequestLocale(locale);

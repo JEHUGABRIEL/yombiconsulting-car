@@ -170,9 +170,12 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex items-center justify-between gap-4 flex-wrap border-t border-[rgba(255,255,255,.1)] py-6 text-[13px]">
           <span>© {new Date().getFullYear()} Cabinet Yo Mbi Consulting. {t('copyright')}</span>
-          <button type="button" className="text-[#AABBD4] underline underline-offset-[3px] hover:text-white transition-colors">
+          <Link
+            href="/mentions"
+            className="text-[#AABBD4] underline underline-offset-[3px] hover:text-white transition-colors"
+          >
             {t('mentions')}
-          </button>
+          </Link>
         </div>
       </div>
 

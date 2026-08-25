@@ -121,7 +121,7 @@ export default function Contact() {
           <ScrollReveal delay={100}>
             <form
               onSubmit={handleSubmit}
-              className="bg-white border border-line rounded-[28px] p-[38px] shadow-[0_12px_32px_rgba(13,36,70,.08)]"
+              className="bg-white border border-line rounded-[28px] p-[38px]"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                 <div>

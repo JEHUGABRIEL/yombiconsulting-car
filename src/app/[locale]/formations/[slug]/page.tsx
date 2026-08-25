@@ -1,5 +1,6 @@
 'use client';
 
+import { use } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowLeft, ArrowRight, Clock, Users, BookOpen, CheckCircle2 } from 'lucide-react';
@@ -7,8 +8,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { formations, getFormationBySlug, categoryLabels } from '@/data/formations';
 
-export default function FormationDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default function FormationDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   const t = useTranslations('formations');
   const formation = getFormationBySlug(slug);
 
@@ -51,7 +52,7 @@ export default function FormationDetailPage({ params }: { params: { slug: string
               <ArrowLeft size={16} />
               {t('chip')}
             </Link>
-            <span className="inline-block bg-white/10 text-blue-soft text-[12px] font-bold px-3 py-1.5 rounded-full backdrop-blur-sm mb-4">
+            <span className="inline-block bg-white/10 text-blue-soft text-[12px] font-bold px-3 py-1.5 rounded-full mb-4">
               {categoryLabels[formation.category]}
             </span>
             <h1 className="font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] tracking-[-0.02em] text-white max-w-[640px]">

@@ -40,7 +40,7 @@ export default function Services() {
               <ScrollReveal key={i}>
                 <Link
                   href={service ? `/services/${service.slug}` : '/services'}
-                  className="block bg-white border border-line rounded-[20px] p-8 shadow-[0_12px_32px_rgba(13,36,70,.08)] hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(13,36,70,.15)] hover:border-[#C6D7F6] transition-all flex flex-col"
+                  className="block bg-white border border-line rounded-[20px] p-8 hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(13,36,70,.12)] hover:border-[#C6D7F6] transition-all flex flex-col"
                 >
                   <span className="w-[58px] h-[58px] rounded-[16px] bg-tint flex items-center justify-center mb-6">
                     <Icon size={27} className="text-blue" strokeWidth={1.8} />

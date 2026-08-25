@@ -2,26 +2,9 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
-const isDev = process.env.NODE_ENV !== 'production';
-
-// CSP adaptée au site : Google Fonts (CSS + fichiers), images Unsplash,
-// styles/scripts inline requis par Next.js
-const csp = [
-  "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "font-src 'self' data: https://fonts.gstatic.com",
-  "img-src 'self' data: https://images.unsplash.com",
-  "connect-src 'self'",
-  "frame-ancestors 'none'",
-  "base-uri 'self'",
-  "form-action 'self'",
-  "object-src 'none'",
-  'upgrade-insecure-requests'
-].join('; ');
-
+// CSP dynamique avec nonce : générée dans src/middleware.ts
+// On garde ici les en-têtes statiques uniquement.
 const securityHeaders = [
-  { key: 'Content-Security-Policy', value: csp },
   {
     key: 'Strict-Transport-Security',
     value: 'max-age=63072000; includeSubDomains; preload'

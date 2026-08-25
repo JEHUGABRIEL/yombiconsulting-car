@@ -63,8 +63,8 @@
     "prestations": "Nos prestations",
     "casesTitle": "Cas clients",
     "casesSubtitle": "Exemples d'interventions menées par le cabinet (références anonymisées).",
-    "contextLabel": "Contexte — ",
-    "resultLabel": "Résultat — ",
+    "contextLabel": "Contexte : ",
+    "resultLabel": "Résultat : ",
     "faqTitle": "Questions fréquentes sur ce service",
     "close": "Fermer",
     "allServicesTitle": "Tous nos services",
@@ -151,12 +151,12 @@
         ],
         "cases": [
           {
-            "title": "Entreprise BTP — structuration complète",
+            "title": "Entreprise BTP – structuration complète",
             "context": "Une entreprise de travaux publics sans dispositif formel de prévention, exposée à des arrêts de chantier récurrents après incidents.",
             "result": "Mise en place d'un comité HSSE opérationnel, formation de deux animateurs internes et réduction des accidents déclarés de plus de moitié en un an."
           },
           {
-            "title": "Institution publique — préparation à l'audit",
+            "title": "Institution publique – préparation à l'audit",
             "context": "Une institution souhaitant aligner ses pratiques sur la norme ISO 45001 pour répondre aux exigences de ses bailleurs.",
             "result": "Analyse d'écarts complète, documentation du système de management et accompagnement de l'équipe jusqu'à la revue de direction."
           }
@@ -179,12 +179,12 @@
         ],
         "cases": [
           {
-            "title": "Atelier de production — cartographie des risques",
+            "title": "Atelier de production – cartographie des risques",
             "context": "Un site industriel artisanal sans vision claire de ses risques, avec plusieurs accidents mineurs non analysés.",
             "result": "DUERP élaboré en 4 semaines, 23 risques identifiés et cotés, plan de prévention priorisé validé par la direction et les équipes."
           },
           {
-            "title": "Réseau de distribution — mise à jour réglementaire",
+            "title": "Réseau de distribution – mise à jour réglementaire",
             "context": "Une PME multi-sites dont le document unique était obsolète et inégal d'un site à l'autre.",
             "result": "Méthodologie commune déployée sur tous les sites, documents harmonisés et processus d'actualisation annuelle installé en interne."
           }
@@ -207,12 +207,12 @@
         ],
         "cases": [
           {
-            "title": "Dépôt de stockage — plan incendie",
+            "title": "Dépôt de stockage – plan incendie",
             "context": "Un entrepôt de matières inflammables sans consignes structurées ni organisation d'évacuation éprouvée.",
             "result": "Plan d'urgence complet rédigé, équipe d'intervention désignée et formée, premier exercice grandeur nature réalisé avec succès dans le trimestre."
           },
           {
-            "title": "Clinique privée — procédures d'hygiène",
+            "title": "Clinique privée – procédures d'hygiène",
             "context": "Un établissement de santé devant formaliser ses protocoles pour un processus d'accréditation.",
             "result": "Série de procédures opérationnelles validées par le personnel, affichages et supports de sensibilisation déployés dans tous les services."
           }
@@ -235,12 +235,12 @@
         ],
         "cases": [
           {
-            "title": "Agro-industrie — gestion des déchets",
+            "title": "Agro-industrie – gestion des déchets",
             "context": "Une unité de transformation accumulant des déchets organiques et plastiques sans filière de traitement.",
             "result": "Schéma de tri et de valorisation mis en place, contrats établis avec des filières locales et volume enfoui réduit de façon significative dès la première année."
           },
           {
-            "title": "Projet d'infrastructure — étude d'impacts",
+            "title": "Projet d'infrastructure – étude d'impacts",
             "context": "Un porteur de projet devant produire une évaluation des impacts environnementaux et sociaux pour son financement.",
             "result": "Étude conduite selon les référentiels attendus par les bailleurs, plan de gestion environnementale et sociale annexé au dossier accepté."
           }
@@ -263,12 +263,12 @@
         ],
         "cases": [
           {
-            "title": "Startup agroalimentaire — passage à l'échelle",
+            "title": "Startup agroalimentaire – passage à l'échelle",
             "context": "Une entreprise familiale rentable mais organisée de manière informelle, freinée dans sa croissance par l'absence de structure.",
             "result": "Business Model Canvas clarifié, organisation et fonctions clés définies, plan d'affaires trois ans obtenu et financement bancaire débloqué."
           },
           {
-            "title": "Commerce de détail — redressement de marge",
+            "title": "Commerce de détail – redressement de marge",
             "context": "Une boutique multi-produits dont la rentabilité s'érodait sans que les causes soient identifiées.",
             "result": "Analyse de marges par famille de produits, politique tarifaire revue et pilotage mensuel simple mis en place avec le gérant."
           }
@@ -291,12 +291,12 @@
         ],
         "cases": [
           {
-            "title": "Entrepreneure individuelle — lancement structuré",
+            "title": "Entrepreneure individuelle – lancement structuré",
             "context": "Une porteuse de projet disposant d'un savoir-faire solide mais aucune expérience de gestion d'entreprise.",
             "result": "Six mois de coaching : offre clarifiée, prix positionnés, premiers clients signés et outils de gestion simples adoptés au quotidien."
           },
           {
-            "title": "PME de services — transmission de responsabilité",
+            "title": "PME de services – transmission de responsabilité",
             "context": "Un dirigeant souhaitant déléguer la gestion quotidienne pour se consacrer au développement commercial.",
             "result": "Organisation repensée, superviseur interne coaché pendant un an et transfert effectif des responsabilités opérationnelles."
           }

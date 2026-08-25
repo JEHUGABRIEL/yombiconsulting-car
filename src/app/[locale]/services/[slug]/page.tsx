@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowLeft, ArrowRight, CheckCircle2, Minus, Plus, Quote } from 'lucide-react';
@@ -8,8 +8,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { services, getServiceBySlug } from '@/data/services';
 
-export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   const t = useTranslations('services');
   const service = getServiceBySlug(slug);
   const [openFaq, setOpenFaq] = useState<number | null>(0);

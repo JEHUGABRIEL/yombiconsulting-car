@@ -63,8 +63,8 @@
     "prestations": "Our services",
     "casesTitle": "Client cases",
     "casesSubtitle": "Examples of engagements carried out by the firm (anonymized references).",
-    "contextLabel": "Context — ",
-    "resultLabel": "Result — ",
+    "contextLabel": "Context: ",
+    "resultLabel": "Result: ",
     "faqTitle": "Frequently asked questions about this service",
     "close": "Close",
     "allServicesTitle": "All our services",
@@ -151,12 +151,12 @@
         ],
         "cases": [
           {
-            "title": "Construction company — full structuring",
+            "title": "Construction company – full structuring",
             "context": "A public works company with no formal prevention system, facing recurring site shutdowns after incidents.",
             "result": "An operational HSSE committee was set up, two internal coordinators were trained, and reported accidents were cut by more than half within one year."
           },
           {
-            "title": "Public institution — audit preparation",
+            "title": "Public institution – audit preparation",
             "context": "An institution seeking to align its practices with ISO 45001 to meet donor requirements.",
             "result": "Complete gap analysis, management system documentation and team support through to management review."
           }
@@ -179,12 +179,12 @@
         ],
         "cases": [
           {
-            "title": "Production workshop — risk mapping",
+            "title": "Production workshop – risk mapping",
             "context": "A small industrial site with no clear view of its risks and several unanalyzed minor accidents.",
             "result": "Risk document completed in 4 weeks, 23 risks identified and rated, prioritized prevention plan validated by management and teams."
           },
           {
-            "title": "Distribution network — regulatory update",
+            "title": "Distribution network – regulatory update",
             "context": "A multi-site SME whose risk document was outdated and inconsistent from one site to another.",
             "result": "A common methodology deployed across all sites, harmonized documents and an annual updating process established in-house."
           }
@@ -207,12 +207,12 @@
         ],
         "cases": [
           {
-            "title": "Storage facility — fire plan",
+            "title": "Storage facility – fire plan",
             "context": "A warehouse of flammable materials with no structured guidelines or proven evacuation organization.",
             "result": "A complete emergency plan was written, a response team designated and trained, and the first full-scale drill successfully completed within the quarter."
           },
           {
-            "title": "Private clinic — hygiene procedures",
+            "title": "Private clinic – hygiene procedures",
             "context": "A healthcare facility needing to formalize its protocols for an accreditation process.",
             "result": "A series of operational procedures validated by staff, with signage and awareness materials deployed across all departments."
           }
@@ -235,12 +235,12 @@
         ],
         "cases": [
           {
-            "title": "Agribusiness — waste management",
+            "title": "Agribusiness – waste management",
             "context": "A processing unit accumulating organic and plastic waste with no treatment channel.",
             "result": "A sorting and recovery scheme was set up, contracts established with local channels, and landfill volumes significantly reduced from the first year."
           },
           {
-            "title": "Infrastructure project — impact study",
+            "title": "Infrastructure project – impact study",
             "context": "A project developer needing to produce an environmental and social impact assessment for financing.",
             "result": "Study conducted according to the standards expected by donors; the environmental and social management plan annexed to the file was accepted."
           }
@@ -263,12 +263,12 @@
         ],
         "cases": [
           {
-            "title": "Food startup — scaling up",
+            "title": "Food startup – scaling up",
             "context": "A profitable family business organized informally, held back in its growth by the lack of structure.",
             "result": "Business Model Canvas clarified, key roles defined, a three-year business plan produced and bank financing unlocked."
           },
           {
-            "title": "Retail shop — margin recovery",
+            "title": "Retail shop – margin recovery",
             "context": "A multi-product store whose profitability was eroding without identifiable causes.",
             "result": "Margin analysis by product family, revised pricing policy and simple monthly monitoring set up with the manager."
           }
@@ -291,12 +291,12 @@
         ],
         "cases": [
           {
-            "title": "Solo entrepreneur — structured launch",
+            "title": "Solo entrepreneur – structured launch",
             "context": "A project owner with strong know-how but no experience running a business.",
             "result": "Six months of coaching: offer clarified, prices positioned, first clients signed and simple management tools adopted daily."
           },
           {
-            "title": "Service SME — handing over responsibility",
+            "title": "Service SME – handing over responsibility",
             "context": "A business owner wanting to delegate day-to-day management to focus on commercial development.",
             "result": "Organization redesigned, an internal supervisor coached for one year and operational responsibilities effectively transferred."
           }

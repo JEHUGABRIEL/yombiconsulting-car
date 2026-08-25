@@ -30,7 +30,7 @@ export default function FormationsPage() {
           />
           <div className="absolute inset-0 bg-navy/90" />
           <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-            <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+            <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-soft" />
               {t('chip')}
             </span>
@@ -80,7 +80,7 @@ export default function FormationsPage() {
                       style={{ backgroundImage: `url('${formation.image}')` }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
-                    <span className="absolute top-4 left-4 bg-white/90 text-ink text-[12px] font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
+                    <span className="absolute top-4 left-4 bg-white/90 text-ink text-[12px] font-bold px-3 py-1.5 rounded-full">
                       {categoryLabels[formation.category]}
                     </span>
                   </div>
