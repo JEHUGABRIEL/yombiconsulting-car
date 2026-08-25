@@ -1,0 +1,551 @@
+{
+  "meta": {
+    "title": "Cabinet Yo Mbi Consulting | HSSE & développement des entreprises",
+    "description": "Cabinet Yo Mbi Consulting : conseil, formation et accompagnement en Hygiène, Santé, Sécurité, Environnement (HSSE) et développement des entreprises. Bangui, République centrafricaine."
+  },
+  "nav": {
+    "cabinet": "Le cabinet",
+    "services": "Services",
+    "formations": "Formations",
+    "partenariats": "Partenariats",
+    "contact": "Contact",
+    "cta": "Nous contacter"
+  },
+  "hero": {
+    "slides": [
+      {
+        "chip": "Cabinet de conseil · HSSE · Bangui",
+        "title": "Des solutions complètes pour les entreprises modernes",
+        "titleHighlight": "les entreprises modernes",
+        "lead": "Le Cabinet Yo Mbi Consulting accompagne entreprises, institutions publiques, ONG et porteurs de projets en Hygiène, Santé, Sécurité, Environnement (HSSE) et développement des entreprises, avec une approche pratique, adaptée au contexte centrafricain.",
+        "cta1": "Découvrir nos services",
+        "cta2": "En savoir plus",
+        "chip1": "Bangui · République centrafricaine",
+        "chip2": "Référentiel ISO 45001:2018"
+      },
+      {
+        "chip": "Expertise HSSE · Certification internationale",
+        "title": "Prévenir les risques pour assurer la pérennité de votre activité",
+        "titleHighlight": "la pérennité de votre activité",
+        "lead": "Du diagnostic des risques à la mise en conformité ISO 45001, nous structurons votre démarche de prévention et de sécurité au travail avec des méthodes éprouvées sur le terrain centrafricain.",
+        "cta1": "Nos services HSSE",
+        "cta2": "Voir le cabinet",
+        "chip1": "ISO 45001:2018 · Certifié",
+        "chip2": "20+ prestations de conseil"
+      },
+      {
+        "chip": "Formation · Accompagnement · Développement",
+        "title": "Former vos équipes pour construire l'avenir",
+        "titleHighlight": "construire l'avenir",
+        "lead": "Nos formations pratiques et nos programmes d'accompagnement renforcent les compétences de vos équipes : sécurité, management, entrepreneuriat et développement durable, avec une approche adaptée à votre contexte.",
+        "cta1": "Découvrir les formations",
+        "cta2": "Nous contacter",
+        "chip1": "12 formations proposées",
+        "chip2": "Formations sur mesure"
+      }
+    ],
+    "stats": [
+      { "value": "3", "label": "Domaines d'expertise" },
+      { "value": "20+", "label": "Prestations de conseil" },
+      { "value": "12", "label": "Formations proposées" }
+    ]
+  },
+  "services": {
+    "chip": "Nos services",
+    "title": "Quels services offrons-nous à votre",
+    "titleHighlight": "entreprise",
+    "description": "Le cabinet intervient sur l'ensemble de la chaîne de prévention et de développement : diagnostic des risques, structuration de la démarche HSSE, gestion de l'environnement et croissance de l'entreprise.",
+    "description2": "Chaque mission est menée avec une approche pratique, adaptée au contexte centrafricain et conforme aux référentiels internationaux.",
+    "allServices": "Tous nos services",
+    "details": "Détails",
+    "requestService": "Demander cette prestation",
+    "prestations": "Nos prestations",
+    "casesTitle": "Cas clients",
+    "casesSubtitle": "Exemples d'interventions menées par le cabinet (références anonymisées).",
+    "contextLabel": "Contexte — ",
+    "resultLabel": "Résultat — ",
+    "faqTitle": "Questions fréquentes sur ce service",
+    "close": "Fermer",
+    "allServicesTitle": "Tous nos services",
+    "allServicesDesc": "Six domaines d'intervention, du diagnostic des risques à la croissance de l'entreprise.",
+    "modal": [
+      {
+        "title": "Conseil & management HSSE",
+        "desc": "Nous structurons votre démarche de prévention, du comité HSSE à la culture sécurité.",
+        "list": ["Conseil en entreprise et formation des animateurs HSSE", "Mise en œuvre de la norme ISO 45001:2018", "Mise en place et renforcement des Comités HSSE", "Culture sécurité et prévention"],
+        "subject": "Conseil & audit HSSE"
+      },
+      {
+        "title": "Risques professionnels & DUERP",
+        "desc": "Identifier, évaluer et hiérarchiser vos risques professionnels, document unique à l'appui.",
+        "list": ["Élaboration du DUERP", "Analyse et évaluation des risques professionnels", "Audits et inspections HSSE"],
+        "subject": "Conseil & audit HSSE"
+      },
+      {
+        "title": "Procédures & plans d'urgence",
+        "desc": "Des consignes claires et des plans d'urgence éprouvés, connus de toutes vos équipes.",
+        "list": ["Élaboration de procédures", "Élaboration de plans d'urgence", "Sensibilisation au port des EPI"],
+        "subject": "Conseil & audit HSSE"
+      },
+      {
+        "title": "Environnement",
+        "desc": "Déchets, impacts, climat : nous rendons votre empreinte environnementale pilotable.",
+        "list": ["Gestion environnementale", "Gestion des déchets", "Évaluation des impacts environnementaux", "Plans de gestion environnementale et sociale", "Sensibilisation au changement climatique"],
+        "subject": "Environnement"
+      },
+      {
+        "title": "Développement des entreprises",
+        "desc": "Business model, organisation, financement : structurer la croissance de votre activité.",
+        "list": ["Fiscalité, marketing et finance", "Organisation et gestion", "Business Model Canvas", "Élaboration de plans d'affaires"],
+        "subject": "Développement d'entreprise"
+      },
+      {
+        "title": "Coaching & PME",
+        "desc": "Un accompagnement dans la durée pour les entrepreneurs et les petites entreprises.",
+        "list": ["Coaching des entrepreneurs", "Accompagnement des PME", "Suivi après formation"],
+        "subject": "Développement d'entreprise"
+      }
+    ],
+    "cards": [
+      {
+        "title": "Conseil & management HSSE",
+        "description": "Nous structurons votre démarche de prévention, du comité HSSE à la culture sécurité."
+      },
+      {
+        "title": "Risques professionnels & DUERP",
+        "description": "Identifier, évaluer et hiérarchiser vos risques professionnels, document unique à l'appui."
+      },
+      {
+        "title": "Procédures & plans d'urgence",
+        "description": "Des consignes claires et des plans d'urgence éprouvés, connus de toutes vos équipes."
+      },
+      {
+        "title": "Environnement",
+        "description": "Déchets, impacts, climat : nous rendons votre empreinte environnementale pilotable."
+      },
+      {
+        "title": "Développement des entreprises",
+        "description": "Business model, organisation, financement : structurer la croissance de votre activité."
+      },
+      {
+        "title": "Coaching & PME",
+        "description": "Un accompagnement dans la durée pour les entrepreneurs et les petites entreprises."
+      }
+    ],
+    "detail": {
+      "conseil-management-hsse": {
+        "faq": [
+          {
+            "question": "Par où commencer une démarche HSSE ?",
+            "answer": "Tout démarre par un diagnostic initial : nous évaluons vos pratiques existantes, vos obligations réglementaires et vos risques prioritaires. Sur cette base, nous construisons ensemble une feuille de route progressive, adaptée à vos moyens et à votre calendrier."
+          },
+          {
+            "question": "La norme ISO 45001 est-elle indispensable ?",
+            "answer": "Non, la certification n'est pas toujours nécessaire. Beaucoup d'entreprises gagnent en performance sécurité sans viser la certification. Nous vous aidons à décider selon vos exigences clients, votre secteur et vos ambitions ; si la certification est pertinente, nous vous accompagnons jusqu'à l'audit."
+          },
+          {
+            "question": "Combien de temps dure un accompagnement ?",
+            "answer": "Un accompagnement type s'étend sur 3 à 12 mois selon la taille de la structure et l'état de départ. Des points d'étape réguliers permettent d'ajuster le plan et de mesurer les progrès avec des indicateurs concrets."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Entreprise BTP — structuration complète",
+            "context": "Une entreprise de travaux publics sans dispositif formel de prévention, exposée à des arrêts de chantier récurrents après incidents.",
+            "result": "Mise en place d'un comité HSSE opérationnel, formation de deux animateurs internes et réduction des accidents déclarés de plus de moitié en un an."
+          },
+          {
+            "title": "Institution publique — préparation à l'audit",
+            "context": "Une institution souhaitant aligner ses pratiques sur la norme ISO 45001 pour répondre aux exigences de ses bailleurs.",
+            "result": "Analyse d'écarts complète, documentation du système de management et accompagnement de l'équipe jusqu'à la revue de direction."
+          }
+        ]
+      },
+      "risques-professionnels-duerp": {
+        "faq": [
+          {
+            "question": "Le DUERP est-il obligatoire pour toutes les entreprises ?",
+            "answer": "Oui, tout employeur doit documenter l'évaluation des risques professionnels, quelle que soit la taille de son effectif. Le document unique doit être actualisé au moins chaque année et à chaque modification significative des conditions de travail."
+          },
+          {
+            "question": "Comment se déroule une évaluation des risques ?",
+            "answer": "Nous combinons observations terrain, entretiens avec les équipes et analyse des données existantes (incidents, absentéisme). Chaque risque est ensuite coté selon sa gravité et sa probabilité, ce qui permet de hiérarchiser les actions de prévention."
+          },
+          {
+            "question": "Quel livrable recevons-nous ?",
+            "answer": "Vous recevez le document unique complet (DUERP), la cartographie des risques par poste ou atelier, et un plan d'action priorisé avec des mesures concrètes et réalistes à mettre en œuvre."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Atelier de production — cartographie des risques",
+            "context": "Un site industriel artisanal sans vision claire de ses risques, avec plusieurs accidents mineurs non analysés.",
+            "result": "DUERP élaboré en 4 semaines, 23 risques identifiés et cotés, plan de prévention priorisé validé par la direction et les équipes."
+          },
+          {
+            "title": "Réseau de distribution — mise à jour réglementaire",
+            "context": "Une PME multi-sites dont le document unique était obsolète et inégal d'un site à l'autre.",
+            "result": "Méthodologie commune déployée sur tous les sites, documents harmonisés et processus d'actualisation annuelle installé en interne."
+          }
+        ]
+      },
+      "procedures-plans-urgence": {
+        "faq": [
+          {
+            "question": "Quelle est la différence entre une procédure et un plan d'urgence ?",
+            "answer": "La procédure décrit comment faire le travail en sécurité au quotidien ; le plan d'urgence organise la réaction collective face à un événement grave (incendie, fuite, blessé). Les deux se complètent : l'un prévient, l'autre limite les conséquences."
+          },
+          {
+            "question": "Faut-il exercer les équipes régulièrement ?",
+            "answer": "Oui, c'est indispensable. Un plan non testé reste théorique. Nous recommandons au minimum un exercice annuel par scénario majeur, avec débriefing et mise à jour du document après chaque exercice."
+          },
+          {
+            "question": "Adaptez-vous les documents à notre activité ?",
+            "answer": "Toujours. Aucune procédure générique ne fonctionne : nous rédigeons sur la base de vos installations, vos équipements et vos modes opératoires réels, en impliquant les personnes qui exécutent le travail."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Dépôt de stockage — plan incendie",
+            "context": "Un entrepôt de matières inflammables sans consignes structurées ni organisation d'évacuation éprouvée.",
+            "result": "Plan d'urgence complet rédigé, équipe d'intervention désignée et formée, premier exercice grandeur nature réalisé avec succès dans le trimestre."
+          },
+          {
+            "title": "Clinique privée — procédures d'hygiène",
+            "context": "Un établissement de santé devant formaliser ses protocoles pour un processus d'accréditation.",
+            "result": "Série de procédures opérationnelles validées par le personnel, affichages et supports de sensibilisation déployés dans tous les services."
+          }
+        ]
+      },
+      "environnement": {
+        "faq": [
+          {
+            "question": "Par quoi commencer pour réduire son empreinte environnementale ?",
+            "answer": "Par une évaluation des impacts : consommation d'énergie, eau, déchets, rejets. Cette photographie initiale permet d'identifier les postes les plus significatifs et de concentrer les efforts là où le gain est le plus fort."
+          },
+          {
+            "question": "Gérez-vous la conformité réglementaire environnementale ?",
+            "answer": "Oui. Nous réalisons des audits de conformité, identifions les obligations applicables à votre activité et construisons un calendrier de mise en conformité progressif et documenté."
+          },
+          {
+            "question": "Travaillez-vous avec les autorités locales ?",
+            "answer": "Nous connaissons bien le cadre institutionnel centrafricain et accompagnons nos clients dans leurs échanges techniques avec l'administration lorsque c'est utile à leur dossier."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Agro-industrie — gestion des déchets",
+            "context": "Une unité de transformation accumulant des déchets organiques et plastiques sans filière de traitement.",
+            "result": "Schéma de tri et de valorisation mis en place, contrats établis avec des filières locales et volume enfoui réduit de façon significative dès la première année."
+          },
+          {
+            "title": "Projet d'infrastructure — étude d'impacts",
+            "context": "Un porteur de projet devant produire une évaluation des impacts environnementaux et sociaux pour son financement.",
+            "result": "Étude conduite selon les référentiels attendus par les bailleurs, plan de gestion environnementale et sociale annexé au dossier accepté."
+          }
+        ]
+      },
+      "developpement-entreprises": {
+        "faq": [
+          {
+            "question": "À quel stade faire appel à vous ?",
+            "answer": "À tous les stades : validation d'une idée, structuration d'une jeune entreprise, ou organisation d'une structure existante qui souhaite passer un cap. Le point d'entrée est toujours un diagnostic partagé de votre situation."
+          },
+          {
+            "question": "Le Business Model Canvas est-il adapté aux PME locales ?",
+            "answer": "C'est justement un outil précieux pour elles : il permet de voir l'activité entière sur une page, d'identifier les hypothèses fragiles et de tester rapidement des ajustements sans engager de gros moyens."
+          },
+          {
+            "question": "Aidez-vous au montage de plans d'affaires bancaires ?",
+            "answer": "Oui, nous élaborons des plans d'affaires complets et crédibles : modèle économique, prévisionnel financier sur trois ans et argumentaire, présentés sous une forme attendue par les banques et investisseurs."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Startup agroalimentaire — passage à l'échelle",
+            "context": "Une entreprise familiale rentable mais organisée de manière informelle, freinée dans sa croissance par l'absence de structure.",
+            "result": "Business Model Canvas clarifié, organisation et fonctions clés définies, plan d'affaires trois ans obtenu et financement bancaire débloqué."
+          },
+          {
+            "title": "Commerce de détail — redressement de marge",
+            "context": "Une boutique multi-produits dont la rentabilité s'érodait sans que les causes soient identifiées.",
+            "result": "Analyse de marges par famille de produits, politique tarifaire revue et pilotage mensuel simple mis en place avec le gérant."
+          }
+        ]
+      },
+      "coaching-pme": {
+        "faq": [
+          {
+            "question": "Quelle est la durée type d'un coaching ?",
+            "answer": "Les cycles de coaching s'étendent généralement de 6 à 12 mois, avec des séances régulières (mensuelles ou bimensuelles) et des objectifs intermédiaires mesurables. La cadence s'adapte à vos disponibilités et à vos priorités du moment."
+          },
+          {
+            "question": "Le suivi après formation concerne-t-il tous nos collaborateurs formés ?",
+            "answer": "Oui, nous proposons un suivi post-formation pour ancrer les acquis : retours d'expérience, résolution des difficultés rencontrées sur le terrain et ajustement des pratiques. C'est ce qui transforme une formation en compétence durable."
+          },
+          {
+            "question": "Intervenez-vous auprès des très petites entreprises ?",
+            "answer": "Absolument. Nos formules sont modulaires et pensées pour les budgets des TPE et des entrepreneurs individuels : on commence par l'essentiel, puis on élargit au rythme de vos progrès."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Entrepreneure individuelle — lancement structuré",
+            "context": "Une porteuse de projet disposant d'un savoir-faire solide mais aucune expérience de gestion d'entreprise.",
+            "result": "Six mois de coaching : offre clarifiée, prix positionnés, premiers clients signés et outils de gestion simples adoptés au quotidien."
+          },
+          {
+            "title": "PME de services — transmission de responsabilité",
+            "context": "Un dirigeant souhaitant déléguer la gestion quotidienne pour se consacrer au développement commercial.",
+            "result": "Organisation repensée, superviseur interne coaché pendant un an et transfert effectif des responsabilités opérationnelles."
+          }
+        ]
+      }
+    }
+  },
+  "cabinet": {
+    "chip": "Le cabinet",
+    "title": "Un cabinet centrafricain, une exigence",
+    "titleHighlight": "internationale",
+    "description": "Le Cabinet Yo Mbi Consulting est un cabinet de conseil, de formation et d'accompagnement spécialisé en Hygiène, Santé, Sécurité et Environnement (HSSE) ainsi qu'en développement des entreprises.",
+    "description2": "Notre mission : accompagner les entreprises, institutions publiques, ONG et porteurs de projets dans l'amélioration de leurs performances opérationnelles, la prévention des risques professionnels et le développement de leurs compétences, avec une approche pratique, adaptée au contexte centrafricain et conforme aux référentiels internationaux.",
+    "mission": "Prévenir les risques, développer les compétences et créer de la valeur durable.",
+    "pillars": [
+      {
+        "title": "Conseil",
+        "description": "Nous diagnostiquons vos risques et structurons votre démarche : DUERP, audits, comités HSSE, mise en œuvre de la norme ISO 45001:2018."
+      },
+      {
+        "title": "Formation",
+        "description": "Nous formons vos équipes sur le terrain : animateurs HSSE, port des EPI, premiers secours, management et entrepreneuriat."
+      },
+      {
+        "title": "Accompagnement",
+        "description": "Nous restons à vos côtés dans la durée : coaching des entrepreneurs, accompagnement des PME et suivi après formation."
+      }
+    ]
+  },
+  "formations": {
+    "chip": "Nos formations",
+    "title": "Des formations adaptées aux",
+    "titleHighlight": "besoins",
+    "titleSuffix": "de vos équipes",
+    "description": "Nous proposons des formations adaptées aux besoins des entreprises : durée, contenu et format s'ajustent à votre secteur, à la taille de vos équipes et à vos contraintes. Elles peuvent se dérouler dans vos locaux.",
+    "filters": {
+      "all": "Toutes",
+      "sec": "Santé & sécurité",
+      "mgmt": "Management & environnement",
+      "ent": "Entrepreneuriat"
+    },
+    "allFormations": "Voir toutes les formations",
+    "seeMore": "Détails",
+    "note": "Un besoin qui ne figure pas dans la liste ?",
+    "noteLink": "Écrivez-nous",
+    "noteSuffix": ": nous construisons des programmes sur mesure.",
+    "items": [
+      { "title": "Animateur HSSE", "category": "sec" },
+      { "title": "Santé et sécurité au travail", "category": "sec" },
+      { "title": "Prévention des accidents", "category": "sec" },
+      { "title": "Port des EPI", "category": "sec" },
+      { "title": "Premiers secours", "category": "sec" },
+      { "title": "Gestion des risques professionnels", "category": "sec" },
+      { "title": "Management HSSE", "category": "mgmt" },
+      { "title": "Leadership et culture sécurité", "category": "mgmt" },
+      { "title": "Environnement et développement durable", "category": "mgmt" },
+      { "title": "Entrepreneuriat", "category": "ent" },
+      { "title": "Marketing", "category": "ent" },
+      { "title": "Gestion financière", "category": "ent" }
+    ]
+  },
+  "valeur": {
+    "chip": "Notre valeur ajoutée",
+    "title": "Des solutions progressives pour des",
+    "titleHighlight": "entreprises",
+    "titleSuffix": "progressives",
+    "description": "Ce que le cabinet apporte à chaque mission : une expertise pluridisciplinaire, des méthodes éprouvées sur le terrain et un engagement dans la durée.",
+    "cta": "Discutons de votre projet",
+    "items": [
+      {
+        "title": "Une expertise multidisciplinaire",
+        "description": "HSSE et développement des entreprises réunis au sein d'une même équipe, pour une vision complète de votre organisation."
+      },
+      {
+        "title": "Des formations pratiques orientées terrain",
+        "description": "Mises en situation, cas réels, exercices : on apprend en faisant, pas en écoutant."
+      },
+      {
+        "title": "Des solutions adaptées au contexte local",
+        "description": "Des réponses réalistes, pensées pour les réalités centrafricaines, humaines et matérielles."
+      },
+      {
+        "title": "Un accompagnement personnalisé",
+        "description": "Un interlocuteur unique et un dispositif ajusté à votre taille, votre secteur et vos échéances."
+      },
+      {
+        "title": "Des consultants qualifiés",
+        "description": "Des praticiens issus du terrain, pas des généralistes : la compétence se vérifie sur le terrain."
+      },
+      {
+        "title": "Un suivi après formation",
+        "description": "L'apprentissage ne s'arrête pas au dernier module : nous revenons mesurer ce qui a changé."
+      }
+    ]
+  },
+  "partenariats": {
+    "chip": "Partenariats",
+    "title": "Des partenariats qui forment et qui",
+    "titleHighlight": "protègent",
+    "description": "Le cabinet développe des partenariats avec les entreprises, les institutions et les ONG afin de :",
+    "cta": "Proposer un partenariat",
+    "items": [
+      "Renforcer les compétences des travailleurs",
+      "Accueillir et encadrer des stagiaires qualifiés",
+      "Faciliter l'immersion professionnelle des jeunes",
+      "Contribuer au développement des compétences nationales",
+      "Promouvoir une véritable culture de prévention des risques"
+    ]
+  },
+  "testimonials": {
+    "chip": "Témoignages",
+    "title": "Ce que nos clients disent de",
+    "titleHighlight": "nous",
+    "description": "La satisfaction de nos clients est notre meilleure carte de visite. Voici leurs retours d'expérience.",
+    "items": [
+      {
+        "name": "Jean-Pierre Koumba",
+        "role": "Directeur HSE, Société Centrafricaine des Eaux",
+        "text": "Le Cabinet Yo Mbi a transformé notre approche de la sécurité au travail. Leur expertise en HSSE est remarquable et leur accompagnement personnalisé a permis à nos équipes de gagner en compétence et en confiance.",
+        "rating": 5
+      },
+      {
+        "name": "Marie-Claire Djilo",
+        "role": "Responsable RH, PME Agroalimentaire",
+        "text": "Les formations proposées sont pratiques et directement applicables sur le terrain. Nos opérateurs ont gagné en autonomie et nos incidents de travail ont diminué de 40% en six mois.",
+        "rating": 5
+      },
+      {
+        "name": "Professeur Samuel Ndjimbi",
+        "role": "Coordinateur, ONG Développement Durable RCA",
+        "text": "Un partenaire de confiance pour nos projets environnementaux. Leur connaissance du contexte centrafricain fait toute la différence dans la mise en œuvre de nos actions.",
+        "rating": 5
+      },
+      {
+        "name": "Alain Mokobé",
+        "role": "Gérant, Transport & Logistique Centrafrique",
+        "text": "Le DUERP élaboré avec le cabinet nous a permis d'identifier des risques que nous n'avions jamais considérés. Un véritable déclic pour notre culture sécurité.",
+        "rating": 5
+      }
+    ]
+  },
+  "cta": {
+    "title": "Vous cherchez des solutions concrètes pour votre entreprise ?",
+    "description": "Parlez-nous de votre contexte : risques à maîtriser, équipes à former, projet à structurer. Nous revenons vers vous avec une proposition adaptée.",
+    "cta": "Discutons de votre projet"
+  },
+  "contact": {
+    "chip": "Contact",
+    "title": "Parlons de votre",
+    "titleHighlight": "projet",
+    "description": "Un risque à maîtriser, une équipe à former, un projet à structurer ? Écrivez-nous, nous répondons à cette adresse.",
+    "address": {
+      "label": "Siège social",
+      "value": "5e arrondissement, avenue du Lieutenant Koudoukou",
+      "detail": "Face au croisement de la rue Madou, Bangui"
+    },
+    "phone": {
+      "label": "Téléphone",
+      "value": "+236 72 11 19 14"
+    },
+    "email": {
+      "label": "Email",
+      "value": "contact.cmc@gmail.com"
+    },
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "form": {
+      "selectedFormations": "Formations sélectionnées",
+      "fullName": "Nom complet *",
+      "fullNamePlaceholder": "",
+      "organization": "Organisation",
+      "organizationPlaceholder": "Entreprise, ONG, institution",
+      "contactInfo": "Email ou téléphone *",
+      "subject": "Sujet",
+      "subjects": [
+        "Renseignements généraux",
+        "Demande de formation",
+        "Conseil & audit HSSE",
+        "Environnement",
+        "Développement d'entreprise",
+        "Partenariat",
+        "Autre demande"
+      ],
+      "message": "Message *",
+      "messagePlaceholder": "Votre contexte, vos besoins, vos échéances",
+      "submit": "Envoyer le message",
+      "legal": "Votre application de messagerie s'ouvrira avec le message prêt à envoyer. Aucune donnée n'est stockée sur ce site."
+    }
+  },
+  "faq": {
+    "chip": "Questions fréquentes",
+    "title": "Vous avez des",
+    "titleHighlight": "questions",
+    "description": "Retrouvez les réponses aux interrogations les plus courantes sur nos services, nos formations et notre manière de travailler.",
+    "items": [
+      {
+        "question": "Dans quelles zones intervenez-vous ?",
+        "answer": "Nous intervenons principalement à Bangui et en République centrafricaine. Selon la mission, nous pouvons nous déplacer dans d'autres villes du pays et dans la sous-région."
+      },
+      {
+        "question": "Les formations peuvent-elles se dérouler dans nos locaux ?",
+        "answer": "Oui, la plupart de nos formations peuvent être dispensées directement dans vos locaux. C'est même recommandé pour les formations pratiques qui nécessitent une mise en situation sur votre site."
+      },
+      {
+        "question": "Quelle est la durée moyenne d'une mission de conseil HSSE ?",
+        "answer": "Cela dépend de la complexité du projet. Un audit peut prendre 2 à 5 jours, tandis qu'une mise en conformité ISO 45001 s'étale généralement sur 3 à 6 mois avec un suivi régulier."
+      },
+      {
+        "question": "Comment se déroule un diagnostic de risques professionnels ?",
+        "answer": "Nous réalisons un état des lieux complet : interviews des équipes, inspections de terrain, analyse documentaire. Nous produisons ensuite un rapport détaillé avec le DUERP et un plan d'action priorisé."
+      },
+      {
+        "question": "Proposez-vous des formations certifiantes ?",
+        "answer": "Nos formations délivrent des attestations de compétence reconnues par les professionnels du secteur. Nous pouvons également préparer vos équipes aux certifications ISO 45001."
+      },
+      {
+        "question": "Comment demander un devis ?",
+        "answer": "Utilisez le formulaire de contact ou écrivez-nous directement à contact.cmc@gmail.com en décrivant votre besoin. Nous revenons vers vous sous 48h avec une proposition adaptée."
+      }
+    ]
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Abonnez-vous à notre lettre d'information",
+      "description": "Recevez nos actualités et nos nouveaux programmes de formation.",
+      "placeholder": "Votre email",
+      "cta": "S'abonner"
+    },
+    "brand": "Votre partenaire en Hygiène, Santé-Sécurité, Environnement et développement des entreprises. Bangui, République centrafricaine.",
+    "services": "Services",
+    "usefulLinks": "Liens utiles",
+    "contact": "Contact",
+    "links": {
+      "home": "Accueil",
+      "cabinet": "Le cabinet",
+      "services": "Nos services",
+      "formations": "Formations",
+      "partenariats": "Partenariats",
+      "contact": "Contact"
+    },
+    "copyright": "Tous droits réservés.",
+    "mentions": "Mentions & confidentialité"
+  },
+  "mentions": {
+    "title": "Mentions & confidentialité",
+    "editor": "Éditeur",
+    "editorText": "Cabinet Yo Mbi Consulting, cabinet de conseil, de formation et d'accompagnement en Hygiène, Santé, Sécurité et Environnement (HSSE) et en développement des entreprises. Siège social : 5e arrondissement, avenue du Lieutenant Koudoukou, face au croisement de la rue Madou, Bangui, République centrafricaine. Contact : +236 72 11 19 14, contact.cmc@gmail.com.",
+    "data": "Données personnelles",
+    "dataText": "Ce site ne dépose aucun cookie et ne stocke aucune donnée. Les informations saisies dans le formulaire de contact et la lettre d'information restent sur votre appareil : elles ne quittent celui-ci que sous la forme d'un message que vous envoyez vous-même au cabinet. Elles servent uniquement à traiter votre demande.",
+    "responsibility": "Responsabilité",
+    "responsibilityText": "Les informations publiées présentent les domaines d'intervention du cabinet. Elles ne constituent ni un avis professionnel ni un engagement contractuel. Pour toute question sur le contenu du site, écrivez-nous."
+  }
+}

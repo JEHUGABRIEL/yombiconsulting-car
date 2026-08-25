@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Header fix: always opaque white background */
+#site-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  background-color: #ffffff !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap');
+
+:root {
+  --blue: #2557E6;
+  --blue-deep: #1B41B8;
+  --blue-soft: #8FB4FF;
+  --navy: #0C2440;
+  --navy-2: #0A1D33;
+  --ink: #13294A;
+  --mut: #5B6C86;
+  --sky: #F4F7FC;
+  --tint: #E9F0FD;
+  --line: #E2E9F3;
+  --line-2: #CBD7E8;
+  --err: #D64545;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", "Helvetica Neue", sans-serif;
+  color: var(--ink);
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--blue);
+  color: #fff;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floaty {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: floaty 6s ease-in-out infinite alternate;
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ============ Scroll Reveal ============ */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children: add data-stagger on a parent, its .scroll-reveal children auto-delay */
+[data-stagger] .scroll-reveal:nth-child(1) { transition-delay: 0ms; }
+[data-stagger] .scroll-reveal:nth-child(2) { transition-delay: 80ms; }
+[data-stagger] .scroll-reveal:nth-child(3) { transition-delay: 160ms; }
+[data-stagger] .scroll-reveal:nth-child(4) { transition-delay: 240ms; }
+[data-stagger] .scroll-reveal:nth-child(5) { transition-delay: 320ms; }
+[data-stagger] .scroll-reveal:nth-child(6) { transition-delay: 400ms; }
+[data-stagger] .scroll-reveal:nth-child(7) { transition-delay: 480ms; }
+[data-stagger] .scroll-reveal:nth-child(8) { transition-delay: 560ms; }
+
+/* Slider */
+.hero-slide {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+/* ============ Scrollbar Hide Utility ============ */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ============ Sticky Askbar ============ */
+@keyframes askbarIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes askbarOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+}
+
+.askbar-enter {
+  animation: askbarIn 0.45s cubic-bezier(0.3, 1, 0.35, 1) forwards;
+}
+
+.askbar-exit {
+  animation: askbarOut 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ============ Mobile Menu ============ */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes menuLinkIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes overlayOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.mobile-menu-enter {
+  animation: slideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mobile-menu-exit {
+  animation: slideUp 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.mobile-overlay-enter {
+  animation: overlayIn 0.3s ease forwards;
+}
+
+.mobile-overlay-exit {
+  animation: overlayOut 0.25s ease forwards;
+}
+
+.menu-link-in {
+  opacity: 0;
+  animation: menuLinkIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.menu-link-in:nth-child(1) { animation-delay: 50ms; }
+.menu-link-in:nth-child(2) { animation-delay: 100ms; }
+.menu-link-in:nth-child(3) { animation-delay: 150ms; }
+.menu-link-in:nth-child(4) { animation-delay: 200ms; }
+.menu-link-in:nth-child(5) { animation-delay: 250ms; }
+.menu-link-in:nth-child(6) { animation-delay: 300ms; }
+.menu-link-in:nth-child(7) { animation-delay: 350ms; }
+
+/* Burger animation */
+.burger-line {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.burger-open .burger-line-1 {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.burger-open .burger-line-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.burger-open .burger-line-3 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Testimonial stars */
+.star-filled {
+  color: #F59E0B;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sky);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line-2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mut);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

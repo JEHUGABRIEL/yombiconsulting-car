@@ -1,0 +1,551 @@
+{
+  "meta": {
+    "title": "Yo Mbi Consulting | HSSE & Business Development",
+    "description": "Yo Mbi Consulting: advisory, training and support in Health, Safety, Security, Environment (HSSE) and business development. Bangui, Central African Republic."
+  },
+  "nav": {
+    "cabinet": "Our firm",
+    "services": "Services",
+    "formations": "Training",
+    "partenariats": "Partnerships",
+    "contact": "Contact",
+    "cta": "Contact us"
+  },
+  "hero": {
+    "slides": [
+      {
+        "chip": "Consulting firm · HSSE · Bangui",
+        "title": "Comprehensive solutions for modern businesses",
+        "titleHighlight": "modern businesses",
+        "lead": "Yo Mbi Consulting supports companies, public institutions, NGOs and project leaders in Health, Safety, Security, Environment (HSSE) and business development, with a practical approach tailored to the Central African context.",
+        "cta1": "Discover our services",
+        "cta2": "Learn more",
+        "chip1": "Bangui · Central African Republic",
+        "chip2": "ISO 45001:2018 Standard"
+      },
+      {
+        "chip": "HSSE Expertise · International Certification",
+        "title": "Preventing risks to ensure your business continuity",
+        "titleHighlight": "your business continuity",
+        "lead": "From risk assessment to ISO 45001 compliance, we structure your prevention and workplace safety approach with proven methods in the Central African context.",
+        "cta1": "Our HSSE Services",
+        "cta2": "About our firm",
+        "chip1": "ISO 45001:2018 · Certified",
+        "chip2": "20+ advisory services"
+      },
+      {
+        "chip": "Training · Support · Development",
+        "title": "Train your teams to build the future",
+        "titleHighlight": "build the future",
+        "lead": "Our hands-on training and support programs strengthen your team's skills: safety, management, entrepreneurship and sustainable development, with an approach adapted to your context.",
+        "cta1": "Discover training programs",
+        "cta2": "Contact us",
+        "chip1": "12 training programs",
+        "chip2": "Custom training"
+      }
+    ],
+    "stats": [
+      { "value": "3", "label": "Areas of expertise" },
+      { "value": "20+", "label": "Advisory services" },
+      { "value": "12", "label": "Training programs" }
+    ]
+  },
+  "services": {
+    "chip": "Our Services",
+    "title": "What services do we offer your",
+    "titleHighlight": "business",
+    "description": "The firm intervenes across the entire prevention and development chain: risk assessment, HSSE approach structuring, environmental management and business growth.",
+    "description2": "Each mission is carried out with a practical approach, adapted to the Central African context and compliant with international standards.",
+    "allServices": "All our services",
+    "details": "Details",
+    "requestService": "Request this service",
+    "prestations": "Our services",
+    "casesTitle": "Client cases",
+    "casesSubtitle": "Examples of engagements carried out by the firm (anonymized references).",
+    "contextLabel": "Context — ",
+    "resultLabel": "Result — ",
+    "faqTitle": "Frequently asked questions about this service",
+    "close": "Close",
+    "allServicesTitle": "All our services",
+    "allServicesDesc": "Six areas of intervention, from risk assessment to business growth.",
+    "modal": [
+      {
+        "title": "HSSE Advisory & Management",
+        "desc": "We structure your prevention approach, from the HSSE committee to safety culture.",
+        "list": ["Advisory and HSSE coordinator training", "ISO 45001:2018 implementation", "HSSE Committee setup and reinforcement", "Safety culture and prevention"],
+        "subject": "HSSE Advisory & Audit"
+      },
+      {
+        "title": "Occupational Risks & DUERP",
+        "desc": "Identify, assess and prioritize your occupational risks with a comprehensive risk document.",
+        "list": ["DUERP development", "Occupational risk analysis and assessment", "HSSE audits and inspections"],
+        "subject": "HSSE Advisory & Audit"
+      },
+      {
+        "title": "Procedures & Emergency Plans",
+        "desc": "Clear guidelines and proven emergency plans, known by all your teams.",
+        "list": ["Procedure development", "Emergency plan development", "PPE awareness"],
+        "subject": "HSSE Advisory & Audit"
+      },
+      {
+        "title": "Environment",
+        "desc": "Waste, impacts, climate: we make your environmental footprint manageable.",
+        "list": ["Environmental management", "Waste management", "Environmental impact assessment", "Environmental and social management plans", "Climate change awareness"],
+        "subject": "Environment"
+      },
+      {
+        "title": "Business Development",
+        "desc": "Business model, organization, financing: structure your business growth.",
+        "list": ["Taxation, marketing and finance", "Organization and management", "Business Model Canvas", "Business plan development"],
+        "subject": "Business Development"
+      },
+      {
+        "title": "Coaching & SMEs",
+        "desc": "Long-term support for entrepreneurs and small businesses.",
+        "list": ["Entrepreneur coaching", "SME support", "Post-training follow-up"],
+        "subject": "Business Development"
+      }
+    ],
+    "cards": [
+      {
+        "title": "HSSE Advisory & Management",
+        "description": "We structure your prevention approach, from the HSSE committee to safety culture."
+      },
+      {
+        "title": "Occupational Risks & DUERP",
+        "description": "Identify, assess and prioritize your occupational risks with a comprehensive risk document."
+      },
+      {
+        "title": "Procedures & Emergency Plans",
+        "description": "Clear guidelines and proven emergency plans, known by all your teams."
+      },
+      {
+        "title": "Environment",
+        "description": "Waste, impacts, climate: we make your environmental footprint manageable."
+      },
+      {
+        "title": "Business Development",
+        "description": "Business model, organization, financing: structure your business growth."
+      },
+      {
+        "title": "Coaching & SMEs",
+        "description": "Long-term support for entrepreneurs and small businesses."
+      }
+    ],
+    "detail": {
+      "conseil-management-hsse": {
+        "faq": [
+          {
+            "question": "Where do you start with an HSSE approach?",
+            "answer": "Everything starts with an initial assessment: we review your existing practices, regulatory obligations and priority risks. On that basis, we build a step-by-step roadmap together, tailored to your resources and timeline."
+          },
+          {
+            "question": "Is ISO 45001 certification essential?",
+            "answer": "No, certification is not always necessary. Many companies improve safety performance without pursuing certification. We help you decide based on your clients' requirements, your sector and your ambitions; if certification makes sense, we support you all the way to the audit."
+          },
+          {
+            "question": "How long does an engagement last?",
+            "answer": "A typical engagement runs from 3 to 12 months depending on the size of the organization and its starting point. Regular milestones allow us to adjust the plan and measure progress with concrete indicators."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Construction company — full structuring",
+            "context": "A public works company with no formal prevention system, facing recurring site shutdowns after incidents.",
+            "result": "An operational HSSE committee was set up, two internal coordinators were trained, and reported accidents were cut by more than half within one year."
+          },
+          {
+            "title": "Public institution — audit preparation",
+            "context": "An institution seeking to align its practices with ISO 45001 to meet donor requirements.",
+            "result": "Complete gap analysis, management system documentation and team support through to management review."
+          }
+        ]
+      },
+      "risques-professionnels-duerp": {
+        "faq": [
+          {
+            "question": "Is the risk assessment document mandatory for all companies?",
+            "answer": "Yes, every employer must document their occupational risk assessment, regardless of headcount. The single document must be updated at least annually and whenever working conditions change significantly."
+          },
+          {
+            "question": "How is a risk assessment carried out?",
+            "answer": "We combine field observations, interviews with teams and analysis of existing data (incidents, absenteeism). Each risk is then rated by severity and likelihood, which allows prevention actions to be prioritized."
+          },
+          {
+            "question": "What deliverable do we receive?",
+            "answer": "You receive the complete single risk document, a risk map by position or workshop, and a prioritized action plan with concrete, realistic measures to implement."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Production workshop — risk mapping",
+            "context": "A small industrial site with no clear view of its risks and several unanalyzed minor accidents.",
+            "result": "Risk document completed in 4 weeks, 23 risks identified and rated, prioritized prevention plan validated by management and teams."
+          },
+          {
+            "title": "Distribution network — regulatory update",
+            "context": "A multi-site SME whose risk document was outdated and inconsistent from one site to another.",
+            "result": "A common methodology deployed across all sites, harmonized documents and an annual updating process established in-house."
+          }
+        ]
+      },
+      "procedures-plans-urgence": {
+        "faq": [
+          {
+            "question": "What is the difference between a procedure and an emergency plan?",
+            "answer": "The procedure describes how to work safely day to day; the emergency plan organizes the collective response to a serious event (fire, leak, injury). They complement each other: one prevents, the other limits the consequences."
+          },
+          {
+            "question": "Should teams practice regularly?",
+            "answer": "Yes, it is essential. An untested plan remains theoretical. We recommend at least one drill per year per major scenario, with a debriefing and document update after each exercise."
+          },
+          {
+            "question": "Do you tailor documents to our activity?",
+            "answer": "Always. No generic procedure works: we write based on your actual facilities, equipment and operating methods, involving the people who perform the work."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Storage facility — fire plan",
+            "context": "A warehouse of flammable materials with no structured guidelines or proven evacuation organization.",
+            "result": "A complete emergency plan was written, a response team designated and trained, and the first full-scale drill successfully completed within the quarter."
+          },
+          {
+            "title": "Private clinic — hygiene procedures",
+            "context": "A healthcare facility needing to formalize its protocols for an accreditation process.",
+            "result": "A series of operational procedures validated by staff, with signage and awareness materials deployed across all departments."
+          }
+        ]
+      },
+      "environnement": {
+        "faq": [
+          {
+            "question": "Where should you start to reduce your environmental footprint?",
+            "answer": "With an impact assessment: energy consumption, water, waste, emissions. This initial snapshot identifies the most significant areas and focuses effort where the gain is greatest."
+          },
+          {
+            "question": "Do you handle environmental regulatory compliance?",
+            "answer": "Yes. We carry out compliance audits, identify the obligations applicable to your activity and build a progressive, documented compliance schedule."
+          },
+          {
+            "question": "Do you work with local authorities?",
+            "answer": "We know the Central African institutional framework well and support our clients in technical exchanges with the administration when it helps their case."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Agribusiness — waste management",
+            "context": "A processing unit accumulating organic and plastic waste with no treatment channel.",
+            "result": "A sorting and recovery scheme was set up, contracts established with local channels, and landfill volumes significantly reduced from the first year."
+          },
+          {
+            "title": "Infrastructure project — impact study",
+            "context": "A project developer needing to produce an environmental and social impact assessment for financing.",
+            "result": "Study conducted according to the standards expected by donors; the environmental and social management plan annexed to the file was accepted."
+          }
+        ]
+      },
+      "developpement-entreprises": {
+        "faq": [
+          {
+            "question": "At what stage should you reach out to us?",
+            "answer": "At any stage: validating an idea, structuring a young business, or organizing an existing structure that wants to move up a level. The starting point is always a shared diagnosis of your situation."
+          },
+          {
+            "question": "Is the Business Model Canvas suitable for local SMEs?",
+            "answer": "It is precisely a valuable tool for them: it shows the whole business on one page, highlights fragile assumptions and allows quick adjustments without committing major resources."
+          },
+          {
+            "question": "Do you help prepare bank-ready business plans?",
+            "answer": "Yes, we develop complete, credible business plans: economic model, three-year financial forecast and pitch, presented in the format expected by banks and investors."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Food startup — scaling up",
+            "context": "A profitable family business organized informally, held back in its growth by the lack of structure.",
+            "result": "Business Model Canvas clarified, key roles defined, a three-year business plan produced and bank financing unlocked."
+          },
+          {
+            "title": "Retail shop — margin recovery",
+            "context": "A multi-product store whose profitability was eroding without identifiable causes.",
+            "result": "Margin analysis by product family, revised pricing policy and simple monthly monitoring set up with the manager."
+          }
+        ]
+      },
+      "coaching-pme": {
+        "faq": [
+          {
+            "question": "What is the typical duration of a coaching engagement?",
+            "answer": "Coaching cycles generally run from 6 to 12 months, with regular sessions (monthly or bi-monthly) and measurable intermediate goals. The pace adapts to your availability and current priorities."
+          },
+          {
+            "question": "Does post-training follow-up cover all our trained staff?",
+            "answer": "Yes, we offer post-training follow-up to anchor learning: feedback sessions, resolving difficulties encountered in the field and adjusting practices. That is what turns training into lasting skill."
+          },
+          {
+            "question": "Do you work with very small businesses?",
+            "answer": "Absolutely. Our packages are modular and designed for micro-business and solo entrepreneur budgets: we start with the essentials, then expand at the pace of your progress."
+          }
+        ],
+        "cases": [
+          {
+            "title": "Solo entrepreneur — structured launch",
+            "context": "A project owner with strong know-how but no experience running a business.",
+            "result": "Six months of coaching: offer clarified, prices positioned, first clients signed and simple management tools adopted daily."
+          },
+          {
+            "title": "Service SME — handing over responsibility",
+            "context": "A business owner wanting to delegate day-to-day management to focus on commercial development.",
+            "result": "Organization redesigned, an internal supervisor coached for one year and operational responsibilities effectively transferred."
+          }
+        ]
+      }
+    }
+  },
+  "cabinet": {
+    "chip": "Our Firm",
+    "title": "A Central African firm with",
+    "titleHighlight": "international standards",
+    "description": "Yo Mbi Consulting is an advisory, training and support firm specializing in Health, Safety, Security and Environment (HSSE) as well as business development.",
+    "description2": "Our mission: to support companies, public institutions, NGOs and project leaders in improving their operational performance, preventing occupational risks and developing their skills, with a practical approach tailored to the Central African context and compliant with international standards.",
+    "mission": "Preventing risks, developing skills and creating lasting value.",
+    "pillars": [
+      {
+        "title": "Advisory",
+        "description": "We diagnose your risks and structure your approach: DUERP, audits, HSSE committees, ISO 45001:2018 implementation."
+      },
+      {
+        "title": "Training",
+        "description": "We train your teams on the ground: HSSE coordinators, PPE usage, first aid, management and entrepreneurship."
+      },
+      {
+        "title": "Support",
+        "description": "We stay by your side long-term: entrepreneur coaching, SME support and post-training follow-up."
+      }
+    ]
+  },
+  "formations": {
+    "chip": "Our Training",
+    "title": "Training adapted to",
+    "titleHighlight": "the needs",
+    "titleSuffix": "of your teams",
+    "description": "We offer training adapted to business needs: duration, content and format are adjusted to your sector, team size and constraints. Training can take place at your premises.",
+    "filters": {
+      "all": "All",
+      "sec": "Health & Safety",
+      "mgmt": "Management & Environment",
+      "ent": "Entrepreneurship"
+    },
+    "allFormations": "View all trainings",
+    "seeMore": "Details",
+    "note": "Don't see what you need?",
+    "noteLink": "Contact us",
+    "noteSuffix": ": we build custom programs.",
+    "items": [
+      { "title": "HSSE Coordinator", "category": "sec" },
+      { "title": "Workplace Health & Safety", "category": "sec" },
+      { "title": "Accident Prevention", "category": "sec" },
+      { "title": "PPE Usage", "category": "sec" },
+      { "title": "First Aid", "category": "sec" },
+      { "title": "Occupational Risk Management", "category": "sec" },
+      { "title": "HSSE Management", "category": "mgmt" },
+      { "title": "Leadership & Safety Culture", "category": "mgmt" },
+      { "title": "Environment & Sustainable Development", "category": "mgmt" },
+      { "title": "Entrepreneurship", "category": "ent" },
+      { "title": "Marketing", "category": "ent" },
+      { "title": "Financial Management", "category": "ent" }
+    ]
+  },
+  "valeur": {
+    "chip": "Our Added Value",
+    "title": "Progressive solutions for",
+    "titleHighlight": "progressive",
+    "titleSuffix": "businesses",
+    "description": "What the firm brings to each mission: multidisciplinary expertise, proven field methods and long-term commitment.",
+    "cta": "Let's discuss your project",
+    "items": [
+      {
+        "title": "Multidisciplinary Expertise",
+        "description": "HSSE and business development united in one team, for a complete view of your organization."
+      },
+      {
+        "title": "Practical Field-Oriented Training",
+        "description": "Role-playing, real cases, exercises: you learn by doing, not by listening."
+      },
+      {
+        "title": "Solutions Adapted to Local Context",
+        "description": "Realistic responses designed for Central African realities, both human and material."
+      },
+      {
+        "title": "Personalized Support",
+        "description": "A single contact and a program adjusted to your size, sector and deadlines."
+      },
+      {
+        "title": "Qualified Consultants",
+        "description": "Practitioners from the field, not generalists: competence is verified on the ground."
+      },
+      {
+        "title": "Post-Training Follow-up",
+        "description": "Learning doesn't stop at the last module: we come back to measure what has changed."
+      }
+    ]
+  },
+  "partenariats": {
+    "chip": "Partnerships",
+    "title": "Partnerships that train and",
+    "titleHighlight": "protect",
+    "description": "The firm develops partnerships with companies, institutions and NGOs to:",
+    "cta": "Propose a partnership",
+    "items": [
+      "Strengthen workers' skills",
+      "Welcome and supervise qualified interns",
+      "Facilitate professional immersion for young people",
+      "Contribute to the development of national skills",
+      "Promote a true culture of risk prevention"
+    ]
+  },
+  "testimonials": {
+    "chip": "Testimonials",
+    "title": "What our clients say about",
+    "titleHighlight": "us",
+    "description": "Our clients' satisfaction is our best business card. Here are their testimonials.",
+    "items": [
+      {
+        "name": "Jean-Pierre Koumba",
+        "role": "HSE Director, Central African Water Company",
+        "text": "Yo Mbi Consulting transformed our approach to workplace safety. Their HSSE expertise is remarkable and their personalized support has enabled our teams to gain both competence and confidence.",
+        "rating": 5
+      },
+      {
+        "name": "Marie-Claire Djilo",
+        "role": "HR Manager, Agri-food SME",
+        "text": "The training offered is practical and directly applicable in the field. Our operators have gained autonomy and our workplace incidents decreased by 40% in six months.",
+        "rating": 5
+      },
+      {
+        "name": "Professor Samuel Ndjimbi",
+        "role": "Coordinator, Sustainable Development NGO CAR",
+        "text": "A trusted partner for our environmental projects. Their knowledge of the Central African context makes all the difference in implementing our actions.",
+        "rating": 5
+      },
+      {
+        "name": "Alain Mokobé",
+        "role": "Manager, Transport & Logistics Central Africa",
+        "text": "The DUERP developed with the firm helped us identify risks we had never considered. A real wake-up call for our safety culture.",
+        "rating": 5
+      }
+    ]
+  },
+  "cta": {
+    "title": "Looking for concrete solutions for your business?",
+    "description": "Tell us about your situation: risks to manage, teams to train, projects to structure. We'll get back to you with a tailored proposal.",
+    "cta": "Let's discuss your project"
+  },
+  "contact": {
+    "chip": "Contact",
+    "title": "Let's talk about your",
+    "titleHighlight": "project",
+    "description": "A risk to manage, a team to train, a project to structure? Write to us, we respond to this address.",
+    "address": {
+      "label": "Headquarters",
+      "value": "5th district, Avenue du Lieutenant Koudoukou",
+      "detail": "Opposite the Madou street intersection, Bangui"
+    },
+    "phone": {
+      "label": "Phone",
+      "value": "+236 72 11 19 14"
+    },
+    "email": {
+      "label": "Email",
+      "value": "contact.cmc@gmail.com"
+    },
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "form": {
+      "selectedFormations": "Selected Training",
+      "fullName": "Full Name *",
+      "fullNamePlaceholder": "",
+      "organization": "Organization",
+      "organizationPlaceholder": "Company, NGO, institution",
+      "contactInfo": "Email or Phone *",
+      "subject": "Subject",
+      "subjects": [
+        "General inquiries",
+        "Training request",
+        "HSSE Advisory & Audit",
+        "Environment",
+        "Business Development",
+        "Partnership",
+        "Other request"
+      ],
+      "message": "Message *",
+      "messagePlaceholder": "Your context, your needs, your deadlines",
+      "submit": "Send message",
+      "legal": "Your email app will open with the message ready to send. No data is stored on this site."
+    }
+  },
+  "faq": {
+    "chip": "Frequently Asked Questions",
+    "title": "Got any",
+    "titleHighlight": "questions",
+    "description": "Find answers to the most common questions about our services, training programs and how we work.",
+    "items": [
+      {
+        "question": "Which areas do you cover?",
+        "answer": "We primarily operate in Bangui and the Central African Republic. Depending on the mission, we can travel to other cities in the country and across the region."
+      },
+      {
+        "question": "Can training be held at our premises?",
+        "answer": "Yes, most of our training programs can be delivered directly at your facilities. This is even recommended for hands-on training that requires on-site practice."
+      },
+      {
+        "question": "How long does a typical HSSE consulting engagement last?",
+        "answer": "It depends on the project's complexity. An audit may take 2 to 5 days, while ISO 45001 compliance typically spans 3 to 6 months with regular follow-ups."
+      },
+      {
+        "question": "How does an occupational risk assessment work?",
+        "answer": "We conduct a thorough assessment: team interviews, on-site inspections, and document analysis. We then deliver a detailed report with the DUERP and a prioritized action plan."
+      },
+      {
+        "question": "Do you offer certified training?",
+        "answer": "Our training programs issue competence certificates recognized by industry professionals. We can also prepare your teams for ISO 45001 certification."
+      },
+      {
+        "question": "How do I request a quote?",
+        "answer": "Use the contact form or email us directly at contact.cmc@gmail.com describing your needs. We will get back to you within 48 hours with a tailored proposal."
+      }
+    ]
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Subscribe to our newsletter",
+      "description": "Receive our news and new training programs.",
+      "placeholder": "Your email",
+      "cta": "Subscribe"
+    },
+    "brand": "Your partner in Health, Safety-Security, Environment and business development. Bangui, Central African Republic.",
+    "services": "Services",
+    "usefulLinks": "Useful Links",
+    "contact": "Contact",
+    "links": {
+      "home": "Home",
+      "cabinet": "Our Firm",
+      "services": "Our Services",
+      "formations": "Training",
+      "partenariats": "Partnerships",
+      "contact": "Contact"
+    },
+    "copyright": "All rights reserved.",
+    "mentions": "Legal & Privacy"
+  },
+  "mentions": {
+    "title": "Legal & Privacy",
+    "editor": "Publisher",
+    "editorText": "Yo Mbi Consulting, advisory, training and support firm in Health, Safety, Security and Environment (HSSE) and business development. Headquarters: 5th district, Avenue du Lieutenant Koudoukou, opposite the Madou street intersection, Bangui, Central African Republic. Contact: +236 72 11 19 14, contact.cmc@gmail.com.",
+    "data": "Personal Data",
+    "dataText": "This site does not use cookies and stores no data. Information entered in the contact form and newsletter remains on your device: it only leaves it as a message you send yourself to the firm. It is used solely to process your request.",
+    "responsibility": "Liability",
+    "responsibilityText": "Published information presents the firm's areas of intervention. It does not constitute professional advice or contractual commitment. For any questions about the site content, write to us."
+  }
+}
