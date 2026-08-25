@@ -25,11 +25,9 @@ export default function AProposPage() {
   const t = useTranslations('apropos');
   const tCabinet = useTranslations('cabinet');
   const tValeur = useTranslations('valeur');
-  const tHero = useTranslations('hero');
 
   const pillars = tCabinet.raw('pillars');
   const valeurs = tValeur.raw('items');
-  const stats = tHero.raw('stats');
 
   return (
     <>
@@ -85,29 +83,6 @@ export default function AProposPage() {
                 »
               </blockquote>
             </ScrollReveal>
-          </div>
-        </section>
-
-        {/* ── Chiffres clés ── */}
-        <section className="py-16 bg-sky">
-          <div className="max-w-[1200px] mx-auto px-6">
-            <ScrollReveal>
-              <h2 className="font-extrabold text-navy text-[clamp(1.6rem,3vw,2.2rem)] tracking-[-0.02em] mb-10">
-                {t('statsChip')}
-              </h2>
-            </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-7" data-stagger>
-              {stats.map((stat: any, i: number) => (
-                <ScrollReveal key={i}>
-                  <div className="bg-white rounded-[20px] p-8 border border-line text-center hover:shadow-[0_16px_40px_rgba(13,36,70,.1)] transition-all duration-300">
-                    <span className="block font-extrabold text-blue text-[clamp(2.2rem,4vw,3rem)] leading-none mb-2">
-                      {stat.value}
-                    </span>
-                    <span className="text-mut text-[15px] font-semibold">{stat.label}</span>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
           </div>
         </section>
 

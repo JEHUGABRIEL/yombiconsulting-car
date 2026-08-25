@@ -551,11 +551,8 @@
     "links": {
       "home": "Accueil",
       "apropos": "À propos",
-      "cabinet": "Le cabinet",
       "services": "Nos services",
-      "formations": "Formations",
-      "partenariats": "Partenariats",
-      "contact": "Contact"
+      "formations": "Formations"
     },
     "copyright": "Tous droits réservés.",
     "mentions": "Mentions & confidentialité"

@@ -9,6 +9,14 @@ import ServiceModal from './ServiceModal';
 export default function Footer() {
   const t = useTranslations('footer');
   const links = t.raw('links');
+
+  // Seuls les liens vers de vraies pages sont affichés (plus d'ancres home)
+  const linkRoutes: Record<string, string> = {
+    home: '/',
+    apropos: '/a-propos',
+    services: '/services',
+    formations: '/formations',
+  };
   const [modalOpen, setModalOpen] = useState(false);
   const [activeService, setActiveService] = useState(-1);
 
@@ -52,9 +60,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <span className="w-[46px] h-[46px] rounded-[14px] bg-blue text-white flex items-center justify-center font-extrabold text-[17px]">
-                YM
-              </span>
+              <img
+                src="/logo.png"
+                alt="Yo Mbi Consulting"
+                className="w-[46px] h-[46px] object-contain"
+              />
               <div className="leading-tight">
                 <b className="block text-[19px] font-extrabold text-white">Yo Mbi</b>
                 <span className="block text-[9.5px] font-bold tracking-[0.32em] text-blue-soft">CONSULTING</span>
@@ -120,22 +130,18 @@ export default function Footer() {
               {t('usefulLinks')}
             </p>
             <ul className="space-y-1.5">
-              {Object.entries(links).map(([key, label]) => (
-                <li key={key}>
-                  {key === 'apropos' ? (
+              {Object.entries(links)
+                .filter(([key]) => key in linkRoutes)
+                .map(([key, label]) => (
+                  <li key={key}>
                     <Link
-                      href="/a-propos"
+                      href={linkRoutes[key]}
                       className="block text-[14.5px] font-semibold py-1.5 text-[#AABBD4] hover:text-white transition-colors"
                     >
                       {label as string}
                     </Link>
-                  ) : (
-                    <a href={`#${key === 'home' ? 'accueil' : key}`} className="block text-[14.5px] font-semibold py-1.5 text-[#AABBD4] hover:text-white transition-colors">
-                      {label as string}
-                    </a>
-                  )}
-                </li>
-              ))}
+                  </li>
+                ))}
             </ul>
           </div>
 

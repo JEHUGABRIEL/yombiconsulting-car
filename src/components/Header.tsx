@@ -58,12 +58,9 @@ export default function Header() {
   const locale = pathname.split('/')[1] as Locale;
 
   const navLinks = [
-    { href: '#cabinet', label: t('cabinet') },
-    { href: `/${locale}/a-propos`, label: t('apropos') },
+    { href: `/${locale}/a-propos`, label: t('cabinet') },
     { href: `/${locale}/services`, label: t('services') },
     { href: `/${locale}/formations`, label: t('formations') },
-    { href: '#partenariats', label: t('partenariats') },
-    { href: '#contact', label: t('contact') },
   ];
 
   return (
@@ -90,12 +87,11 @@ export default function Header() {
         >
           {/* Brand */}
           <a href="#" className="flex items-center gap-3">
-            <span
-              className="flex items-center justify-center rounded-[14px] bg-blue text-white font-extrabold"
-              style={{ width: 42, height: 42, fontSize: 16 }}
-            >
-              YM
-            </span>
+            <img
+              src="/logo.png"
+              alt="Yo Mbi Consulting"
+              style={{ width: 42, height: 42, objectFit: 'contain' }}
+            />
             <div className="leading-tight hidden sm:block">
               <b className="block text-[18px] font-extrabold text-navy">Yo Mbi</b>
               <span className="block text-[9px] font-bold tracking-[0.32em] text-blue mt-0.5">
@@ -135,7 +131,7 @@ export default function Header() {
               ))}
             </div>
             <a
-              href="#contact"
+              href={`/${locale}#contact`}
               className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-colors"
             >
               {t('cta')}
@@ -199,12 +195,11 @@ export default function Header() {
             {/* Panel Header */}
             <div className="flex items-center justify-between px-6 border-b border-line" style={{ height: 72 }}>
               <a href="#" className="flex items-center gap-2.5">
-                <span
-                  className="flex items-center justify-center rounded-[12px] bg-blue text-white font-extrabold"
-                  style={{ width: 38, height: 38, fontSize: 14 }}
-                >
-                  YM
-                </span>
+                <img
+                  src="/logo.png"
+                  alt="Yo Mbi Consulting"
+                  style={{ width: 38, height: 38, objectFit: 'contain' }}
+                />
                 <span className="text-[16px] font-extrabold text-navy">Yo Mbi</span>
               </a>
               <button
@@ -266,7 +261,7 @@ export default function Header() {
 
               {/* CTA */}
               <a
-                href="#contact"
+                href={`/${locale}#contact`}
                 onClick={closeMenu}
                 className="flex items-center justify-center w-full py-3.5 rounded-full bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-colors"
               >
