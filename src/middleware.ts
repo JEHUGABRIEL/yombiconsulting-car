@@ -1,6 +1,5 @@
 import createMiddleware from 'next-intl/middleware';
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextRequest } from 'next/server';
 import { routing } from './i18n/routing';
 
 const intlMiddleware = createMiddleware(routing);
@@ -13,8 +12,6 @@ function generateNonce(): string {
 }
 
 export default function middleware(request: NextRequest) {
-  const response = intlMiddleware(request);
-
   const nonce = generateNonce();
   const isDev = process.env.NODE_ENV !== 'production';
 
@@ -32,9 +29,17 @@ export default function middleware(request: NextRequest) {
     'upgrade-insecure-requests',
   ].join('; ');
 
+  // Le nonce est transmis au rendu Next via les en-têtes de requête internes,
+  // mais n'est jamais exposé comme en-tête de réponse au navigateur.
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-nonce', nonce);
+  requestHeaders.set('Content-Security-Policy', csp);
+
+  const response = intlMiddleware(
+    new NextRequest(request, { headers: requestHeaders })
+  );
   response.headers.set('Content-Security-Policy', csp);
-  // Le nonce est aussi exposé aux layouts via un header interne
-  response.headers.set('x-nonce', nonce);
+  response.headers.delete('x-nonce');
 
   return response;
 }

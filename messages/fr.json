@@ -4,10 +4,12 @@
     "description": "Cabinet Yo Mbi Consulting : conseil, formation et accompagnement en Hygiène, Santé, Sécurité, Environnement (HSSE) et développement des entreprises. Bangui, République centrafricaine."
   },
   "nav": {
+    "home": "Accueil",
     "cabinet": "Le cabinet",
     "apropos": "À propos",
     "services": "Services",
     "formations": "Formations",
+    "actualites": "Actualités",
     "partenariats": "Partenariats",
     "contact": "Contact",
     "cta": "Nous contacter"
@@ -391,6 +393,15 @@
         "description": "L'apprentissage ne s'arrête pas au dernier module : nous revenons mesurer ce qui a changé."
       }
     ]
+  },
+  "actualites": {
+    "chip": "Actualités",
+    "title": "Nos",
+    "titleHighlight": "dernières actualités",
+    "description": "Suivez nos dernières nouvelles, analyses et retours d'expérience sur la prévention des risques et le développement des entreprises.",
+    "readMore": "Lire",
+    "viewAll": "Toutes les actualités",
+    "nextArticle": "Article suivant"
   },
   "partenariats": {
     "chip": "Partenariats",

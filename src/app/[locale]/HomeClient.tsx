@@ -7,6 +7,7 @@ import Cabinet from '@/components/Cabinet';
 import Formations from '@/components/Formations';
 import ValeurAjoutee from '@/components/ValeurAjoutee';
 import Partenariats from '@/components/Partenariats';
+import Actualites from '@/components/Actualites';
 import Testimonials from '@/components/Testimonials';
 import CtaBanner from '@/components/CtaBanner';
 import Faq from '@/components/Faq';
@@ -23,6 +24,7 @@ export default function HomeClient() {
         <Formations />
         <ValeurAjoutee />
         <Partenariats />
+        <Actualites />
         <Testimonials />
         <CtaBanner />
         <Faq />

@@ -4,10 +4,12 @@
     "description": "Yo Mbi Consulting: advisory, training and support in Health, Safety, Security, Environment (HSSE) and business development. Bangui, Central African Republic."
   },
   "nav": {
+    "home": "Home",
     "cabinet": "Our firm",
     "apropos": "About us",
     "services": "Services",
     "formations": "Training",
+    "actualites": "News",
     "partenariats": "Partnerships",
     "contact": "Contact",
     "cta": "Contact us"
@@ -391,6 +393,15 @@
         "description": "Learning doesn't stop at the last module: we come back to measure what has changed."
       }
     ]
+  },
+  "actualites": {
+    "chip": "News",
+    "title": "Our",
+    "titleHighlight": "latest news",
+    "description": "Follow our latest updates, insights and field experiences on risk prevention and business development.",
+    "readMore": "Read",
+    "viewAll": "All news",
+    "nextArticle": "Next article"
   },
   "partenariats": {
     "chip": "Partnerships",

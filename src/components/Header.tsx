@@ -58,9 +58,11 @@ export default function Header() {
   const locale = pathname.split('/')[1] as Locale;
 
   const navLinks = [
+    { href: `/${locale}`, label: t('home') },
     { href: `/${locale}/a-propos`, label: t('cabinet') },
     { href: `/${locale}/services`, label: t('services') },
     { href: `/${locale}/formations`, label: t('formations') },
+    { href: `/${locale}/actualites`, label: t('actualites') },
   ];
 
   return (
