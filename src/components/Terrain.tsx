@@ -61,7 +61,7 @@ export default function Terrain() {
           <div className="mt-10">
             <Link
               href="/a-propos"
-              className="inline-flex items-center gap-2 px-6 py-3.5 text-[14px] font-semibold rounded-[10px] border border-line-2 text-ink hover:border-blue hover:text-blue transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3.5 text-[14px] font-semibold btn btn-outline text-ink"
             >
               {t('cta')}
               <ArrowRight size={17} strokeWidth={1.8} />

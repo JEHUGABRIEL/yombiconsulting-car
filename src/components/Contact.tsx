@@ -134,7 +134,7 @@ export default function Contact() {
                   href="https://wa.me/23672111914"
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 text-[13.5px] font-semibold rounded-lg border border-line-2 bg-[#FCFDFE] text-ink hover:border-blue hover:text-blue transition-colors"
+                  className="btn btn-outline px-5 py-2.5 text-[13.5px]"
                 >
                   <MessageCircle size={15} strokeWidth={1.8} /> {t('whatsapp')}
                 </a>
@@ -142,7 +142,7 @@ export default function Contact() {
                   href="https://www.facebook.com/search/top?q=cabinet%20yo%20mbi%20consulting"
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 text-[13.5px] font-semibold rounded-lg border border-line-2 bg-[#FCFDFE] text-ink hover:border-blue hover:text-blue transition-colors"
+                  className="btn btn-outline px-5 py-2.5 text-[13.5px]"
                 >
                   <Facebook size={15} strokeWidth={1.8} /> {t('facebook')}
                 </a>
@@ -166,7 +166,7 @@ export default function Contact() {
                   <button
                     type="button"
                     onClick={() => setStatus('idle')}
-                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-[13.5px] font-semibold rounded-lg border border-line-2 text-ink hover:border-blue hover:text-blue transition-colors"
+                    className="btn btn-outline px-5 py-2.5 text-[13.5px]"
                   >
                     {t('form.sendAnother')}
                   </button>
@@ -292,7 +292,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[14.5px] font-semibold rounded-lg bg-blue text-white hover:bg-blue-deep transition-colors disabled:opacity-70"
+                    className="btn btn-primary w-full px-6 py-3.5 text-[14.5px] disabled:opacity-70"
                   >
                     {status === 'sending' ? (
                       <>

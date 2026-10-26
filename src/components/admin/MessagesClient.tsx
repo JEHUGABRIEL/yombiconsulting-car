@@ -95,21 +95,21 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
   return (
     <div>
       <div className="flex flex-wrap items-center gap-3 mb-5">
-        <div className="flex items-center gap-1 p-1 rounded-lg border border-line bg-sky">
+        <div className="flex items-center gap-1 p-1 rounded-[9px] border border-white/[0.07] bg-white/[0.03]">
           {filters.map((item) => (
             <button
               key={item.key}
               onClick={() => setFilter(item.key)}
               aria-pressed={filter === item.key}
-              className={`px-3 py-1.5 rounded-md text-[12.5px] font-semibold transition-colors ${
+              className={`px-3 py-1.5 rounded-[7px] text-[12px] font-semibold transition-colors ${
                 filter === item.key
-                  ? 'bg-[#FCFDFE] text-ink shadow-[0_1px_2px_rgba(12,36,64,.08)]'
-                  : 'text-mut hover:text-ink'
+                  ? 'bg-white/[0.09] text-white'
+                  : 'text-white/40 hover:text-white/80'
               }`}
             >
               {item.label}
               {item.key === 'unread' && unreadCount > 0 && (
-                <span className="ml-1.5 text-blue">{unreadCount}</span>
+                <span className="ml-1.5 text-blue-soft">{unreadCount}</span>
               )}
             </button>
           ))}
@@ -119,7 +119,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
           <Search
             size={15}
             strokeWidth={1.8}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-mut pointer-events-none"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none"
           />
           <input
             type="search"
@@ -127,7 +127,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Rechercher un nom, un sujet…"
             aria-label="Rechercher dans les messages"
-            className="field pl-9"
+            className="w-full rounded-[9px] bg-white/[0.03] border border-white/[0.07] pl-9 pr-3.5 py-2.5 text-[13px] text-white placeholder:text-white/25 focus:outline-none focus:border-blue/60 focus:bg-white/[0.05] transition-colors"
           />
         </div>
       </div>
@@ -135,15 +135,15 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
       {error && (
         <p
           role="alert"
-          className="text-[13px] text-[#B42318] bg-[#FEF3F2] border border-[#FECDCA] rounded-lg px-3.5 py-2.5 mb-4"
+          className="text-[12.5px] text-red-300 bg-red-500/10 border border-red-500/25 rounded-[9px] px-3.5 py-2.5 mb-4"
         >
           {error}
         </p>
       )}
 
-      <div className="bg-[#FCFDFE] border border-line rounded-[12px] overflow-hidden">
+      <div className="rounded-[14px] border border-white/[0.06] bg-white/[0.02] overflow-hidden">
         {filtered.length === 0 ? (
-          <p className="px-5 py-12 text-center text-[13.5px] text-mut">
+          <p className="px-5 py-14 text-center text-[13px] text-white/35">
             Aucun message ne correspond à cette vue.
           </p>
         ) : (
@@ -151,8 +151,12 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
             {filtered.map((message) => {
               const isOpen = expanded === message.id;
               return (
-                <li key={message.id} className="border-b border-line last:border-b-0">
-                  <div className={`flex items-start gap-3 px-4 sm:px-5 py-4 ${isOpen ? 'bg-sky/50' : ''}`}>
+                <li key={message.id} className="border-b border-white/[0.05] last:border-b-0">
+                  <div
+                    className={`flex items-start gap-3 px-4 sm:px-5 py-3.5 transition-colors ${
+                      isOpen ? 'bg-white/[0.035]' : ''
+                    }`}
+                  >
                     <button
                       onClick={() => {
                         setExpanded(isOpen ? null : message.id);
@@ -163,35 +167,35 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
                     >
                       <span
                         className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${
-                          message.read ? 'bg-line-2' : 'bg-blue'
+                          message.read ? 'bg-white/15' : 'bg-blue-soft'
                         }`}
                         aria-hidden
                       />
                       <span className="min-w-0 flex-1">
                         <span className="flex flex-wrap items-baseline gap-x-2">
                           <span
-                            className={`text-[13.5px] ${
-                              message.read ? 'font-medium text-ink' : 'font-semibold text-ink'
+                            className={`text-[13px] ${
+                              message.read ? 'text-white/60' : 'text-white font-medium'
                             }`}
                           >
                             {message.name}
                           </span>
                           {message.company && (
-                            <span className="inline-flex items-center gap-1 text-[11.5px] text-mut">
+                            <span className="inline-flex items-center gap-1 text-[11px] text-white/30">
                               <Building2 size={11} strokeWidth={1.8} />
                               {message.company}
                             </span>
                           )}
                         </span>
-                        <span className="block text-[12.5px] text-mut mt-0.5 truncate">
-                          <span className="text-ink/70">{message.subject}</span>
+                        <span className="block text-[12px] text-white/35 mt-0.5 truncate">
+                          <span className="text-white/50">{message.subject}</span>
                           {' — '}
                           {message.body}
                         </span>
                       </span>
                     </button>
 
-                    <span className="hidden sm:block text-[11.5px] text-mut shrink-0 pt-0.5">
+                    <span className="hidden sm:block text-[10.5px] text-white/25 shrink-0 pt-1">
                       {message.createdAt ? dateFormatter.format(new Date(message.createdAt)) : ''}
                     </span>
 
@@ -201,7 +205,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
                         disabled={busy === message.id}
                         title={message.read ? 'Marquer comme non lu' : 'Marquer comme lu'}
                         aria-label={message.read ? 'Marquer comme non lu' : 'Marquer comme lu'}
-                        className="w-8 h-8 rounded-md flex items-center justify-center text-mut hover:text-blue hover:bg-tint transition-colors disabled:opacity-50"
+                        className="w-8 h-8 rounded-[7px] flex items-center justify-center text-white/35 hover:text-white hover:bg-white/[0.07] transition-colors disabled:opacity-40"
                       >
                         {message.read ? <RotateCcw size={14} /> : <Check size={15} />}
                       </button>
@@ -210,7 +214,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
                         disabled={busy === message.id}
                         title="Supprimer"
                         aria-label="Supprimer le message"
-                        className="w-8 h-8 rounded-md flex items-center justify-center text-mut hover:text-[#B42318] hover:bg-[#FEF3F2] transition-colors disabled:opacity-50"
+                        className="w-8 h-8 rounded-[7px] flex items-center justify-center text-white/35 hover:text-red-300 hover:bg-red-500/10 transition-colors disabled:opacity-40"
                       >
                         <Trash2 size={14} />
                       </button>
@@ -218,11 +222,11 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
                         onClick={() => setExpanded(isOpen ? null : message.id)}
                         aria-expanded={isOpen}
                         aria-label={isOpen ? 'Replier le message' : 'Déplier le message'}
-                        className="w-8 h-8 rounded-md flex items-center justify-center text-mut hover:text-ink hover:bg-sky transition-colors"
+                        className="w-8 h-8 rounded-[7px] flex items-center justify-center text-white/35 hover:text-white hover:bg-white/[0.07] transition-colors"
                       >
                         <ChevronDown
                           size={15}
-                          className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                          className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
                         />
                       </button>
                     </span>
@@ -230,16 +234,16 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
 
                   {isOpen && (
                     <div className="px-4 sm:px-5 pb-5 pl-10 sm:pl-11">
-                      <p className="text-[13.5px] text-ink leading-relaxed whitespace-pre-line max-w-[70ch]">
+                      <p className="text-[13px] text-white/75 leading-relaxed whitespace-pre-line max-w-[70ch]">
                         {message.body}
                       </p>
-                      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-4 text-[12.5px]">
+                      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-4 text-[12px]">
                         {message.email && (
                           <a
                             href={`mailto:${message.email}?subject=${encodeURIComponent(
                               `Re : ${message.subject}`
                             )}`}
-                            className="inline-flex items-center gap-1.5 font-semibold text-blue hover:underline"
+                            className="inline-flex items-center gap-1.5 font-medium text-blue-soft hover:underline"
                           >
                             <Mail size={13} strokeWidth={1.8} />
                             {message.email}
@@ -248,13 +252,13 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
                         {message.phone && (
                           <a
                             href={`tel:${message.phone.replace(/\s+/g, '')}`}
-                            className="inline-flex items-center gap-1.5 font-semibold text-blue hover:underline"
+                            className="inline-flex items-center gap-1.5 font-medium text-blue-soft hover:underline"
                           >
                             <Phone size={13} strokeWidth={1.8} />
                             {message.phone}
                           </a>
                         )}
-                        <span className="text-mut">
+                        <span className="text-white/25">
                           Reçu le{' '}
                           {message.createdAt
                             ? dateFormatter.format(new Date(message.createdAt))
@@ -270,7 +274,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
         )}
       </div>
 
-      <p className="text-[12px] text-mut mt-4">
+      <p className="text-[11.5px] text-white/25 mt-4">
         {filtered.length} message{filtered.length > 1 ? 's' : ''} affiché
         {filtered.length > 1 ? 's' : ''} · {unreadCount} non lu{unreadCount > 1 ? 's' : ''}
       </p>

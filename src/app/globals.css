@@ -258,6 +258,101 @@ a.card:hover .card__media img {
   color: var(--mut);
 }
 
+/* ============ Boutons ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transform: translateY(0);
+  transition:
+    transform 0.18s var(--ease-out),
+    box-shadow 0.18s var(--ease-out),
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.btn svg {
+  transition: transform 0.18s var(--ease-out);
+}
+
+.btn:hover svg:last-child {
+  transform: translateX(2px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.985);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background-color: var(--blue);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--blue-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -16px rgba(37, 87, 230, 0.85);
+}
+
+.btn-outline {
+  border: 1px solid var(--line-2);
+  color: var(--ink);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.btn-light {
+  background-color: #fff;
+  color: var(--navy);
+}
+
+.btn-light:hover {
+  background-color: #E9F0FD;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px -18px rgba(9, 20, 38, 0.6);
+}
+
+.btn-dark {
+  background-color: #0C2440;
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background-color: #132F52;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -16px rgba(9, 20, 38, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn svg {
+    transition: none;
+  }
+  .btn:hover {
+    transform: none;
+  }
+  .btn:hover svg:last-child {
+    transform: none;
+  }
+  .btn:active {
+    transform: none;
+  }
+}
+
 /* Rangeau de cartes horizontaux (compteur + flèches, façon éditorial) */
 .carousel-track {
   transition: transform 0.62s cubic-bezier(0.32, 0.72, 0, 1);

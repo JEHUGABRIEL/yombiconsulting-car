@@ -27,11 +27,13 @@ export default async function AdminMessagesPage() {
     }
   }
 
+  const unread = messages.filter((m) => !m.read).length;
+
   return (
-    <AdminShell admin={{ email: admin.email, role: admin.role }}>
+    <AdminShell admin={{ email: admin.email, role: admin.role }} unread={unread}>
       <div className="mb-7">
-        <h1 className="text-[24px] font-bold text-ink tracking-[-0.02em]">Messages</h1>
-        <p className="text-[13.5px] text-mut mt-1">
+        <h1 className="text-[24px] sm:text-[26px] font-bold tracking-[-0.025em]">Messages</h1>
+        <p className="text-[13px] text-white/40 mt-1.5">
           Demandes reçues via le formulaire de contact du site.
         </p>
       </div>
@@ -39,10 +41,10 @@ export default async function AdminMessagesPage() {
       {configured ? (
         <MessagesClient initial={messages} />
       ) : (
-        <div className="text-[13.5px] leading-relaxed text-[#8A4B08] bg-[#FFFAEB] border border-[#FEDF89] rounded-[12px] px-5 py-4">
+        <div className="text-[13px] leading-relaxed text-amber-200 bg-amber-400/10 border border-amber-400/25 rounded-[12px] px-5 py-4">
           La base de données n’est pas configurée : les messages ne peuvent pas être affichés.
-          Définissez <code className="font-mono text-[12.5px]">DATABASE_URL</code> puis lancez{' '}
-          <code className="font-mono text-[12.5px]">npm run db:migrate</code>.
+          Définissez <code className="font-mono text-[12px]">DATABASE_URL</code> puis lancez{' '}
+          <code className="font-mono text-[12px]">npm run db:migrate</code>.
         </div>
       )}
     </AdminShell>

@@ -22,7 +22,7 @@ export default function ValeurAjoutee() {
               <p className="text-mut max-w-[640px] mb-9">{t('description')}</p>
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-[14.5px] font-bold rounded-[10px] bg-blue text-white hover:bg-blue-deep transition-colors"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-[14.5px] font-bold btn btn-primary"
               >
                 {t('cta')}
                 <ArrowRight size={17} strokeWidth={1.8} />

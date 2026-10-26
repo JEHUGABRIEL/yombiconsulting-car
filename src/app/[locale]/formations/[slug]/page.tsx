@@ -106,7 +106,7 @@ export default function FormationDetailPage({ params }: { params: Promise<{ slug
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(formation.title + ' · Yo Mbi Consulting')}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[14.5px] font-semibold rounded-lg bg-blue text-white hover:bg-blue-deep transition-colors"
+                className="btn btn-primary px-6 py-3.5 text-[14.5px]"
               >
                 {t('noteLink')}
                 <ArrowRight size={17} strokeWidth={1.8} />

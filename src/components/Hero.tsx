@@ -1,8 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useState, useEffect, useCallback } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const heroImages = [
   '/images/formation-salle-participants.jpeg',
@@ -17,11 +17,6 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  const go = useCallback(
-    (next: number) => setCurrent((next + slides.length) % slides.length),
-    [slides.length]
-  );
-
   useEffect(() => {
     if (paused) return;
     const timer = setInterval(() => setCurrent((prev) => (prev + 1) % slides.length), 7000);
@@ -29,7 +24,6 @@ export default function Hero() {
   }, [paused, slides.length]);
 
   const slide = slides[current];
-  const secondary = (current + 1) % heroImages.length;
 
   return (
     <section className="pt-[112px] pb-16 lg:pt-[148px] lg:pb-24 bg-[#FCFDFE] overflow-hidden">
@@ -49,17 +43,11 @@ export default function Hero() {
             <p className="text-mut text-[17px] leading-[1.65] max-w-[520px] mt-6">{slide.lead}</p>
 
             <div className="flex flex-wrap items-center gap-3 mt-8">
-              <a
-                href="#services"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[14.5px] font-semibold rounded-[10px] bg-blue text-white hover:bg-blue-deep transition-colors"
-              >
+              <a href="#services" className="btn btn-primary px-6 py-3.5 text-[14.5px]">
                 {slide.cta1}
                 <ArrowRight size={17} strokeWidth={1.9} />
               </a>
-              <a
-                href="#cabinet"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[14.5px] font-semibold rounded-[10px] border border-line-2 text-ink hover:border-blue hover:text-blue transition-colors"
-              >
+              <a href="#cabinet" className="btn btn-outline px-6 py-3.5 text-[14.5px]">
                 {slide.cta2}
               </a>
             </div>
@@ -81,15 +69,15 @@ export default function Hero() {
             </dl>
           </div>
 
-          {/* ── Visuel : photo principale + photo secondaire décalée ── */}
+          {/* ── Visuel ── */}
           <div
-            className="relative pb-10 sm:pb-11"
+            className="relative"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
             <div
               aria-hidden
-              className="hidden sm:block absolute -top-5 -right-5 bottom-[96px] left-14 rounded-[26px] bg-navy"
+              className="hidden sm:block absolute -top-5 -right-5 bottom-6 left-14 rounded-[26px] bg-navy"
             />
 
             <div className="relative rounded-[24px] overflow-hidden aspect-[4/5] sm:aspect-[5/6] bg-sky">
@@ -105,67 +93,6 @@ export default function Hero() {
                   }`}
                 />
               ))}
-            </div>
-
-            {/* Photo secondaire, décalée sous la principale */}
-            <div className="hidden sm:block absolute -bottom-1 -left-7 w-[44%]">
-              <div className="relative rounded-[16px] overflow-hidden aspect-[4/3] border-[5px] border-[#FCFDFE] shadow-[0_20px_44px_-28px_rgba(12,36,64,.55)] bg-sky">
-                {heroImages.map((src, i) => (
-                  <img
-                    key={src}
-                    src={src}
-                    alt=""
-                    aria-hidden={i !== secondary}
-                    loading="lazy"
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                      i === secondary ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Progression + navigation, sans compteur */}
-            <div className="flex items-center justify-between gap-4 mt-5 sm:pl-[48%]">
-              <div className="flex items-center gap-1.5" role="tablist" aria-label="Visuels de la section">
-                {heroImages.map((src, i) => (
-                  <button
-                    key={src}
-                    type="button"
-                    onClick={() => go(i)}
-                    role="tab"
-                    aria-selected={i === current}
-                    aria-label={`Visuel ${i + 1}`}
-                    className="h-[3px] w-8 rounded-full bg-line overflow-hidden"
-                  >
-                    {i === current ? (
-                      <span
-                        className="block h-full w-full bg-blue hero-progress-fill"
-                        style={{ animationPlayState: paused ? 'paused' : 'running' }}
-                      />
-                    ) : null}
-                  </button>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => go(current - 1)}
-                  aria-label="Visuel précédent"
-                  className="carousel-btn"
-                >
-                  <ChevronLeft size={16} strokeWidth={1.9} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => go(current + 1)}
-                  aria-label="Visuel suivant"
-                  className="carousel-btn"
-                >
-                  <ChevronRight size={16} strokeWidth={1.9} />
-                </button>
-              </div>
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ export default function CtaBanner() {
               <div className="flex lg:justify-end">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[14.5px] font-semibold rounded-[10px] bg-white text-navy hover:bg-[#E9F0FD] transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[14.5px] font-semibold btn btn-light"
                 >
                   {t('cta')}
                   <ArrowRight size={17} strokeWidth={1.9} />

@@ -310,7 +310,7 @@ export default function ServiceDetailPage({
                   </p>
                   <a
                     href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(service.subject + ' · Yo Mbi Consulting')}`}
-                    className="inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 text-[15px] font-bold rounded-[10px] bg-blue text-white hover:bg-blue-deep transition-colors"
+                    className="inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 text-[15px] font-bold btn btn-primary"
                   >
                     {t('requestService')}
                     <ArrowRight size={18} strokeWidth={1.8} />
@@ -348,7 +348,7 @@ export default function ServiceDetailPage({
             </p>
             <a
               href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(service.subject + ' · Yo Mbi Consulting')}`}
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-[15px] font-bold rounded-[10px] bg-white text-navy hover:bg-sky transition-colors"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-[15px] font-bold btn btn-light hover:bg-sky transition-colors"
             >
               {t('requestService')}
               <ArrowRight size={18} strokeWidth={1.8} />

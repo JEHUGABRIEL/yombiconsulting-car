@@ -124,14 +124,14 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }, 100);
             }}
-            className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-[14px] font-bold rounded-[10px] bg-blue text-white hover:bg-blue-deep transition-colors"
+            className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-[14px] font-bold btn btn-primary"
           >
             {t('requestService')}
             <ArrowRight size={18} strokeWidth={1.8} />
           </a>
           <button
             onClick={onClose}
-            className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-[14px] font-bold rounded-[10px] border border-line-2 text-ink hover:border-blue hover:text-blue transition-colors"
+            className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-[14px] font-bold btn btn-outline text-ink"
           >
             {t('close')}
           </button>

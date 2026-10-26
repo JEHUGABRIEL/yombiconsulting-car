@@ -146,7 +146,7 @@ export default function Header() {
             </div>
             <a
               href={`/${locale}#contact`}
-              className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-bold rounded-[10px] bg-blue text-white hover:bg-blue-deep transition-colors"
+              className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-bold btn btn-primary"
             >
               {t('cta')}
             </a>
@@ -272,7 +272,7 @@ export default function Header() {
               <a
                 href={`/${locale}#contact`}
                 onClick={closeMenu}
-                className="flex items-center justify-center w-full py-3.5 rounded-[10px] bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-colors"
+                className="flex items-center justify-center w-full py-3.5 btn btn-primary text-[15px] font-bold hover:bg-blue-deep transition-colors"
               >
                 {t('cta')}
               </a>
