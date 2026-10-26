@@ -16,10 +16,6 @@ export default function Partenariats() {
           {/* Left sticky column */}
           <div className="lg:sticky lg:top-[110px]">
             <ScrollReveal>
-              <span className="chip inline-flex items-center gap-2 bg-tint text-blue text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue" />
-                {t('chip')}
-              </span>
               <h2 className="font-extrabold text-[clamp(1.85rem,3.4vw,2.6rem)] leading-[1.15] tracking-[-0.02em] mb-4">
                 {t('title')}{' '}
                 <span className="text-blue">{t('titleHighlight')}</span>

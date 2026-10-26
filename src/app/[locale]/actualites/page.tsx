@@ -24,10 +24,6 @@ export default function ActualitesPage() {
             style={{ backgroundImage: "url('/images/formation-formatrice-paperboard.jpeg')" }} />
           <div className="absolute inset-0 hero-overlay" />
           <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-            <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-soft" />
-              {t('chip')}
-            </span>
             <h1 className="font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] tracking-[-0.02em] text-white max-w-[640px] mb-4">
               {t('title')}{' '}
               <span className="text-blue">{t('titleHighlight')}</span>

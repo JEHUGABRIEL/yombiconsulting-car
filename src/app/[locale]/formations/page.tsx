@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { ArrowRight, Clock, Users, BookOpen } from 'lucide-react';
+import { ArrowRight, Clock, Users } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getFormations } from '@/data/formations';
@@ -16,49 +16,40 @@ export default function FormationsPage() {
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
   const all = getFormations(locale);
-  const filtered = activeFilter === 'all'
-    ? all
-    : all.filter((f) => f.category === activeFilter);
+  const filtered =
+    activeFilter === 'all' ? all : all.filter((f) => f.category === activeFilter);
 
   return (
     <>
       <Header />
       <main className="pt-[80px]">
-        {/* Hero */}
         <section className="relative overflow-hidden py-16">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/images/formation-salle-participants.jpeg')" }} />
+            style={{ backgroundImage: "url('/images/formation-salle-participants.jpeg')" }}
+          />
           <div className="absolute inset-0 hero-overlay" />
           <div className="relative z-10 max-w-[1200px] mx-auto px-6">
-            <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-soft" />
-              {t('chip')}
-            </span>
-            <h1 className="font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] tracking-[-0.02em] text-white max-w-[640px] mb-4">
-              {t('title')}{' '}
-              <span className="text-blue">{t('titleHighlight')}</span>{' '}
+            <h1 className="font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] tracking-[-0.02em] text-white max-w-[640px] mb-3">
+              {t('title')} <span className="text-blue-soft">{t('titleHighlight')}</span>{' '}
               {t('titleSuffix')}
             </h1>
-            <p className="text-white/70 text-[17px] max-w-[560px]">
-              {t('description')}
-            </p>
+            <p className="text-white/70 text-[16.5px] max-w-[560px]">{t('description')}</p>
           </div>
         </section>
 
-        {/* Filters + Grid */}
-        <section className="py-14 bg-white">
+        <section className="py-14">
           <div className="max-w-[1200px] mx-auto px-6">
-            {/* Filters */}
-            <div className="flex flex-wrap gap-2 mb-12">
+            <div className="flex flex-wrap items-center gap-1.5 p-1.5 mb-10 rounded-xl border border-line bg-sky w-fit max-w-full">
               {filterKeys.map((key) => (
                 <button
                   key={key}
                   onClick={() => setActiveFilter(key)}
-                  className={`px-5 py-2.5 rounded-full text-[14px] font-bold transition-all border ${
+                  aria-pressed={activeFilter === key}
+                  className={`px-4 py-2 rounded-lg text-[13.5px] font-semibold transition-colors ${
                     activeFilter === key
-                      ? 'bg-blue text-white border-blue'
-                      : 'bg-sky text-mut border-line hover:border-blue/30 hover:text-ink'
+                      ? 'bg-[#FCFDFE] text-ink shadow-[0_1px_2px_rgba(12,36,64,.08)]'
+                      : 'text-mut hover:text-ink'
                   }`}
                 >
                   {t(`filters.${key}`)}
@@ -66,59 +57,43 @@ export default function FormationsPage() {
               ))}
             </div>
 
-            {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((formation) => (
-                <Link
-                  key={formation.slug}
-                  href={`/formations/${formation.slug}`}
-                  className="group block bg-sky rounded-[20px] overflow-hidden border border-line hover:border-blue/20 transition-all duration-300"
-                >
-                  {/* Image */}
-                  <div className="relative h-[180px] overflow-hidden">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                      style={{ backgroundImage: `url('${formation.image}')` }} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
-                    <span className="absolute top-4 left-4 bg-[#FAFBFD]/90 text-ink text-[12px] font-bold px-3 py-1.5 rounded-full">
+                <Link key={formation.slug} href={`/formations/${formation.slug}`} className="card group">
+                  <div className="card__media">
+                    <img src={formation.image} alt={formation.title} loading="lazy" />
+                    <span className="absolute top-3 left-3 bg-[#FCFDFE]/95 text-mut text-[10.5px] font-bold tracking-[0.08em] uppercase px-2.5 py-1 rounded-md">
                       {t(`filters.${formation.category}`)}
                     </span>
                   </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <h2 className="font-bold text-[17px] text-ink mb-3 leading-snug group-hover:text-blue transition-colors">
-                      {formation.title}
-                    </h2>
-                    <div className="flex items-center gap-4 text-[13px] text-mut mb-4">
+                  <div className="card__body">
+                    <h2 className="card__title">{formation.title}</h2>
+                    <div className="flex items-center gap-4 text-[12.5px] text-mut mt-0.5">
                       <span className="inline-flex items-center gap-1.5">
-                        <Clock size={14} strokeWidth={1.8} />
+                        <Clock size={13} strokeWidth={1.8} />
                         {formation.duration}
                       </span>
                       <span className="inline-flex items-center gap-1.5">
-                        <Users size={14} strokeWidth={1.8} />
+                        <Users size={13} strokeWidth={1.8} />
                         {formation.format}
                       </span>
                     </div>
-                    <span className="inline-flex items-center gap-2 text-blue text-[14px] font-bold transition-colors">
+                    <span className="card__cta">
                       {t('seeMore')}
-                      <ArrowRight size={18} strokeWidth={1.8} />
+                      <ArrowRight size={16} strokeWidth={1.8} />
                     </span>
                   </div>
                 </Link>
               ))}
             </div>
 
-            {/* Note */}
-            <div className="mt-12 text-center">
-              <p className="text-mut text-[15px]">
-                {t('note')}{' '}
-                <a href="/#contact" className="text-blue font-bold hover:underline">
-                  {t('noteLink')}
-                </a>
-                {t('noteSuffix')}
-              </p>
-            </div>
+            <p className="mt-12 text-mut text-[14.5px]">
+              {t('note')}{' '}
+              <a href="/#contact" className="text-blue font-semibold hover:underline">
+                {t('noteLink')}
+              </a>
+              {t('noteSuffix')}
+            </p>
           </div>
         </section>
       </main>

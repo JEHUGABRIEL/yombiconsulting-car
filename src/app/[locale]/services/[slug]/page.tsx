@@ -215,7 +215,7 @@ export default function ServiceDetailPage({
                       {caseItems.map((c) => (
                         <div
                           key={c.title}
-                          className="bg-sky rounded-[20px] border border-line overflow-hidden"
+                          className="bg-sky rounded-[16px] border border-line overflow-hidden"
                         >
                           {/* En-tête du cas */}
                           <div className="px-7 pt-6 pb-4">
@@ -232,17 +232,17 @@ export default function ServiceDetailPage({
                           {/* Contexte + Résultat */}
                           <div className="grid grid-cols-1 sm:grid-cols-2 border-t border-line">
                             <div className="px-7 py-5">
-                              <span className="block text-[11px] font-bold tracking-[0.1em] uppercase text-mut mb-2">
+                              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-mut mb-1.5">
                                 {t('contextLabel')}
-                              </span>
+                              </p>
                               <p className="text-[14px] text-ink leading-relaxed">
                                 {c.context}
                               </p>
                             </div>
                             <div className="px-7 py-5 bg-tint/40 sm:border-l border-line">
-                              <span className="block text-[11px] font-bold tracking-[0.1em] uppercase text-blue mb-2">
+                              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-blue/70 mb-1.5">
                                 {t('resultLabel')}
-                              </span>
+                              </p>
                               <p className="text-[14px] text-ink leading-relaxed">
                                 {c.result}
                               </p>
@@ -259,49 +259,40 @@ export default function ServiceDetailPage({
                   <h2 className="font-extrabold text-[20px] text-ink mb-6 tracking-[-0.01em]">
                     {t('faqTitle')}
                   </h2>
-                  <div className="rounded-[20px] border border-line overflow-hidden">
+                  <div className="rounded-[16px] border border-line bg-[#FCFDFE] overflow-hidden">
                     {faqItems.map((item, i) => {
                       const isOpen = openFaq === i;
+                      const panelId = `service-faq-${i}`;
                       return (
-                        <div
-                          key={i}
-                          className={`border-b border-line last:border-b-0 transition-colors duration-200 ${isOpen ? 'bg-tint/30' : ''}`}
-                        >
-                          <button
-                            onClick={() =>
-                              setOpenFaq(isOpen ? null : i)
-                            }
-                            className="group w-full flex items-start gap-4 px-7 py-5 text-left"
-                            aria-expanded={isOpen}
-                          >
-                            <span
-                              className={`shrink-0 font-extrabold text-[12px] pt-0.5 tracking-widest transition-colors ${isOpen ? 'text-blue' : 'text-mut group-hover:text-blue'}`}
+                        <div key={i} className="border-b border-line last:border-b-0">
+                          <h3>
+                            <button
+                              onClick={() => setOpenFaq(isOpen ? null : i)}
+                              className="group w-full flex items-start gap-4 px-6 py-[18px] text-left"
+                              aria-expanded={isOpen}
+                              aria-controls={panelId}
                             >
-                              {String(i + 1).padStart(2, '0')}
-                            </span>
-                            <span
-                              className={`flex-1 font-bold text-[15px] leading-snug transition-colors ${isOpen ? 'text-blue' : 'text-ink'}`}
-                            >
-                              {item.question}
-                            </span>
-                            <span
-                              className={`shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full border transition-all ${isOpen ? 'bg-blue border-blue text-white' : 'border-line-2 text-mut group-hover:border-blue group-hover:text-blue'}`}
-                            >
-                              {isOpen ? (
-                                <Minus size={13} strokeWidth={1.8} />
-                              ) : (
-                                <Plus size={13} strokeWidth={1.8} />
-                              )}
-                            </span>
-                          </button>
+                              <span className="flex-1 font-semibold text-[14.5px] leading-snug text-ink group-hover:text-blue transition-colors">
+                                {item.question}
+                              </span>
+                              <span
+                                className={`shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full border transition-colors ${isOpen ? 'bg-blue border-blue text-white' : 'border-line-2 text-mut group-hover:border-blue group-hover:text-blue'}`}
+                              >
+                                {isOpen ? (
+                                  <Minus size={13} strokeWidth={2} />
+                                ) : (
+                                  <Plus size={13} strokeWidth={2} />
+                                )}
+                              </span>
+                            </button>
+                          </h3>
                           <div
-                            className="grid transition-[grid-template-rows] duration-300 ease-in-out"
-                            style={{
-                              gridTemplateRows: isOpen ? '1fr' : '0fr',
-                            }}
+                            id={panelId}
+                            className="grid transition-[grid-template-rows] duration-300 ease-out"
+                            style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
                           >
                             <div className="overflow-hidden">
-                              <p className="px-7 pb-6 pl-[3.5rem] -mt-1 text-mut text-[14.5px] leading-relaxed max-w-[600px]">
+                              <p className="px-6 pb-6 pr-14 text-mut text-[14px] leading-relaxed">
                                 {item.answer}
                               </p>
                             </div>
@@ -315,7 +306,7 @@ export default function ServiceDetailPage({
 
               {/* Colonne latérale sticky */}
               <div className="lg:sticky lg:top-[100px]">
-                <div className="bg-sky rounded-[20px] border border-line p-7">
+                <div className="bg-sky rounded-[16px] border border-line p-6">
                   <h3 className="font-extrabold text-[16px] text-ink mb-3">
                     {t('requestService')}
                   </h3>
@@ -334,12 +325,9 @@ export default function ServiceDetailPage({
                 {/* Service suivant */}
                 <Link
                   href={`/services/${nextService.slug}`}
-                  className="group mt-5 flex items-center gap-4 bg-white rounded-[20px] p-5 border border-line hover:border-blue/20 transition-all"
+                  className="group mt-4 flex items-center gap-4 bg-[#FCFDFE] rounded-[16px] p-4 border border-line hover:border-line-2 transition-colors"
                 >
                   <div className="flex-1 min-w-0">
-                    <span className="block text-[11px] font-bold tracking-[0.1em] uppercase text-mut mb-1">
-                      Service suivant
-                    </span>
                     <span className="block font-bold text-[15px] text-ink group-hover:text-blue transition-colors truncate">
                       {nextService.title}
                     </span>

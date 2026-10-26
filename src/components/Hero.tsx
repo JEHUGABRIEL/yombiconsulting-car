@@ -49,13 +49,6 @@ export default function Hero() {
           key={`text-${current}`}
           className="hero-slide max-w-[640px] rounded-[28px] bg-[#FAFBFD] border border-line p-7 sm:p-9 md:p-10 shadow-[0_30px_70px_rgba(12,36,64,.14)]"
         >
-          <div className="animate-fade-in-up">
-            <span className="chip inline-flex items-center gap-2 bg-tint text-blue text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue" />
-              {slide.chip}
-            </span>
-          </div>
-
           <h1 className="font-extrabold text-navy text-[clamp(2.1rem,4.2vw,3.3rem)] leading-[1.1] tracking-[-0.025em] mb-5 animate-fade-in-up delay-100">
             {slide.title.split(slide.titleHighlight).map((part: string, i: number) => (
               <span key={i}>

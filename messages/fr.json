@@ -576,7 +576,13 @@
       "message": "Message *",
       "messagePlaceholder": "Votre contexte, vos besoins, vos échéances",
       "submit": "Envoyer le message",
-      "legal": "Votre application de messagerie s'ouvrira avec le message prêt à envoyer. Aucune donnée n'est stockée sur ce site."
+      "legal": "Votre application de messagerie s'ouvrira avec le message prêt à envoyer. Aucune donnée n'est stockée sur ce site.",
+      "sending": "Envoi…",
+      "successTitle": "Message envoyé",
+      "successText": "Merci pour votre message. Nous revenons vers vous sous 48 heures ouvrées.",
+      "errorTitle": "Envoi impossible",
+      "errorFallback": "Vous pouvez nous écrire directement à",
+      "sendAnother": "Envoyer un autre message"
     }
   },
   "faq": {

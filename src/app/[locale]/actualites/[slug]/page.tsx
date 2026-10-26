@@ -133,13 +133,10 @@ export default function ActualiteDetailPage({
               </p>
               <Link
                 href={`/actualites/${nextArticle.slug}`}
-                className="group flex items-center justify-between bg-white rounded-[20px] p-6 border border-line hover:border-blue/20 transition-colors"
+                className="group flex items-center justify-between bg-[#FCFDFE] rounded-[16px] px-6 py-5 border border-line hover:border-line-2 transition-colors"
               >
                 <div className="min-w-0 mr-4">
-                  <span className="block text-[11px] font-bold tracking-[0.1em] uppercase text-blue mb-1">
-                    {nextArticle.category}
-                  </span>
-                  <span className="block font-bold text-[16px] text-ink group-hover:text-blue transition-colors truncate">
+                  <span className="block font-semibold text-[15.5px] text-ink group-hover:text-blue transition-colors truncate">
                     {nextArticle.title}
                   </span>
                 </div>

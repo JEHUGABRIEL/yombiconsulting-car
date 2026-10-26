@@ -17,10 +17,6 @@ export default function Cabinet() {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 mb-10">
           <ScrollReveal>
-            <span className="chip inline-flex items-center gap-2 bg-[rgba(255,255,255,.1)] text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-soft" />
-              {t('chip')}
-            </span>
             <h2 className="text-white font-extrabold text-[clamp(1.85rem,3.4vw,2.6rem)] leading-[1.15] tracking-[-0.02em]">
               {t('title')}{' '}
               <span className="text-blue-soft">{t('titleHighlight')}</span>

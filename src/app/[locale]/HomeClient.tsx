@@ -10,6 +10,7 @@ import ValeurAjoutee from '@/components/ValeurAjoutee';
 import Partenariats from '@/components/Partenariats';
 import Actualites from '@/components/Actualites';
 import Testimonials from '@/components/Testimonials';
+import Contact from '@/components/Contact';
 import CtaBanner from '@/components/CtaBanner';
 import Faq from '@/components/Faq';
 import Footer from '@/components/Footer';
@@ -28,6 +29,7 @@ export default function HomeClient() {
         <Partenariats />
         <Actualites />
         <Testimonials />
+        <Contact />
         <CtaBanner />
         <Faq />
       </main>

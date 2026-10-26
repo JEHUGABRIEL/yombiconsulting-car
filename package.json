@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:migrate": "node --env-file-if-exists=.env.local scripts/run-migrations.mjs",
+    "db:create-admin": "node --env-file-if-exists=.env.local scripts/create-admin.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",

@@ -576,7 +576,13 @@
       "message": "Message *",
       "messagePlaceholder": "Your context, your needs, your deadlines",
       "submit": "Send message",
-      "legal": "Your email app will open with the message ready to send. No data is stored on this site."
+      "legal": "Your email app will open with the message ready to send. No data is stored on this site.",
+      "sending": "Sending…",
+      "successTitle": "Message sent",
+      "successText": "Thank you for your message. We will get back to you within two business days.",
+      "errorTitle": "Message could not be sent",
+      "errorFallback": "You can email us directly at",
+      "sendAnother": "Send another message"
     }
   },
   "faq": {
