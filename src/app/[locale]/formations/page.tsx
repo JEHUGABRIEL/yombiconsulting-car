@@ -71,7 +71,7 @@ export default function FormationsPage() {
                 <Link
                   key={formation.slug}
                   href={`/formations/${formation.slug}`}
-                  className="group block bg-sky rounded-[20px] overflow-hidden border border-line hover:border-blue/20 hover:shadow-[0_16px_40px_rgba(13,36,70,.1)] transition-all duration-300"
+                  className="group block bg-sky rounded-[20px] overflow-hidden border border-line hover:border-blue/20 transition-all duration-300"
                 >
                   {/* Image */}
                   <div className="relative h-[180px] overflow-hidden">
@@ -100,7 +100,7 @@ export default function FormationsPage() {
                         {formation.format}
                       </span>
                     </div>
-                    <span className="inline-flex items-center gap-2 text-blue text-[14px] font-bold group-hover:gap-3 transition-all">
+                    <span className="inline-flex items-center gap-2 text-blue text-[14px] font-bold transition-colors">
                       Détails
                       <ArrowRight size={16} strokeWidth={2.5} />
                     </span>

@@ -350,7 +350,7 @@ export default function ServiceDetailPage({
                   </div>
                   <ArrowRight
                     size={18}
-                    className="text-blue shrink-0 group-hover:translate-x-0.5 transition-transform"
+                    className="text-blue shrink-0 transition-colors"
                   />
                 </Link>
               </div>

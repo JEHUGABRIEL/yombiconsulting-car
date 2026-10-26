@@ -38,7 +38,7 @@ export default function Cabinet() {
           </blockquote>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7" data-stagger>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.15fr_1fr_0.85fr] gap-7" data-stagger>
           {pillars.map((pillar: any, i: number) => {
             const Icon = pillarIcons[i];
             return (

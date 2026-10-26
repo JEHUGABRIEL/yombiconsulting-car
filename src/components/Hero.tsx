@@ -73,7 +73,7 @@ export default function Hero() {
           <div className="flex items-center gap-7 flex-wrap mb-12 animate-fade-in-up delay-300">
             <a
               href="#services"
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep hover:shadow-[0_10px_26px_rgba(37,87,230,.32)] transition-all"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-colors"
             >
               {slide.cta1}
               <ArrowRight size={17} strokeWidth={2.5} />

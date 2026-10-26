@@ -98,7 +98,7 @@ export default function AProposPage() {
                 {t('pillarsTitle')} <span className="text-blue">{t('pillarsTitleHighlight')}</span>
               </h2>
             </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-7" data-stagger>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.15fr_1fr_0.85fr] gap-7" data-stagger>
               {pillars.map((pillar: any, i: number) => {
                 const Icon = pillarIcons[i];
                 return (
@@ -171,13 +171,13 @@ export default function AProposPage() {
                 </Link>
                 <Link
                   href="/formations"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-transparent border-[1.5px] border-white/25 text-white text-[15px] font-bold hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-transparent border-[1.5px] border-white/25 text-white text-[15px] font-bold transition-colors"
                 >
                   {t('ctaFormations')}
                 </Link>
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-blue-soft text-[15px] font-bold hover:bg-white/15 transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-blue-soft text-[15px] font-bold transition-colors"
                 >
                   {t('ctaContact')}
                 </Link>

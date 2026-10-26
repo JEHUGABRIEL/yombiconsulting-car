@@ -1,0 +1,144 @@
+30 signes que ton site est vibe-codé
+Le signe en blanc, la correction derrière la flèche.
+1. Dégradés criards violet-rose-orange. → Une seule teinte d'accent, en
+dégradé subtil ou en aplat.
+2. Icônes Lucide par défaut, partout. → Un set cohérent avec ta marque, une
+taille, une graisse.
+3. Fond blanc pur #ffffff. → Un blanc cassé, chaud ou froid, accordé à ton
+accent.
+4. Palette arc-en-ciel, quatre couleurs vives ou plus. → Un accent plus des
+neutres, rien d'autre.
+5. Ombres portées sur tout. → L'ombre, seulement sur ce qui flotte : modales,
+menus.
+6. Trois cartes de features parfaitement alignées. → Casse la symétrie : une
+liste, des tailles différenciées.
+7. Emojis en guise d'icônes. → Du SVG, ou rien.
+8. Verre dépoli décoratif (backdrop-blur). → Réservé à la lisibilité d'un
+overlay, jamais en décor.
+9. Tirets cadratins dans les textes. → Des tirets simples, ou une phrase
+reformulée.
+10. Inter, Geist ou Space Grotesk en police unique. → Une police qui a du
+caractère et reste lisible.
+11.
+Liseré coloré vertical à gauche des encadrés. → Une hiérarchie
+typographique à la place.
+12.
+Faux témoignages, cinq étoiles, prénoms seuls. → Du vrai ou rien. Un
+faux avis détruit tout le reste.
+13. Grille bento décorative. → Chaque case porte une vraie information, sinon
+des sections.
+14.
+Fenêtre de terminal décorative, faux code. → Montre le vrai produit, ou
+supprime.
+15.
+« C'est pas X, c'est Y » dans la copy. → Le bénéfice concret, chiffré si
+possible.
+16.
+Puces à coche verte sur toutes les listes. → Varie. La coche se garde pour
+les vraies validations.
+17.
+Trois formules de prix, celle du milieu en avant. → Ton offre réelle décide
+du moule, pas l'inverse.
+18.
+Aucune démo du vrai produit. → Une capture, un enregistrement ou un
+lien. Du réel.
+19.
+Le même arrondi généreux sur tout. → Petits rayons par défaut, le grand
+rayon se mérite.
+20.
+Violet saturé sur fond noir. → Un accent que l'IA ne choisit pas toute seule.
+Chargement muet, spinner seul. → Un squelette de contenu, ou un libellé
+qui dit ce qui charge.
+22. Orbes lumineux flous en arrière-plan. → Supprime.
+23.
+Trame de points décorative en fond. → Supprime.
+24.
+Icônes étincelles pour dire « IA ». → Le mot exact de la fonction.
+25.
+Flèches animées vers le CTA. → Un CTA qui a besoin d'une flèche est mal
+écrit.
+26.
+Pas de CGU. → Un squelette généré, relu par un humain avant mise en ligne.
+27.
+Pas de politique de confidentialité. → Obligatoire dès qu'un formulaire
+collecte un email.
+28.
+Animation au survol sur tout. → La réaction, seulement sur ce qui se
+clique.
+29.
+Couleurs néon saturées. → Désature. Pense à l'écran mal calibré.
+30.
+Pastels fades sans contraste. → Contraste texte-fond de 4,5:1 minimum,
+mesuré.
+
+PROMPT ANTI-VIBE-CODÉ
+Audite ce projet web contre les 30 signes du design « vibe-codé » listés plus bas,
+puis corrige ce qui peut l'être sans décision produit.
+Déroulé imposé, dans cet ordre :
+1. Si le projet est sous git, fais un commit de sauvegarde avant de toucher quoi
+que ce soit. Sinon, copie les fichiers que tu vas modifier en `.avant-audit`.
+2. SCANNE tout le code servi au navigateur (HTML, CSS, Tailwind, composants JS,
+templates). Produis un rapport : pour chacun des 30 points, écris OK, TROUVÉ (avec
+fichier et ligne), ou NON APPLICABLE.
+3. CORRIGE les points marqués [auto] que tu as trouvés. Règle absolue : tu ajustes
+le design existant, tu ne le redessines pas.
+4. Pour les points marqués [décision], ne modifie RIEN : pose-moi la question avec
+ta recommandation en une phrase.
+5. Termine par : le diff résumé, les questions en attente, et ce qui doit se faire
+à la main.
+Les 30 points :
+1. [auto] Dégradés criards multi-teintes : garde UNE teinte d'accent, dégradé
+subtil ou fond uni.
+2. [décision] Icônes Lucide/Feather par défaut : propose un set cohérent avec la
+marque, ou une taille et une graisse uniques.
+3. [auto] Fond blanc pur #ffffff : décale vers un blanc cassé cohérent avec
+l'accent.
+4. [auto] Palette arc-en-ciel (4 couleurs vives ou plus) : réduis à un accent plus
+des neutres.
+5. [auto] Ombres portées sur tout : garde-les sur les éléments au-dessus du flux
+(modales, menus), supprime les autres.
+6. [auto] Trois cartes de features alignées : casse la symétrie (liste, layout
+asymétrique ou tailles différenciées).
+7. [auto] Emojis en guise d'icônes : remplace par du SVG ou supprime.
+8. [auto] Verre dépoli (backdrop-blur) décoratif : supprime partout où il ne sert
+pas la lisibilité d'un overlay.
+9. [auto] Tirets cadratins dans les textes : tirets simples ou reformule.
+10. [décision] Inter, Geist ou Space Grotesk en police unique : propose une
+alternative avec du caractère, lisible.
+11. [auto] Liseré coloré vertical à gauche des encadrés : supprime ou remplace par
+une hiérarchie typographique.
+12. [décision] Témoignages sans nom vérifiable, cinq étoiles, logos de presse : du
+vrai ou rien. Rien ne s'invente.
+13. [auto] Grille bento décorative : garde-la seulement si chaque case informe,
+sinon simplifie en sections.
+14. [auto] Fenêtre de terminal décorative : supprime si elle ne montre pas le vrai
+produit.
+15. [auto] « C'est pas X, c'est Y » dans la copy : réécris avec le bénéfice
+concret.
+16. [auto] Puces-coches partout : varie, garde la coche pour les vraies
+validations.
+17. [décision] Trois formules de prix, milieu en avant : à repenser si l'offre
+réelle ne colle pas au moule.
+18. [décision] Aucune démo du vrai produit : dis-moi ce qui existe (capture,
+enregistrement, lien).
+19. [auto] Même border-radius sur tout : hiérarchise, grand rayon réservé à un ou
+deux éléments.
+20. [auto] Violet saturé sur fond noir : change pour un accent moins générique.
+21. [auto] Spinner seul : squelette de contenu ou libellé de ce qui charge.
+22. [auto] Orbes lumineux flous : supprime.
+23. [auto] Trame de points décorative : supprime.
+24. [auto] Icônes étincelles pour « IA » : le mot exact de la fonction.
+25. [auto] Flèches animées vers le CTA : supprime.
+26. [décision] Pas de CGU : génère un squelette adapté, je le fais relire avant
+mise en ligne.
+27. [décision] Pas de politique de confidentialité : squelette à faire relire,
+obligatoire si un email est collecté.
+28. [auto] Animation au survol sur tout : garde la réaction sur les seuls éléments
+cliquables.
+29. [auto] Néon saturé : désature vers des tons qui tiennent sur un écran mal
+calibré.
+30. [auto] Pastels sans contraste : monte le contraste texte-fond à 4,5:1 minimum,
+mesure-le.
+Contraintes finales : aucune dépendance ajoutée, aucun changement de framework,
+chaque correction laisse le site fonctionnel. Si un point te semble faux dans MON
+contexte, dis-le au lieu de corriger.

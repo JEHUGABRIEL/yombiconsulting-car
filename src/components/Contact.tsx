@@ -193,7 +193,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep hover:shadow-[0_10px_26px_rgba(37,87,230,.32)] transition-all mt-2"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-colors mt-2"
               >
                 {t('form.submit')}
                 <ArrowRight size={17} strokeWidth={2.5} />

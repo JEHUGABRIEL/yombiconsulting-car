@@ -53,7 +53,7 @@ export default function ServicesPage() {
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group block bg-sky rounded-[20px] p-8 hover:shadow-[0_16px_40px_rgba(13,36,70,.1)] transition-all duration-300 border border-line hover:border-blue/20"
+                  className="group block bg-sky rounded-[20px] p-8 transition-colors duration-300 border border-line hover:border-blue/20"
                 >
                   <div className="w-14 h-14 rounded-[14px] bg-tint text-blue flex items-center justify-center mb-6 group-hover:bg-blue group-hover:text-white transition-all duration-300">
                     {iconMap[service.slug]}
@@ -64,7 +64,7 @@ export default function ServicesPage() {
                   <p className="text-mut text-[14.5px] leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <span className="inline-flex items-center gap-2 text-blue text-[14px] font-bold group-hover:gap-3 transition-all">
+                  <span className="inline-flex items-center gap-2 text-blue text-[14px] font-bold transition-colors">
                     {t('details')}
                     <ArrowRight size={16} strokeWidth={2.5} />
                   </span>

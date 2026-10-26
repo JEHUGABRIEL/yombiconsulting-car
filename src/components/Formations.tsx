@@ -46,7 +46,7 @@ export default function Formations() {
               <ScrollReveal key={formation.slug}>
                 <Link
                   href={`/formations/${formation.slug}`}
-                  className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-line hover:border-blue/25 hover:-translate-y-1 hover:shadow-[0_20px_48px_rgba(13,36,70,.12)] transition-all duration-300"
+                  className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-line hover:border-blue/25 transition-all duration-300"
                 >
                   {/* Image */}
                   <div className="relative h-[180px] overflow-hidden shrink-0">
@@ -86,7 +86,7 @@ export default function Formations() {
                         {t('seeMore')}
                         <ArrowUpRight
                           size={15}
-                          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          className="transition-colors duration-300"
                         />
                       </span>
                     </div>
@@ -108,7 +108,7 @@ export default function Formations() {
               <ArrowRight
                 size={17}
                 strokeWidth={2.5}
-                className="transition-transform duration-300 group-hover:translate-x-1"
+                className="transition-colors duration-300"
               />
             </Link>
           </div>

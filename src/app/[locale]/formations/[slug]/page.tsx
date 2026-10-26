@@ -106,7 +106,7 @@ export default function FormationDetailPage({ params }: { params: Promise<{ slug
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(formation.title + ' · Yo Mbi Consulting')}`}
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep hover:shadow-[0_10px_26px_rgba(37,87,230,.32)] transition-all"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-colors"
               >
                 {t('noteLink')}
                 <ArrowRight size={17} strokeWidth={2.5} />
@@ -123,7 +123,7 @@ export default function FormationDetailPage({ params }: { params: Promise<{ slug
             </p>
             <Link
               href={`/formations/${nextFormation.slug}`}
-              className="group flex items-center justify-between bg-white rounded-[20px] p-6 border border-line hover:border-blue/20 hover:shadow-[0_8px_24px_rgba(13,36,70,.08)] transition-all"
+              className="group flex items-center justify-between bg-white rounded-[20px] p-6 border border-line hover:border-blue/20 transition-colors"
             >
               <div>
                 <span className="text-[12px] font-bold text-blue/70 block mb-1">
