@@ -59,7 +59,7 @@ export default function Footer() {
               className="bg-[rgba(255,255,255,.07)] border-[1.5px] border-[rgba(255,255,255,.18)] rounded-full px-[22px] py-3.5 text-[14.5px] text-white min-w-[280px] focus:outline-none focus:border-blue-soft transition-all placeholder:text-[#8799B3]" />
             <button
               type="submit"
-              className="px-7 py-3.5 rounded-full bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-all"
+              className="px-7 py-3.5 rounded-[10px] bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-all"
             >
               {t('newsletter.cta')}
             </button>

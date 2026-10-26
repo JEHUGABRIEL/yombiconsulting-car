@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import { getActualites } from '@/data/actualites';
 
@@ -11,116 +10,96 @@ export default function Actualites() {
   const t = useTranslations('actualites');
   const locale = useLocale();
   const items = getActualites(locale);
+  const [lead, ...rest] = items;
 
-  const [visible, setVisible] = useState(3);
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const update = () => {
-      const w = window.innerWidth;
-      setVisible(w >= 1024 ? 3 : w >= 640 ? 2 : 1);
-    };
-    update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
-  }, []);
-
-  const maxIndex = Math.max(0, items.length - visible);
-  const current = Math.min(index, maxIndex);
-
-  useEffect(() => {
-    setIndex((i) => Math.min(i, Math.max(0, items.length - visible)));
-  }, [visible, items.length]);
+  if (!lead) return null;
 
   return (
-    <section id="actualites" className="py-20 bg-white">
+    <section id="actualites" className="py-20">
       <div className="max-w-[1200px] mx-auto px-6">
         <ScrollReveal>
-          <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
-            <div className="max-w-[620px]">
-              <h2 className="font-extrabold text-[clamp(1.85rem,3.4vw,2.6rem)] leading-[1.15] tracking-[-0.02em] mb-3">
+          <div className="flex flex-wrap items-end justify-between gap-5 mb-9">
+            <div className="max-w-[560px]">
+              <h2 className="font-extrabold text-[clamp(1.9rem,3.6vw,2.6rem)] leading-[1.1] tracking-[-0.03em]">
                 {t('title')} <span className="text-blue">{t('titleHighlight')}</span>
               </h2>
-              <p className="text-mut text-[15.5px]">{t('description')}</p>
             </div>
+            <Link
+              href="/actualites"
+              className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-ink hover:text-blue transition-colors"
+            >
+              {t('viewAll')}
+              <ArrowRight size={15} strokeWidth={2} />
+            </Link>
+          </div>
+        </ScrollReveal>
 
-            {maxIndex > 0 && (
-              <div className="flex items-center gap-3">
-                <span className="text-[13px] font-medium text-mut tabular-nums">
-                  {current + 1} / {maxIndex + 1}
-                </span>
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setIndex(Math.max(0, current - 1))}
-                    disabled={current === 0}
-                    className="carousel-btn"
-                    aria-label="Actualités précédentes"
-                  >
-                    <ChevronLeft size={17} strokeWidth={1.8} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setIndex(Math.min(maxIndex, current + 1))}
-                    disabled={current >= maxIndex}
-                    className="carousel-btn"
-                    aria-label="Actualités suivantes"
-                  >
-                    <ChevronRight size={17} strokeWidth={1.8} />
-                  </button>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.45fr_1fr] gap-4">
+          {/* Article principal : photo plein cadre, texte en panneau superposé */}
+          <ScrollReveal>
+            <Link
+              href={`/actualites/${lead.slug}`}
+              className="group relative block overflow-hidden rounded-[20px] bg-navy min-h-[420px] h-full"
+            >
+              <img
+                src={lead.image}
+                alt={lead.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent" />
+
+              <div className="relative h-full flex items-end p-3 sm:p-4">
+                <div className="bg-[#FCFDFE] rounded-[14px] p-5 sm:p-6 w-full max-w-[440px]">
+                  <div className="card__meta mb-2.5">
+                    <span className="text-blue">{lead.category}</span>
+                    <span className="w-1 h-1 rounded-full bg-line-2" />
+                    <span>{lead.date}</span>
+                  </div>
+                  <h3 className="text-[18px] font-semibold text-ink leading-[1.35] tracking-[-0.01em] group-hover:text-blue transition-colors">
+                    {lead.title}
+                  </h3>
+                  <p className="text-mut text-[13.5px] leading-[1.6] mt-2 line-clamp-2">
+                    {lead.excerpt}
+                  </p>
+                  <span className="card__cta mt-3.5">
+                    {t('readMore')}
+                    <ArrowRight size={15} strokeWidth={1.9} />
+                  </span>
                 </div>
               </div>
-            )}
-          </div>
-        </ScrollReveal>
+            </Link>
+          </ScrollReveal>
 
-        <ScrollReveal delay={80}>
-          <div className="overflow-hidden -mx-1">
-            <div
-              className="carousel-track flex"
-              style={{ transform: `translateX(-${current * (100 / visible)}%)` }}
-            >
-              {items.map((article) => (
-                <div
-                  key={article.slug}
-                  className="shrink-0 px-1"
-                  style={{ width: `${100 / visible}%` }}
+          {/* Deux articles secondaires empilés, composition horizontale */}
+          <div className="flex flex-col gap-4">
+            {rest.slice(0, 2).map((article, i) => (
+              <ScrollReveal key={article.slug} delay={80 + i * 60} className="flex-1">
+                <Link
+                  href={`/actualites/${article.slug}`}
+                  className="group flex h-full overflow-hidden rounded-[20px] bg-[#F6F8FC] border border-[#ECEFF6] hover:border-[#DCE3EF] hover:bg-[#FDFEFF] transition-colors"
                 >
-                  <Link href={`/actualites/${article.slug}`} className="card group h-full">
-                    <div className="card__media">
-                      <img src={article.image} alt={article.title} loading="lazy" />
+                  <div className="w-[38%] sm:w-[34%] shrink-0 overflow-hidden">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      loading="lazy"
+                      className="w-full h-full min-h-[150px] object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center p-4 sm:p-5 min-w-0">
+                    <div className="card__meta mb-1.5">
+                      <span className="text-blue">{article.category}</span>
                     </div>
-
-                    <div className="card__body">
-                      <div className="card__meta">
-                        <span className="text-blue">{article.category}</span>
-                        <span className="w-1 h-1 rounded-full bg-line-2" />
-                        <span>{article.date}</span>
-                      </div>
-
-                      <h3 className="card__title">{article.title}</h3>
-                      <p className="card__text line-clamp-3">{article.excerpt}</p>
-
-                      <span className="card__cta">
-                        {t('readMore')}
-                        <ArrowRight size={16} strokeWidth={1.8} />
-                      </span>
-                    </div>
-                  </Link>
-                </div>
-              ))}
-            </div>
+                    <h3 className="text-[14.5px] font-semibold text-ink leading-[1.4] line-clamp-2 group-hover:text-blue transition-colors">
+                      {article.title}
+                    </h3>
+                    <span className="text-[12px] text-mut mt-2">{article.date}</span>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            ))}
           </div>
-        </ScrollReveal>
-
-        <div className="mt-10">
-          <Link
-            href="/actualites"
-            className="inline-flex items-center gap-2 text-[14px] font-semibold text-blue hover:gap-2.5 transition-all"
-          >
-            {t('viewAll')}
-            <ArrowRight size={16} strokeWidth={1.9} />
-          </Link>
         </div>
       </div>
     </section>

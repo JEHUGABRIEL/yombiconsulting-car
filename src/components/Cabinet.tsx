@@ -13,42 +13,47 @@ export default function Cabinet() {
   const sectionRef = useScrollRevealContainer();
 
   return (
-    <section id="cabinet" className="py-16 bg-navy text-white" ref={sectionRef}>
+    <section id="cabinet" className="pb-20" ref={sectionRef}>
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 mb-10">
+        <div className="bg-[#EDF2FB] rounded-[28px] px-6 sm:px-10 lg:px-12 py-12 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-8 lg:gap-16 items-start mb-10">
+            <ScrollReveal>
+              <h2 className="text-navy font-extrabold text-[clamp(1.9rem,3.6vw,2.75rem)] leading-[1.1] tracking-[-0.03em]">
+                {t('title')} <span className="text-blue">{t('titleHighlight')}</span>
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <p className="text-mut text-[15.5px] leading-[1.7]">{t('description')}</p>
+              <p className="text-mut text-[15.5px] leading-[1.7] mt-3.5">{t('description2')}</p>
+            </ScrollReveal>
+          </div>
+
           <ScrollReveal>
-            <h2 className="text-white font-extrabold text-[clamp(1.85rem,3.4vw,2.6rem)] leading-[1.15] tracking-[-0.02em]">
-              {t('title')}{' '}
-              <span className="text-blue-soft">{t('titleHighlight')}</span>
-            </h2>
+            <blockquote className="border-l-2 border-blue pl-5 lg:pl-6 max-w-[760px] mb-10 lg:mb-12">
+              <p className="text-[clamp(1.15rem,2vw,1.45rem)] font-semibold text-navy leading-[1.45] tracking-[-0.015em]">
+                {t('mission')}
+              </p>
+            </blockquote>
           </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <p className="text-[#B9C7DC] text-[15.5px]">{t('description')}</p>
-            <p className="text-[#B9C7DC] text-[15.5px] mt-3.5">{t('description2')}</p>
-          </ScrollReveal>
-        </div>
 
-        <ScrollReveal>
-          <blockquote className="text-center text-[clamp(1.25rem,2.2vw,1.6rem)] font-semibold text-[#E7EEF9] tracking-[-0.01em] py-[38px] px-6 border-t border-b border-[rgba(255,255,255,.12)] mb-14">
-            « <b className="text-blue-soft font-semibold">{t('mission')}</b> »
-          </blockquote>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.15fr_1fr_0.85fr] gap-7" data-stagger>
-          {pillars.map((pillar: any, i: number) => {
-            const Icon = pillarIcons[i];
-            return (
-              <ScrollReveal key={i}>
-                <div className="bg-[rgba(255,255,255,.05)] border border-[rgba(255,255,255,.1)] rounded-[20px] p-[30px]">
-                  <span className="w-[54px] h-[54px] rounded-[16px] bg-blue flex items-center justify-center mb-5">
-                    <Icon size={25} className="text-white" strokeWidth={1.8} />
-                  </span>
-                  <h3 className="text-[18px] font-extrabold mb-2.5">{pillar.title}</h3>
-                  <p className="text-[14.5px] text-[#B9C7DC]">{pillar.description}</p>
-                </div>
-              </ScrollReveal>
-            );
-          })}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5" data-stagger>
+            {pillars.map((pillar: any, i: number) => {
+              const Icon = pillarIcons[i];
+              return (
+                <ScrollReveal key={i} className="h-full">
+                  <div className="bg-[#FCFDFE] border border-[#DEE6F3] rounded-[16px] p-6 h-full">
+                    <span className="w-9 h-9 rounded-[9px] bg-blue flex items-center justify-center mb-4">
+                      <Icon size={17} className="text-white" strokeWidth={1.9} />
+                    </span>
+                    <h3 className="text-[15.5px] font-semibold text-ink mb-2 leading-snug">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-[14px] text-mut leading-[1.65]">{pillar.description}</p>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

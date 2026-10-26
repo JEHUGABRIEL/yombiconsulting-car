@@ -2,9 +2,8 @@
 
 import { useTranslations } from 'next-intl';
 import { useState, useEffect, useCallback } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
-/* ── Images de fond par slide ───────────────────────────── */
 const heroImages = [
   '/images/formation-salle-participants.jpeg',
   '/images/chantier-consignes-securite.jpeg',
@@ -16,85 +15,123 @@ export default function Hero() {
   const slides = t.raw('slides');
   const stats = t.raw('stats');
   const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
 
-  const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  }, [slides.length]);
+  const go = useCallback(
+    (next: number) => setCurrent((next + slides.length) % slides.length),
+    [slides.length]
+  );
 
   useEffect(() => {
-    const timer = setInterval(next, 6000);
+    if (paused) return;
+    const timer = setInterval(() => setCurrent((prev) => (prev + 1) % slides.length), 7000);
     return () => clearInterval(timer);
-  }, [next]);
+  }, [paused, slides.length]);
 
   const slide = slides[current];
 
   return (
-    <section className="relative overflow-hidden bg-sky pt-24 pb-16 min-h-[85vh] flex items-center">
-      {/* ── Background images (crossfade) ── */}
-      {heroImages.map((src, i) => (
-        <div
-          key={i}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-[1200ms] ease-in-out"
-          style={{
-            backgroundImage: `url('${src}')`,
-            opacity: i === current ? 1 : 0,
-          }} />
-      ))}
+    <section className="pt-[112px] pb-16 lg:pt-[148px] lg:pb-24 bg-[#FCFDFE] overflow-hidden">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-14 lg:gap-16 items-center">
+          {/* ── Texte ── */}
+          <div>
+            <h1 className="font-extrabold text-navy text-[clamp(2.15rem,4.6vw,3.5rem)] leading-[1.06] tracking-[-0.035em]">
+              {slide.title.split(slide.titleHighlight).map((part: string, i: number) => (
+                <span key={i}>
+                  {part}
+                  {i === 0 && <span className="text-blue">{slide.titleHighlight}</span>}
+                </span>
+              ))}
+            </h1>
 
-      {/* Aucun voile ni filtre sur la photo */}
+            <p className="text-mut text-[17px] leading-[1.65] max-w-[520px] mt-6">
+              {slide.lead}
+            </p>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 w-full">
-        <div
-          key={`text-${current}`}
-          className="hero-slide max-w-[640px] rounded-[28px] bg-[#FAFBFD] border border-line p-7 sm:p-9 md:p-10 shadow-[0_30px_70px_rgba(12,36,64,.14)]"
-        >
-          <h1 className="font-extrabold text-navy text-[clamp(2.1rem,4.2vw,3.3rem)] leading-[1.1] tracking-[-0.025em] mb-5 animate-fade-in-up delay-100">
-            {slide.title.split(slide.titleHighlight).map((part: string, i: number) => (
-              <span key={i}>
-                {part}
-                {i === 0 && (
-                  <span className="text-blue">{slide.titleHighlight}</span>
-                )}
-              </span>
-            ))}
-          </h1>
+            <div className="flex flex-wrap items-center gap-3 mt-8">
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[14.5px] font-semibold rounded-[10px] bg-blue text-white hover:bg-blue-deep transition-colors"
+              >
+                {slide.cta1}
+                <ArrowRight size={17} strokeWidth={1.9} />
+              </a>
+              <a
+                href="#cabinet"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[14.5px] font-semibold rounded-[10px] border border-line-2 text-ink hover:border-blue hover:text-blue transition-colors"
+              >
+                {slide.cta2}
+              </a>
+            </div>
 
-          <p className="text-mut text-[16.5px] max-w-[520px] mb-8 animate-fade-in-up delay-200">
-            {slide.lead}
-          </p>
-
-          <div className="flex items-center gap-7 flex-wrap mb-9 animate-fade-in-up delay-300">
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-colors"
-            >
-              {slide.cta1}
-              <ArrowRight size={18} strokeWidth={1.8} />
-            </a>
-            <a
-              href="#cabinet"
-              className="inline-flex items-center gap-2 text-blue text-[15px] font-bold hover:underline"
-            >
-              {slide.cta2}
-              <ArrowRight size={18} strokeWidth={1.8} />
-            </a>
+            <dl className="grid grid-cols-3 gap-x-4 sm:gap-x-8 mt-10 pt-7 border-t border-line">
+              {stats.map((stat: any, i: number) => (
+                <div key={i}>
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd>
+                    <span className="block text-[22px] sm:text-[26px] font-extrabold text-navy tracking-[-0.03em] leading-none">
+                      {stat.value}
+                    </span>
+                    <span className="block text-[11.5px] sm:text-[12.5px] font-medium text-mut mt-2 leading-snug">
+                      {stat.label}
+                    </span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
-          <div className="flex flex-wrap gap-0 animate-fade-in-up delay-500">
-            {stats.map((stat: any, i: number) => (
-              <div
-                key={i}
-                className={`py-1 pr-10 mr-10 ${
-                  i < stats.length - 1 ? 'border-r border-line' : 'border-none mr-0 pr-0'
-                }`}
-              >
-                <strong className="block text-[28px] font-extrabold text-navy tracking-[-0.02em] leading-tight">
-                  {stat.value}
-                </strong>
-                <span className="text-[13px] font-semibold text-mut">{stat.label}</span>
+          {/* ── Visuel ── */}
+          <div
+            className="relative"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
+            {/* Bloc plein décalé, signature éditoriale */}
+            <div
+              aria-hidden
+              className="hidden sm:block absolute -top-5 -right-5 bottom-[68px] left-14 rounded-[26px] bg-navy"
+            />
+
+            <div className="relative rounded-[24px] overflow-hidden aspect-[4/5] sm:aspect-[5/6] bg-sky">
+              {heroImages.map((src, i) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt=""
+                  aria-hidden={i !== current}
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[900ms] ease-out"
+                  style={{ opacity: i === current ? 1 : 0 }}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                />
+              ))}
+
+            </div>
+
+            <div className="flex items-center justify-between gap-4 mt-4 pl-1">
+              <span className="text-[12.5px] font-medium text-mut tabular-nums">
+                {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+              </span>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => go(current - 1)}
+                  aria-label="Visuel précédent"
+                  className="carousel-btn"
+                >
+                  <ChevronLeft size={16} strokeWidth={1.9} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => go(current + 1)}
+                  aria-label="Visuel suivant"
+                  className="carousel-btn"
+                >
+                  <ChevronRight size={16} strokeWidth={1.9} />
+                </button>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>

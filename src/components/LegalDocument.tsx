@@ -125,14 +125,14 @@ export default function LegalDocument({ namespace }: { namespace: LegalNamespace
                   <div className="flex flex-wrap gap-3">
                     <a
                       href="mailto:contact.cmc@gmail.com"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue text-white text-[14px] font-bold hover:bg-blue-deep transition-colors"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] bg-blue text-white text-[14px] font-bold hover:bg-blue-deep transition-colors"
                     >
                       <Mail size={16} strokeWidth={1.8} />
                       contact.cmc@gmail.com
                     </a>
                     <a
                       href="tel:+23672111914"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-[1.5px] border-line-2 text-ink text-[14px] font-bold hover:border-blue hover:text-blue transition-colors"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] border border-line-2 text-ink text-[14px] font-bold hover:border-blue hover:text-blue transition-colors"
                     >
                       <Phone size={16} strokeWidth={1.8} />
                       +236 72 11 19 14

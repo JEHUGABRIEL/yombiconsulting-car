@@ -102,26 +102,39 @@ export default function Header() {
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-[15px] font-semibold text-ink hover:text-blue transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+          <nav className="hidden lg:flex items-center gap-7">
+            {navLinks.map((link) => {
+              const active =
+                link.href === `/${locale}`
+                  ? pathname === link.href
+                  : pathname.startsWith(link.href);
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`relative text-[14.5px] font-medium transition-colors py-1 ${
+                    active ? 'text-blue' : 'text-ink hover:text-blue'
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute -bottom-0.5 left-0 right-0 h-[2px] rounded-full bg-blue transition-opacity ${
+                      active ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                </a>
+              );
+            })}
           </nav>
 
           {/* Desktop Right */}
           <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-1 bg-sky rounded-full p-1">
+            <div className="flex items-center gap-0.5 bg-sky rounded-[9px] p-1">
               {locales.map((loc) => (
                 <button
                   key={loc}
                   onClick={() => switchLocale(loc)}
-                  className="px-3 py-1.5 rounded-full text-[12px] font-bold uppercase border-none cursor-pointer transition-all"
+                  className="px-2.5 py-1 rounded-[7px] text-[11.5px] font-bold uppercase border-none cursor-pointer transition-all"
                   style={{
                     backgroundColor: currentLocale === loc ? '#2557E6' : 'transparent',
                     color: currentLocale === loc ? '#fff' : '#5B6C86',
@@ -133,7 +146,7 @@ export default function Header() {
             </div>
             <a
               href={`/${locale}#contact`}
-              className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-colors"
+              className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-bold rounded-[10px] bg-blue text-white hover:bg-blue-deep transition-colors"
             >
               {t('cta')}
             </a>
@@ -243,7 +256,7 @@ export default function Header() {
                   <button
                     key={loc}
                     onClick={() => { switchLocale(loc); closeMenu(); }}
-                    className="flex-1 py-2.5 rounded-full text-[14px] font-bold uppercase cursor-pointer transition-all border"
+                    className="flex-1 py-2.5 rounded-[8px] text-[14px] font-bold uppercase cursor-pointer transition-all border"
                     style={{
                       border: currentLocale === loc ? 'none' : '1.5px solid #CBD7E8',
                       backgroundColor: currentLocale === loc ? '#2557E6' : 'transparent',
@@ -259,7 +272,7 @@ export default function Header() {
               <a
                 href={`/${locale}#contact`}
                 onClick={closeMenu}
-                className="flex items-center justify-center w-full py-3.5 rounded-full bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-colors"
+                className="flex items-center justify-center w-full py-3.5 rounded-[10px] bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-colors"
               >
                 {t('cta')}
               </a>

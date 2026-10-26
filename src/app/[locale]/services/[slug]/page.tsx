@@ -6,8 +6,7 @@ import { Link } from '@/i18n/navigation';
 import {
   ArrowLeft,
   ArrowRight,
-  Minus,
-  Plus,
+  ChevronDown,
   Quote,
   ChevronRight,
 } from 'lucide-react';
@@ -275,15 +274,11 @@ export default function ServiceDetailPage({
                               <span className="flex-1 font-semibold text-[14.5px] leading-snug text-ink group-hover:text-blue transition-colors">
                                 {item.question}
                               </span>
-                              <span
-                                className={`shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full border transition-colors ${isOpen ? 'bg-blue border-blue text-white' : 'border-line-2 text-mut group-hover:border-blue group-hover:text-blue'}`}
-                              >
-                                {isOpen ? (
-                                  <Minus size={13} strokeWidth={2} />
-                                ) : (
-                                  <Plus size={13} strokeWidth={2} />
-                                )}
-                              </span>
+                              <ChevronDown
+                                size={17}
+                                strokeWidth={1.9}
+                                className={`shrink-0 mt-0.5 text-mut transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue' : ''}`}
+                              />
                             </button>
                           </h3>
                           <div
@@ -315,7 +310,7 @@ export default function ServiceDetailPage({
                   </p>
                   <a
                     href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(service.subject + ' · Yo Mbi Consulting')}`}
-                    className="inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-all"
+                    className="inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 text-[15px] font-bold rounded-[10px] bg-blue text-white hover:bg-blue-deep transition-all"
                   >
                     {t('requestService')}
                     <ArrowRight size={18} strokeWidth={1.8} />
@@ -353,7 +348,7 @@ export default function ServiceDetailPage({
             </p>
             <a
               href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(service.subject + ' · Yo Mbi Consulting')}`}
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-[15px] font-bold rounded-full bg-white text-navy hover:bg-sky transition-colors"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-[15px] font-bold rounded-[10px] bg-white text-navy hover:bg-sky transition-colors"
             >
               {t('requestService')}
               <ArrowRight size={18} strokeWidth={1.8} />

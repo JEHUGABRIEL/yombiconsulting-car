@@ -151,20 +151,20 @@ export default function AProposPage() {
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-[10px] bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-colors"
                 >
                   {t('ctaServices')}
                   <ArrowRight size={18} strokeWidth={1.8} />
                 </Link>
                 <Link
                   href="/formations"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-transparent border-[1.5px] border-white/25 text-white text-[15px] font-bold transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-[10px] border border-white/25 text-white text-[15px] font-bold transition-colors"
                 >
                   {t('ctaFormations')}
                 </Link>
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-blue-soft text-[15px] font-bold transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-[10px] bg-white/10 text-blue-soft text-[15px] font-bold transition-colors"
                 >
                   {t('ctaContact')}
                 </Link>

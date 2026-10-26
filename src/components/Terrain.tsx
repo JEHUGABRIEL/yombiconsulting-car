@@ -36,7 +36,7 @@ export default function Terrain() {
               delay={i * 80}
               className={i === 0 ? 'sm:col-span-2 lg:col-span-1 lg:row-span-2' : 'sm:col-span-1'}
             >
-              <figure className="relative h-full overflow-hidden rounded-[16px] bg-navy">
+              <figure className="relative h-full overflow-hidden rounded-[20px] bg-navy">
                 <img
                   src={photo.src}
                   alt={items[i]?.title ?? ''}
@@ -61,7 +61,7 @@ export default function Terrain() {
           <div className="mt-10">
             <Link
               href="/a-propos"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 text-[14.5px] font-bold rounded-full border border-line-2 text-ink hover:border-blue hover:text-blue transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3.5 text-[14px] font-semibold rounded-[10px] border border-line-2 text-ink hover:border-blue hover:text-blue transition-colors"
             >
               {t('cta')}
               <ArrowRight size={17} strokeWidth={1.8} />
