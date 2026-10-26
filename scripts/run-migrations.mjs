@@ -6,7 +6,6 @@ import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { neon } from '@neondatabase/serverless';
-import { Agent } from 'undici';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const MIGRATIONS_DIR = path.join(__dirname, '..', 'migrations');
@@ -18,9 +17,7 @@ if (!DATABASE_URL) {
   process.exit(1);
 }
 
-const sql = neon(DATABASE_URL, {
-  fetchOptions: { dispatcher: new Agent({ connect: { family: 4 } }) },
-});
+const sql = neon(DATABASE_URL);
 
 // Découpe un fichier SQL en instructions, en ignorant les ';' contenus
 // dans des chaînes littérales et dans les corps $$ ... $$.

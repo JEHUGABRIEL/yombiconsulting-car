@@ -310,7 +310,7 @@ export default function ServiceDetailPage({
                   </p>
                   <a
                     href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(service.subject + ' · Yo Mbi Consulting')}`}
-                    className="inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 text-[15px] font-bold rounded-[10px] bg-blue text-white hover:bg-blue-deep transition-all"
+                    className="inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 text-[15px] font-bold rounded-[10px] bg-blue text-white hover:bg-blue-deep transition-colors"
                   >
                     {t('requestService')}
                     <ArrowRight size={18} strokeWidth={1.8} />

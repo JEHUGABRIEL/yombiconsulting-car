@@ -4,7 +4,6 @@
 
 import { randomBytes, scryptSync } from 'node:crypto';
 import { neon } from '@neondatabase/serverless';
-import { Agent } from 'undici';
 
 const DATABASE_URL = process.env.DATABASE_URL;
 if (!DATABASE_URL) {
@@ -37,9 +36,7 @@ const salt = randomBytes(16).toString('hex');
 const hash = scryptSync(password, salt, 64).toString('hex');
 const passwordHash = `scrypt$${salt}$${hash}`;
 
-const sql = neon(DATABASE_URL, {
-  fetchOptions: { dispatcher: new Agent({ connect: { family: 4 } }) },
-});
+const sql = neon(DATABASE_URL);
 
 try {
   const rows = await sql`

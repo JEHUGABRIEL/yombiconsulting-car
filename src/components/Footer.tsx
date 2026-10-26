@@ -56,10 +56,10 @@ export default function Footer() {
             <input
               type="email"
               placeholder={t('newsletter.placeholder')}
-              className="bg-[rgba(255,255,255,.07)] border-[1.5px] border-[rgba(255,255,255,.18)] rounded-full px-[22px] py-3.5 text-[14.5px] text-white min-w-[280px] focus:outline-none focus:border-blue-soft transition-all placeholder:text-[#8799B3]" />
+              className="bg-[rgba(255,255,255,.07)] border-[1.5px] border-[rgba(255,255,255,.18)] rounded-[10px] px-[22px] py-3.5 text-[14.5px] text-white min-w-[280px] focus:outline-none focus:border-blue-soft transition-colors placeholder:text-[#8799B3]" />
             <button
               type="submit"
-              className="px-7 py-3.5 rounded-[10px] bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-all"
+              className="px-7 py-3.5 rounded-[10px] bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-colors"
             >
               {t('newsletter.cta')}
             </button>
@@ -86,7 +86,7 @@ export default function Footer() {
                 href="https://wa.me/23672111914"
                 target="_blank"
                 rel="noopener"
-                className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-all text-lg"
+                className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-colors text-lg"
               >
                 <MessageCircle size={18} strokeWidth={1.8} />
               </a>
@@ -94,13 +94,13 @@ export default function Footer() {
                 href="https://www.facebook.com/search/top?q=cabinet%20yo%20mbi%20consulting"
                 target="_blank"
                 rel="noopener"
-                className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-all text-lg"
+                className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-colors text-lg"
               >
                 <Facebook size={18} strokeWidth={1.8} />
               </a>
               <a
                 href="mailto:contact.cmc@gmail.com"
-                className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-all text-lg"
+                className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-colors text-lg"
               >
                 <Mail size={18} strokeWidth={1.8} />
               </a>

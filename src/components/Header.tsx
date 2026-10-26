@@ -134,7 +134,7 @@ export default function Header() {
                 <button
                   key={loc}
                   onClick={() => switchLocale(loc)}
-                  className="px-2.5 py-1 rounded-[7px] text-[11.5px] font-bold uppercase border-none cursor-pointer transition-all"
+                  className="px-2.5 py-1 rounded-[7px] text-[11.5px] font-bold uppercase border-none cursor-pointer transition-colors"
                   style={{
                     backgroundColor: currentLocale === loc ? '#2557E6' : 'transparent',
                     color: currentLocale === loc ? '#fff' : '#5B6C86',
@@ -228,7 +228,7 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={closeMenu}
-                    className="flex items-center px-4 py-3.5 rounded-xl text-[16px] font-semibold text-ink hover:bg-sky hover:text-blue transition-all"
+                    className="flex items-center px-4 py-3.5 rounded-xl text-[16px] font-semibold text-ink hover:bg-sky hover:text-blue transition-colors"
                     style={{
                       opacity: menuVisible ? 1 : 0,
                       transform: menuVisible ? 'translateX(0)' : 'translateX(20px)',
@@ -256,7 +256,7 @@ export default function Header() {
                   <button
                     key={loc}
                     onClick={() => { switchLocale(loc); closeMenu(); }}
-                    className="flex-1 py-2.5 rounded-[8px] text-[14px] font-bold uppercase cursor-pointer transition-all border"
+                    className="flex-1 py-2.5 rounded-[8px] text-[14px] font-bold uppercase cursor-pointer transition-colors border"
                     style={{
                       border: currentLocale === loc ? 'none' : '1.5px solid #CBD7E8',
                       backgroundColor: currentLocale === loc ? '#2557E6' : 'transparent',

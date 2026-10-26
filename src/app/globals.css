@@ -106,10 +106,10 @@ body {
 /* ============ Scroll Reveal ============ */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(16px);
   transition:
-    opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
-    transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+    opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-reveal.revealed {
@@ -117,19 +117,46 @@ body {
   transform: translateY(0);
 }
 
-/* Stagger children: add data-stagger on a parent, its .scroll-reveal children auto-delay */
+/* Cascade : le parent porte data-stagger, chaque enfant hérite d'un retard court */
 [data-stagger] .scroll-reveal:nth-child(1) { transition-delay: 0ms; }
-[data-stagger] .scroll-reveal:nth-child(2) { transition-delay: 80ms; }
-[data-stagger] .scroll-reveal:nth-child(3) { transition-delay: 160ms; }
-[data-stagger] .scroll-reveal:nth-child(4) { transition-delay: 240ms; }
-[data-stagger] .scroll-reveal:nth-child(5) { transition-delay: 320ms; }
-[data-stagger] .scroll-reveal:nth-child(6) { transition-delay: 400ms; }
-[data-stagger] .scroll-reveal:nth-child(7) { transition-delay: 480ms; }
-[data-stagger] .scroll-reveal:nth-child(8) { transition-delay: 560ms; }
+[data-stagger] .scroll-reveal:nth-child(2) { transition-delay: 60ms; }
+[data-stagger] .scroll-reveal:nth-child(3) { transition-delay: 120ms; }
+[data-stagger] .scroll-reveal:nth-child(4) { transition-delay: 180ms; }
+[data-stagger] .scroll-reveal:nth-child(5) { transition-delay: 240ms; }
+[data-stagger] .scroll-reveal:nth-child(6) { transition-delay: 300ms; }
+[data-stagger] .scroll-reveal:nth-child(7) { transition-delay: 360ms; }
+[data-stagger] .scroll-reveal:nth-child(8) { transition-delay: 420ms; }
 
 /* Slider */
 .hero-slide {
-  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Héros : fondu enchaîné + léger zoom lent sur l'image active */
+@keyframes heroZoom {
+  from { transform: scale(1.045); }
+  to   { transform: scale(1); }
+}
+
+.hero-image-active {
+  animation: heroZoom 8s linear forwards;
+}
+
+@keyframes heroProgress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.hero-progress-fill {
+  transform-origin: left center;
+  animation: heroProgress 7s linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-active,
+  .hero-progress-fill {
+    animation: none;
+  }
 }
 
 /* ============ Hero overlay ============ */
@@ -233,7 +260,7 @@ a.card:hover .card__media img {
 
 /* Rangeau de cartes horizontaux (compteur + flèches, façon éditorial) */
 .carousel-track {
-  transition: transform 0.55s var(--ease-out);
+  transition: transform 0.62s cubic-bezier(0.32, 0.72, 0, 1);
   will-change: transform;
 }
 
