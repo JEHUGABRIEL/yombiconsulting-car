@@ -132,6 +132,48 @@ body {
   animation: fadeInUp 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 
+/* ============ Hero overlay ============ */
+/* Voile latéral : le texte reste lisible, la photo reste nette et visible. */
+.hero-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(12, 36, 64, 0.96) 0%,
+    rgba(12, 36, 64, 0.86) 42%,
+    rgba(12, 36, 64, 0.46) 100%
+  );
+}
+
+@media (max-width: 767px) {
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(12, 36, 64, 0.9) 0%,
+      rgba(12, 36, 64, 0.82) 100%
+    );
+  }
+}
+
+/* ============ Chargement ============ */
+@keyframes loaderBar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(320%); }
+}
+
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.loader-bar {
+  animation: loaderBar 1.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.skeleton {
+  background-color: #E2E9F3;
+  border-radius: 14px;
+  animation: skeletonPulse 1.4s ease-in-out infinite;
+}
+
 /* ============ Scrollbar Hide Utility ============ */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

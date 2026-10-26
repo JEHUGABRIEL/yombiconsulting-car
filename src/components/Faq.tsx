@@ -56,7 +56,7 @@ export default function Faq() {
                   >
                     <span
                       className={`shrink-0 font-extrabold text-[13px] pt-1 tracking-widest transition-colors duration-300 ${
-                        isOpen ? 'text-blue' : 'text-line-2 group-hover:text-blue'
+                        isOpen ? 'text-blue' : 'text-mut group-hover:text-blue'
                       }`}
                     >
                       {String(i + 1).padStart(2, '0')}
@@ -75,7 +75,7 @@ export default function Faq() {
                           : 'border-line text-mut group-hover:border-blue group-hover:text-blue'
                       }`}
                     >
-                      {isOpen ? <Minus size={15} /> : <Plus size={15} />}
+                      {isOpen ? <Minus size={15} strokeWidth={1.8} /> : <Plus size={15} strokeWidth={1.8} />}
                     </span>
                   </button>
                   <div

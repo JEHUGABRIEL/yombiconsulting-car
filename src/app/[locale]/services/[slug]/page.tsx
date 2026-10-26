@@ -1,12 +1,11 @@
 'use client';
 
 import { useState, use } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import {
   ArrowLeft,
   ArrowRight,
-  CheckCircle2,
   Minus,
   Plus,
   Quote,
@@ -14,7 +13,7 @@ import {
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { services, getServiceBySlug } from '@/data/services';
+import { getServices, getServiceBySlug } from '@/data/services';
 import { serializeJsonLd } from '@/lib/safeJsonLd';
 
 export default function ServiceDetailPage({
@@ -24,7 +23,9 @@ export default function ServiceDetailPage({
 }) {
   const { slug } = use(params);
   const t = useTranslations('services');
-  const service = getServiceBySlug(slug);
+  const locale = useLocale();
+  const list = getServices(locale);
+  const service = getServiceBySlug(slug, locale);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const faqItems = (t.raw(`detail.${slug}.faq`) || []) as {
     question: string;
@@ -43,13 +44,13 @@ export default function ServiceDetailPage({
         <main className="pt-[80px] min-h-[60vh] flex items-center justify-center">
           <div className="text-center">
             <h1 className="font-bold text-2xl text-ink mb-4">
-              Service introuvable
+              {t('notFound')}
             </h1>
             <Link
               href="/services"
               className="text-blue font-bold hover:underline"
             >
-              Retour aux services
+              {t('backToServices')}
             </Link>
           </div>
         </main>
@@ -58,8 +59,8 @@ export default function ServiceDetailPage({
     );
   }
 
-  const currentIndex = services.findIndex((s) => s.slug === slug);
-  const nextService = services[(currentIndex + 1) % services.length];
+  const currentIndex = list.findIndex((s) => s.slug === slug);
+  const nextService = list[(currentIndex + 1) % list.length];
 
   // ── JSON-LD Schema.org ──
   const baseUrl = 'https://yombiconsulting.com';
@@ -129,17 +130,14 @@ export default function ServiceDetailPage({
       {/* JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(serviceSchema) }}
-      />
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(serviceSchema) }} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
-      />
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }} />
       {faqSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
-        />
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }} />
       )}
 
       <Header />
@@ -148,9 +146,8 @@ export default function ServiceDetailPage({
         <section className="relative overflow-hidden py-20">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('${service.image}')` }}
-          />
-          <div className="absolute inset-0 bg-navy/90" />
+            style={{ backgroundImage: `url('${service.image}')` }} />
+          <div className="absolute inset-0 hero-overlay" />
           <div className="relative z-10 max-w-[1200px] mx-auto px-6">
             {/* Fil d'Ariane */}
             <nav className="flex items-center gap-2 text-[13px] text-white/50 mb-8">
@@ -160,7 +157,7 @@ export default function ServiceDetailPage({
               >
                 {t('allServices')}
               </Link>
-              <ChevronRight size={14} />
+              <ChevronRight size={18} strokeWidth={1.8} />
               <span className="text-white/80">{service.title}</span>
             </nav>
 
@@ -192,10 +189,10 @@ export default function ServiceDetailPage({
                         key={item}
                         className="flex gap-3 items-start py-3 border-b border-line"
                       >
-                        <CheckCircle2
+                        <ArrowRight
                           size={18}
-                          className="text-blue mt-0.5 shrink-0"
-                        />
+                          strokeWidth={1.8}
+                          className="text-blue mt-0.5 shrink-0" />
                         <span className="text-[15px] text-ink leading-snug">
                           {item}
                         </span>
@@ -225,8 +222,7 @@ export default function ServiceDetailPage({
                             <div className="flex items-start gap-3 mb-4">
                               <Quote
                                 size={20}
-                                className="text-blue/30 shrink-0 mt-0.5"
-                              />
+                                className="text-blue/30 shrink-0 mt-0.5" />
                               <h3 className="font-bold text-[16px] text-ink leading-snug">
                                 {c.title}
                               </h3>
@@ -279,7 +275,7 @@ export default function ServiceDetailPage({
                             aria-expanded={isOpen}
                           >
                             <span
-                              className={`shrink-0 font-extrabold text-[12px] pt-0.5 tracking-widest transition-colors ${isOpen ? 'text-blue' : 'text-line-2 group-hover:text-blue'}`}
+                              className={`shrink-0 font-extrabold text-[12px] pt-0.5 tracking-widest transition-colors ${isOpen ? 'text-blue' : 'text-mut group-hover:text-blue'}`}
                             >
                               {String(i + 1).padStart(2, '0')}
                             </span>
@@ -292,9 +288,9 @@ export default function ServiceDetailPage({
                               className={`shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full border transition-all ${isOpen ? 'bg-blue border-blue text-white' : 'border-line-2 text-mut group-hover:border-blue group-hover:text-blue'}`}
                             >
                               {isOpen ? (
-                                <Minus size={13} />
+                                <Minus size={13} strokeWidth={1.8} />
                               ) : (
-                                <Plus size={13} />
+                                <Plus size={13} strokeWidth={1.8} />
                               )}
                             </span>
                           </button>
@@ -331,7 +327,7 @@ export default function ServiceDetailPage({
                     className="inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-all"
                   >
                     {t('requestService')}
-                    <ArrowRight size={16} strokeWidth={2.5} />
+                    <ArrowRight size={18} strokeWidth={1.8} />
                   </a>
                 </div>
 
@@ -351,7 +347,7 @@ export default function ServiceDetailPage({
                   <ArrowRight
                     size={18}
                     className="text-blue shrink-0 transition-colors"
-                  />
+                    strokeWidth={1.8} />
                 </Link>
               </div>
             </div>
@@ -372,7 +368,7 @@ export default function ServiceDetailPage({
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-[15px] font-bold rounded-full bg-white text-navy hover:bg-sky transition-colors"
             >
               {t('requestService')}
-              <ArrowRight size={17} strokeWidth={2.5} />
+              <ArrowRight size={18} strokeWidth={1.8} />
             </a>
           </div>
         </section>

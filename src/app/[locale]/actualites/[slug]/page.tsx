@@ -1,7 +1,7 @@
 'use client';
 
 import { use } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import {
   ArrowLeft,
@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { actualites, getActualiteBySlug } from '@/data/actualites';
+import { getActualites, getActualiteBySlug } from '@/data/actualites';
 
 export default function ActualiteDetailPage({
   params,
@@ -21,7 +21,9 @@ export default function ActualiteDetailPage({
 }) {
   const { slug } = use(params);
   const t = useTranslations('actualites');
-  const article = getActualiteBySlug(slug);
+  const locale = useLocale();
+  const all = getActualites(locale);
+  const article = getActualiteBySlug(slug, locale);
 
   if (!article) {
     return (
@@ -30,13 +32,13 @@ export default function ActualiteDetailPage({
         <main className="pt-[80px] min-h-[60vh] flex items-center justify-center">
           <div className="text-center">
             <h1 className="font-bold text-2xl text-ink mb-4">
-              Actualité introuvable
+              {t('notFound')}
             </h1>
             <Link
               href="/actualites"
               className="text-blue font-bold hover:underline"
             >
-              Retour aux actualités
+              {t('backToNews')}
             </Link>
           </div>
         </main>
@@ -45,8 +47,8 @@ export default function ActualiteDetailPage({
     );
   }
 
-  const currentIndex = actualites.findIndex((a) => a.slug === slug);
-  const nextArticle = actualites[(currentIndex + 1) % actualites.length];
+  const currentIndex = all.findIndex((a) => a.slug === slug);
+  const nextArticle = all[(currentIndex + 1) % all.length];
 
   return (
     <>
@@ -56,9 +58,8 @@ export default function ActualiteDetailPage({
         <section className="relative overflow-hidden py-20">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('${article.image}')` }}
-          />
-          <div className="absolute inset-0 bg-navy/90" />
+            style={{ backgroundImage: `url('${article.image}')` }} />
+          <div className="absolute inset-0 hero-overlay" />
           <div className="relative z-10 max-w-[800px] mx-auto px-6">
             {/* Fil d'Ariane */}
             <nav className="flex items-center gap-2 text-[13px] text-white/50 mb-8">
@@ -68,18 +69,18 @@ export default function ActualiteDetailPage({
               >
                 {t('viewAll')}
               </Link>
-              <ChevronRight size={14} />
+              <ChevronRight size={18} strokeWidth={1.8} />
               <span className="text-white/80 truncate">{article.title}</span>
             </nav>
 
             {/* Métadonnées */}
             <div className="flex items-center gap-4 mb-5">
               <span className="inline-flex items-center gap-1.5 text-blue-soft text-[12px] font-bold tracking-wide uppercase">
-                <Tag size={13} />
+                <Tag size={13} strokeWidth={1.8} />
                 {article.category}
               </span>
               <span className="inline-flex items-center gap-1.5 text-white/60 text-[13px]">
-                <Calendar size={13} />
+                <Calendar size={13} strokeWidth={1.8} />
                 {article.date}
               </span>
             </div>
@@ -116,7 +117,7 @@ export default function ActualiteDetailPage({
                 href="/actualites"
                 className="inline-flex items-center gap-2 text-blue font-bold text-[15px] hover:underline"
               >
-                <ArrowLeft size={16} />
+                <ArrowLeft size={18} strokeWidth={1.8} />
                 {t('viewAll')}
               </Link>
             </div>
@@ -145,7 +146,7 @@ export default function ActualiteDetailPage({
                 <ArrowRight
                   size={20}
                   className="text-blue shrink-0 transition-colors"
-                />
+                  strokeWidth={1.8} />
               </Link>
             </div>
           </section>

@@ -1,13 +1,15 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
-import { actualites } from '@/data/actualites';
+import { getActualites } from '@/data/actualites';
 
 export default function Actualites() {
   const t = useTranslations('actualites');
+  const locale = useLocale();
+  const items = getActualites(locale);
 
   return (
     <section id="actualites" className="py-20 bg-white">
@@ -32,7 +34,7 @@ export default function Actualites() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           data-stagger
         >
-          {actualites.map((article) => (
+          {items.map((article) => (
             <ScrollReveal key={article.slug}>
               <Link
                 href={`/actualites/${article.slug}`}
@@ -42,12 +44,11 @@ export default function Actualites() {
                 <div className="relative h-[180px] overflow-hidden shrink-0">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                    style={{ backgroundImage: `url('${article.image}')` }}
-                  />
+                    style={{ backgroundImage: `url('${article.image}')` }} />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-transparent" />
                   {/* Date */}
                   <span className="absolute bottom-3 left-4 inline-flex items-center gap-1.5 text-white/90 text-[12px] font-semibold">
-                    <Calendar size={13} />
+                    <Calendar size={13} strokeWidth={1.8} />
                     {article.date}
                   </span>
                 </div>
@@ -56,7 +57,7 @@ export default function Actualites() {
                 <div className="flex flex-col flex-1 p-6">
                   {/* Catégorie */}
                   <span className="inline-flex items-center gap-1.5 text-blue text-[11px] font-bold tracking-wide uppercase mb-3">
-                    <Tag size={12} />
+                    <Tag size={12} strokeWidth={1.8} />
                     {article.category}
                   </span>
 
@@ -70,9 +71,9 @@ export default function Actualites() {
                   <span className="inline-flex items-center gap-1.5 text-[13px] font-bold text-blue">
                     {t('readMore')}
                     <ArrowRight
-                      size={14}
+                      size={18}
                       className="transition-colors duration-300"
-                    />
+                      strokeWidth={1.8} />
                   </span>
                 </div>
               </Link>
@@ -89,10 +90,9 @@ export default function Actualites() {
             >
               {t('viewAll')}
               <ArrowRight
-                size={17}
-                strokeWidth={2.5}
-                className="transition-colors duration-300"
-              />
+                size={18}
+                strokeWidth={1.8}
+                className="transition-colors duration-300" />
             </Link>
           </div>
         </ScrollReveal>

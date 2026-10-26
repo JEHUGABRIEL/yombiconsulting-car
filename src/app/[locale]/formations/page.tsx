@@ -1,22 +1,24 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight, Clock, Users, BookOpen } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { formations, categoryLabels } from '@/data/formations';
+import { getFormations } from '@/data/formations';
 
 const filterKeys = ['all', 'sec', 'mgmt', 'ent'] as const;
 
 export default function FormationsPage() {
   const t = useTranslations('formations');
+  const locale = useLocale();
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
+  const all = getFormations(locale);
   const filtered = activeFilter === 'all'
-    ? formations
-    : formations.filter((f) => f.category === activeFilter);
+    ? all
+    : all.filter((f) => f.category === activeFilter);
 
   return (
     <>
@@ -26,9 +28,8 @@ export default function FormationsPage() {
         <section className="relative overflow-hidden py-16">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&q=80&fit=crop')" }}
-          />
-          <div className="absolute inset-0 bg-navy/90" />
+            style={{ backgroundImage: "url('/images/formation-salle-participants.jpeg')" }} />
+          <div className="absolute inset-0 hero-overlay" />
           <div className="relative z-10 max-w-[1200px] mx-auto px-6">
             <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-soft" />
@@ -60,7 +61,7 @@ export default function FormationsPage() {
                       : 'bg-sky text-mut border-line hover:border-blue/30 hover:text-ink'
                   }`}
                 >
-                  {key === 'all' ? t('filters.all') : categoryLabels[key]}
+                  {t(`filters.${key}`)}
                 </button>
               ))}
             </div>
@@ -77,11 +78,10 @@ export default function FormationsPage() {
                   <div className="relative h-[180px] overflow-hidden">
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                      style={{ backgroundImage: `url('${formation.image}')` }}
-                    />
+                      style={{ backgroundImage: `url('${formation.image}')` }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
-                    <span className="absolute top-4 left-4 bg-white/90 text-ink text-[12px] font-bold px-3 py-1.5 rounded-full">
-                      {categoryLabels[formation.category]}
+                    <span className="absolute top-4 left-4 bg-[#FAFBFD]/90 text-ink text-[12px] font-bold px-3 py-1.5 rounded-full">
+                      {t(`filters.${formation.category}`)}
                     </span>
                   </div>
 
@@ -92,17 +92,17 @@ export default function FormationsPage() {
                     </h2>
                     <div className="flex items-center gap-4 text-[13px] text-mut mb-4">
                       <span className="inline-flex items-center gap-1.5">
-                        <Clock size={14} />
+                        <Clock size={14} strokeWidth={1.8} />
                         {formation.duration}
                       </span>
                       <span className="inline-flex items-center gap-1.5">
-                        <Users size={14} />
+                        <Users size={14} strokeWidth={1.8} />
                         {formation.format}
                       </span>
                     </div>
                     <span className="inline-flex items-center gap-2 text-blue text-[14px] font-bold transition-colors">
-                      Détails
-                      <ArrowRight size={16} strokeWidth={2.5} />
+                      {t('seeMore')}
+                      <ArrowRight size={18} strokeWidth={1.8} />
                     </span>
                   </div>
                 </Link>
@@ -113,7 +113,7 @@ export default function FormationsPage() {
             <div className="mt-12 text-center">
               <p className="text-mut text-[15px]">
                 {t('note')}{' '}
-                <a href="#contact" className="text-blue font-bold hover:underline">
+                <a href="/#contact" className="text-blue font-bold hover:underline">
                   {t('noteLink')}
                 </a>
                 {t('noteSuffix')}

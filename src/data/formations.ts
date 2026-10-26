@@ -26,7 +26,7 @@ export const formations: Formation[] = [
       'Conduire des investigations après incident',
     ],
     public_cible: 'Référents HSSE, managers opérationnels',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80&fit=crop',
+    image: '/images/formation-formatrice-paperboard.jpeg',
   },
   {
     slug: 'securite-travail',
@@ -43,7 +43,7 @@ export const formations: Formation[] = [
       'Participer à la démarche de prévention',
     ],
     public_cible: 'Ensemble du personnel',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=80&fit=crop',
+    image: '/images/formation-salle-participants.jpeg',
   },
   {
     slug: 'prevention-accidents',
@@ -59,7 +59,7 @@ export const formations: Formation[] = [
       'Sensibiliser les équipes aux situations dangereuses',
     ],
     public_cible: 'Encadrants, animateurs sécurité',
-    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=80&fit=crop',
+    image: '/images/chantier-consignes-securite.jpeg',
   },
   {
     slug: 'port-epi',
@@ -75,7 +75,7 @@ export const formations: Formation[] = [
       'Vérifier et entretenir les équipements',
     ],
     public_cible: 'Opérateurs, personnel de terrain',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80&fit=crop',
+    image: '/images/chantier-inspection.jpeg',
   },
   {
     slug: 'premiers-secours',
@@ -92,7 +92,7 @@ export const formations: Formation[] = [
       'Gérer un plan d\'urgence interne',
     ],
     public_cible: 'Ensemble du personnel',
-    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=80&fit=crop',
+    image: '/images/formation-paperboard.jpeg',
   },
   {
     slug: 'gestion-risques-professionnels',
@@ -109,7 +109,7 @@ export const formations: Formation[] = [
       'Alimenter le DUERP',
     ],
     public_cible: 'Managers, référents HSSE',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=80&fit=crop',
+    image: '/images/chantier-inspection-2.jpeg',
   },
   {
     slug: 'management-hsse',
@@ -126,7 +126,7 @@ export const formations: Formation[] = [
       'Développer la culture sécurité dans les équipes',
     ],
     public_cible: 'Managers, directeurs d\'établissement',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80&fit=crop',
+    image: '/images/formation-participantes-notes.jpeg',
   },
   {
     slug: 'leadership-culture-securite',
@@ -143,7 +143,7 @@ export const formations: Formation[] = [
       'Valoriser les initiatives sécurité',
     ],
     public_cible: 'Dirigeants, managers, chefs d\'équipe',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80&fit=crop',
+    image: '/images/formation-intervenant.jpeg',
   },
   {
     slug: 'environnement-developpement-durable',
@@ -160,7 +160,7 @@ export const formations: Formation[] = [
       'Sensibiliser les parties prenantes',
     ],
     public_cible: 'Managers, responsables RSE',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&fit=crop',
+    image: '/images/salle-reunion.jpeg',
   },
   {
     slug: 'entrepreneuriat',
@@ -177,7 +177,7 @@ export const formations: Formation[] = [
       'Comprendre les fondamentaux de la gestion',
     ],
     public_cible: 'Porteurs de projets, entrepreneurs',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&fit=crop',
+    image: '/images/formation-formatrice-debout.jpeg',
   },
   {
     slug: 'marketing',
@@ -194,7 +194,7 @@ export const formations: Formation[] = [
       'Mesurer l\'efficacité de vos actions',
     ],
     public_cible: 'Entrepreneurs, responsables commerciaux',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&fit=crop',
+    image: '/images/formation-participante-attentive.jpeg',
   },
   {
     slug: 'gestion-financiere',
@@ -211,21 +211,225 @@ export const formations: Formation[] = [
       'Prendre des décisions financières éclairées',
     ],
     public_cible: 'Entrepreneurs, gestionnaires',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&fit=crop',
+    image: '/images/salle-reunion-2.jpeg',
   },
 ];
 
-export function getFormationBySlug(slug: string): Formation | undefined {
-  return formations.find((f) => f.slug === slug);
+export const formationsEn: Formation[] = [
+  {
+    slug: 'animateur-hsse',
+    title: 'HSSE coordinator',
+    category: 'sec',
+    description:
+      'Train the internal coordinators who will drive the HSSE approach day to day. This course gives them the keys to lead, raise awareness and keep safety culture alive in the organisation.',
+    duration: '5 days',
+    format: 'In-person',
+    objectives: [
+      'Understand the regulatory framework and HSSE challenges',
+      'Lead an HSSE committee',
+      'Set up performance indicators',
+      'Conduct post-incident investigations',
+    ],
+    public_cible: 'HSSE coordinators, operational managers',
+    image: '/images/formation-formatrice-paperboard.jpeg',
+  },
+  {
+    slug: 'securite-travail',
+    title: 'Occupational health and safety',
+    category: 'sec',
+    description:
+      'The fundamentals of occupational risk prevention for every player in the company. A practical course adapted to the Central African context.',
+    duration: '3 days',
+    format: 'In-person',
+    objectives: [
+      'Identify the main occupational risks',
+      'Apply safety rules day to day',
+      'Use protective equipment correctly',
+      'Take part in the prevention approach',
+    ],
+    public_cible: 'All staff',
+    image: '/images/formation-salle-participants.jpeg',
+  },
+  {
+    slug: 'prevention-accidents',
+    title: 'Accident prevention',
+    category: 'sec',
+    description:
+      'Practical techniques to anticipate risky situations and reduce the frequency and severity of workplace accidents.',
+    duration: '2 days',
+    format: 'In-person',
+    objectives: [
+      'Analyse the root causes of accidents',
+      'Implement prevention measures',
+      'Raise team awareness of hazardous situations',
+    ],
+    public_cible: 'Supervisors, safety coordinators',
+    image: '/images/chantier-consignes-securite.jpeg',
+  },
+  {
+    slug: 'port-epi',
+    title: 'Use of PPE',
+    category: 'sec',
+    description:
+      'Practical training in choosing, checking and correctly using Personal Protective Equipment.',
+    duration: '1 day',
+    format: 'In-person',
+    objectives: [
+      'Know the different types of PPE',
+      'Select the PPE suited to each risk',
+      'Check and maintain the equipment',
+    ],
+    public_cible: 'Operators, field staff',
+    image: '/images/chantier-inspection.jpeg',
+  },
+  {
+    slug: 'premiers-secours',
+    title: 'First aid',
+    category: 'sec',
+    description:
+      'First-aid gestures in the workplace: reacting effectively while waiting for the emergency services.',
+    duration: '2 days',
+    format: 'In-person',
+    objectives: [
+      'Assess an emergency situation',
+      'Perform the essential gestures (CPR, recovery position, etc.)',
+      'Use a defibrillator (AED)',
+      'Manage an internal emergency plan',
+    ],
+    public_cible: 'All staff',
+    image: '/images/formation-paperboard.jpeg',
+  },
+  {
+    slug: 'gestion-risques-professionnels',
+    title: 'Occupational risk management',
+    category: 'sec',
+    description:
+      "A complete methodology for assessing and treating occupational risks, from identification to follow-up.",
+    duration: '3 days',
+    format: 'In-person',
+    objectives: [
+      "Map the company's risks",
+      'Use risk assessment grids',
+      'Define and steer the prevention plan',
+      'Feed the single risk assessment document (DUERP)',
+    ],
+    public_cible: 'Managers, HSSE coordinators',
+    image: '/images/chantier-inspection-2.jpeg',
+  },
+  {
+    slug: 'management-hsse',
+    title: 'HSSE management',
+    category: 'mgmt',
+    description:
+      'Embed HSSE performance in management practice to drive change and secure operations.',
+    duration: '3 days',
+    format: 'In-person',
+    objectives: [
+      'Embody the HSSE approach at management level',
+      'Integrate safety into decision-making processes',
+      'Steer HSSE indicators',
+      'Develop safety culture within teams',
+    ],
+    public_cible: 'Managers, site directors',
+    image: '/images/formation-participantes-notes.jpeg',
+  },
+  {
+    slug: 'leadership-culture-securite',
+    title: 'Safety leadership and culture',
+    category: 'mgmt',
+    description:
+      'Develop safety-oriented leadership to durably transform workplace behaviour.',
+    duration: '2 days',
+    format: 'In-person',
+    objectives: [
+      'Understand the drivers of safety leadership',
+      'Model the desired behaviours',
+      'Create a blame-free reporting culture',
+      'Recognise safety initiatives',
+    ],
+    public_cible: 'Executives, managers, team leaders',
+    image: '/images/formation-intervenant.jpeg',
+  },
+  {
+    slug: 'environnement-developpement-durable',
+    title: 'Environment and sustainable development',
+    category: 'mgmt',
+    description:
+      'Understand environmental challenges and implement a sustainable development strategy in your organisation.',
+    duration: '3 days',
+    format: 'In-person',
+    objectives: [
+      'Understand the environmental regulatory framework',
+      'Assess the environmental footprint',
+      'Set up a sustainable action plan',
+      'Raise stakeholder awareness',
+    ],
+    public_cible: 'Managers, CSR officers',
+    image: '/images/salle-reunion.jpeg',
+  },
+  {
+    slug: 'entrepreneuriat',
+    title: 'Entrepreneurship',
+    category: 'ent',
+    description:
+      'The keys to launching and growing a successful business, from concept to business plan.',
+    duration: '5 days',
+    format: 'In-person',
+    objectives: [
+      'Validate a business idea',
+      'Build a viable business model',
+      'Prepare a business plan',
+      'Understand the fundamentals of management',
+    ],
+    public_cible: 'Project owners, entrepreneurs',
+    image: '/images/formation-formatrice-debout.jpeg',
+  },
+  {
+    slug: 'marketing',
+    title: 'Marketing',
+    category: 'ent',
+    description:
+      'Marketing techniques adapted to the Central African market to win and retain customers.',
+    duration: '3 days',
+    format: 'In-person',
+    objectives: [
+      "Understand your target's needs",
+      'Define an effective marketing strategy',
+      'Master distribution and communication channels',
+      'Measure the effectiveness of your actions',
+    ],
+    public_cible: 'Entrepreneurs, sales managers',
+    image: '/images/formation-participante-attentive.jpeg',
+  },
+  {
+    slug: 'gestion-financiere',
+    title: 'Financial management',
+    category: 'ent',
+    description:
+      "Steer your company's financial health with practical budgeting and cash-flow tools.",
+    duration: '3 days',
+    format: 'In-person',
+    objectives: [
+      'Understand financial statements',
+      'Prepare and monitor a budget',
+      'Manage day-to-day cash flow',
+      'Make informed financial decisions',
+    ],
+    public_cible: 'Entrepreneurs, finance managers',
+    image: '/images/salle-reunion-2.jpeg',
+  },
+];
+
+export function getFormations(locale: string): Formation[] {
+  return locale === 'en' ? formationsEn : formations;
 }
 
-export function getFormationsByCategory(category: string): Formation[] {
-  if (category === 'all') return formations;
-  return formations.filter((f) => f.category === category);
+export function getFormationBySlug(slug: string, locale = 'fr'): Formation | undefined {
+  return getFormations(locale).find((f) => f.slug === slug);
 }
 
-export const categoryLabels: Record<string, string> = {
-  sec: 'Santé & sécurité',
-  mgmt: 'Management & environnement',
-  ent: 'Entrepreneuriat',
-};
+export function getFormationsByCategory(category: string, locale = 'fr'): Formation[] {
+  const list = getFormations(locale);
+  if (category === 'all') return list;
+  return list.filter((f) => f.category === category);
+}

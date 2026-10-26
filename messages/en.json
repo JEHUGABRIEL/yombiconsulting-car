@@ -48,9 +48,18 @@
       }
     ],
     "stats": [
-      { "value": "3", "label": "Areas of expertise" },
-      { "value": "20+", "label": "Advisory services" },
-      { "value": "12", "label": "Training programs" }
+      {
+        "value": "3",
+        "label": "Areas of expertise"
+      },
+      {
+        "value": "20+",
+        "label": "Advisory services"
+      },
+      {
+        "value": "12",
+        "label": "Training programs"
+      }
     ]
   },
   "services": {
@@ -75,37 +84,65 @@
       {
         "title": "HSSE Advisory & Management",
         "desc": "We structure your prevention approach, from the HSSE committee to safety culture.",
-        "list": ["Advisory and HSSE coordinator training", "ISO 45001:2018 implementation", "HSSE Committee setup and reinforcement", "Safety culture and prevention"],
+        "list": [
+          "Advisory and HSSE coordinator training",
+          "ISO 45001:2018 implementation",
+          "HSSE Committee setup and reinforcement",
+          "Safety culture and prevention"
+        ],
         "subject": "HSSE Advisory & Audit"
       },
       {
         "title": "Occupational Risks & DUERP",
         "desc": "Identify, assess and prioritize your occupational risks with a comprehensive risk document.",
-        "list": ["DUERP development", "Occupational risk analysis and assessment", "HSSE audits and inspections"],
+        "list": [
+          "DUERP development",
+          "Occupational risk analysis and assessment",
+          "HSSE audits and inspections"
+        ],
         "subject": "HSSE Advisory & Audit"
       },
       {
         "title": "Procedures & Emergency Plans",
         "desc": "Clear guidelines and proven emergency plans, known by all your teams.",
-        "list": ["Procedure development", "Emergency plan development", "PPE awareness"],
+        "list": [
+          "Procedure development",
+          "Emergency plan development",
+          "PPE awareness"
+        ],
         "subject": "HSSE Advisory & Audit"
       },
       {
         "title": "Environment",
         "desc": "Waste, impacts, climate: we make your environmental footprint manageable.",
-        "list": ["Environmental management", "Waste management", "Environmental impact assessment", "Environmental and social management plans", "Climate change awareness"],
+        "list": [
+          "Environmental management",
+          "Waste management",
+          "Environmental impact assessment",
+          "Environmental and social management plans",
+          "Climate change awareness"
+        ],
         "subject": "Environment"
       },
       {
         "title": "Business Development",
         "desc": "Business model, organization, financing: structure your business growth.",
-        "list": ["Taxation, marketing and finance", "Organization and management", "Business Model Canvas", "Business plan development"],
+        "list": [
+          "Taxation, marketing and finance",
+          "Organization and management",
+          "Business Model Canvas",
+          "Business plan development"
+        ],
         "subject": "Business Development"
       },
       {
         "title": "Coaching & SMEs",
         "desc": "Long-term support for entrepreneurs and small businesses.",
-        "list": ["Entrepreneur coaching", "SME support", "Post-training follow-up"],
+        "list": [
+          "Entrepreneur coaching",
+          "SME support",
+          "Post-training follow-up"
+        ],
         "subject": "Business Development"
       }
     ],
@@ -304,7 +341,9 @@
           }
         ]
       }
-    }
+    },
+    "notFound": "Service not found",
+    "backToServices": "Back to services"
   },
   "cabinet": {
     "chip": "Our Firm",
@@ -346,19 +385,60 @@
     "noteLink": "Contact us",
     "noteSuffix": ": we build custom programs.",
     "items": [
-      { "title": "HSSE Coordinator", "category": "sec" },
-      { "title": "Workplace Health & Safety", "category": "sec" },
-      { "title": "Accident Prevention", "category": "sec" },
-      { "title": "PPE Usage", "category": "sec" },
-      { "title": "First Aid", "category": "sec" },
-      { "title": "Occupational Risk Management", "category": "sec" },
-      { "title": "HSSE Management", "category": "mgmt" },
-      { "title": "Leadership & Safety Culture", "category": "mgmt" },
-      { "title": "Environment & Sustainable Development", "category": "mgmt" },
-      { "title": "Entrepreneurship", "category": "ent" },
-      { "title": "Marketing", "category": "ent" },
-      { "title": "Financial Management", "category": "ent" }
-    ]
+      {
+        "title": "HSSE Coordinator",
+        "category": "sec"
+      },
+      {
+        "title": "Workplace Health & Safety",
+        "category": "sec"
+      },
+      {
+        "title": "Accident Prevention",
+        "category": "sec"
+      },
+      {
+        "title": "PPE Usage",
+        "category": "sec"
+      },
+      {
+        "title": "First Aid",
+        "category": "sec"
+      },
+      {
+        "title": "Occupational Risk Management",
+        "category": "sec"
+      },
+      {
+        "title": "HSSE Management",
+        "category": "mgmt"
+      },
+      {
+        "title": "Leadership & Safety Culture",
+        "category": "mgmt"
+      },
+      {
+        "title": "Environment & Sustainable Development",
+        "category": "mgmt"
+      },
+      {
+        "title": "Entrepreneurship",
+        "category": "ent"
+      },
+      {
+        "title": "Marketing",
+        "category": "ent"
+      },
+      {
+        "title": "Financial Management",
+        "category": "ent"
+      }
+    ],
+    "notFound": "Training not found",
+    "backToFormations": "Back to training",
+    "objectives": "Learning objectives",
+    "audience": "Who is it for?",
+    "nextFormation": "Next training"
   },
   "valeur": {
     "chip": "Our Added Value",
@@ -401,7 +481,9 @@
     "description": "Follow our latest updates, insights and field experiences on risk prevention and business development.",
     "readMore": "Read",
     "viewAll": "All news",
-    "nextArticle": "Next article"
+    "nextArticle": "Next article",
+    "notFound": "Article not found",
+    "backToNews": "Back to news"
   },
   "partenariats": {
     "chip": "Partnerships",
@@ -563,18 +645,306 @@
       "home": "Home",
       "apropos": "About us",
       "services": "Our Services",
-      "formations": "Training"
+      "formations": "Training",
+      "actualites": "News"
     },
     "copyright": "All rights reserved.",
-    "mentions": "Legal & Privacy"
+    "mentions": "Legal & Privacy",
+    "legalLinks": {
+      "mentions": "Legal notice",
+      "cgu": "Terms of use",
+      "privacy": "Privacy",
+      "cookies": "Cookies"
+    },
+    "address": "5th district, Avenue du Lt Koudoukou, opposite the Madou street intersection, Bangui"
   },
   "mentions": {
-    "title": "Legal & Privacy",
-    "editor": "Publisher",
-    "editorText": "Yo Mbi Consulting, advisory, training and support firm in Health, Safety, Security and Environment (HSSE) and business development. Headquarters: 5th district, Avenue du Lieutenant Koudoukou, opposite the Madou street intersection, Bangui, Central African Republic. Contact: +236 72 11 19 14, contact.cmc@gmail.com.",
-    "data": "Personal Data",
-    "dataText": "This site does not use cookies and stores no data. Information entered in the contact form and newsletter remains on your device: it only leaves it as a message you send yourself to the firm. It is used solely to process your request.",
-    "responsibility": "Liability",
-    "responsibilityText": "Published information presents the firm's areas of intervention. It does not constitute professional advice or contractual commitment. For any questions about the site content, write to us."
+    "title": "Legal notice",
+    "intro": "This site presents the activities of Yo Mbi Consulting. The information below identifies the publisher, the host and the rules applicable to the use of the site.",
+    "sections": [
+      {
+        "title": "Publisher",
+        "paragraphs": [
+          "The site is published by Yo Mbi Consulting, a firm providing advisory, training and support services in Health, Safety, Security and Environment (HSSE) and business development.",
+          "Registered office: 5th district, Avenue du Lieutenant Koudoukou, opposite the Madou street intersection, Bangui, Central African Republic.",
+          "Contact: +236 72 11 19 14 — contact.cmc@gmail.com.",
+          "Trade register (RCCM) number and tax identification number: to be completed by the firm."
+        ]
+      },
+      {
+        "title": "Publication director",
+        "paragraphs": [
+          "The publication director is the legal representative of Yo Mbi Consulting.",
+          "Editor-in-chief: to be completed by the firm."
+        ]
+      },
+      {
+        "title": "Hosting",
+        "paragraphs": [
+          "The site is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, United States — vercel.com."
+        ]
+      },
+      {
+        "title": "Activity and regulatory framework",
+        "paragraphs": [
+          "The firm provides advisory, training and support services to companies, public institutions, NGOs and project owners. This activity is not reserved to a regulated profession.",
+          "Information published on the site does not constitute personalised advice: each assignment begins with a discussion followed by a written proposal."
+        ]
+      },
+      {
+        "title": "Content and liability",
+        "paragraphs": [
+          "The firm strives to keep the information published on this site accurate and up to date, and reserves the right to correct its content at any time without notice. It cannot, however, guarantee that the information is exhaustive or free of third-party modification.",
+          "The firm accepts no liability where access to the site is difficult or impossible due to a connection problem, a service interruption or an external event.",
+          "Hyperlinks to other sites do not engage the firm’s liability, as it exercises no control over their content."
+        ]
+      },
+      {
+        "title": "Intellectual property",
+        "paragraphs": [
+          "The site as a whole and each of its elements taken separately — texts, photographs, logo, visuals, graphic elements — are protected by copyright and trademark law, or used with their owners’ consent.",
+          "Any reproduction, representation, distribution or reuse, in whole or in part, on any medium, is prohibited without the firm’s prior written permission.",
+          "The photographs illustrate real assignments carried out by the firm. Their publication requires the consent of identifiable persons; any removal request may be sent to contact.cmc@gmail.com."
+        ]
+      },
+      {
+        "title": "Personal data and cookies",
+        "paragraphs": [
+          "The processing of personal data is described in the privacy policy. The site sets no analytics or advertising cookies: see the cookie policy."
+        ]
+      },
+      {
+        "title": "Governing law",
+        "paragraphs": [
+          "This legal notice is governed by Central African law. In the event of a dispute, an amicable solution will be sought before any court action before the competent courts of Bangui."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "For any question about the site: contact.cmc@gmail.com — +236 72 11 19 14."
+        ]
+      }
+    ]
+  },
+  "terrain": {
+    "chip": "In the field",
+    "title": "Our work",
+    "titleHighlight": "in pictures",
+    "description": "Classroom training, site inspections, practical workshops: these photos document real assignments carried out by the firm and its partners in the Central African Republic.",
+    "cta": "About the firm",
+    "items": [
+      {
+        "title": "Classroom training",
+        "caption": "Training session, Bangui"
+      },
+      {
+        "title": "Flipchart workshop",
+        "caption": "Workshop with participants"
+      },
+      {
+        "title": "Site inspection",
+        "caption": "Safety instructions and PPE"
+      }
+    ]
+  },
+  "legalPage": {
+    "updated": "Last updated: October 2026",
+    "summary": "Contents",
+    "contactTitle": "A question about this document?",
+    "contactText": "Write to contact.cmc@gmail.com or call +236 72 11 19 14."
+  },
+  "cgu": {
+    "title": "Terms of use",
+    "intro": "These terms govern the use of the Yo Mbi Consulting website. By browsing the site, you accept the rules described below.",
+    "sections": [
+      {
+        "title": "Purpose of the site",
+        "paragraphs": [
+          "The site presents the activities of Yo Mbi Consulting: advisory and support in Health, Safety, Security and Environment (HSSE), environment, business consulting and vocational training.",
+          "It is informative. No assignment can be concluded online: every mission begins with a discussion and a written proposal."
+        ]
+      },
+      {
+        "title": "Access to the site",
+        "paragraphs": [
+          "Access is free of charge, excluding connection and equipment costs charged by your operator.",
+          "The firm may interrupt or suspend access for maintenance or updates, without any right to compensation."
+        ]
+      },
+      {
+        "title": "Intellectual property",
+        "paragraphs": [
+          "Texts, photographs, logos, visuals and graphic elements on the site are owned by Yo Mbi Consulting or used with their owners’ consent.",
+          "Any reproduction, representation or reuse, in whole or in part, without prior written permission is prohibited."
+        ]
+      },
+      {
+        "title": "Information and liability",
+        "paragraphs": [
+          "Published information is general and does not constitute personalised professional advice. It does not replace an assessment carried out within your organisation.",
+          "The firm strives to keep this information up to date but cannot guarantee the absence of errors or omissions. Photographs illustrate real assignments; they are not a contractual commitment."
+        ]
+      },
+      {
+        "title": "Links to other sites",
+        "paragraphs": [
+          "The site may link to third-party sites, including partners. The firm has no control over their content and accepts no liability for them."
+        ]
+      },
+      {
+        "title": "Personal data and cookies",
+        "paragraphs": [
+          "Data processing is described in the privacy policy. The site sets no analytics or advertising cookies."
+        ]
+      },
+      {
+        "title": "Governing law",
+        "paragraphs": [
+          "These terms are governed by Central African law. In the event of a dispute, an amicable solution will be sought before any court action before the competent courts of Bangui."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "For any question about the site or these terms: contact.cmc@gmail.com — +236 72 11 19 14."
+        ]
+      }
+    ]
+  },
+  "confidentialite": {
+    "title": "Privacy policy",
+    "intro": "This policy describes the personal data processed when you browse the Yo Mbi Consulting website, and how to exercise your rights.",
+    "sections": [
+      {
+        "title": "Data controller",
+        "paragraphs": [
+          "Yo Mbi Consulting — 5th district, Avenue du Lieutenant Koudoukou, opposite the Madou street intersection, Bangui, Central African Republic.",
+          "Contact: contact.cmc@gmail.com — +236 72 11 19 14."
+        ]
+      },
+      {
+        "title": "Data collected",
+        "paragraphs": [
+          "The site creates no account and collects no data automatically: it uses no analytics cookies, no advertising trackers and no user profiles.",
+          "The contact form sends nothing to a server: it composes an email in your own mail client. The details you enter reach us only if you send that message."
+        ],
+        "items": [
+          "The name and organisation you provide",
+          "The contact details you choose to share (phone, email address)",
+          "The subject and content of your message",
+          "The date you send it"
+        ]
+      },
+      {
+        "title": "Purposes, legal bases and retention periods",
+        "paragraphs": [
+          "The information received is used for the following purposes, with the corresponding retention periods:"
+        ],
+        "items": [
+          "Answering your request: pre-contractual measures taken at your request — 24 months from the last exchange.",
+          "Preparing a proposal: the firm’s legitimate interest in responding to enquiries — 24 months.",
+          "Administrative and accounting follow-up of an assignment: performance of the contract — duration of the relationship, then legal archiving."
+        ]
+      },
+      {
+        "title": "Recipients",
+        "paragraphs": [
+          "The information received is intended only for the firm members concerned by your request. It is neither sold, rented nor passed on for commercial purposes."
+        ]
+      },
+      {
+        "title": "Transfers outside the country",
+        "paragraphs": [
+          "The site is hosted by a provider established in the United States (Vercel Inc.). This hosting concerns the site pages, not the content of your emails, which stays in your mailbox until you send it to us.",
+          "Should personal data be transferred to a third country, the firm would implement the appropriate safeguards required by applicable regulations."
+        ]
+      },
+      {
+        "title": "Your rights",
+        "paragraphs": [
+          "You may request access to your information, its correction, deletion or restriction, and object to its use. Write to contact.cmc@gmail.com stating your request; we reply within 30 days.",
+          "If you believe your rights are not respected, you may contact the competent data protection authority."
+        ]
+      },
+      {
+        "title": "Security",
+        "paragraphs": [
+          "The firm implements reasonable measures to protect the information it receives: restricted access to the people concerned, protected email and backups of working documents."
+        ]
+      },
+      {
+        "title": "Cookies and trackers",
+        "paragraphs": [
+          "The site sets no analytics, advertising or personalisation cookies. Details are provided in the cookie policy."
+        ]
+      },
+      {
+        "title": "Changes",
+        "paragraphs": [
+          "This policy may be updated to reflect technical or regulatory changes. The last update date appears at the top of the page."
+        ]
+      }
+    ]
+  },
+  "cookies": {
+    "title": "Cookie policy",
+    "intro": "This policy explains what a cookie is, which trackers the site uses and how to manage them in your browser.",
+    "sections": [
+      {
+        "title": "What is a cookie?",
+        "paragraphs": [
+          "A cookie is a small file placed on your device by a website during your visit. It can be used to remember preferences or measure traffic. Browser local storage works in a comparable way."
+        ]
+      },
+      {
+        "title": "Cookies used on this site",
+        "paragraphs": [
+          "The Yo Mbi Consulting website sets no analytics, advertising or personalisation cookies and uses no third-party tracking tools.",
+          "No consent is therefore required and no cookie banner is displayed: there is no non-essential tracker to refuse."
+        ]
+      },
+      {
+        "title": "Host technical logs",
+        "paragraphs": [
+          "As with any website, the host may record technical logs (IP address, date and time, requested page, browser type) to ensure the security and proper operation of the service.",
+          "These logs are not used for commercial purposes and are not combined with other data to profile visitors."
+        ]
+      },
+      {
+        "title": "Local storage",
+        "paragraphs": [
+          "The site stores no information in your browser’s local storage for tracking or advertising purposes."
+        ]
+      },
+      {
+        "title": "Managing cookies in your browser",
+        "paragraphs": [
+          "You can configure your browser at any time to refuse, delete or warn you about cookies. This setting does not affect browsing, as the site relies on no tracker."
+        ],
+        "items": [
+          "Google Chrome: Settings > Privacy and security > Cookies and other site data",
+          "Mozilla Firefox: Settings > Privacy & Security > Cookies and Site Data",
+          "Safari: Settings > Safari > Privacy & Security",
+          "Microsoft Edge: Settings > Cookies and site permissions"
+        ]
+      },
+      {
+        "title": "Retention period",
+        "paragraphs": [
+          "The site sets no cookies, so no retention period applies on its side. Technical logs of the host are kept for a limited period defined by its terms of service."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "For any question about cookies: contact.cmc@gmail.com — +236 72 11 19 14."
+        ]
+      }
+    ]
+  },
+  "loading": {
+    "label": "Loading the page",
+    "hint": "Thanks for waiting a moment."
   }
 }

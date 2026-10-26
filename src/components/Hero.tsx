@@ -6,9 +6,9 @@ import { ArrowRight } from 'lucide-react';
 
 /* ── Images de fond par slide ───────────────────────────── */
 const heroImages = [
-  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80&fit=crop',
-  'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80&fit=crop',
-  'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&q=80&fit=crop',
+  '/images/formation-salle-participants.jpeg',
+  '/images/chantier-consignes-securite.jpeg',
+  '/images/formation-paperboard.jpeg',
 ];
 
 export default function Hero() {
@@ -38,12 +38,11 @@ export default function Hero() {
           style={{
             backgroundImage: `url('${src}')`,
             opacity: i === current ? 1 : 0,
-          }}
-        />
+          }} />
       ))}
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-navy/85" />
+      <div className="absolute inset-0 hero-overlay" />
 
       {/* Content */}
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 w-full">
@@ -76,14 +75,14 @@ export default function Hero() {
               className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-colors"
             >
               {slide.cta1}
-              <ArrowRight size={17} strokeWidth={2.5} />
+              <ArrowRight size={18} strokeWidth={1.8} />
             </a>
             <a
               href="#cabinet"
               className="inline-flex items-center gap-2 text-blue-soft text-[15px] font-bold hover:underline"
             >
               {slide.cta2}
-              <ArrowRight size={16} strokeWidth={2.5} />
+              <ArrowRight size={18} strokeWidth={1.8} />
             </a>
           </div>
 

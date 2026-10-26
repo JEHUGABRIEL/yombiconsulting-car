@@ -92,8 +92,7 @@ export default function Header() {
             <img
               src="/logo.png"
               alt="Yo Mbi Consulting"
-              style={{ width: 42, height: 42, objectFit: 'contain' }}
-            />
+              style={{ width: 42, height: 42, objectFit: 'contain' }} />
             <div className="leading-tight hidden sm:block">
               <b className="block text-[18px] font-extrabold text-navy">Yo Mbi</b>
               <span className="block text-[9px] font-bold tracking-[0.32em] text-blue mt-0.5">
@@ -152,23 +151,20 @@ export default function Header() {
               style={{
                 transition: 'transform 0.3s cubic-bezier(0.16,1,0.3,1)',
                 transform: mobileOpen ? 'translateY(3.5px) rotate(45deg)' : 'none',
-              }}
-            />
+              }} />
             <span
               className="block w-6 h-[2px] rounded-full bg-navy"
               style={{
                 transition: 'opacity 0.2s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1)',
                 opacity: mobileOpen ? 0 : 1,
                 transform: mobileOpen ? 'scaleX(0)' : 'scaleX(1)',
-              }}
-            />
+              }} />
             <span
               className="block w-6 h-[2px] rounded-full bg-navy origin-center"
               style={{
                 transition: 'transform 0.3s cubic-bezier(0.16,1,0.3,1)',
                 transform: mobileOpen ? 'translateY(-3.5px) rotate(-45deg)' : 'none',
-              }}
-            />
+              }} />
           </button>
         </div>
       </header>
@@ -183,8 +179,7 @@ export default function Header() {
               opacity: menuVisible ? 1 : 0,
               transition: 'opacity 0.35s ease',
             }}
-            onClick={closeMenu}
-          />
+            onClick={closeMenu} />
 
           {/* Panel */}
           <div
@@ -200,8 +195,7 @@ export default function Header() {
                 <img
                   src="/logo.png"
                   alt="Yo Mbi Consulting"
-                  style={{ width: 38, height: 38, objectFit: 'contain' }}
-                />
+                  style={{ width: 38, height: 38, objectFit: 'contain' }} />
                 <span className="text-[16px] font-extrabold text-navy">Yo Mbi</span>
               </a>
               <button
@@ -209,7 +203,7 @@ export default function Header() {
                 className="w-10 h-10 rounded-full flex items-center justify-center bg-sky text-ink hover:bg-tint transition-colors"
                 aria-label="Fermer le menu"
               >
-                <X size={20} strokeWidth={2.2} />
+                <X size={20} strokeWidth={1.8} />
               </button>
             </div>
 

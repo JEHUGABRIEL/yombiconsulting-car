@@ -1,23 +1,25 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight, Shield, AlertTriangle, FileText, Leaf, TrendingUp, Users } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { services } from '@/data/services';
+import { getServices } from '@/data/services';
 
 const iconMap: Record<string, React.ReactNode> = {
-  'conseil-management-hsse': <Shield size={28} strokeWidth={1.5} />,
-  'risques-professionnels-duerp': <AlertTriangle size={28} strokeWidth={1.5} />,
-  'procedures-plans-urgence': <FileText size={28} strokeWidth={1.5} />,
-  'environnement': <Leaf size={28} strokeWidth={1.5} />,
-  'developpement-entreprises': <TrendingUp size={28} strokeWidth={1.5} />,
-  'coaching-pme': <Users size={28} strokeWidth={1.5} />,
+  'conseil-management-hsse': <Shield size={28} strokeWidth={1.8} />,
+  'risques-professionnels-duerp': <AlertTriangle size={28} strokeWidth={1.8} />,
+  'procedures-plans-urgence': <FileText size={28} strokeWidth={1.8} />,
+  'environnement': <Leaf size={28} strokeWidth={1.8} />,
+  'developpement-entreprises': <TrendingUp size={28} strokeWidth={1.8} />,
+  'coaching-pme': <Users size={28} strokeWidth={1.8} />,
 };
 
 export default function ServicesPage() {
   const t = useTranslations('services');
+  const locale = useLocale();
+  const list = getServices(locale);
 
   return (
     <>
@@ -27,9 +29,8 @@ export default function ServicesPage() {
         <section className="relative overflow-hidden py-16">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80&fit=crop')" }}
-          />
-          <div className="absolute inset-0 bg-navy/90" />
+            style={{ backgroundImage: "url('/images/chantier-consignes-securite.jpeg')" }} />
+          <div className="absolute inset-0 hero-overlay" />
           <div className="relative z-10 max-w-[1200px] mx-auto px-6">
             <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-soft" />
@@ -49,25 +50,34 @@ export default function ServicesPage() {
         <section className="py-16 bg-white">
           <div className="max-w-[1200px] mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service) => (
+              {list.map((service) => (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group block bg-sky rounded-[20px] p-8 transition-colors duration-300 border border-line hover:border-blue/20"
+                  className="group flex flex-col h-full bg-sky rounded-[20px] overflow-hidden transition-colors duration-300 border border-line hover:border-blue/20"
                 >
-                  <div className="w-14 h-14 rounded-[14px] bg-tint text-blue flex items-center justify-center mb-6 group-hover:bg-blue group-hover:text-white transition-all duration-300">
-                    {iconMap[service.slug]}
+                  <div className="relative h-[170px] shrink-0 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-navy/5 to-transparent" />
+                    <span className="absolute bottom-4 left-5 w-11 h-11 rounded-[12px] bg-[#FAFBFD]/95 text-blue flex items-center justify-center">
+                      {iconMap[service.slug]}
+                    </span>
                   </div>
-                  <h2 className="font-bold text-[19px] text-ink mb-3 leading-snug">
-                    {service.title}
-                  </h2>
-                  <p className="text-mut text-[14.5px] leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-blue text-[14px] font-bold transition-colors">
-                    {t('details')}
-                    <ArrowRight size={16} strokeWidth={2.5} />
-                  </span>
+                  <div className="flex flex-col flex-1 p-7">
+                    <h2 className="font-bold text-[18px] text-ink mb-3 leading-snug">
+                      {service.title}
+                    </h2>
+                    <p className="text-mut text-[14.5px] leading-relaxed mb-5 flex-1">
+                      {service.description}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-blue text-[14px] font-bold transition-colors">
+                      {t('details')}
+                      <ArrowRight size={18} strokeWidth={1.8} />
+                    </span>
+                  </div>
                 </Link>
               ))}
             </div>

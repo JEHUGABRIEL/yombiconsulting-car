@@ -59,7 +59,7 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
           className="absolute top-[18px] right-[18px] w-[38px] h-[38px] rounded-full flex items-center justify-center bg-sky hover:bg-tint transition-colors"
           aria-label="Fermer"
         >
-          <X size={15} className="text-ink" strokeWidth={2} strokeLinecap="round" />
+          <X size={15} className="text-ink" strokeWidth={1.8} strokeLinecap="round" />
         </button>
 
         {isAllServices ? (
@@ -80,7 +80,7 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
                 const Icon = icons[i];
                 return (
                   <li key={i} className="flex gap-3 items-start py-3 border-t border-line text-[15px] font-semibold">
-                    <ArrowRight size={16} className="text-blue shrink-0 mt-1" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                    <ArrowRight size={18} className="text-blue shrink-0 mt-1" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
                     <span>{svc.title}</span>
                   </li>
                 );
@@ -105,7 +105,7 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
             <ul className="space-y-0">
               {t.raw(`modal.${serviceIndex}.list`).map((item: string, i: number) => (
                 <li key={i} className="flex gap-3 items-start py-3 border-t border-line text-[15px] font-semibold">
-                  <ArrowRight size={16} className="text-blue shrink-0 mt-1" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                  <ArrowRight size={18} className="text-blue shrink-0 mt-1" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -127,7 +127,7 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
             className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-[14px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-all"
           >
             {t('requestService')}
-            <ArrowRight size={15} strokeWidth={2.5} />
+            <ArrowRight size={18} strokeWidth={1.8} />
           </a>
           <button
             onClick={onClose}

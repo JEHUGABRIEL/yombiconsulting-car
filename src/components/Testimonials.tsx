@@ -93,8 +93,7 @@ export default function Testimonials() {
                     <Quote
                       size={48}
                       className="text-blue/5 absolute top-6 right-6"
-                      fill="currentColor"
-                    />
+                      fill="currentColor" />
 
                     {/* Stars */}
                     <div className="flex gap-1 mb-4">
@@ -103,8 +102,7 @@ export default function Testimonials() {
                           key={j}
                           size={16}
                           className="text-amber-400"
-                          fill="currentColor"
-                        />
+                          fill="currentColor" />
                       ))}
                     </div>
 
@@ -139,7 +137,7 @@ export default function Testimonials() {
               className="w-11 h-11 rounded-full border border-line-2 flex items-center justify-center text-ink hover:border-blue hover:text-blue transition-colors"
               aria-label="Précédent"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={20} strokeWidth={1.8} />
             </button>
 
             {/* Dots */}
@@ -153,8 +151,7 @@ export default function Testimonials() {
                       ? 'w-8 bg-blue'
                       : 'w-2 bg-line-2 hover:bg-mut'
                   }`}
-                  aria-label={`Groupe ${i + 1}`}
-                />
+                  aria-label={`Groupe ${i + 1}`} />
               ))}
             </div>
 
@@ -163,7 +160,7 @@ export default function Testimonials() {
               className="w-11 h-11 rounded-full border border-line-2 flex items-center justify-center text-ink hover:border-blue hover:text-blue transition-colors"
               aria-label="Suivant"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={20} strokeWidth={1.8} />
             </button>
           </div>
         </div>

@@ -1,15 +1,17 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Shield, Clipboard, AlertTriangle, Leaf, TrendingUp, Briefcase, ArrowRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
-import { services } from '@/data/services';
+import { getServices } from '@/data/services';
 
 const icons = [Shield, Clipboard, AlertTriangle, Leaf, TrendingUp, Briefcase];
 
 export default function Services() {
   const t = useTranslations('services');
+  const locale = useLocale();
+  const list = getServices(locale);
   const cards = t.raw('cards');
 
   return (
@@ -35,26 +37,37 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger>
           {cards.slice(0, 6).map((card: any, i: number) => {
             const Icon = icons[i];
-            const service = services[i];
+            const service = list[i];
             return (
               <ScrollReveal key={i}>
                 <Link
                   href={service ? `/services/${service.slug}` : '/services'}
-                  className="block bg-white border border-line rounded-[20px] p-8 hover:border-[#C6D7F6] transition-all flex flex-col"
+                  className="group flex flex-col h-full bg-white border border-line rounded-[20px] overflow-hidden hover:border-[#C6D7F6] transition-colors"
                 >
-                  <span className="w-[58px] h-[58px] rounded-[16px] bg-tint flex items-center justify-center mb-6">
-                    <Icon size={27} className="text-blue" strokeWidth={1.8} />
-                  </span>
-                  <h3 className="text-[19px] font-extrabold mb-2.5 tracking-[-0.01em]">
-                    {card.title}
-                  </h3>
-                  <p className="text-[14.5px] text-mut mb-6 flex-1">
-                    {card.description}
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-blue text-[15px] font-bold">
-                    {t('details')}
-                    <ArrowRight size={16} strokeWidth={2.5} />
-                  </span>
+                  <div className="relative h-[170px] shrink-0 overflow-hidden">
+                    {service?.image ? (
+                      <img
+                        src={service.image}
+                        alt={card.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
+                    ) : null}
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-navy/5 to-transparent" />
+                    <span className="absolute bottom-4 left-5 w-11 h-11 rounded-[12px] bg-[#FAFBFD]/95 flex items-center justify-center">
+                      <Icon size={20} className="text-blue" strokeWidth={1.8} />
+                    </span>
+                  </div>
+                  <div className="flex flex-col flex-1 p-6">
+                    <h3 className="text-[18px] font-extrabold mb-2.5 tracking-[-0.01em]">
+                      {card.title}
+                    </h3>
+                    <p className="text-[14.5px] text-mut mb-5 flex-1">
+                      {card.description}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-blue text-[14px] font-bold">
+                      {t('details')}
+                      <ArrowRight size={18} strokeWidth={1.8} />
+                    </span>
+                  </div>
                 </Link>
               </ScrollReveal>
             );
@@ -68,7 +81,7 @@ export default function Services() {
               className="inline-flex items-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full border-[1.5px] border-blue text-blue hover:bg-blue hover:text-white transition-colors"
             >
               {t('allServices')}
-              <ArrowRight size={17} strokeWidth={2.5} />
+              <ArrowRight size={18} strokeWidth={1.8} />
             </Link>
           </div>
         </ScrollReveal>

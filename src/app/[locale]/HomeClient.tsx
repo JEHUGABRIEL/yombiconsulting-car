@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import Cabinet from '@/components/Cabinet';
+import Terrain from '@/components/Terrain';
 import Formations from '@/components/Formations';
 import ValeurAjoutee from '@/components/ValeurAjoutee';
 import Partenariats from '@/components/Partenariats';
@@ -21,6 +22,7 @@ export default function HomeClient() {
         <Hero />
         <Services />
         <Cabinet />
+        <Terrain />
         <Formations />
         <ValeurAjoutee />
         <Partenariats />

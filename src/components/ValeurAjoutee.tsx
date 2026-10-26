@@ -34,7 +34,7 @@ export default function ValeurAjoutee() {
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-colors"
               >
                 {t('cta')}
-                <ArrowRight size={17} strokeWidth={2.5} />
+                <ArrowRight size={18} strokeWidth={1.8} />
               </a>
             </ScrollReveal>
           </div>

@@ -17,6 +17,7 @@ import {
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
+import Terrain from '@/components/Terrain';
 
 const valeurIcons = [Layers, Hammer, MapPinned, UserCheck, BadgeCheck, RefreshCw];
 const pillarIcons = [Clipboard, GraduationCap, Users];
@@ -38,11 +39,9 @@ export default function AProposPage() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80&fit=crop')",
-            }}
-          />
-          <div className="absolute inset-0 bg-navy/90" />
+              backgroundImage: "url('/images/salle-reunion.jpeg')",
+            }} />
+          <div className="absolute inset-0 hero-overlay" />
           <div className="relative z-10 max-w-[1200px] mx-auto px-6">
             <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-soft" />
@@ -85,6 +84,8 @@ export default function AProposPage() {
             </ScrollReveal>
           </div>
         </section>
+
+        <Terrain />
 
         {/* ── Notre approche (piliers) ── */}
         <section className="py-16 bg-white">
@@ -167,7 +168,7 @@ export default function AProposPage() {
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-colors"
                 >
                   {t('ctaServices')}
-                  <ArrowRight size={16} strokeWidth={2.5} />
+                  <ArrowRight size={18} strokeWidth={1.8} />
                 </Link>
                 <Link
                   href="/formations"

@@ -48,9 +48,18 @@
       }
     ],
     "stats": [
-      { "value": "3", "label": "Domaines d'expertise" },
-      { "value": "20+", "label": "Prestations de conseil" },
-      { "value": "12", "label": "Formations proposées" }
+      {
+        "value": "3",
+        "label": "Domaines d'expertise"
+      },
+      {
+        "value": "20+",
+        "label": "Prestations de conseil"
+      },
+      {
+        "value": "12",
+        "label": "Formations proposées"
+      }
     ]
   },
   "services": {
@@ -75,37 +84,65 @@
       {
         "title": "Conseil & management HSSE",
         "desc": "Nous structurons votre démarche de prévention, du comité HSSE à la culture sécurité.",
-        "list": ["Conseil en entreprise et formation des animateurs HSSE", "Mise en œuvre de la norme ISO 45001:2018", "Mise en place et renforcement des Comités HSSE", "Culture sécurité et prévention"],
+        "list": [
+          "Conseil en entreprise et formation des animateurs HSSE",
+          "Mise en œuvre de la norme ISO 45001:2018",
+          "Mise en place et renforcement des Comités HSSE",
+          "Culture sécurité et prévention"
+        ],
         "subject": "Conseil & audit HSSE"
       },
       {
         "title": "Risques professionnels & DUERP",
         "desc": "Identifier, évaluer et hiérarchiser vos risques professionnels, document unique à l'appui.",
-        "list": ["Élaboration du DUERP", "Analyse et évaluation des risques professionnels", "Audits et inspections HSSE"],
+        "list": [
+          "Élaboration du DUERP",
+          "Analyse et évaluation des risques professionnels",
+          "Audits et inspections HSSE"
+        ],
         "subject": "Conseil & audit HSSE"
       },
       {
         "title": "Procédures & plans d'urgence",
         "desc": "Des consignes claires et des plans d'urgence éprouvés, connus de toutes vos équipes.",
-        "list": ["Élaboration de procédures", "Élaboration de plans d'urgence", "Sensibilisation au port des EPI"],
+        "list": [
+          "Élaboration de procédures",
+          "Élaboration de plans d'urgence",
+          "Sensibilisation au port des EPI"
+        ],
         "subject": "Conseil & audit HSSE"
       },
       {
         "title": "Environnement",
         "desc": "Déchets, impacts, climat : nous rendons votre empreinte environnementale pilotable.",
-        "list": ["Gestion environnementale", "Gestion des déchets", "Évaluation des impacts environnementaux", "Plans de gestion environnementale et sociale", "Sensibilisation au changement climatique"],
+        "list": [
+          "Gestion environnementale",
+          "Gestion des déchets",
+          "Évaluation des impacts environnementaux",
+          "Plans de gestion environnementale et sociale",
+          "Sensibilisation au changement climatique"
+        ],
         "subject": "Environnement"
       },
       {
         "title": "Développement des entreprises",
         "desc": "Business model, organisation, financement : structurer la croissance de votre activité.",
-        "list": ["Fiscalité, marketing et finance", "Organisation et gestion", "Business Model Canvas", "Élaboration de plans d'affaires"],
+        "list": [
+          "Fiscalité, marketing et finance",
+          "Organisation et gestion",
+          "Business Model Canvas",
+          "Élaboration de plans d'affaires"
+        ],
         "subject": "Développement d'entreprise"
       },
       {
         "title": "Coaching & PME",
         "desc": "Un accompagnement dans la durée pour les entrepreneurs et les petites entreprises.",
-        "list": ["Coaching des entrepreneurs", "Accompagnement des PME", "Suivi après formation"],
+        "list": [
+          "Coaching des entrepreneurs",
+          "Accompagnement des PME",
+          "Suivi après formation"
+        ],
         "subject": "Développement d'entreprise"
       }
     ],
@@ -304,7 +341,9 @@
           }
         ]
       }
-    }
+    },
+    "notFound": "Service introuvable",
+    "backToServices": "Retour aux services"
   },
   "cabinet": {
     "chip": "Le cabinet",
@@ -346,19 +385,60 @@
     "noteLink": "Écrivez-nous",
     "noteSuffix": ": nous construisons des programmes sur mesure.",
     "items": [
-      { "title": "Animateur HSSE", "category": "sec" },
-      { "title": "Santé et sécurité au travail", "category": "sec" },
-      { "title": "Prévention des accidents", "category": "sec" },
-      { "title": "Port des EPI", "category": "sec" },
-      { "title": "Premiers secours", "category": "sec" },
-      { "title": "Gestion des risques professionnels", "category": "sec" },
-      { "title": "Management HSSE", "category": "mgmt" },
-      { "title": "Leadership et culture sécurité", "category": "mgmt" },
-      { "title": "Environnement et développement durable", "category": "mgmt" },
-      { "title": "Entrepreneuriat", "category": "ent" },
-      { "title": "Marketing", "category": "ent" },
-      { "title": "Gestion financière", "category": "ent" }
-    ]
+      {
+        "title": "Animateur HSSE",
+        "category": "sec"
+      },
+      {
+        "title": "Santé et sécurité au travail",
+        "category": "sec"
+      },
+      {
+        "title": "Prévention des accidents",
+        "category": "sec"
+      },
+      {
+        "title": "Port des EPI",
+        "category": "sec"
+      },
+      {
+        "title": "Premiers secours",
+        "category": "sec"
+      },
+      {
+        "title": "Gestion des risques professionnels",
+        "category": "sec"
+      },
+      {
+        "title": "Management HSSE",
+        "category": "mgmt"
+      },
+      {
+        "title": "Leadership et culture sécurité",
+        "category": "mgmt"
+      },
+      {
+        "title": "Environnement et développement durable",
+        "category": "mgmt"
+      },
+      {
+        "title": "Entrepreneuriat",
+        "category": "ent"
+      },
+      {
+        "title": "Marketing",
+        "category": "ent"
+      },
+      {
+        "title": "Gestion financière",
+        "category": "ent"
+      }
+    ],
+    "notFound": "Formation introuvable",
+    "backToFormations": "Retour aux formations",
+    "objectives": "Objectifs pédagogiques",
+    "audience": "Public concerné",
+    "nextFormation": "Formation suivante"
   },
   "valeur": {
     "chip": "Notre valeur ajoutée",
@@ -401,7 +481,9 @@
     "description": "Suivez nos dernières nouvelles, analyses et retours d'expérience sur la prévention des risques et le développement des entreprises.",
     "readMore": "Lire",
     "viewAll": "Toutes les actualités",
-    "nextArticle": "Article suivant"
+    "nextArticle": "Article suivant",
+    "notFound": "Actualité introuvable",
+    "backToNews": "Retour aux actualités"
   },
   "partenariats": {
     "chip": "Partenariats",
@@ -563,18 +645,306 @@
       "home": "Accueil",
       "apropos": "À propos",
       "services": "Nos services",
-      "formations": "Formations"
+      "formations": "Formations",
+      "actualites": "Actualités"
     },
     "copyright": "Tous droits réservés.",
-    "mentions": "Mentions & confidentialité"
+    "mentions": "Mentions & confidentialité",
+    "legalLinks": {
+      "mentions": "Mentions légales",
+      "cgu": "CGU",
+      "privacy": "Confidentialité",
+      "cookies": "Cookies"
+    },
+    "address": "5e arr. avenue du Lt Koudoukou, face au croisement de la rue Madou, Bangui"
   },
   "mentions": {
-    "title": "Mentions & confidentialité",
-    "editor": "Éditeur",
-    "editorText": "Cabinet Yo Mbi Consulting, cabinet de conseil, de formation et d'accompagnement en Hygiène, Santé, Sécurité et Environnement (HSSE) et en développement des entreprises. Siège social : 5e arrondissement, avenue du Lieutenant Koudoukou, face au croisement de la rue Madou, Bangui, République centrafricaine. Contact : +236 72 11 19 14, contact.cmc@gmail.com.",
-    "data": "Données personnelles",
-    "dataText": "Ce site ne dépose aucun cookie et ne stocke aucune donnée. Les informations saisies dans le formulaire de contact et la lettre d'information restent sur votre appareil : elles ne quittent celui-ci que sous la forme d'un message que vous envoyez vous-même au cabinet. Elles servent uniquement à traiter votre demande.",
-    "responsibility": "Responsabilité",
-    "responsibilityText": "Les informations publiées présentent les domaines d'intervention du cabinet. Elles ne constituent ni un avis professionnel ni un engagement contractuel. Pour toute question sur le contenu du site, écrivez-nous."
+    "title": "Mentions légales",
+    "intro": "Ce site présente les activités du Cabinet Yo Mbi Consulting. Les informations ci-dessous identifient l'éditeur, l'hébergeur et les règles applicables à l'utilisation du site.",
+    "sections": [
+      {
+        "title": "Éditeur du site",
+        "paragraphs": [
+          "Le site est édité par le Cabinet Yo Mbi Consulting, cabinet de conseil, de formation et d'accompagnement en Hygiène, Santé, Sécurité et Environnement (HSSE) et en développement des entreprises.",
+          "Siège social : 5e arrondissement, avenue du Lieutenant Koudoukou, face au croisement de la rue Madou, Bangui, République centrafricaine.",
+          "Contact : +236 72 11 19 14 — contact.cmc@gmail.com.",
+          "Immatriculation au registre du commerce (RCCM) et identifiant fiscal : à compléter par le cabinet."
+        ]
+      },
+      {
+        "title": "Directeur de la publication",
+        "paragraphs": [
+          "Le directeur de la publication est le représentant légal du Cabinet Yo Mbi Consulting.",
+          "Responsable de la rédaction : à compléter par le cabinet."
+        ]
+      },
+      {
+        "title": "Hébergement",
+        "paragraphs": [
+          "Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — vercel.com."
+        ]
+      },
+      {
+        "title": "Activité et cadre réglementaire",
+        "paragraphs": [
+          "Le cabinet exerce une activité de conseil, de formation et d'accompagnement auprès des entreprises, institutions publiques, ONG et porteurs de projets. Cette activité n'est pas réservée à une profession réglementée.",
+          "Les informations publiées sur le site ne constituent pas un conseil personnalisé : chaque mission fait l'objet d'un échange préalable puis d'une proposition écrite."
+        ]
+      },
+      {
+        "title": "Contenu et responsabilité",
+        "paragraphs": [
+          "Le cabinet s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site, et se réserve le droit d'en corriger le contenu à tout moment, sans préavis. Il ne peut toutefois garantir l'exhaustivité des informations ni l'absence de modification par un tiers.",
+          "Le cabinet décline toute responsabilité en cas de difficulté ou d'impossibilité d'accès au site résultant d'un problème de connexion, d'une interruption du service ou d'un événement extérieur.",
+          "Les liens hypertextes vers d'autres sites ne sauraient engager la responsabilité du cabinet, qui n'exerce aucun contrôle sur leur contenu."
+        ]
+      },
+      {
+        "title": "Propriété intellectuelle",
+        "paragraphs": [
+          "L'ensemble du site et chacun de ses éléments pris séparément — textes, photographies, logo, visuels, éléments graphiques — sont protégés par le droit d'auteur et le droit des marques, ou utilisés avec l'accord de leurs titulaires.",
+          "Toute reproduction, représentation, diffusion ou réutilisation, totale ou partielle, sur quelque support que ce soit, est interdite sauf autorisation écrite préalable du cabinet.",
+          "Les photographies illustrent des interventions réelles du cabinet. Leur publication suppose l'accord des personnes reconnaissables ; toute demande de retrait peut être adressée à contact.cmc@gmail.com."
+        ]
+      },
+      {
+        "title": "Données personnelles et cookies",
+        "paragraphs": [
+          "Le traitement des données personnelles est décrit dans la politique de confidentialité. Le site ne dépose aucun cookie de mesure d’audience ni de publicité : voir la politique de cookies."
+        ]
+      },
+      {
+        "title": "Droit applicable",
+        "paragraphs": [
+          "Les présentes mentions sont soumises au droit centrafricain. En cas de litige, une solution amiable sera recherchée avant toute action contentieuse devant les juridictions compétentes de Bangui."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "Pour toute question relative au site : contact.cmc@gmail.com — +236 72 11 19 14."
+        ]
+      }
+    ]
+  },
+  "terrain": {
+    "chip": "Sur le terrain",
+    "title": "Nos interventions",
+    "titleHighlight": "en images",
+    "description": "Formations en salle, inspections de chantier, ateliers pratiques : ces photos documentent des interventions réelles menées par le cabinet et ses partenaires en République centrafricaine.",
+    "cta": "Découvrir le cabinet",
+    "items": [
+      {
+        "title": "Formation en salle",
+        "caption": "Session de formation, Bangui"
+      },
+      {
+        "title": "Animation sur paperboard",
+        "caption": "Travail en atelier avec les participants"
+      },
+      {
+        "title": "Inspection de chantier",
+        "caption": "Consignes de sécurité et port des EPI"
+      }
+    ]
+  },
+  "legalPage": {
+    "updated": "Dernière mise à jour : octobre 2026",
+    "summary": "Sommaire",
+    "contactTitle": "Une question sur ce document ?",
+    "contactText": "Écrivez-nous à contact.cmc@gmail.com ou appelez le +236 72 11 19 14."
+  },
+  "cgu": {
+    "title": "Conditions générales d'utilisation",
+    "intro": "Les présentes conditions encadrent l'utilisation du site du Cabinet Yo Mbi Consulting. En consultant le site, vous acceptez les règles décrites ci-dessous.",
+    "sections": [
+      {
+        "title": "Objet du site",
+        "paragraphs": [
+          "Le site présente les activités du Cabinet Yo Mbi Consulting : conseil et accompagnement en Hygiène, Santé, Sécurité et Environnement (HSSE), environnement, conseil aux entreprises et formations professionnelles.",
+          "Il a une vocation informative. Aucune prestation ne peut être conclue directement en ligne : toute mission fait l'objet d'un échange puis d'une proposition écrite."
+        ]
+      },
+      {
+        "title": "Accès au site",
+        "paragraphs": [
+          "L'accès au site est libre et gratuit, hors frais de connexion et de matériel facturés par votre opérateur.",
+          "Le cabinet peut interrompre ou suspendre l'accès pour maintenance ou mise à jour, sans que cela ouvre droit à une quelconque indemnité."
+        ]
+      },
+      {
+        "title": "Propriété intellectuelle",
+        "paragraphs": [
+          "Les textes, photographies, logos, visuels et éléments graphiques présents sur le site sont la propriété du Cabinet Yo Mbi Consulting ou sont utilisés avec l'accord de leurs titulaires.",
+          "Toute reproduction, représentation ou réutilisation, totale ou partielle, sans autorisation écrite préalable est interdite."
+        ]
+      },
+      {
+        "title": "Informations et responsabilité",
+        "paragraphs": [
+          "Les informations publiées sont générales et ne constituent pas un avis professionnel personnalisé. Elles ne remplacent pas une évaluation réalisée dans votre entreprise.",
+          "Le cabinet s'efforce de maintenir ces informations à jour, sans pouvoir garantir l'absence d'erreur ou d'omission. Les photographies illustrent des interventions réelles ; elles ne constituent pas un engagement contractuel."
+        ]
+      },
+      {
+        "title": "Liens vers d'autres sites",
+        "paragraphs": [
+          "Le site peut renvoyer vers des sites tiers, notamment des partenaires. Le cabinet n'exerce aucun contrôle sur leur contenu et décline toute responsabilité à leur égard."
+        ]
+      },
+      {
+        "title": "Données personnelles et cookies",
+        "paragraphs": [
+          "Le traitement des données est décrit dans la politique de confidentialité. Le site ne dépose aucun cookie de mesure d'audience ni de publicité."
+        ]
+      },
+      {
+        "title": "Droit applicable",
+        "paragraphs": [
+          "Les présentes conditions sont soumises au droit centrafricain. En cas de litige, une solution amiable sera recherchée avant toute action contentieuse devant les juridictions compétentes de Bangui."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "Pour toute question relative au site ou à ces conditions : contact.cmc@gmail.com — +236 72 11 19 14."
+        ]
+      }
+    ]
+  },
+  "confidentialite": {
+    "title": "Politique de confidentialité",
+    "intro": "Cette politique décrit les données à caractère personnel traitées lorsque vous consultez le site du Cabinet Yo Mbi Consulting, et la manière d'exercer vos droits.",
+    "sections": [
+      {
+        "title": "Responsable du traitement",
+        "paragraphs": [
+          "Cabinet Yo Mbi Consulting — 5e arrondissement, avenue du Lieutenant Koudoukou, face au croisement de la rue Madou, Bangui, République centrafricaine.",
+          "Contact : contact.cmc@gmail.com — +236 72 11 19 14."
+        ]
+      },
+      {
+        "title": "Données collectées",
+        "paragraphs": [
+          "Le site ne crée aucun compte et ne collecte aucune donnée automatiquement : il n'utilise ni cookie de mesure d'audience, ni traceur publicitaire, ni profil utilisateur.",
+          "Le formulaire de contact ne transmet rien à un serveur : il compose un courriel dans votre propre messagerie. Les informations que vous y saisissez ne nous parviennent que si vous envoyez ce message."
+        ],
+        "items": [
+          "Nom et organisation que vous indiquez",
+          "Coordonnées que vous choisissez de communiquer (téléphone, adresse électronique)",
+          "Sujet et contenu de votre message",
+          "Date de votre envoi"
+        ]
+      },
+      {
+        "title": "Finalités, bases légales et durées de conservation",
+        "paragraphs": [
+          "Les informations reçues sont utilisées pour les finalités suivantes, avec les durées correspondantes :"
+        ],
+        "items": [
+          "Répondre à votre demande : mesures précontractuelles prises à votre demande — 24 mois à compter du dernier échange.",
+          "Préparer une proposition de mission : intérêt légitime du cabinet à répondre aux sollicitations — 24 mois.",
+          "Assurer le suivi administratif et comptable d'une mission : exécution du contrat — durée de la relation, puis archivage légal."
+        ]
+      },
+      {
+        "title": "Destinataires",
+        "paragraphs": [
+          "Les informations reçues sont destinées aux seuls membres du cabinet concernés par votre demande. Elles ne sont ni vendues, ni louées, ni transmises à des fins commerciales."
+        ]
+      },
+      {
+        "title": "Transferts hors du pays",
+        "paragraphs": [
+          "Le site est hébergé par un prestataire établi aux États-Unis (Vercel Inc.). Cet hébergement concerne les pages du site, pas le contenu de vos courriels, qui restent dans votre messagerie jusqu'à ce que vous nous les adressiez.",
+          "Si un transfert de données personnelles vers un pays tiers devait avoir lieu, le cabinet mettrait en place les garanties appropriées prévues par la réglementation applicable."
+        ]
+      },
+      {
+        "title": "Vos droits",
+        "paragraphs": [
+          "Vous pouvez demander l'accès à vos informations, leur rectification, leur effacement ou la limitation de leur traitement, et vous opposer à leur utilisation. Écrivez à contact.cmc@gmail.com en précisant votre demande ; nous répondons dans un délai maximal de 30 jours.",
+          "Si vous estimez que vos droits ne sont pas respectés, vous pouvez saisir l'autorité compétente en matière de protection des données."
+        ]
+      },
+      {
+        "title": "Sécurité",
+        "paragraphs": [
+          "Le cabinet met en œuvre des mesures raisonnables pour protéger les informations qu'il reçoit : accès limité aux personnes concernées, messagerie protégée et sauvegardes des documents de travail."
+        ]
+      },
+      {
+        "title": "Cookies et traceurs",
+        "paragraphs": [
+          "Le site ne dépose aucun cookie de mesure, de publicité ou de personnalisation. Le détail figure dans la politique de cookies."
+        ]
+      },
+      {
+        "title": "Modifications",
+        "paragraphs": [
+          "Cette politique peut être mise à jour pour tenir compte de changements techniques ou réglementaires. La date de dernière mise à jour figure en haut de la page."
+        ]
+      }
+    ]
+  },
+  "cookies": {
+    "title": "Politique de cookies",
+    "intro": "Cette politique explique ce qu'est un cookie, quels traceurs le site utilise et comment les gérer depuis votre navigateur.",
+    "sections": [
+      {
+        "title": "Qu'est-ce qu'un cookie ?",
+        "paragraphs": [
+          "Un cookie est un petit fichier déposé par un site sur votre appareil lors de votre visite. Il permet notamment de mémoriser des préférences ou de mesurer la fréquentation. Le stockage local du navigateur fonctionne de manière comparable."
+        ]
+      },
+      {
+        "title": "Cookies utilisés sur ce site",
+        "paragraphs": [
+          "Le site du Cabinet Yo Mbi Consulting ne dépose aucun cookie de mesure d'audience, de publicité ou de personnalisation, et n'utilise aucun outil de suivi tiers.",
+          "Aucun consentement n'est donc requis et aucun bandeau cookies ne s'affiche : il n'y a aucun traceur non essentiel à refuser."
+        ]
+      },
+      {
+        "title": "Journaux techniques de l'hébergeur",
+        "paragraphs": [
+          "Comme tout site web, l'hébergeur peut enregistrer des journaux techniques (adresse IP, date et heure, page demandée, type de navigateur) afin d'assurer la sécurité et le bon fonctionnement du service.",
+          "Ces journaux ne sont pas utilisés à des fins commerciales ni recoupés avec d'autres données pour profiler les visiteurs."
+        ]
+      },
+      {
+        "title": "Stockage local",
+        "paragraphs": [
+          "Le site n'enregistre aucune information dans le stockage local de votre navigateur à des fins de suivi ou de publicité."
+        ]
+      },
+      {
+        "title": "Gérer les cookies dans votre navigateur",
+        "paragraphs": [
+          "Vous pouvez à tout moment configurer votre navigateur pour refuser, supprimer ou signaler les cookies. Ce réglage n'affecte pas la consultation du site, qui ne dépend d'aucun traceur."
+        ],
+        "items": [
+          "Google Chrome : Paramètres > Confidentialité et sécurité > Cookies et autres données des sites",
+          "Mozilla Firefox : Paramètres > Vie privée et sécurité > Cookies et données de sites",
+          "Safari : Réglages > Safari > Confidentialité et sécurité",
+          "Microsoft Edge : Paramètres > Cookies et autorisations de site"
+        ]
+      },
+      {
+        "title": "Durée de conservation",
+        "paragraphs": [
+          "Le site ne dépose aucun cookie : aucune durée de conservation ne s'applique de son fait. Les journaux techniques de l'hébergeur sont conservés pour une durée limitée, fixée par ses conditions de service."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "Pour toute question relative aux cookies : contact.cmc@gmail.com — +236 72 11 19 14."
+        ]
+      }
+    ]
+  },
+  "loading": {
+    "label": "Chargement de la page",
+    "hint": "Merci de patienter un instant."
   }
 }

@@ -20,7 +20,7 @@ export const services: Service[] = [
       'Culture sécurité et prévention',
     ],
     subject: 'Conseil & audit HSSE',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80&fit=crop',
+    image: '/images/chantier-consignes-securite.jpeg',
   },
   {
     slug: 'risques-professionnels-duerp',
@@ -33,7 +33,7 @@ export const services: Service[] = [
       'Audits et inspections HSSE',
     ],
     subject: 'Conseil & audit HSSE',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=80&fit=crop',
+    image: '/images/chantier-inspection.jpeg',
   },
   {
     slug: 'procedures-plans-urgence',
@@ -46,7 +46,7 @@ export const services: Service[] = [
       'Sensibilisation au port des EPI',
     ],
     subject: 'Conseil & audit HSSE',
-    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=80&fit=crop',
+    image: '/images/chantier-inspection-2.jpeg',
   },
   {
     slug: 'environnement',
@@ -61,7 +61,7 @@ export const services: Service[] = [
       'Sensibilisation au changement climatique',
     ],
     subject: 'Environnement',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80&fit=crop',
+    image: '/images/salle-reunion.jpeg',
   },
   {
     slug: 'developpement-entreprises',
@@ -75,7 +75,7 @@ export const services: Service[] = [
       'Élaboration de plans d\'affaires',
     ],
     subject: 'Développement d\'entreprise',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&fit=crop',
+    image: '/images/formation-intervenant.jpeg',
   },
   {
     slug: 'coaching-pme',
@@ -88,10 +88,99 @@ export const services: Service[] = [
       'Suivi après formation',
     ],
     subject: 'Développement d\'entreprise',
-    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80&fit=crop',
+    image: '/images/formation-participantes-notes.jpeg',
   },
 ];
 
-export function getServiceBySlug(slug: string): Service | undefined {
-  return services.find((s) => s.slug === slug);
+export const servicesEn: Service[] = [
+  {
+    slug: 'conseil-management-hsse',
+    title: 'HSSE consulting & management',
+    description:
+      'We structure your prevention approach, from the HSSE committee to safety culture. From the initial diagnosis to a lasting management system, we support you at every step.',
+    list: [
+      'Business consulting and training of HSSE coordinators',
+      'Implementation of the ISO 45001:2018 standard',
+      'Setting up and strengthening HSSE committees',
+      'Safety culture and prevention',
+    ],
+    subject: 'HSSE consulting & audit',
+    image: '/images/chantier-consignes-securite.jpeg',
+  },
+  {
+    slug: 'risques-professionnels-duerp',
+    title: 'Occupational risks & risk assessment',
+    description:
+      'Identify, assess and prioritise your occupational risks using a single risk assessment document. We carry out a full review and give you the tools to steer prevention.',
+    list: [
+      'Single risk assessment document (DUERP)',
+      'Analysis and assessment of occupational risks',
+      'HSSE audits and inspections',
+    ],
+    subject: 'HSSE consulting & audit',
+    image: '/images/chantier-inspection.jpeg',
+  },
+  {
+    slug: 'procedures-plans-urgence',
+    title: 'Procedures & emergency plans',
+    description:
+      'Clear instructions and tested emergency plans, known to all your teams. We draft and test the procedures that make the difference in a critical situation.',
+    list: [
+      'Drafting procedures',
+      'Drafting emergency plans',
+      'PPE awareness and correct use',
+    ],
+    subject: 'HSSE consulting & audit',
+    image: '/images/chantier-inspection-2.jpeg',
+  },
+  {
+    slug: 'environnement',
+    title: 'Environment',
+    description:
+      'Waste, impacts, climate: we make your environmental footprint manageable. Practical solutions to reduce your impact and align your activities with regulatory requirements.',
+    list: [
+      'Environmental management',
+      'Waste management',
+      'Environmental impact assessment',
+      'Environmental and social management plans',
+      'Climate change awareness',
+    ],
+    subject: 'Environment',
+    image: '/images/salle-reunion.jpeg',
+  },
+  {
+    slug: 'developpement-entreprises',
+    title: 'Business development',
+    description:
+      'Business model, organisation, financing: structuring your growth. We help you lay the foundations of a high-performing, sustainable company.',
+    list: [
+      'Tax, marketing and finance',
+      'Organisation and management',
+      'Business Model Canvas',
+      'Business plan development',
+    ],
+    subject: 'Business development',
+    image: '/images/formation-intervenant.jpeg',
+  },
+  {
+    slug: 'coaching-pme',
+    title: 'Coaching & SMEs',
+    description:
+      'Long-term support for entrepreneurs and small businesses. A dedicated contact who understands your challenges and helps you clear the key milestones.',
+    list: [
+      'Entrepreneur coaching',
+      'SME support',
+      'Post-training follow-up',
+    ],
+    subject: 'Business development',
+    image: '/images/formation-participantes-notes.jpeg',
+  },
+];
+
+export function getServices(locale: string): Service[] {
+  return locale === 'en' ? servicesEn : services;
+}
+
+export function getServiceBySlug(slug: string, locale = 'fr'): Service | undefined {
+  return getServices(locale).find((s) => s.slug === slug);
 }

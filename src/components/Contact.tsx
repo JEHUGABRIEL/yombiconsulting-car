@@ -103,7 +103,7 @@ export default function Contact() {
                   rel="noopener"
                   className="inline-flex items-center gap-2 px-[22px] py-3 text-[14px] font-bold rounded-full border-[1.5px] border-line-2 text-ink hover:border-blue hover:text-blue transition-all"
                 >
-                  <MessageCircle size={16} /> {t('whatsapp')}
+                  <MessageCircle size={16} strokeWidth={1.8} /> {t('whatsapp')}
                 </a>
                 <a
                   href="https://www.facebook.com/search/top?q=cabinet%20yo%20mbi%20consulting"
@@ -111,7 +111,7 @@ export default function Contact() {
                   rel="noopener"
                   className="inline-flex items-center gap-2 px-[22px] py-3 text-[14px] font-bold rounded-full border-[1.5px] border-line-2 text-ink hover:border-blue hover:text-blue transition-all"
                 >
-                  <Facebook size={16} /> {t('facebook')}
+                  <Facebook size={16} strokeWidth={1.8} /> {t('facebook')}
                 </a>
               </div>
             </ScrollReveal>
@@ -132,8 +132,7 @@ export default function Contact() {
                     value={formData.nom}
                     onChange={handleChange}
                     required
-                    className="w-full bg-[#FBFCFE] border-[1.5px] border-line-2 rounded-[12px] px-4 py-3.5 text-[15px] text-ink focus:outline-none focus:border-blue focus:shadow-[0_0_0_4px_rgba(37,87,230,.1)] transition-all"
-                  />
+                    className="w-full bg-[#FBFCFE] border-[1.5px] border-line-2 rounded-[12px] px-4 py-3.5 text-[15px] text-ink focus:outline-none focus:border-blue focus:shadow-[0_0_0_4px_rgba(37,87,230,.1)] transition-all" />
                 </div>
                 <div>
                   <label className="block text-[13px] font-bold mb-2">{t('form.organization')}</label>
@@ -143,8 +142,7 @@ export default function Contact() {
                     value={formData.organisation}
                     onChange={handleChange}
                     placeholder={t('form.organizationPlaceholder')}
-                    className="w-full bg-[#FBFCFE] border-[1.5px] border-line-2 rounded-[12px] px-4 py-3.5 text-[15px] text-ink focus:outline-none focus:border-blue focus:shadow-[0_0_0_4px_rgba(37,87,230,.1)] transition-all placeholder:text-mut"
-                  />
+                    className="w-full bg-[#FBFCFE] border-[1.5px] border-line-2 rounded-[12px] px-4 py-3.5 text-[15px] text-ink focus:outline-none focus:border-blue focus:shadow-[0_0_0_4px_rgba(37,87,230,.1)] transition-all placeholder:text-mut" />
                 </div>
               </div>
 
@@ -156,8 +154,7 @@ export default function Contact() {
                   value={formData.contact}
                   onChange={handleChange}
                   required
-                  className="w-full bg-[#FBFCFE] border-[1.5px] border-line-2 rounded-[12px] px-4 py-3.5 text-[15px] text-ink focus:outline-none focus:border-blue focus:shadow-[0_0_0_4px_rgba(37,87,230,.1)] transition-all"
-                />
+                  className="w-full bg-[#FBFCFE] border-[1.5px] border-line-2 rounded-[12px] px-4 py-3.5 text-[15px] text-ink focus:outline-none focus:border-blue focus:shadow-[0_0_0_4px_rgba(37,87,230,.1)] transition-all" />
               </div>
 
               <div className="mb-5">
@@ -187,8 +184,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder={t('form.messagePlaceholder')}
                   rows={5}
-                  className="w-full bg-[#FBFCFE] border-[1.5px] border-line-2 rounded-[12px] px-4 py-3.5 text-[15px] text-ink focus:outline-none focus:border-blue focus:shadow-[0_0_0_4px_rgba(37,87,230,.1)] transition-all resize-vertical placeholder:text-mut min-h-[130px]"
-                />
+                  className="w-full bg-[#FBFCFE] border-[1.5px] border-line-2 rounded-[12px] px-4 py-3.5 text-[15px] text-ink focus:outline-none focus:border-blue focus:shadow-[0_0_0_4px_rgba(37,87,230,.1)] transition-all resize-vertical placeholder:text-mut min-h-[130px]" />
               </div>
 
               <button
@@ -196,7 +192,7 @@ export default function Contact() {
                 className="w-full inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-colors mt-2"
               >
                 {t('form.submit')}
-                <ArrowRight size={17} strokeWidth={2.5} />
+                <ArrowRight size={18} strokeWidth={1.8} />
               </button>
 
               <p className="text-[12.5px] text-mut mt-4 leading-relaxed">

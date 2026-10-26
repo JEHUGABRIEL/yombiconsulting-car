@@ -1,14 +1,18 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { MessageCircle, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import ServiceModal from './ServiceModal';
+import { getServices } from '@/data/services';
 
 export default function Footer() {
   const t = useTranslations('footer');
+  const locale = useLocale();
+  const serviceLinks = getServices(locale).map((service) => service.title);
   const links = t.raw('links');
+  const legalLabels = t.raw('legalLinks') as Record<string, string>;
 
   // Seuls les liens vers de vraies pages sont affichés (plus d'ancres home)
   const linkRoutes: Record<string, string> = {
@@ -16,7 +20,15 @@ export default function Footer() {
     apropos: '/a-propos',
     services: '/services',
     formations: '/formations',
+    actualites: '/actualites',
   };
+
+  const legalRoutes = [
+    { key: 'mentions', href: '/mentions' },
+    { key: 'cgu', href: '/cgu' },
+    { key: 'privacy', href: '/confidentialite' },
+    { key: 'cookies', href: '/cookies' },
+  ] as const;
   const [modalOpen, setModalOpen] = useState(false);
   const [activeService, setActiveService] = useState(-1);
 
@@ -44,8 +56,7 @@ export default function Footer() {
             <input
               type="email"
               placeholder={t('newsletter.placeholder')}
-              className="bg-[rgba(255,255,255,.07)] border-[1.5px] border-[rgba(255,255,255,.18)] rounded-full px-[22px] py-3.5 text-[14.5px] text-white min-w-[280px] focus:outline-none focus:border-blue-soft transition-all placeholder:text-[#7E93B0]"
-            />
+              className="bg-[rgba(255,255,255,.07)] border-[1.5px] border-[rgba(255,255,255,.18)] rounded-full px-[22px] py-3.5 text-[14.5px] text-white min-w-[280px] focus:outline-none focus:border-blue-soft transition-all placeholder:text-[#8799B3]" />
             <button
               type="submit"
               className="px-7 py-3.5 rounded-full bg-blue text-white text-[15px] font-bold hover:bg-blue-deep transition-all"
@@ -63,8 +74,7 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="Yo Mbi Consulting"
-                className="w-[46px] h-[46px] object-contain"
-              />
+                className="w-[46px] h-[46px] object-contain" />
               <div className="leading-tight">
                 <b className="block text-[19px] font-extrabold text-white">Yo Mbi</b>
                 <span className="block text-[9.5px] font-bold tracking-[0.32em] text-blue-soft">CONSULTING</span>
@@ -78,7 +88,7 @@ export default function Footer() {
                 rel="noopener"
                 className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-all text-lg"
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={18} strokeWidth={1.8} />
               </a>
               <a
                 href="https://www.facebook.com/search/top?q=cabinet%20yo%20mbi%20consulting"
@@ -86,13 +96,13 @@ export default function Footer() {
                 rel="noopener"
                 className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-all text-lg"
               >
-                <Facebook size={18} />
+                <Facebook size={18} strokeWidth={1.8} />
               </a>
               <a
                 href="mailto:contact.cmc@gmail.com"
                 className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-all text-lg"
               >
-                <Mail size={18} />
+                <Mail size={18} strokeWidth={1.8} />
               </a>
             </div>
           </div>
@@ -103,14 +113,7 @@ export default function Footer() {
               {t('services')}
             </p>
             <ul className="space-y-1.5">
-              {[
-                'Conseil & management HSSE',
-                'Risques & DUERP',
-                'Procédures & urgences',
-                'Environnement',
-                'Développement',
-                'Coaching & PME',
-              ].map((service, i) => (
+              {serviceLinks.map((service, i) => (
                 <li key={service}>
                   <button
                     type="button"
@@ -152,15 +155,15 @@ export default function Footer() {
             </p>
             <ul className="space-y-4">
               <li className="flex gap-3 text-[14.5px] leading-[1.5]">
-                <MapPin size={16} className="shrink-0 mt-0.5" />
-                <span>5e arr. avenue du Lt Koudoukou, face au croisement de la rue Madou, Bangui</span>
+                <MapPin size={16} className="shrink-0 mt-0.5" strokeWidth={1.8} />
+                <span>{t('address')}</span>
               </li>
               <li className="flex gap-3 text-[14.5px]">
-                <Phone size={16} className="shrink-0" />
+                <Phone size={16} className="shrink-0" strokeWidth={1.8} />
                 <a href="tel:+23672111914" className="hover:text-white transition-colors">+236 72 11 19 14</a>
               </li>
               <li className="flex gap-3 text-[14.5px]">
-                <Mail size={16} className="shrink-0" />
+                <Mail size={16} className="shrink-0" strokeWidth={1.8} />
                 <a href="mailto:contact.cmc@gmail.com" className="hover:text-white transition-colors">contact.cmc@gmail.com</a>
               </li>
             </ul>
@@ -170,20 +173,24 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex items-center justify-between gap-4 flex-wrap border-t border-[rgba(255,255,255,.1)] py-6 text-[13px]">
           <span>© {new Date().getFullYear()} Cabinet Yo Mbi Consulting. {t('copyright')}</span>
-          <Link
-            href="/mentions"
-            className="text-[#AABBD4] underline underline-offset-[3px] hover:text-white transition-colors"
-          >
-            {t('mentions')}
-          </Link>
+          <nav className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            {legalRoutes.map((route) => (
+              <Link
+                key={route.href}
+                href={route.href}
+                className="text-[#AABBD4] hover:text-white transition-colors"
+              >
+                {legalLabels[route.key]}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
 
       <ServiceModal
         isOpen={modalOpen}
         serviceIndex={activeService}
-        onClose={closeModal}
-      />
+        onClose={closeModal} />
     </footer>
   );
 }

@@ -1,10 +1,10 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight, ArrowUpRight, Clock, Users } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
-import { formations, categoryLabels } from '@/data/formations';
+import { getFormations } from '@/data/formations';
 
 const catColors: Record<string, { text: string; dot: string }> = {
   sec: { text: 'text-blue', dot: 'bg-blue' },
@@ -14,7 +14,8 @@ const catColors: Record<string, { text: string; dot: string }> = {
 
 export default function Formations() {
   const t = useTranslations('formations');
-  const displayItems = formations.slice(0, 6);
+  const locale = useLocale();
+  const displayItems = getFormations(locale).slice(0, 6);
 
   return (
     <section id="formations" className="py-20 bg-sky">
@@ -52,17 +53,16 @@ export default function Formations() {
                   <div className="relative h-[180px] overflow-hidden shrink-0">
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                      style={{ backgroundImage: `url('${formation.image}')` }}
-                    />
+                      style={{ backgroundImage: `url('${formation.image}')` }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/10 to-transparent" />
                     <span
-                      className={`absolute top-4 left-4 inline-flex items-center gap-1.5 bg-white/95 ${colors.text} text-[11px] font-bold tracking-wide px-3 py-1.5 rounded-full`}
+                      className={`absolute top-4 left-4 inline-flex items-center gap-1.5 bg-[#FAFBFD]/95 ${colors.text} text-[11px] font-bold tracking-wide px-3 py-1.5 rounded-full`}
                     >
                       <span className={`w-1.5 h-1.5 rounded-full ${colors.dot}`} />
-                      {categoryLabels[formation.category]}
+                      {t(`filters.${formation.category}`)}
                     </span>
                     <span className="absolute bottom-3 right-4 inline-flex items-center gap-1.5 text-white/90 text-[12px] font-semibold">
-                      <Clock size={13} />
+                      <Clock size={13} strokeWidth={1.8} />
                       {formation.duration}
                     </span>
                   </div>
@@ -79,15 +79,15 @@ export default function Formations() {
                     {/* Footer meta */}
                     <div className="mt-auto pt-4 border-t border-line flex items-center justify-between">
                       <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-mut">
-                        <Users size={14} className="text-blue" />
+                        <Users size={14} className="text-blue" strokeWidth={1.8} />
                         {formation.format}
                       </span>
                       <span className="inline-flex items-center gap-1 text-[13px] font-bold text-blue">
                         {t('seeMore')}
                         <ArrowUpRight
-                          size={15}
+                          size={18}
                           className="transition-colors duration-300"
-                        />
+                          strokeWidth={1.8} />
                       </span>
                     </div>
                   </div>
@@ -106,10 +106,9 @@ export default function Formations() {
             >
               {t('allFormations')}
               <ArrowRight
-                size={17}
-                strokeWidth={2.5}
-                className="transition-colors duration-300"
-              />
+                size={18}
+                strokeWidth={1.8}
+                className="transition-colors duration-300" />
             </Link>
           </div>
         </ScrollReveal>
