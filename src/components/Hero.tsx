@@ -29,7 +29,7 @@ export default function Hero() {
   const slide = slides[current];
 
   return (
-    <section className="relative overflow-hidden pt-24 pb-16 min-h-[85vh] flex items-center">
+    <section className="relative overflow-hidden bg-sky pt-24 pb-16 min-h-[85vh] flex items-center">
       {/* ── Background images (crossfade) ── */}
       {heroImages.map((src, i) => (
         <div
@@ -41,20 +41,22 @@ export default function Hero() {
           }} />
       ))}
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 hero-overlay" />
+      {/* Aucun voile ni filtre sur la photo */}
 
       {/* Content */}
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 w-full">
-        <div key={`text-${current}`} className="hero-slide max-w-[720px]">
+        <div
+          key={`text-${current}`}
+          className="hero-slide max-w-[640px] rounded-[28px] bg-[#FAFBFD] border border-line p-7 sm:p-9 md:p-10 shadow-[0_30px_70px_rgba(12,36,64,.14)]"
+        >
           <div className="animate-fade-in-up">
-            <span className="chip inline-flex items-center gap-2 bg-white/10 text-blue-soft text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-soft" />
+            <span className="chip inline-flex items-center gap-2 bg-tint text-blue text-xs font-bold tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue" />
               {slide.chip}
             </span>
           </div>
 
-          <h1 className="font-extrabold text-[clamp(2.4rem,4.8vw,3.8rem)] leading-[1.08] tracking-[-0.025em] mb-6 animate-fade-in-up delay-100">
+          <h1 className="font-extrabold text-navy text-[clamp(2.1rem,4.2vw,3.3rem)] leading-[1.1] tracking-[-0.025em] mb-5 animate-fade-in-up delay-100">
             {slide.title.split(slide.titleHighlight).map((part: string, i: number) => (
               <span key={i}>
                 {part}
@@ -65,11 +67,11 @@ export default function Hero() {
             ))}
           </h1>
 
-          <p className="text-white/70 text-[17px] max-w-[540px] mb-9 animate-fade-in-up delay-200">
+          <p className="text-mut text-[16.5px] max-w-[520px] mb-8 animate-fade-in-up delay-200">
             {slide.lead}
           </p>
 
-          <div className="flex items-center gap-7 flex-wrap mb-12 animate-fade-in-up delay-300">
+          <div className="flex items-center gap-7 flex-wrap mb-9 animate-fade-in-up delay-300">
             <a
               href="#services"
               className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-[15px] font-bold rounded-full bg-blue text-white hover:bg-blue-deep transition-colors"
@@ -79,7 +81,7 @@ export default function Hero() {
             </a>
             <a
               href="#cabinet"
-              className="inline-flex items-center gap-2 text-blue-soft text-[15px] font-bold hover:underline"
+              className="inline-flex items-center gap-2 text-blue text-[15px] font-bold hover:underline"
             >
               {slide.cta2}
               <ArrowRight size={18} strokeWidth={1.8} />
@@ -91,13 +93,13 @@ export default function Hero() {
               <div
                 key={i}
                 className={`py-1 pr-10 mr-10 ${
-                  i < stats.length - 1 ? 'border-r border-white/20' : 'border-none mr-0 pr-0'
+                  i < stats.length - 1 ? 'border-r border-line' : 'border-none mr-0 pr-0'
                 }`}
               >
-                <strong className="block text-[32px] font-extrabold text-white tracking-[-0.02em] leading-tight">
+                <strong className="block text-[28px] font-extrabold text-navy tracking-[-0.02em] leading-tight">
                   {stat.value}
                 </strong>
-                <span className="text-[13px] font-semibold text-white/60">{stat.label}</span>
+                <span className="text-[13px] font-semibold text-mut">{stat.label}</span>
               </div>
             ))}
           </div>
