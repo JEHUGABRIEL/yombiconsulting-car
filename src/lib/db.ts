@@ -28,6 +28,9 @@ export function hasDb(): boolean {
 
 const str = (v: unknown) => (typeof v === 'string' ? v : '');
 const arr = (v: unknown): string[] => (Array.isArray(v) ? (v as string[]) : []);
+/** Les drivers renvoient des Date : on expose systématiquement de l'ISO 8601. */
+const iso = (v: unknown): string =>
+  v instanceof Date ? v.toISOString() : typeof v === 'string' ? v : '';
 
 export type Locale = 'fr' | 'en';
 
@@ -47,8 +50,8 @@ export function serializeService(row: Record<string, unknown>) {
     image: str(row.image),
     published: row.published !== false,
     position: Number(row.position ?? 0),
-    createdAt: String(row.created_at ?? ''),
-    updatedAt: String(row.updated_at ?? ''),
+    createdAt: iso(row.created_at),
+    updatedAt: iso(row.updated_at),
   };
 }
 
@@ -66,8 +69,8 @@ export function serializeFormation(row: Record<string, unknown>) {
     image: str(row.image),
     published: row.published !== false,
     position: Number(row.position ?? 0),
-    createdAt: String(row.created_at ?? ''),
-    updatedAt: String(row.updated_at ?? ''),
+    createdAt: iso(row.created_at),
+    updatedAt: iso(row.updated_at),
   };
 }
 
@@ -81,9 +84,9 @@ export function serializeActualite(row: Record<string, unknown>) {
     category: str(row.category),
     image: str(row.image),
     published: row.published !== false,
-    publishedAt: String(row.published_at ?? '').slice(0, 10),
-    createdAt: String(row.created_at ?? ''),
-    updatedAt: String(row.updated_at ?? ''),
+    publishedAt: iso(row.published_at).slice(0, 10),
+    createdAt: iso(row.created_at),
+    updatedAt: iso(row.updated_at),
   };
 }
 
@@ -97,7 +100,7 @@ export function serializeMessage(row: Record<string, unknown>) {
     subject: str(row.subject),
     body: str(row.body),
     read: row.read === true,
-    createdAt: String(row.created_at ?? ''),
+    createdAt: iso(row.created_at),
   };
 }
 
