@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { ArrowRight, Loader2 } from 'lucide-react';
 
 const fieldClass =
-  'w-full rounded-[9px] bg-white/[0.04] border border-white/[0.09] px-3.5 py-3 text-[13.5px] text-white placeholder:text-white/25 focus:outline-none focus:border-blue/70 focus:bg-white/[0.06] transition-colors';
+  'w-full rounded-[9px] bg-white/[0.04] border border-white/[0.09] px-3.5 py-3 text-[13.5px] text-white placeholder:text-white/55 focus:outline-none focus:border-blue/70 focus:bg-white/[0.06] transition-colors';
 
 export default function LoginForm() {
   const router = useRouter();
@@ -84,13 +84,13 @@ export default function LoginForm() {
       >
         {loading ? (
           <>
-            <Loader2 size={16} className="animate-spin" />
+            <Loader2 size={18} className="animate-spin" />
             Connexion…
           </>
         ) : (
           <>
             Se connecter
-            <ArrowRight size={16} strokeWidth={1.9} />
+            <ArrowRight size={18} strokeWidth={1.75} />
           </>
         )}
       </button>

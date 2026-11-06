@@ -1,5 +1,7 @@
 export interface Actualite {
   slug: string;
+  /** Date exploitable en base (YYYY-MM-DD) ; `date` reste l'affichage de repli. */
+  dateISO: string;
   date: string;
   category: string;
   title: string;
@@ -11,6 +13,7 @@ export interface Actualite {
 export const actualites: Actualite[] = [
   {
     slug: 'nouveau-referentiel-iso-45001-2025',
+    dateISO: '2025-07-15',
     date: '15 juil. 2025',
     category: 'HSSE',
     title: 'Les nouveautés du référentiel ISO 45001:2025',
@@ -26,6 +29,7 @@ export const actualites: Actualite[] = [
   },
   {
     slug: 'securite-chantier-rca',
+    dateISO: '2025-06-03',
     date: '3 juin 2025',
     category: 'Sécurité',
     title: 'Sécurité sur les chantiers en RCA : état des lieux',
@@ -41,6 +45,7 @@ export const actualites: Actualite[] = [
   },
   {
     slug: 'formation-premiers-secours-gratuite',
+    dateISO: '2025-05-18',
     date: '18 mai 2025',
     category: 'Formation',
     title: 'Programme de formation aux premiers secours en entreprise',
@@ -59,6 +64,7 @@ export const actualites: Actualite[] = [
 export const actualitesEn: Actualite[] = [
   {
     slug: 'nouveau-referentiel-iso-45001-2025',
+    dateISO: '2025-07-15',
     date: 'Jul 15, 2025',
     category: 'HSSE',
     title: "What's new in ISO 45001:2025",
@@ -73,6 +79,7 @@ export const actualitesEn: Actualite[] = [
   },
   {
     slug: 'securite-chantier-rca',
+    dateISO: '2025-06-03',
     date: 'Jun 3, 2025',
     category: 'Safety',
     title: 'Construction site safety in CAR: the current situation',
@@ -87,6 +94,7 @@ export const actualitesEn: Actualite[] = [
   },
   {
     slug: 'formation-premiers-secours-gratuite',
+    dateISO: '2025-05-18',
     date: 'May 18, 2025',
     category: 'Training',
     title: 'Workplace first-aid training programme',

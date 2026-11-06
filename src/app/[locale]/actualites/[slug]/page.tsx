@@ -1,29 +1,23 @@
-'use client';
-
-import { use } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  Tag,
-  ChevronRight,
-} from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Tag, ChevronRight } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { getActualites, getActualiteBySlug } from '@/data/actualites';
+import { getPublicActualite, getPublicActualites } from '@/lib/content';
 
-export default function ActualiteDetailPage({
+export default async function ActualiteDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = use(params);
-  const t = useTranslations('actualites');
-  const locale = useLocale();
-  const all = getActualites(locale);
-  const article = getActualiteBySlug(slug, locale);
+  const { slug } = await params;
+  const locale = await getLocale();
+  const t = await getTranslations('actualites');
+
+  const [article, all] = await Promise.all([
+    getPublicActualite(slug, locale),
+    getPublicActualites(locale),
+  ]);
 
   if (!article) {
     return (
@@ -31,13 +25,8 @@ export default function ActualiteDetailPage({
         <Header />
         <main className="pt-[80px] min-h-[60vh] flex items-center justify-center">
           <div className="text-center">
-            <h1 className="font-bold text-2xl text-ink mb-4">
-              {t('notFound')}
-            </h1>
-            <Link
-              href="/actualites"
-              className="text-blue font-bold hover:underline"
-            >
+            <h1 className="font-bold text-2xl text-ink mb-4">{t('notFound')}</h1>
+            <Link href="/actualites" className="text-blue font-bold hover:underline">
               {t('backToNews')}
             </Link>
           </div>
@@ -47,7 +36,7 @@ export default function ActualiteDetailPage({
     );
   }
 
-  const currentIndex = all.findIndex((a) => a.slug === slug);
+  const currentIndex = all.findIndex((item) => item.slug === slug);
   const nextArticle = all[(currentIndex + 1) % all.length];
 
   return (
@@ -58,29 +47,27 @@ export default function ActualiteDetailPage({
         <section className="relative overflow-hidden py-20">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('${article.image}')` }} />
+            style={{ backgroundImage: `url('${article.image}')` }}
+          />
           <div className="absolute inset-0 hero-overlay" />
           <div className="relative z-10 max-w-[800px] mx-auto px-6">
             {/* Fil d'Ariane */}
             <nav className="flex items-center gap-2 text-[13px] text-white/50 mb-8">
-              <Link
-                href="/actualites"
-                className="hover:text-white transition-colors"
-              >
+              <Link href="/actualites" className="hover:text-white transition-colors">
                 {t('viewAll')}
               </Link>
-              <ChevronRight size={18} strokeWidth={1.8} />
+              <ChevronRight size={18} strokeWidth={1.75} />
               <span className="text-white/80 truncate">{article.title}</span>
             </nav>
 
             {/* Métadonnées */}
             <div className="flex items-center gap-4 mb-5">
               <span className="inline-flex items-center gap-1.5 text-blue-soft text-[12px] font-bold tracking-wide uppercase">
-                <Tag size={13} strokeWidth={1.8} />
+                <Tag size={16} strokeWidth={1.75} />
                 {article.category}
               </span>
               <span className="inline-flex items-center gap-1.5 text-white/60 text-[13px]">
-                <Calendar size={13} strokeWidth={1.8} />
+                <Calendar size={16} strokeWidth={1.75} />
                 {article.date}
               </span>
             </div>
@@ -101,11 +88,8 @@ export default function ActualiteDetailPage({
 
             {/* Corps de l'article */}
             <div className="space-y-6">
-              {article.content.map((paragraph, i) => (
-                <p
-                  key={i}
-                  className="text-mut text-[16px] leading-[1.8]"
-                >
+              {article.content.map((paragraph, index) => (
+                <p key={index} className="text-mut text-[16px] leading-[1.8]">
                   {paragraph}
                 </p>
               ))}
@@ -117,7 +101,7 @@ export default function ActualiteDetailPage({
                 href="/actualites"
                 className="inline-flex items-center gap-2 text-blue font-bold text-[15px] hover:underline"
               >
-                <ArrowLeft size={18} strokeWidth={1.8} />
+                <ArrowLeft size={18} strokeWidth={1.75} />
                 {t('viewAll')}
               </Link>
             </div>
@@ -140,10 +124,7 @@ export default function ActualiteDetailPage({
                     {nextArticle.title}
                   </span>
                 </div>
-                <ArrowRight
-                  size={20}
-                  className="text-blue shrink-0 transition-colors"
-                  strokeWidth={1.8} />
+                <ArrowRight size={20} className="text-blue shrink-0" strokeWidth={1.75} />
               </Link>
             </div>
           </section>

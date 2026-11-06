@@ -1,16 +1,13 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
-import { getServices } from '@/data/services';
+import type { Service } from '@/data/services';
 
-export default function Services() {
+export default function Services({ items }: { items: Service[] }) {
   const t = useTranslations('services');
-  const locale = useLocale();
-  const list = getServices(locale);
-  const cards = t.raw('cards');
 
   return (
     <section id="services" className="py-20">
@@ -28,28 +25,27 @@ export default function Services() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-stagger>
-          {cards.slice(0, 6).map((card: any, i: number) => {
-            const service = list[i];
+          {items.slice(0, 6).map((service, i) => {
             return (
               <ScrollReveal key={i} className="h-full">
                 <Link
-                  href={service ? `/services/${service.slug}` : '/services'}
+                  href={`/services/${service.slug}`}
                   className="card group h-full"
                 >
-                  {service?.image ? (
+                  {service.image ? (
                     <div className="card__media">
-                      <img src={service.image} alt={card.title} loading="lazy" />
+                      <img src={service.image} alt={service.title} loading="lazy" />
                       <span className="absolute top-3 left-3 text-[10.5px] font-bold tracking-[0.08em] text-white/90 mix-blend-difference">
                         {String(i + 1).padStart(2, '0')}
                       </span>
                     </div>
                   ) : null}
                   <div className="card__body">
-                    <h3 className="card__title">{card.title}</h3>
-                    <p className="card__text">{card.description}</p>
+                    <h3 className="card__title">{service.title}</h3>
+                    <p className="card__text">{service.description}</p>
                     <span className="card__cta">
                       {t('details')}
-                      <ArrowRight size={15} strokeWidth={1.9} />
+                      <ArrowRight size={16} strokeWidth={1.75} />
                     </span>
                   </div>
                 </Link>
@@ -64,7 +60,7 @@ export default function Services() {
             className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-ink hover:text-blue transition-colors"
           >
             {t('allServices')}
-            <ArrowRight size={15} strokeWidth={2} />
+            <ArrowRight size={16} strokeWidth={1.75} />
           </Link>
         </div>
       </div>

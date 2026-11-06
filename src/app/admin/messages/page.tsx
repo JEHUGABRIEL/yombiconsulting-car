@@ -33,7 +33,7 @@ export default async function AdminMessagesPage() {
     <AdminShell admin={{ email: admin.email, role: admin.role }} unread={unread}>
       <div className="mb-7">
         <h1 className="text-[24px] sm:text-[26px] font-bold tracking-[-0.025em]">Messages</h1>
-        <p className="text-[13px] text-white/40 mt-1.5">
+        <p className="text-[13px] text-white/55 mt-1.5">
           Demandes reçues via le formulaire de contact du site.
         </p>
       </div>

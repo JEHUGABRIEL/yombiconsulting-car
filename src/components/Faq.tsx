@@ -46,7 +46,7 @@ export default function Faq() {
                         </span>
                         <ChevronDown
                           size={18}
-                          strokeWidth={1.9}
+                          strokeWidth={1.75}
                           className={`shrink-0 mt-0.5 text-mut transition-transform duration-300 ${
                             isOpen ? 'rotate-180 text-blue' : ''
                           }`}

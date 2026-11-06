@@ -1,40 +1,34 @@
-'use client';
-
-import { useState, use } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import {
-  ArrowLeft,
-  ArrowRight,
-  ChevronDown,
-  Quote,
-  ChevronRight,
-} from 'lucide-react';
+import { ArrowRight, ChevronRight, Quote } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { getServices, getServiceBySlug } from '@/data/services';
+import ServiceFaq, { type FaqItem } from '@/components/ServiceFaq';
+import { getPublicService, getPublicServices } from '@/lib/content';
 import { serializeJsonLd } from '@/lib/safeJsonLd';
 
-export default function ServiceDetailPage({
+function rawArray<T>(read: () => unknown): T[] {
+  try {
+    const value = read();
+    return Array.isArray(value) ? (value as T[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+export default async function ServiceDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = use(params);
-  const t = useTranslations('services');
-  const locale = useLocale();
-  const list = getServices(locale);
-  const service = getServiceBySlug(slug, locale);
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const faqItems = (t.raw(`detail.${slug}.faq`) || []) as {
-    question: string;
-    answer: string;
-  }[];
-  const caseItems = (t.raw(`detail.${slug}.cases`) || []) as {
-    title: string;
-    context: string;
-    result: string;
-  }[];
+  const { slug } = await params;
+  const locale = await getLocale();
+  const t = await getTranslations('services');
+
+  const [service, list] = await Promise.all([
+    getPublicService(slug, locale),
+    getPublicServices(locale),
+  ]);
 
   if (!service) {
     return (
@@ -42,13 +36,8 @@ export default function ServiceDetailPage({
         <Header />
         <main className="pt-[80px] min-h-[60vh] flex items-center justify-center">
           <div className="text-center">
-            <h1 className="font-bold text-2xl text-ink mb-4">
-              {t('notFound')}
-            </h1>
-            <Link
-              href="/services"
-              className="text-blue font-bold hover:underline"
-            >
+            <h1 className="font-bold text-2xl text-ink mb-4">{t('notFound')}</h1>
+            <Link href="/services" className="text-blue font-bold hover:underline">
               {t('backToServices')}
             </Link>
           </div>
@@ -58,8 +47,13 @@ export default function ServiceDetailPage({
     );
   }
 
-  const currentIndex = list.findIndex((s) => s.slug === slug);
-  const nextService = list[(currentIndex + 1) % list.length];
+  const currentIndex = list.findIndex((item) => item.slug === slug);
+  const nextService = list[(currentIndex + 1) % list.length] ?? service;
+
+  const faqItems = rawArray<FaqItem>(() => t.raw(`detail.${slug}.faq`));
+  const caseItems = rawArray<{ title: string; context: string; result: string }>(() =>
+    t.raw(`detail.${slug}.cases`)
+  );
 
   // ── JSON-LD Schema.org ──
   const baseUrl = 'https://yombiconsulting.com';
@@ -88,55 +82,41 @@ export default function ServiceDetailPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Accueil',
-        item: baseUrl,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Services',
-        item: `${baseUrl}/services`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: service.title,
-        item: pageUrl,
-      },
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: baseUrl },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${baseUrl}/services` },
+      { '@type': 'ListItem', position: 3, name: service.title, item: pageUrl },
     ],
   };
 
-  const faqSchema = faqItems.length > 0
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: faqItems.map((item) => ({
-          '@type': 'Question',
-          name: item.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: item.answer,
-          },
-        })),
-      }
-    : null;
+  const faqSchema =
+    faqItems.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqItems.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: { '@type': 'Answer', text: item.answer },
+          })),
+        }
+      : null;
 
   return (
     <>
       {/* JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(serviceSchema) }} />
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(serviceSchema) }}
+      />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }} />
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
+      />
       {faqSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }} />
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
+        />
       )}
 
       <Header />
@@ -145,18 +125,16 @@ export default function ServiceDetailPage({
         <section className="relative overflow-hidden py-20">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('${service.image}')` }} />
+            style={{ backgroundImage: `url('${service.image}')` }}
+          />
           <div className="absolute inset-0 hero-overlay" />
           <div className="relative z-10 max-w-[1200px] mx-auto px-6">
             {/* Fil d'Ariane */}
             <nav className="flex items-center gap-2 text-[13px] text-white/50 mb-8">
-              <Link
-                href="/services"
-                className="hover:text-white transition-colors"
-              >
+              <Link href="/services" className="hover:text-white transition-colors">
                 {t('allServices')}
               </Link>
-              <ChevronRight size={18} strokeWidth={1.8} />
+              <ChevronRight size={18} strokeWidth={1.75} />
               <span className="text-white/80">{service.title}</span>
             </nav>
 
@@ -184,17 +162,13 @@ export default function ServiceDetailPage({
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                     {service.list.map((item) => (
-                      <div
-                        key={item}
-                        className="flex gap-3 items-start py-3 border-b border-line"
-                      >
+                      <div key={item} className="flex gap-3 items-start py-3 border-b border-line">
                         <ArrowRight
                           size={18}
-                          strokeWidth={1.8}
-                          className="text-blue mt-0.5 shrink-0" />
-                        <span className="text-[15px] text-ink leading-snug">
-                          {item}
-                        </span>
+                          strokeWidth={1.75}
+                          className="text-blue mt-0.5 shrink-0"
+                        />
+                        <span className="text-[15px] text-ink leading-snug">{item}</span>
                       </div>
                     ))}
                   </div>
@@ -206,45 +180,35 @@ export default function ServiceDetailPage({
                     <h2 className="font-extrabold text-[20px] text-ink mb-2 tracking-[-0.01em]">
                       {t('casesTitle')}
                     </h2>
-                    <p className="text-mut text-[14.5px] mb-8">
-                      {t('casesSubtitle')}
-                    </p>
+                    <p className="text-mut text-[14.5px] mb-8">{t('casesSubtitle')}</p>
 
                     <div className="space-y-6">
-                      {caseItems.map((c) => (
+                      {caseItems.map((item) => (
                         <div
-                          key={c.title}
+                          key={item.title}
                           className="bg-sky rounded-[16px] border border-line overflow-hidden"
                         >
-                          {/* En-tête du cas */}
                           <div className="px-7 pt-6 pb-4">
                             <div className="flex items-start gap-3 mb-4">
-                              <Quote
-                                size={20}
-                                className="text-blue/30 shrink-0 mt-0.5" />
+                              <Quote size={20} className="text-blue/30 shrink-0 mt-0.5" />
                               <h3 className="font-bold text-[16px] text-ink leading-snug">
-                                {c.title}
+                                {item.title}
                               </h3>
                             </div>
                           </div>
 
-                          {/* Contexte + Résultat */}
                           <div className="grid grid-cols-1 sm:grid-cols-2 border-t border-line">
                             <div className="px-7 py-5">
                               <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-mut mb-1.5">
                                 {t('contextLabel')}
                               </p>
-                              <p className="text-[14px] text-ink leading-relaxed">
-                                {c.context}
-                              </p>
+                              <p className="text-[14px] text-ink leading-relaxed">{item.context}</p>
                             </div>
                             <div className="px-7 py-5 bg-tint/40 sm:border-l border-line">
                               <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-blue/70 mb-1.5">
                                 {t('resultLabel')}
                               </p>
-                              <p className="text-[14px] text-ink leading-relaxed">
-                                {c.result}
-                              </p>
+                              <p className="text-[14px] text-ink leading-relaxed">{item.result}</p>
                             </div>
                           </div>
                         </div>
@@ -254,66 +218,22 @@ export default function ServiceDetailPage({
                 )}
 
                 {/* FAQ */}
-                <div>
-                  <h2 className="font-extrabold text-[20px] text-ink mb-6 tracking-[-0.01em]">
-                    {t('faqTitle')}
-                  </h2>
-                  <div className="rounded-[16px] border border-line bg-[#FCFDFE] overflow-hidden">
-                    {faqItems.map((item, i) => {
-                      const isOpen = openFaq === i;
-                      const panelId = `service-faq-${i}`;
-                      return (
-                        <div key={i} className="border-b border-line last:border-b-0">
-                          <h3>
-                            <button
-                              onClick={() => setOpenFaq(isOpen ? null : i)}
-                              className="group w-full flex items-start gap-4 px-6 py-[18px] text-left"
-                              aria-expanded={isOpen}
-                              aria-controls={panelId}
-                            >
-                              <span className="flex-1 font-semibold text-[14.5px] leading-snug text-ink group-hover:text-blue transition-colors">
-                                {item.question}
-                              </span>
-                              <ChevronDown
-                                size={17}
-                                strokeWidth={1.9}
-                                className={`shrink-0 mt-0.5 text-mut transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue' : ''}`}
-                              />
-                            </button>
-                          </h3>
-                          <div
-                            id={panelId}
-                            className="grid transition-[grid-template-rows] duration-300 ease-out"
-                            style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
-                          >
-                            <div className="overflow-hidden">
-                              <p className="px-6 pb-6 pr-14 text-mut text-[14px] leading-relaxed">
-                                {item.answer}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
+                <ServiceFaq title={t('faqTitle')} items={faqItems} />
               </div>
 
               {/* Colonne latérale sticky */}
               <div className="lg:sticky lg:top-[100px]">
                 <div className="bg-sky rounded-[16px] border border-line p-6">
-                  <h3 className="font-extrabold text-[16px] text-ink mb-3">
-                    {t('requestService')}
-                  </h3>
-                  <p className="text-mut text-[14px] leading-relaxed mb-6">
-                    {service.description}
-                  </p>
+                  <h3 className="font-extrabold text-[16px] text-ink mb-3">{t('requestService')}</h3>
+                  <p className="text-mut text-[14px] leading-relaxed mb-6">{service.description}</p>
                   <a
-                    href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(service.subject + ' · Yo Mbi Consulting')}`}
+                    href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(
+                      service.subject + ' · Yo Mbi Consulting'
+                    )}`}
                     className="inline-flex items-center justify-center gap-2.5 w-full px-6 py-3.5 text-[15px] font-bold btn btn-primary"
                   >
                     {t('requestService')}
-                    <ArrowRight size={18} strokeWidth={1.8} />
+                    <ArrowRight size={18} strokeWidth={1.75} />
                   </a>
                 </div>
 
@@ -327,10 +247,7 @@ export default function ServiceDetailPage({
                       {nextService.title}
                     </span>
                   </div>
-                  <ArrowRight
-                    size={18}
-                    className="text-blue shrink-0 transition-colors"
-                    strokeWidth={1.8} />
+                  <ArrowRight size={18} className="text-blue shrink-0" strokeWidth={1.75} />
                 </Link>
               </div>
             </div>
@@ -347,11 +264,13 @@ export default function ServiceDetailPage({
               {t('casesSubtitle')}
             </p>
             <a
-              href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(service.subject + ' · Yo Mbi Consulting')}`}
+              href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(
+                service.subject + ' · Yo Mbi Consulting'
+              )}`}
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-[15px] font-bold btn btn-light hover:bg-sky transition-colors"
             >
               {t('requestService')}
-              <ArrowRight size={18} strokeWidth={1.8} />
+              <ArrowRight size={18} strokeWidth={1.75} />
             </a>
           </div>
         </section>

@@ -216,7 +216,7 @@ export default function Header() {
                 className="w-10 h-10 rounded-full flex items-center justify-center bg-sky text-ink hover:bg-tint transition-colors"
                 aria-label="Fermer le menu"
               >
-                <X size={20} strokeWidth={1.8} />
+                <X size={20} strokeWidth={1.75} />
               </button>
             </div>
 

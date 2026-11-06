@@ -454,7 +454,7 @@
       },
       {
         "title": "Practical Field-Oriented Training",
-        "description": "Role-playing, real cases, exercises: you learn by doing, not by listening."
+        "description": "Role-playing, real cases and exercises: your teams leave with moves they have already practised."
       },
       {
         "title": "Solutions Adapted to Local Context",
@@ -466,7 +466,7 @@
       },
       {
         "title": "Qualified Consultants",
-        "description": "Practitioners from the field, not generalists: competence is verified on the ground."
+        "description": "Consultants who have run sites and teams: they pass on what they have applied themselves."
       },
       {
         "title": "Post-Training Follow-up",
@@ -576,7 +576,7 @@
       "message": "Message *",
       "messagePlaceholder": "Your context, your needs, your deadlines",
       "submit": "Send message",
-      "legal": "Your email app will open with the message ready to send. No data is stored on this site.",
+      "legal": "Your details are sent to the firm to handle your request and kept for 24 months. See the privacy policy.",
       "sending": "Sending…",
       "successTitle": "Message sent",
       "successText": "Thank you for your message. We will get back to you within two business days.",
@@ -673,7 +673,7 @@
         "paragraphs": [
           "The site is published by Yo Mbi Consulting, a firm providing advisory, training and support services in Health, Safety, Security and Environment (HSSE) and business development.",
           "Registered office: 5th district, Avenue du Lieutenant Koudoukou, opposite the Madou street intersection, Bangui, Central African Republic.",
-          "Contact: +236 72 11 19 14 — contact.cmc@gmail.com.",
+          "Contact: +236 72 11 19 14, contact.cmc@gmail.com.",
           "Trade register (RCCM) number and tax identification number: to be completed by the firm."
         ]
       },
@@ -687,7 +687,7 @@
       {
         "title": "Hosting",
         "paragraphs": [
-          "The site is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, United States — vercel.com."
+          "The site is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, United States (vercel.com)."
         ]
       },
       {
@@ -708,7 +708,7 @@
       {
         "title": "Intellectual property",
         "paragraphs": [
-          "The site as a whole and each of its elements taken separately — texts, photographs, logo, visuals, graphic elements — are protected by copyright and trademark law, or used with their owners’ consent.",
+          "The site as a whole and each of its elements taken separately, namely texts, photographs, logo, visuals and graphic elements, are protected by copyright and trademark law, or used with their owners’ consent.",
           "Any reproduction, representation, distribution or reuse, in whole or in part, on any medium, is prohibited without the firm’s prior written permission.",
           "The photographs illustrate real assignments carried out by the firm. Their publication requires the consent of identifiable persons; any removal request may be sent to contact.cmc@gmail.com."
         ]
@@ -728,7 +728,7 @@
       {
         "title": "Contact",
         "paragraphs": [
-          "For any question about the site: contact.cmc@gmail.com — +236 72 11 19 14."
+          "For any question about the site: contact.cmc@gmail.com, +236 72 11 19 14."
         ]
       }
     ]
@@ -813,7 +813,7 @@
       {
         "title": "Contact",
         "paragraphs": [
-          "For any question about the site or these terms: contact.cmc@gmail.com — +236 72 11 19 14."
+          "For any question about the site or these terms: contact.cmc@gmail.com, +236 72 11 19 14."
         ]
       }
     ]
@@ -825,15 +825,15 @@
       {
         "title": "Data controller",
         "paragraphs": [
-          "Yo Mbi Consulting — 5th district, Avenue du Lieutenant Koudoukou, opposite the Madou street intersection, Bangui, Central African Republic.",
-          "Contact: contact.cmc@gmail.com — +236 72 11 19 14."
+          "Yo Mbi Consulting, 5th district, Avenue du Lieutenant Koudoukou, opposite the Madou street intersection, Bangui, Central African Republic.",
+          "Contact: contact.cmc@gmail.com, +236 72 11 19 14."
         ]
       },
       {
         "title": "Data collected",
         "paragraphs": [
           "The site creates no account and collects no data automatically: it uses no analytics cookies, no advertising trackers and no user profiles.",
-          "The contact form sends nothing to a server: it composes an email in your own mail client. The details you enter reach us only if you send that message."
+          "The contact form sends your request to our server, which stores it in our database so the firm's team can process it. The information stored is what you enter in the form."
         ],
         "items": [
           "The name and organisation you provide",
@@ -848,9 +848,9 @@
           "The information received is used for the following purposes, with the corresponding retention periods:"
         ],
         "items": [
-          "Answering your request: pre-contractual measures taken at your request — 24 months from the last exchange.",
-          "Preparing a proposal: the firm’s legitimate interest in responding to enquiries — 24 months.",
-          "Administrative and accounting follow-up of an assignment: performance of the contract — duration of the relationship, then legal archiving."
+          "Answering your request: pre-contractual measures taken at your request, kept for 24 months from the last exchange.",
+          "Preparing a proposal: the firm’s legitimate interest in responding to enquiries, kept for 24 months.",
+          "Administrative and accounting follow-up of an assignment: performance of the contract, for the duration of the relationship, then legal archiving."
         ]
       },
       {
@@ -862,7 +862,7 @@
       {
         "title": "Transfers outside the country",
         "paragraphs": [
-          "The site is hosted by a provider established in the United States (Vercel Inc.). This hosting concerns the site pages, not the content of your emails, which stays in your mailbox until you send it to us.",
+          "The site is hosted by a provider established in the United States (Vercel Inc.). Messages sent through the contact form are stored in a PostgreSQL database hosted by our provider Neon (neon.tech), which may be located outside the country.",
           "Should personal data be transferred to a third country, the firm would implement the appropriate safeguards required by applicable regulations."
         ]
       },
@@ -876,7 +876,7 @@
       {
         "title": "Security",
         "paragraphs": [
-          "The firm implements reasonable measures to protect the information it receives: restricted access to the people concerned, protected email and backups of working documents."
+          "The firm implements reasonable measures to protect the information it receives: restricted access to the people concerned, protected email, a restricted-access database and backups of working documents."
         ]
       },
       {
@@ -944,7 +944,7 @@
       {
         "title": "Contact",
         "paragraphs": [
-          "For any question about cookies: contact.cmc@gmail.com — +236 72 11 19 14."
+          "For any question about cookies: contact.cmc@gmail.com, +236 72 11 19 14."
         ]
       }
     ]

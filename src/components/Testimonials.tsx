@@ -55,7 +55,7 @@ export default function Testimonials() {
                     className="carousel-btn"
                     aria-label="Témoignages précédents"
                   >
-                    <ChevronLeft size={17} strokeWidth={1.8} />
+                    <ChevronLeft size={18} strokeWidth={1.75} />
                   </button>
                   <button
                     type="button"
@@ -64,7 +64,7 @@ export default function Testimonials() {
                     className="carousel-btn"
                     aria-label="Témoignages suivants"
                   >
-                    <ChevronRight size={17} strokeWidth={1.8} />
+                    <ChevronRight size={18} strokeWidth={1.75} />
                   </button>
                 </div>
               </div>

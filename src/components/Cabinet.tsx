@@ -29,21 +29,21 @@ export default function Cabinet() {
           </div>
 
           <ScrollReveal>
-            <blockquote className="border-l-2 border-blue pl-5 lg:pl-6 max-w-[760px] mb-10 lg:mb-12">
-              <p className="text-[clamp(1.15rem,2vw,1.45rem)] font-semibold text-navy leading-[1.45] tracking-[-0.015em]">
+            <blockquote className="max-w-[760px] mb-10 lg:mb-12">
+              <p className="text-[clamp(1.3rem,2.4vw,1.7rem)] font-semibold text-navy leading-[1.4] tracking-[-0.015em]">
                 {t('mission')}
               </p>
             </blockquote>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5" data-stagger>
+          <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr_1fr] gap-4 lg:gap-5" data-stagger>
             {pillars.map((pillar: any, i: number) => {
               const Icon = pillarIcons[i];
               return (
                 <ScrollReveal key={i} className="h-full">
                   <div className="bg-[#FCFDFE] border border-[#DEE6F3] rounded-[16px] p-6 h-full">
                     <span className="w-9 h-9 rounded-[9px] bg-blue flex items-center justify-center mb-4">
-                      <Icon size={17} className="text-white" strokeWidth={1.9} />
+                      <Icon size={18} className="text-white" strokeWidth={1.75} />
                     </span>
                     <h3 className="text-[15.5px] font-semibold text-ink mb-2 leading-snug">
                       {pillar.title}

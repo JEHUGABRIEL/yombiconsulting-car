@@ -1,4 +1,4 @@
-import { clientIp, error, internalError, json, readJson } from '@/lib/http';
+import { error, internalError, isSameOrigin, json, readJson } from '@/lib/http';
 import { createRateLimiter } from '@/lib/rate-limit';
 import { hasDb, query } from '@/lib/db';
 
@@ -20,11 +20,13 @@ const clean = (value: unknown, max: number): string =>
   typeof value === 'string' ? value.replace(/\s+/g, ' ').trim().slice(0, max) : '';
 
 export async function POST(req: Request) {
-  if (!limiter(req)) {
+  if (!isSameOrigin(req)) return error('Origine non autorisée.', 403);
+
+  if (!(await limiter(req))) {
     return error('Trop de demandes envoyées. Merci de réessayer dans quelques minutes.', 429);
   }
 
-  const body = await readJson<Payload>(req);
+  const body = await readJson<Payload>(req, 32 * 1024);
   if (!body) return error('Requête invalide.', 400);
 
   // Champ piège : un humain ne le remplit jamais.
@@ -43,6 +45,9 @@ export async function POST(req: Request) {
   if (message.length < 10) return error('Merci de détailler un peu votre demande.', 422);
 
   const isEmail = contact.includes('@');
+  if (isEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(contact)) {
+    return error('Merci d’indiquer une adresse e-mail valide.', 422);
+  }
   const email = isEmail ? contact : '';
   const phone = isEmail ? '' : contact;
 

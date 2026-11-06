@@ -94,7 +94,7 @@ export default function AProposPage() {
                   <ScrollReveal key={i}>
                     <div className="bg-sky rounded-[16px] p-7 border border-line h-full">
                       <span className="w-10 h-10 rounded-[10px] bg-blue flex items-center justify-center mb-4">
-                        <Icon size={19} className="text-white" strokeWidth={1.8} />
+                        <Icon size={20} className="text-white" strokeWidth={1.75} />
                       </span>
                       <h3 className="text-[16px] font-bold text-ink mb-2 leading-snug">
                         {pillar.title}
@@ -124,7 +124,7 @@ export default function AProposPage() {
                   <ScrollReveal key={i}>
                     <div className="bg-[#FCFDFE] rounded-[16px] p-7 border border-line h-full">
                       <span className="w-10 h-10 rounded-[10px] bg-tint text-blue flex items-center justify-center mb-4">
-                        <Icon size={19} strokeWidth={1.8} />
+                        <Icon size={20} strokeWidth={1.75} />
                       </span>
                       <h3 className="font-bold text-[16px] text-ink mb-2 leading-snug">
                         {item.title}
@@ -154,7 +154,7 @@ export default function AProposPage() {
                   className="inline-flex items-center gap-2 px-7 py-3.5 btn btn-primary text-[15px] font-bold hover:bg-blue-deep transition-colors"
                 >
                   {t('ctaServices')}
-                  <ArrowRight size={18} strokeWidth={1.8} />
+                  <ArrowRight size={18} strokeWidth={1.75} />
                 </Link>
                 <Link
                   href="/formations"

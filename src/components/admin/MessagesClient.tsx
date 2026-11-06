@@ -104,7 +104,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
               className={`px-3 py-1.5 rounded-[7px] text-[12px] font-semibold transition-colors ${
                 filter === item.key
                   ? 'bg-white/[0.09] text-white'
-                  : 'text-white/40 hover:text-white/80'
+                  : 'text-white/55 hover:text-white/80'
               }`}
             >
               {item.label}
@@ -117,9 +117,9 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
 
         <div className="relative flex-1 min-w-[220px]">
           <Search
-            size={15}
-            strokeWidth={1.8}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none"
+            size={16}
+            strokeWidth={1.75}
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-white/55 pointer-events-none"
           />
           <input
             type="search"
@@ -127,7 +127,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Rechercher un nom, un sujet…"
             aria-label="Rechercher dans les messages"
-            className="w-full rounded-[9px] bg-white/[0.03] border border-white/[0.07] pl-9 pr-3.5 py-2.5 text-[13px] text-white placeholder:text-white/25 focus:outline-none focus:border-blue/60 focus:bg-white/[0.05] transition-colors"
+            className="w-full rounded-[9px] bg-white/[0.03] border border-white/[0.07] pl-9 pr-3.5 py-2.5 text-[13px] text-white placeholder:text-white/55 focus:outline-none focus:border-blue/60 focus:bg-white/[0.05] transition-colors"
           />
         </div>
       </div>
@@ -143,7 +143,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
 
       <div className="rounded-[14px] border border-white/[0.06] bg-white/[0.02] overflow-hidden">
         {filtered.length === 0 ? (
-          <p className="px-5 py-14 text-center text-[13px] text-white/35">
+          <p className="px-5 py-14 text-center text-[13px] text-white/55">
             Aucun message ne correspond à cette vue.
           </p>
         ) : (
@@ -181,21 +181,21 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
                             {message.name}
                           </span>
                           {message.company && (
-                            <span className="inline-flex items-center gap-1 text-[11px] text-white/30">
-                              <Building2 size={11} strokeWidth={1.8} />
+                            <span className="inline-flex items-center gap-1 text-[11px] text-white/55">
+                              <Building2 size={16} strokeWidth={1.75} />
                               {message.company}
                             </span>
                           )}
                         </span>
-                        <span className="block text-[12px] text-white/35 mt-0.5 truncate">
+                        <span className="block text-[12px] text-white/55 mt-0.5 truncate">
                           <span className="text-white/50">{message.subject}</span>
-                          {' — '}
+                          {' · '}
                           {message.body}
                         </span>
                       </span>
                     </button>
 
-                    <span className="hidden sm:block text-[10.5px] text-white/25 shrink-0 pt-1">
+                    <span className="hidden sm:block text-[10.5px] text-white/55 shrink-0 pt-1">
                       {message.createdAt ? dateFormatter.format(new Date(message.createdAt)) : ''}
                     </span>
 
@@ -205,27 +205,27 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
                         disabled={busy === message.id}
                         title={message.read ? 'Marquer comme non lu' : 'Marquer comme lu'}
                         aria-label={message.read ? 'Marquer comme non lu' : 'Marquer comme lu'}
-                        className="w-8 h-8 rounded-[7px] flex items-center justify-center text-white/35 hover:text-white hover:bg-white/[0.07] transition-colors disabled:opacity-40"
+                        className="w-8 h-8 rounded-[7px] flex items-center justify-center text-white/55 hover:text-white hover:bg-white/[0.07] transition-colors disabled:opacity-40"
                       >
-                        {message.read ? <RotateCcw size={14} /> : <Check size={15} />}
+                        {message.read ? <RotateCcw size={16} /> : <Check size={16} />}
                       </button>
                       <button
                         onClick={() => remove(message)}
                         disabled={busy === message.id}
                         title="Supprimer"
                         aria-label="Supprimer le message"
-                        className="w-8 h-8 rounded-[7px] flex items-center justify-center text-white/35 hover:text-red-300 hover:bg-red-500/10 transition-colors disabled:opacity-40"
+                        className="w-8 h-8 rounded-[7px] flex items-center justify-center text-white/55 hover:text-red-300 hover:bg-red-500/10 transition-colors disabled:opacity-40"
                       >
-                        <Trash2 size={14} />
+                        <Trash2 size={16} />
                       </button>
                       <button
                         onClick={() => setExpanded(isOpen ? null : message.id)}
                         aria-expanded={isOpen}
                         aria-label={isOpen ? 'Replier le message' : 'Déplier le message'}
-                        className="w-8 h-8 rounded-[7px] flex items-center justify-center text-white/35 hover:text-white hover:bg-white/[0.07] transition-colors"
+                        className="w-8 h-8 rounded-[7px] flex items-center justify-center text-white/55 hover:text-white hover:bg-white/[0.07] transition-colors"
                       >
                         <ChevronDown
-                          size={15}
+                          size={16}
                           className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
                         />
                       </button>
@@ -245,7 +245,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
                             )}`}
                             className="inline-flex items-center gap-1.5 font-medium text-blue-soft hover:underline"
                           >
-                            <Mail size={13} strokeWidth={1.8} />
+                            <Mail size={16} strokeWidth={1.75} />
                             {message.email}
                           </a>
                         )}
@@ -254,15 +254,15 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
                             href={`tel:${message.phone.replace(/\s+/g, '')}`}
                             className="inline-flex items-center gap-1.5 font-medium text-blue-soft hover:underline"
                           >
-                            <Phone size={13} strokeWidth={1.8} />
+                            <Phone size={16} strokeWidth={1.75} />
                             {message.phone}
                           </a>
                         )}
-                        <span className="text-white/25">
+                        <span className="text-white/55">
                           Reçu le{' '}
                           {message.createdAt
                             ? dateFormatter.format(new Date(message.createdAt))
-                            : '—'}
+                            : '-'}
                         </span>
                       </div>
                     </div>
@@ -274,7 +274,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
         )}
       </div>
 
-      <p className="text-[11.5px] text-white/25 mt-4">
+      <p className="text-[11.5px] text-white/55 mt-4">
         {filtered.length} message{filtered.length > 1 ? 's' : ''} affiché
         {filtered.length > 1 ? 's' : ''} · {unreadCount} non lu{unreadCount > 1 ? 's' : ''}
       </p>

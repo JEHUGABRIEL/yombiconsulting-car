@@ -1,6 +1,7 @@
-import { error, internalError, json, readJson } from '@/lib/http';
+import { error, internalError, isSameOrigin, json, readJson } from '@/lib/http';
 import { hasDb, query } from '@/lib/db';
-import { requireAdmin, UnauthorizedError } from '@/lib/auth';
+import { requireAdmin } from '@/lib/auth';
+import { limitAdminWrites } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -8,16 +9,18 @@ export const dynamic = 'force-dynamic';
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
-  try {
-    await requireAdmin();
-  } catch {
-    return error('Non authentifié.', 401);
+  if (!isSameOrigin(req)) return error('Origine non autorisée.', 403);
+
+  const admin = await requireAdmin().catch(() => null);
+  if (!admin) return error('Non authentifié.', 401);
+  if (!(await limitAdminWrites(admin.id))) {
+    return error('Trop d’opérations. Réessayez dans quelques minutes.', 429);
   }
 
   const { id } = await params;
   if (!UUID.test(id)) return error('Identifiant invalide.', 422);
 
-  const body = await readJson<{ read?: unknown }>(req);
+  const body = await readJson<{ read?: unknown }>(req, 4 * 1024);
   if (typeof body?.read !== 'boolean') return error('Champ « read » attendu.', 422);
 
   if (!hasDb()) return error('Base de données indisponible.', 503);
@@ -31,12 +34,13 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   }
 }
 
-export async function DELETE(_req: Request, { params }: { params: Promise<{ id: string }> }) {
-  try {
-    await requireAdmin();
-  } catch (err) {
-    if (err instanceof UnauthorizedError) return error('Non authentifié.', 401);
-    return error('Non authentifié.', 401);
+export async function DELETE(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  if (!isSameOrigin(req)) return error('Origine non autorisée.', 403);
+
+  const admin = await requireAdmin().catch(() => null);
+  if (!admin) return error('Non authentifié.', 401);
+  if (!(await limitAdminWrites(admin.id))) {
+    return error('Trop d’opérations. Réessayez dans quelques minutes.', 429);
   }
 
   const { id } = await params;

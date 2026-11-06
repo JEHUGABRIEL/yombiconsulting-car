@@ -88,7 +88,7 @@ export default function Footer() {
                 rel="noopener"
                 className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-colors text-lg"
               >
-                <MessageCircle size={18} strokeWidth={1.8} />
+                <MessageCircle size={18} strokeWidth={1.75} />
               </a>
               <a
                 href="https://www.facebook.com/search/top?q=cabinet%20yo%20mbi%20consulting"
@@ -96,13 +96,13 @@ export default function Footer() {
                 rel="noopener"
                 className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-colors text-lg"
               >
-                <Facebook size={18} strokeWidth={1.8} />
+                <Facebook size={18} strokeWidth={1.75} />
               </a>
               <a
                 href="mailto:contact.cmc@gmail.com"
                 className="w-[42px] h-[42px] rounded-full border-[1.5px] border-[rgba(255,255,255,.18)] flex items-center justify-center hover:bg-blue hover:border-blue transition-colors text-lg"
               >
-                <Mail size={18} strokeWidth={1.8} />
+                <Mail size={18} strokeWidth={1.75} />
               </a>
             </div>
           </div>
@@ -155,15 +155,15 @@ export default function Footer() {
             </p>
             <ul className="space-y-4">
               <li className="flex gap-3 text-[14.5px] leading-[1.5]">
-                <MapPin size={16} className="shrink-0 mt-0.5" strokeWidth={1.8} />
+                <MapPin size={18} className="shrink-0 mt-0.5" strokeWidth={1.75} />
                 <span>{t('address')}</span>
               </li>
               <li className="flex gap-3 text-[14.5px]">
-                <Phone size={16} className="shrink-0" strokeWidth={1.8} />
+                <Phone size={18} className="shrink-0" strokeWidth={1.75} />
                 <a href="tel:+23672111914" className="hover:text-white transition-colors">+236 72 11 19 14</a>
               </li>
               <li className="flex gap-3 text-[14.5px]">
-                <Mail size={16} className="shrink-0" strokeWidth={1.8} />
+                <Mail size={18} className="shrink-0" strokeWidth={1.75} />
                 <a href="mailto:contact.cmc@gmail.com" className="hover:text-white transition-colors">contact.cmc@gmail.com</a>
               </li>
             </ul>

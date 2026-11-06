@@ -1,15 +1,13 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
-import { getActualites } from '@/data/actualites';
+import type { Actualite } from '@/data/actualites';
 
-export default function Actualites() {
+export default function Actualites({ items }: { items: Actualite[] }) {
   const t = useTranslations('actualites');
-  const locale = useLocale();
-  const items = getActualites(locale);
   const [lead, ...rest] = items;
 
   if (!lead) return null;
@@ -29,7 +27,7 @@ export default function Actualites() {
               className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-ink hover:text-blue transition-colors"
             >
               {t('viewAll')}
-              <ArrowRight size={15} strokeWidth={2} />
+              <ArrowRight size={16} strokeWidth={1.75} />
             </Link>
           </div>
         </ScrollReveal>
@@ -64,7 +62,7 @@ export default function Actualites() {
                   </p>
                   <span className="card__cta mt-3.5">
                     {t('readMore')}
-                    <ArrowRight size={15} strokeWidth={1.9} />
+                    <ArrowRight size={16} strokeWidth={1.75} />
                   </span>
                 </div>
               </div>
