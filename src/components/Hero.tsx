@@ -45,7 +45,7 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-3 mt-8">
               <a href="#services" className="btn btn-primary px-6 py-3.5 text-[14.5px]">
                 {slide.cta1}
-                <ArrowRight size={17} strokeWidth={1.9} />
+                <ArrowRight size={18} strokeWidth={1.75} />
               </a>
               <a href="#cabinet" className="btn btn-outline px-6 py-3.5 text-[14.5px]">
                 {slide.cta2}

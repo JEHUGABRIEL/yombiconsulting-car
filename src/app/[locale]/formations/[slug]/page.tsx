@@ -1,19 +1,23 @@
-'use client';
-
-import { use } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { ArrowLeft, ArrowRight, Clock, Users, BookOpen, Check } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock, Users, BookOpen } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { getFormations, getFormationBySlug } from '@/data/formations';
+import { getPublicFormation, getPublicFormations } from '@/lib/content';
 
-export default function FormationDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params);
-  const t = useTranslations('formations');
-  const locale = useLocale();
-  const all = getFormations(locale);
-  const formation = getFormationBySlug(slug, locale);
+export default async function FormationDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const locale = await getLocale();
+  const t = await getTranslations('formations');
+
+  const [formation, all] = await Promise.all([
+    getPublicFormation(slug, locale),
+    getPublicFormations(locale),
+  ]);
 
   if (!formation) {
     return (
@@ -32,8 +36,8 @@ export default function FormationDetailPage({ params }: { params: Promise<{ slug
     );
   }
 
-  const currentIndex = all.findIndex((f) => f.slug === slug);
-  const nextFormation = all[(currentIndex + 1) % all.length];
+  const currentIndex = all.findIndex((item) => item.slug === slug);
+  const nextFormation = all[(currentIndex + 1) % all.length] ?? formation;
 
   return (
     <>
@@ -50,7 +54,7 @@ export default function FormationDetailPage({ params }: { params: Promise<{ slug
               href="/formations"
               className="inline-flex items-center gap-2 text-white/60 text-[13.5px] font-medium hover:text-white transition-colors mb-8"
             >
-              <ArrowLeft size={16} strokeWidth={1.8} />
+              <ArrowLeft size={18} strokeWidth={1.75} />
               {t('chip')}
             </Link>
             <p className="text-blue-soft text-[11.5px] font-bold tracking-[0.12em] uppercase mb-3">
@@ -66,16 +70,16 @@ export default function FormationDetailPage({ params }: { params: Promise<{ slug
           <div className="max-w-[820px] mx-auto px-6 py-6">
             <dl className="flex flex-wrap gap-x-10 gap-y-4">
               <div className="flex items-center gap-2.5">
-                <Clock size={16} className="text-blue" strokeWidth={1.8} />
+                <Clock size={18} className="text-blue" strokeWidth={1.75} />
                 <dt className="sr-only">{t('filters.all')}</dt>
                 <dd className="text-[14.5px] font-semibold text-ink">{formation.duration}</dd>
               </div>
               <div className="flex items-center gap-2.5">
-                <BookOpen size={16} className="text-blue" strokeWidth={1.8} />
+                <BookOpen size={18} className="text-blue" strokeWidth={1.75} />
                 <dd className="text-[14.5px] font-semibold text-ink">{formation.format}</dd>
               </div>
               <div className="flex items-center gap-2.5">
-                <Users size={16} className="text-blue" strokeWidth={1.8} />
+                <Users size={18} className="text-blue" strokeWidth={1.75} />
                 <dd className="text-[14.5px] font-semibold text-ink">{formation.public_cible}</dd>
               </div>
             </dl>
@@ -90,10 +94,15 @@ export default function FormationDetailPage({ params }: { params: Promise<{ slug
               {t('objectives')}
             </h2>
             <ul className="border-t border-line mb-12">
-              {formation.objectives.map((obj) => (
-                <li key={obj} className="flex gap-3.5 items-start py-3.5 border-b border-line">
-                  <Check size={17} className="text-blue mt-0.5 shrink-0" strokeWidth={2} />
-                  <span className="text-[15px] text-ink leading-relaxed">{obj}</span>
+              {formation.objectives.map((objective, index) => (
+                <li
+                  key={objective}
+                  className="flex gap-3.5 items-start py-3.5 border-b border-line"
+                >
+                  <span className="mt-px shrink-0 text-[11px] font-extrabold tabular-nums tracking-[0.08em] text-blue">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-[15px] text-ink leading-relaxed">{objective}</span>
                 </li>
               ))}
             </ul>
@@ -105,11 +114,13 @@ export default function FormationDetailPage({ params }: { params: Promise<{ slug
 
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(formation.title + ' · Yo Mbi Consulting')}`}
+                href={`mailto:contact.cmc@gmail.com?subject=${encodeURIComponent(
+                  formation.title + ' · Yo Mbi Consulting'
+                )}`}
                 className="btn btn-primary px-6 py-3.5 text-[14.5px]"
               >
                 {t('noteLink')}
-                <ArrowRight size={17} strokeWidth={1.8} />
+                <ArrowRight size={18} strokeWidth={1.75} />
               </a>
               <Link
                 href="/formations"
@@ -138,7 +149,7 @@ export default function FormationDetailPage({ params }: { params: Promise<{ slug
                   {nextFormation.title}
                 </span>
               </div>
-              <ArrowRight size={18} className="text-blue shrink-0" strokeWidth={1.8} />
+              <ArrowRight size={18} className="text-blue shrink-0" strokeWidth={1.75} />
             </Link>
           </div>
         </section>

@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight, ChevronLeft, ChevronRight, Clock, Users } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
-import { getFormations } from '@/data/formations';
+import type { Formation } from '@/data/formations';
 
 const catDots: Record<string, string> = {
   sec: 'bg-blue',
@@ -13,10 +13,8 @@ const catDots: Record<string, string> = {
   ent: 'bg-blue-deep',
 };
 
-export default function Formations() {
+export default function Formations({ items }: { items: Formation[] }) {
   const t = useTranslations('formations');
-  const locale = useLocale();
-  const items = getFormations(locale);
 
   const [visible, setVisible] = useState(3);
   const [index, setIndex] = useState(0);
@@ -65,7 +63,7 @@ export default function Formations() {
                   className="carousel-btn"
                   aria-label="Formations précédentes"
                 >
-                  <ChevronLeft size={17} strokeWidth={1.9} />
+                  <ChevronLeft size={18} strokeWidth={1.75} />
                 </button>
                 <button
                   type="button"
@@ -74,7 +72,7 @@ export default function Formations() {
                   className="carousel-btn"
                   aria-label="Formations suivantes"
                 >
-                  <ChevronRight size={17} strokeWidth={1.9} />
+                  <ChevronRight size={18} strokeWidth={1.75} />
                 </button>
               </div>
             </div>
@@ -109,11 +107,11 @@ export default function Formations() {
                       <p className="card__text line-clamp-2">{formation.description}</p>
                       <div className="mt-auto pt-4 border-t border-line flex items-center justify-between gap-3">
                         <span className="inline-flex items-center gap-1.5 text-[12px] font-medium text-mut">
-                          <Clock size={13} strokeWidth={1.9} className="text-blue" />
+                          <Clock size={16} strokeWidth={1.75} className="text-blue" />
                           {formation.duration}
                         </span>
                         <span className="inline-flex items-center gap-1.5 text-[12px] font-medium text-mut">
-                          <Users size={13} strokeWidth={1.9} className="text-blue" />
+                          <Users size={16} strokeWidth={1.75} className="text-blue" />
                           {formation.format}
                         </span>
                       </div>
@@ -131,7 +129,7 @@ export default function Formations() {
             className="inline-flex items-center gap-2 text-[13.5px] font-semibold text-ink hover:text-blue transition-colors"
           >
             {t('allFormations')}
-            <ArrowRight size={15} strokeWidth={2} />
+            <ArrowRight size={16} strokeWidth={1.75} />
           </Link>
         </div>
       </div>

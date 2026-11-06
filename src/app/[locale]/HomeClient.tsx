@@ -14,20 +14,31 @@ import Contact from '@/components/Contact';
 import CtaBanner from '@/components/CtaBanner';
 import Faq from '@/components/Faq';
 import Footer from '@/components/Footer';
+import type { Service } from '@/data/services';
+import type { Formation } from '@/data/formations';
+import type { Actualite } from '@/data/actualites';
 
-export default function HomeClient() {
+export default function HomeClient({
+  services,
+  formations,
+  actualites,
+}: {
+  services: Service[];
+  formations: Formation[];
+  actualites: Actualite[];
+}) {
   return (
     <>
       <Header />
       <main>
         <Hero />
-        <Services />
+        <Services items={services} />
         <Cabinet />
         <Terrain />
-        <Formations />
+        <Formations items={formations} />
         <ValeurAjoutee />
         <Partenariats />
-        <Actualites />
+        <Actualites items={actualites} />
         <Testimonials />
         <Contact />
         <CtaBanner />

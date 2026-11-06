@@ -90,7 +90,7 @@ export default function Contact() {
             <ul className="border-t border-line" data-stagger>
               <ScrollReveal>
                 <li className="flex gap-4 py-5 border-b border-line">
-                  <MapPin size={18} strokeWidth={1.7} className="text-blue shrink-0 mt-0.5" />
+                  <MapPin size={18} strokeWidth={1.75} className="text-blue shrink-0 mt-0.5" />
                   <div>
                     <span className="text-[11.5px] font-bold tracking-[0.1em] uppercase text-mut block mb-1">
                       {t('address.label')}
@@ -102,7 +102,7 @@ export default function Contact() {
               </ScrollReveal>
               <ScrollReveal>
                 <li className="flex gap-4 py-5 border-b border-line">
-                  <Phone size={18} strokeWidth={1.7} className="text-blue shrink-0 mt-0.5" />
+                  <Phone size={18} strokeWidth={1.75} className="text-blue shrink-0 mt-0.5" />
                   <div>
                     <span className="text-[11.5px] font-bold tracking-[0.1em] uppercase text-mut block mb-1">
                       {t('phone.label')}
@@ -115,7 +115,7 @@ export default function Contact() {
               </ScrollReveal>
               <ScrollReveal>
                 <li className="flex gap-4 py-5 border-b border-line">
-                  <Mail size={18} strokeWidth={1.7} className="text-blue shrink-0 mt-0.5" />
+                  <Mail size={18} strokeWidth={1.75} className="text-blue shrink-0 mt-0.5" />
                   <div>
                     <span className="text-[11.5px] font-bold tracking-[0.1em] uppercase text-mut block mb-1">
                       {t('email.label')}
@@ -136,7 +136,7 @@ export default function Contact() {
                   rel="noopener"
                   className="btn btn-outline px-5 py-2.5 text-[13.5px]"
                 >
-                  <MessageCircle size={15} strokeWidth={1.8} /> {t('whatsapp')}
+                  <MessageCircle size={16} strokeWidth={1.75} /> {t('whatsapp')}
                 </a>
                 <a
                   href="https://www.facebook.com/search/top?q=cabinet%20yo%20mbi%20consulting"
@@ -144,7 +144,7 @@ export default function Contact() {
                   rel="noopener"
                   className="btn btn-outline px-5 py-2.5 text-[13.5px]"
                 >
-                  <Facebook size={15} strokeWidth={1.8} /> {t('facebook')}
+                  <Facebook size={16} strokeWidth={1.75} /> {t('facebook')}
                 </a>
               </div>
             </ScrollReveal>
@@ -155,7 +155,7 @@ export default function Contact() {
               {status === 'success' ? (
                 <div className="py-6 text-center" role="status">
                   <span className="w-12 h-12 rounded-full bg-tint text-blue flex items-center justify-center mx-auto mb-4">
-                    <Check size={22} strokeWidth={2} />
+                    <Check size={20} strokeWidth={1.75} />
                   </span>
                   <h3 className="text-[17px] font-bold text-ink mb-2">
                     {t('form.successTitle')}
@@ -278,7 +278,7 @@ export default function Contact() {
                       role="alert"
                       className="flex gap-2.5 items-start text-[13px] text-[#B42318] bg-[#FEF3F2] border border-[#FECDCA] rounded-lg px-3.5 py-3 mb-4 leading-relaxed"
                     >
-                      <AlertCircle size={15} strokeWidth={1.9} className="shrink-0 mt-0.5" />
+                      <AlertCircle size={16} strokeWidth={1.75} className="shrink-0 mt-0.5" />
                       <span>
                         <strong className="font-semibold block">{t('form.errorTitle')}</strong>
                         {errorMessage}{' '}
@@ -296,13 +296,13 @@ export default function Contact() {
                   >
                     {status === 'sending' ? (
                       <>
-                        <Loader2 size={16} className="animate-spin" />
+                        <Loader2 size={18} className="animate-spin" />
                         {t('form.sending')}
                       </>
                     ) : (
                       <>
                         {t('form.submit')}
-                        <ArrowRight size={17} strokeWidth={1.8} />
+                        <ArrowRight size={18} strokeWidth={1.75} />
                       </>
                     )}
                   </button>

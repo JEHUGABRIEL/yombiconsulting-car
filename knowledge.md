@@ -24,27 +24,31 @@
 - `src/data/` — static bilingual content (`services.ts`, `formations.ts`, `actualites.ts`); public pages read from here, **not** from Postgres.
 - `src/i18n/` — `config.ts` (locales `fr`/`en`, default `fr`), `routing.ts`, `request.ts`, `navigation.ts`.
 - `messages/fr.json` / `messages/en.json` — translations; keep keys aligned.
-- `migrations/001_init.sql` — `admins`, `services`, `formations`, `actualites`, `messages` tables (bilingual `*_fr`/`*_en` columns, `jsonb` list fields).
+- `migrations/001_init.sql` — `admins`, `services`, `formations`, `actualites`, `messages` tables (bilingual `*_fr`/`*_en` columns, `jsonb` list fields). `migrations/002_rate_limits.sql` — shared rate-limit counters.
 - `scripts/` — `run-migrations.mjs`, `create-admin.mjs`. `.github/` — Dependabot config and auto-merge/Slack workflows.
 
 ## Architecture / data flow
 - Two content sources: public pages render static data from `src/data/*`, while Postgres holds `services`/`formations`/`actualites` tables that are currently **unused** by the site (only `messages` and `admins` are queried). Don't assume editing a DB row changes a public page.
 - Contact form (`Contact.tsx`) → `POST /api/contact` → validates/sanitizes, honeypot field `company`, rate limit → `INSERT INTO messages`. If no DB is configured the API returns 503 and the form falls back to a mailto link.
-- Admin auth: `POST /api/admin/login` verifies scrypt hash, sets an httpOnly `yombi_admin` cookie containing `exp.iat.adminId.HMAC-SHA256` (`SESSION_SECRET`, 8h). `getSessionAdmin()` re-checks signature, expiry, `status`, and `password_changed_at`.
+- Admin auth: `POST /api/admin/login` verifies scrypt hash, sets an httpOnly session cookie (`__Host-yombi_admin` in production, `yombi_admin` in dev) containing `exp.iat.adminId.version.HMAC-SHA256` (`SESSION_SECRET` ≥ 32 chars, 8h). `getSessionAdmin()` re-checks signature, expiry, `status`, `password_changed_at` and `admins.session_version` (migration 003); `isAuthConfigured()` gates the login route and page. Logging out calls `revokeAdminSessions()`, which increments the version and invalidates every outstanding token for that account.
 - Pages under `/admin` redirect to `/admin/login` when unauthenticated; API routes use `requireAdmin()` and return 401.
-- Missing `DATABASE_URL`/`SESSION_SECRET` degrades gracefully: UI shows a "not configured" notice instead of crashing.
+- Missing `DATABASE_URL`/`SESSION_SECRET` (or a secret shorter than 32 characters) degrades gracefully: the login page shows a neutral notice in production (setup details only in dev) instead of crashing.
 
 ## Conventions and gotchas
 - Import alias `@/*` → `src/*`. TypeScript is `strict` with `noEmit`.
-- `src/middleware.ts` skips `next-intl` for `/admin` (back-office is not localized) and generates a nonce-based CSP; `next.config.mjs` adds the static security headers. Any new script/style/font/image origin must be allowed in **both** places as appropriate, and admin pages set `X-Robots-Tag: noindex`.
+- `src/middleware.ts` skips `next-intl` for `/admin` (back-office is not localized) and generates a nonce-based CSP; `next.config.mjs` adds the static security headers (`poweredByHeader: false`). Any new script/style/font/image origin must be allowed in **both** places as appropriate, and admin pages set `X-Robots-Tag: noindex`.
+- Image upload: `POST /api/admin/uploads` (multipart, authenticated + same-origin + `limitAdminWrites`) verifies magic bytes (JPEG/PNG/WebP/AVIF, 8 MB max), signs the Cloudinary params with SHA-1 inside `src/lib/cloudinary.ts` and returns `secure_url`; `CLOUDINARY_API_SECRET` stays server-side, so the CSP keeps `connect-src 'self'`. The admin form offers both a paste-URL field and an upload button.
+- Images from the CMS (`kind: 'image'`) are validated by `isAllowedImageUrl()`: same-site path (`/images/…`) or `https://res.cloudinary.com/…` only. The host list must stay aligned with `img-src` in the CSP; `style-src 'unsafe-inline'` is required by inline `style={{…}}` in components.
+- `src/lib/db.ts`, `content.ts`, `admin-content.ts` and `auth.ts` import `server-only`: importing them from a client component fails the build (that is intended). `src/lib/content-config.ts` stays isomorphic on purpose.
 - Public routes are locale-prefixed (`/fr/…`, `/en/…`); use `Link`/`redirect` from `src/i18n/navigation.ts` instead of hardcoding locales.
 - Route params are Promises in Next 15 (`params: Promise<{...}>`) — always `await` them.
 - DB access goes through `query(text, ...values)` with `$1, $2` placeholders. **Never** concatenate SQL strings; rows are normalized in `src/lib/db.ts` serializers (`str`/`arr`/`iso`) before being exposed.
 - API routes set `runtime = 'nodejs'` and `dynamic = 'force-dynamic'`; reuse `json`/`error`/`internalError` from `src/lib/http.ts` so exception details never leak in production.
-- Rate limiting is in-memory per process (resets on deploy, not shared across instances) — fine for one instance, not for horizontal scale.
-- Admin-login and contact limits are per IP via `x-forwarded-for`, which depends on the host proxy setting that header.
+- Run `npm run db:migrate` for migrations 002 (`rate_limits`) and 003 (`admins.session_version`) — login fails without the latter.
+- Rate limiting is stored in Postgres (`rate_limits`, migration 002) with an in-memory fallback when the DB is missing or unreachable; login is limited per IP and per account (only failures consume the account quota, via `peekRateLimit` + `checkRateLimit`), contact per IP. Run `npm run db:migrate` after pulling so the table exists.
+- `clientIp()` relies on `ipAddress()` from `@vercel/functions` (platform-set `x-real-ip`) and returns `''` elsewhere: never trust a client-supplied `x-forwarded-for` for quotas. Mutating routes call `isSameOrigin()` (Origin vs Host) as a CSRF backstop, and `readJson(req, maxBytes)` only accepts `application/json` (+json), enforces a per-route size cap (default 64 KiB) and streams instead of buffering arbitrary bodies. Admin writes additionally go through `limitAdminWrites(adminId)` (120 / 10 min), counted after authentication only.
 - Passwords use Node `scrypt` (`scrypt$salt$hash`), not bcrypt/argon2; verify with `verifyPassword` and keep the format in sync with `scripts/create-admin.mjs`.
 - Colors/typography come from `tailwind.config.js` (`blue`, `navy`, `ink`, `mut`, `sky`, `tint`, `line`, Plus Jakarta Sans); reuse those tokens rather than raw hex in public UI. Admin UI uses a dark palette with arbitrary values.
 - Keep `prefers-reduced-motion` support in `globals.css` and the fixed header/`#contact` anchor when changing layout.
-- Env vars live in `.env.local` (gitignored, template in `.env.example`): `DATABASE_URL` (Neon pooled) and `SESSION_SECRET` (`openssl rand -hex 32`). Never commit real values.
+- Env vars live in `.env.local` (gitignored, template in `.env.example`): `DATABASE_URL` (Neon pooled), `SESSION_SECRET` (`openssl rand -hex 32`, minimum 32 characters), and for uploads `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`. Never commit real values.
 - `prompts/` holds reusable audit prompt files; the root `*.txt` files are ad-hoc audit/notes, not app input.

@@ -36,7 +36,7 @@ export default function CtaBanner() {
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[14.5px] font-semibold btn btn-light"
                 >
                   {t('cta')}
-                  <ArrowRight size={17} strokeWidth={1.9} />
+                  <ArrowRight size={18} strokeWidth={1.75} />
                 </a>
               </div>
             </div>

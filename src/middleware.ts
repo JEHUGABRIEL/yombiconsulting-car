@@ -20,7 +20,8 @@ export default function middleware(request: NextRequest) {
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ''}`,
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' data: https://fonts.gstatic.com",
-    "img-src 'self' data:",
+    // Images livrées par le site et par Cloudinary (cf. isAllowedImageUrl).
+    "img-src 'self' data: https://res.cloudinary.com",
     "connect-src 'self'",
     "frame-ancestors 'none'",
     "base-uri 'self'",

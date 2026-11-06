@@ -12,13 +12,15 @@
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
+    "@vercel/functions": "^3.11.0",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.400.0",
-    "next": "^15.5.24",
+    "next": "^15.5.29",
     "next-intl": "^4.13.7",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "undici": "^8.10.2"
+    "server-only": "^0.0.1",
+    "undici": "^8.12.4"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",

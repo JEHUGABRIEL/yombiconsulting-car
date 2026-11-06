@@ -186,8 +186,6 @@ body {
   --card-bg-hover: #FDFEFF;
   --card-border: #ECEFF6;
   --card-border-hover: #DCE3EF;
-  --shadow-soft: 0 1px 2px rgba(12, 36, 64, 0.03);
-  --shadow-lift: 0 20px 44px -30px rgba(12, 36, 64, 0.45);
   --ease-out: cubic-bezier(0.22, 0.7, 0.28, 1);
 }
 
@@ -198,11 +196,9 @@ body {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 18px;
-  box-shadow: var(--shadow-soft);
   overflow: hidden;
   transition:
     transform 0.3s var(--ease-out),
-    box-shadow 0.3s var(--ease-out),
     background-color 0.3s ease,
     border-color 0.25s ease;
 }
@@ -212,7 +208,6 @@ a.card:focus-visible {
   transform: translateY(-2px);
   background: var(--card-bg-hover);
   border-color: var(--card-border-hover);
-  box-shadow: var(--shadow-lift);
 }
 
 a.card:focus-visible {
@@ -275,14 +270,6 @@ a.card:hover .card__media img {
     color 0.18s ease;
 }
 
-.btn svg {
-  transition: transform 0.18s var(--ease-out);
-}
-
-.btn:hover svg:last-child {
-  transform: translateX(2px);
-}
-
 .btn:active {
   transform: translateY(0) scale(0.985);
 }
@@ -300,7 +287,6 @@ a.card:hover .card__media img {
 .btn-primary:hover {
   background-color: var(--blue-deep);
   transform: translateY(-1px);
-  box-shadow: 0 12px 24px -16px rgba(37, 87, 230, 0.85);
 }
 
 .btn-outline {
@@ -316,14 +302,13 @@ a.card:hover .card__media img {
 }
 
 .btn-light {
-  background-color: #fff;
+  background-color: #FBFCFE;
   color: var(--navy);
 }
 
 .btn-light:hover {
   background-color: #E9F0FD;
   transform: translateY(-1px);
-  box-shadow: 0 12px 26px -18px rgba(9, 20, 38, 0.6);
 }
 
 .btn-dark {
@@ -334,18 +319,13 @@ a.card:hover .card__media img {
 .btn-dark:hover {
   background-color: #132F52;
   transform: translateY(-1px);
-  box-shadow: 0 12px 24px -16px rgba(9, 20, 38, 0.7);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn,
-  .btn svg {
+  .btn {
     transition: none;
   }
   .btn:hover {
-    transform: none;
-  }
-  .btn:hover svg:last-child {
     transform: none;
   }
   .btn:active {
@@ -419,14 +399,6 @@ a.card:hover .card__title {
   color: var(--blue);
 }
 
-.card__cta svg {
-  transition: transform 0.2s var(--ease-out);
-}
-
-a.card:hover .card__cta svg {
-  transform: translateX(3px);
-}
-
 .card--plain {
   background: #F4F7FC;
 }
@@ -436,13 +408,13 @@ a.card:hover .card__cta svg {
 }
 
 a.card--light:hover {
-  background: #FFFFFF;
+  background: #FDFEFF;
 }
 
 /* Champs de formulaire */
 .field {
   width: 100%;
-  background: #FFFFFF;
+  background: #FCFDFE;
   border: 1px solid var(--card-border);
   border-radius: 10px;
   padding: 0.75rem 0.875rem;
@@ -452,7 +424,7 @@ a.card--light:hover {
 }
 
 .field::placeholder {
-  color: #8799B3;
+  color: #5F6E85;
 }
 
 .field:focus {
@@ -464,17 +436,13 @@ a.card--light:hover {
 @media (prefers-reduced-motion: reduce) {
   .card,
   .card__media img,
-  .card__title,
-  .card__cta svg {
+  .card__title {
     transition: none;
   }
   a.card:hover {
     transform: none;
   }
   a.card:hover .card__media img {
-    transform: none;
-  }
-  a.card:hover .card__cta svg {
     transform: none;
   }
 }

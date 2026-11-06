@@ -43,7 +43,7 @@ export default function LegalDocument({ namespace }: { namespace: LegalNamespace
               <Link href="/" className="hover:text-white transition-colors">
                 {tNav('home')}
               </Link>
-              <ChevronRight size={18} strokeWidth={1.8} />
+              <ChevronRight size={18} strokeWidth={1.75} />
               <span className="text-white/80 truncate">{t('title')}</span>
             </nav>
             <h1 className="font-extrabold text-[clamp(1.9rem,3.6vw,2.8rem)] leading-[1.12] tracking-[-0.02em] text-white max-w-[720px]">
@@ -127,14 +127,14 @@ export default function LegalDocument({ namespace }: { namespace: LegalNamespace
                       href="mailto:contact.cmc@gmail.com"
                       className="inline-flex items-center gap-2 px-5 py-2.5 btn btn-primary text-[14px] font-bold hover:bg-blue-deep transition-colors"
                     >
-                      <Mail size={16} strokeWidth={1.8} />
+                      <Mail size={18} strokeWidth={1.75} />
                       contact.cmc@gmail.com
                     </a>
                     <a
                       href="tel:+23672111914"
                       className="inline-flex items-center gap-2 px-5 py-2.5 btn btn-outline text-ink text-[14px] font-bold hover:border-blue hover:text-blue transition-colors"
                     >
-                      <Phone size={16} strokeWidth={1.8} />
+                      <Phone size={18} strokeWidth={1.75} />
                       +236 72 11 19 14
                     </a>
                   </div>

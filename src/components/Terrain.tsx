@@ -64,7 +64,7 @@ export default function Terrain() {
               className="inline-flex items-center gap-2 px-6 py-3.5 text-[14px] font-semibold btn btn-outline text-ink"
             >
               {t('cta')}
-              <ArrowRight size={17} strokeWidth={1.8} />
+              <ArrowRight size={18} strokeWidth={1.75} />
             </Link>
           </div>
         </ScrollReveal>

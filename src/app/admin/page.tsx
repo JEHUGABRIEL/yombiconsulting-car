@@ -94,9 +94,9 @@ export default async function AdminDashboardPage() {
       label: 'Messages reçus',
       value: totalMessages,
       icon: MailOpen,
-      accent: 'text-emerald-300',
-      ring: 'ring-emerald-400/20',
-      bar: 'from-emerald-400 to-teal-300',
+      accent: 'text-white/70',
+      ring: 'ring-white/10',
+      bar: 'from-blue to-blue-soft',
       share: 1,
       sub: 'Depuis la mise en ligne',
     },
@@ -104,9 +104,9 @@ export default async function AdminDashboardPage() {
       label: 'Services publiés',
       value: Number(stats.services),
       icon: Briefcase,
-      accent: 'text-amber-300',
-      ring: 'ring-amber-400/20',
-      bar: 'from-amber-400 to-yellow-300',
+      accent: 'text-white/70',
+      ring: 'ring-white/10',
+      bar: 'from-blue to-blue-soft',
       share: totalContent > 0 ? Number(stats.services) / totalContent : 0,
       sub: 'Sur le site public',
     },
@@ -114,9 +114,9 @@ export default async function AdminDashboardPage() {
       label: 'Formations',
       value: Number(stats.formations),
       icon: GraduationCap,
-      accent: 'text-violet-300',
-      ring: 'ring-violet-400/20',
-      bar: 'from-violet-400 to-fuchsia-300',
+      accent: 'text-white/70',
+      ring: 'ring-white/10',
+      bar: 'from-blue to-blue-soft',
       share: totalContent > 0 ? Number(stats.formations) / totalContent : 0,
       sub: `${stats.actualites} actualité${Number(stats.actualites) > 1 ? 's' : ''} en ligne`,
     },
@@ -136,11 +136,11 @@ export default async function AdminDashboardPage() {
           <h1 className="text-[26px] sm:text-[30px] font-bold tracking-[-0.025em] leading-tight">
             {greeting}
           </h1>
-          <p className="text-[13px] text-white/40 mt-1.5 capitalize">{today}</p>
+          <p className="text-[13px] text-white/55 mt-1.5 capitalize">{today}</p>
         </div>
         <Link href="/admin/messages" className="btn btn-primary px-4 py-2.5 text-[12.5px]">
           Ouvrir les messages
-          <ArrowRight size={15} strokeWidth={1.9} />
+          <ArrowRight size={16} strokeWidth={1.75} />
         </Link>
       </div>
 
@@ -158,29 +158,29 @@ export default async function AdminDashboardPage() {
           return (
             <div
               key={kpi.label}
-              className="relative overflow-hidden rounded-[14px] bg-white/[0.03] border border-white/[0.06] p-5 hover:border-white/[0.12] hover:bg-white/[0.045] transition-colors"
+              className="relative overflow-hidden rounded-[14px] bg-white/[0.03] border border-white/[0.06] p-5"
             >
               <div className="flex items-start justify-between mb-4">
                 <span
                   className={`w-10 h-10 rounded-[10px] flex items-center justify-center bg-white/[0.04] ring-1 ${kpi.ring} ${kpi.accent}`}
                 >
-                  <Icon size={19} strokeWidth={1.8} />
+                  <Icon size={20} strokeWidth={1.75} />
                 </span>
-                <span className="text-[9.5px] font-semibold uppercase tracking-[0.12em] text-white/25">
+                <span className="text-[9.5px] font-semibold uppercase tracking-[0.12em] text-white/55">
                   KPI
                 </span>
               </div>
               <p className="text-[26px] sm:text-[30px] font-bold tracking-[-0.03em] tabular-nums leading-none">
                 {kpi.value}
               </p>
-              <p className="text-[12px] text-white/45 mt-2 font-medium">{kpi.label}</p>
+              <p className="text-[12px] text-white/55 mt-2 font-medium">{kpi.label}</p>
               <div className="mt-3.5 h-1 rounded-full bg-white/[0.06] overflow-hidden">
                 <div
                   className={`h-full rounded-full bg-gradient-to-r ${kpi.bar}`}
                   style={{ width: `${Math.max(kpi.share * 100, 6)}%` }}
                 />
               </div>
-              <p className="text-[10.5px] text-white/25 mt-2">{kpi.sub}</p>
+              <p className="text-[10.5px] text-white/55 mt-2">{kpi.sub}</p>
             </div>
           );
         })}
@@ -198,7 +198,7 @@ export default async function AdminDashboardPage() {
           </div>
 
           {recent.length === 0 ? (
-            <p className="px-6 py-10 text-[13px] text-white/35">
+            <p className="px-6 py-10 text-[13px] text-white/55">
               Aucun message pour le moment. Les demandes envoyées via le formulaire de contact
               apparaîtront ici.
             </p>
@@ -224,13 +224,13 @@ export default async function AdminDashboardPage() {
                         >
                           {message.name}
                         </span>
-                        <span className="text-[11px] text-white/30">{message.subject}</span>
+                        <span className="text-[11px] text-white/55">{message.subject}</span>
                       </span>
-                      <span className="block text-[12px] text-white/35 truncate mt-0.5">
+                      <span className="block text-[12px] text-white/55 truncate mt-0.5">
                         {message.body}
                       </span>
                     </span>
-                    <span className="text-[10.5px] text-white/25 shrink-0 pt-0.5">
+                    <span className="text-[10.5px] text-white/55 shrink-0 pt-0.5">
                       {message.createdAt ? dateFormatter.format(new Date(message.createdAt)) : ''}
                     </span>
                   </Link>
@@ -244,7 +244,7 @@ export default async function AdminDashboardPage() {
               href="/admin/messages"
               className="inline-flex items-center gap-1.5 text-[11.5px] font-medium text-blue-soft/80 hover:text-blue-soft transition-colors"
             >
-              Gérer les messages <ArrowRight size={13} strokeWidth={1.9} />
+              Gérer les messages <ArrowRight size={16} strokeWidth={1.75} />
             </Link>
           </div>
         </section>
@@ -252,8 +252,8 @@ export default async function AdminDashboardPage() {
         <div className="space-y-5">
           <section className="rounded-[14px] border border-white/[0.06] bg-gradient-to-br from-white/[0.035] to-transparent p-6">
             <div className="flex items-center gap-2.5 mb-5">
-              <span className="w-7 h-7 rounded-[8px] bg-amber-400/15 flex items-center justify-center">
-                <Newspaper size={14} className="text-amber-300" />
+              <span className="w-7 h-7 rounded-[8px] bg-white/[0.05] flex items-center justify-center">
+                <Newspaper size={16} className="text-white/70" />
               </span>
               <h2 className="text-[13px] font-semibold">Contenus en ligne</h2>
             </div>
@@ -263,7 +263,7 @@ export default async function AdminDashboardPage() {
                 <div key={item.label}>
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-[12.5px] text-white/60">{item.label}</span>
-                    <span className="text-[11.5px] text-white/35 tabular-nums">{item.value}</span>
+                    <span className="text-[11.5px] text-white/55 tabular-nums">{item.value}</span>
                   </div>
                   <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
                     <div
@@ -278,33 +278,33 @@ export default async function AdminDashboardPage() {
 
           <section className="rounded-[14px] border border-white/[0.06] bg-gradient-to-br from-white/[0.035] to-transparent p-6">
             <div className="flex items-center gap-2.5 mb-5">
-              <span className="w-7 h-7 rounded-[8px] bg-emerald-400/15 flex items-center justify-center">
-                <ShieldCheck size={14} className="text-emerald-300" />
+              <span className="w-7 h-7 rounded-[8px] bg-white/[0.05] flex items-center justify-center">
+                <ShieldCheck size={16} className="text-white/70" />
               </span>
               <h2 className="text-[13px] font-semibold">Session</h2>
             </div>
 
             <dl className="space-y-3 text-[12px]">
               <div className="flex items-center justify-between gap-3">
-                <dt className="text-white/40">Compte</dt>
+                <dt className="text-white/55">Compte</dt>
                 <dd className="text-white/70 truncate max-w-[150px]" title={admin.email}>
                   {admin.email}
                 </dd>
               </div>
               <div className="flex items-center justify-between gap-3">
-                <dt className="text-white/40">Rôle</dt>
+                <dt className="text-white/55">Rôle</dt>
                 <dd className="text-white/70 capitalize">{admin.role}</dd>
               </div>
               <div className="flex items-center justify-between gap-3">
-                <dt className="text-white/40">Base</dt>
-                <dd className="inline-flex items-center gap-1.5 text-emerald-300">
+                <dt className="text-white/55">Base</dt>
+                <dd className="inline-flex items-center gap-1.5 text-white/70">
                   {configured ? (
                     <>
-                      <CheckCircle2 size={12} /> Connectée
+                      <CheckCircle2 size={16} /> Connectée
                     </>
                   ) : (
                     <>
-                      <Database size={12} /> Non configurée
+                      <Database size={16} /> Non configurée
                     </>
                   )}
                 </dd>

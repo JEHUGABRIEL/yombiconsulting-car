@@ -35,7 +35,7 @@ export default function Partenariats() {
               {items.map((item: string, i: number) => (
                 <ScrollReveal key={i}>
                   <li className="flex gap-5 items-baseline py-4 border-b border-[#DDD6C8]">
-                    <span className="text-[12px] font-bold text-[#8A8172] tabular-nums min-w-[22px]">
+                    <span className="text-[12px] font-bold text-[#6F675A] tabular-nums min-w-[22px]">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <p className="text-[15.5px] font-medium text-[#1F2A3A] leading-[1.55]">

@@ -27,6 +27,21 @@ if (password.length < 12) {
   console.error('❌ Le mot de passe doit contenir au moins 12 caractères.');
   process.exit(1);
 }
+
+// Liste courte des mots de passe les plus utilisés, sans dépendance externe.
+const COMMON_PASSWORDS = new Set([
+  'password', 'password123', 'motdepasse', 'motdepasse123', 'azertyuiop',
+  'qwertyuiop', '123456789012', '1234567890123', 'admin123456789',
+  'administrateur', 'bienvenue123', 'welcome12345', 'letmein12345',
+  'changeme1234', 'password1234', 'qwerty123456', 'azerty123456',
+  'iloveyou1234', 'monkey123456', 'dragon123456', 'soleil123456',
+  'bonjour12345', 'yombi123456', 'consulting123', 'bangui123456',
+]);
+
+if (COMMON_PASSWORDS.has(password.toLowerCase())) {
+  console.error('❌ Mot de passe trop courant. Choisissez une phrase secrète unique.');
+  process.exit(1);
+}
 if (!['admin', 'superadmin'].includes(role)) {
   console.error("❌ Rôle invalide : 'admin' ou 'superadmin' attendu.");
   process.exit(1);

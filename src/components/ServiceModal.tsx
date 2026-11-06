@@ -59,7 +59,7 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
           className="absolute top-[18px] right-[18px] w-[38px] h-[38px] rounded-full flex items-center justify-center bg-sky hover:bg-tint transition-colors"
           aria-label="Fermer"
         >
-          <X size={15} className="text-ink" strokeWidth={1.8} strokeLinecap="round" />
+          <X size={16} className="text-ink" strokeWidth={1.75} strokeLinecap="round" />
         </button>
 
         {isAllServices ? (
@@ -67,7 +67,7 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
             {/* Header for All Services */}
             <div className="flex gap-[18px] items-center mb-[14px] pr-[44px]">
               <span className="w-[54px] h-[54px] rounded-[16px] bg-tint flex items-center justify-center">
-                <Briefcase size={27} className="text-blue" strokeWidth={1.8} />
+                <Briefcase size={20} className="text-blue" strokeWidth={1.75} />
               </span>
               <h3 id="modal-title" className="text-[22px] font-extrabold tracking-[-0.01em]">
                 {t('allServicesTitle')}
@@ -80,7 +80,7 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
                 const Icon = icons[i];
                 return (
                   <li key={i} className="flex gap-3 items-start py-3 border-t border-line text-[15px] font-semibold">
-                    <ArrowRight size={18} className="text-blue shrink-0 mt-1" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
+                    <ArrowRight size={18} className="text-blue shrink-0 mt-1" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" />
                     <span>{svc.title}</span>
                   </li>
                 );
@@ -92,7 +92,7 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
             {/* Header for Single Service */}
             <div className="flex gap-[18px] items-center mb-[14px] pr-[44px]">
               <span className="w-[54px] h-[54px] rounded-[16px] bg-tint flex items-center justify-center">
-                {(() => { const Icon = icons[serviceIndex]; return Icon ? <Icon size={27} className="text-blue" strokeWidth={1.8} /> : null; })()}
+                {(() => { const Icon = icons[serviceIndex]; return Icon ? <Icon size={20} className="text-blue" strokeWidth={1.75} /> : null; })()}
               </span>
               <h3 id="modal-title" className="text-[22px] font-extrabold tracking-[-0.01em]">
                 {t(`modal.${serviceIndex}.title`)}
@@ -105,7 +105,7 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
             <ul className="space-y-0">
               {t.raw(`modal.${serviceIndex}.list`).map((item: string, i: number) => (
                 <li key={i} className="flex gap-3 items-start py-3 border-t border-line text-[15px] font-semibold">
-                  <ArrowRight size={18} className="text-blue shrink-0 mt-1" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" />
+                  <ArrowRight size={18} className="text-blue shrink-0 mt-1" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -127,7 +127,7 @@ export default function ServiceModal({ isOpen, serviceIndex, onClose }: ServiceM
             className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-[14px] font-bold btn btn-primary"
           >
             {t('requestService')}
-            <ArrowRight size={18} strokeWidth={1.8} />
+            <ArrowRight size={18} strokeWidth={1.75} />
           </a>
           <button
             onClick={onClose}

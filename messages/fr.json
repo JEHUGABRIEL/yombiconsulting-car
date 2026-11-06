@@ -454,7 +454,7 @@
       },
       {
         "title": "Des formations pratiques orientées terrain",
-        "description": "Mises en situation, cas réels, exercices : on apprend en faisant, pas en écoutant."
+        "description": "Mises en situation, cas réels et exercices : vos équipes repartent avec des gestes qu'elles ont déjà pratiqués."
       },
       {
         "title": "Des solutions adaptées au contexte local",
@@ -466,7 +466,7 @@
       },
       {
         "title": "Des consultants qualifiés",
-        "description": "Des praticiens issus du terrain, pas des généralistes : la compétence se vérifie sur le terrain."
+        "description": "Des consultants qui ont dirigé des chantiers et des équipes : ils transmettent ce qu'ils ont appliqué eux-mêmes."
       },
       {
         "title": "Un suivi après formation",
@@ -576,7 +576,7 @@
       "message": "Message *",
       "messagePlaceholder": "Votre contexte, vos besoins, vos échéances",
       "submit": "Envoyer le message",
-      "legal": "Votre application de messagerie s'ouvrira avec le message prêt à envoyer. Aucune donnée n'est stockée sur ce site.",
+      "legal": "Vos informations sont transmises au cabinet pour traiter votre demande et conservées 24 mois. Voir la politique de confidentialité.",
       "sending": "Envoi…",
       "successTitle": "Message envoyé",
       "successText": "Merci pour votre message. Nous revenons vers vous sous 48 heures ouvrées.",
@@ -673,7 +673,7 @@
         "paragraphs": [
           "Le site est édité par le Cabinet Yo Mbi Consulting, cabinet de conseil, de formation et d'accompagnement en Hygiène, Santé, Sécurité et Environnement (HSSE) et en développement des entreprises.",
           "Siège social : 5e arrondissement, avenue du Lieutenant Koudoukou, face au croisement de la rue Madou, Bangui, République centrafricaine.",
-          "Contact : +236 72 11 19 14 — contact.cmc@gmail.com.",
+          "Contact : +236 72 11 19 14, contact.cmc@gmail.com.",
           "Immatriculation au registre du commerce (RCCM) et identifiant fiscal : à compléter par le cabinet."
         ]
       },
@@ -687,7 +687,7 @@
       {
         "title": "Hébergement",
         "paragraphs": [
-          "Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — vercel.com."
+          "Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis (vercel.com)."
         ]
       },
       {
@@ -708,7 +708,7 @@
       {
         "title": "Propriété intellectuelle",
         "paragraphs": [
-          "L'ensemble du site et chacun de ses éléments pris séparément — textes, photographies, logo, visuels, éléments graphiques — sont protégés par le droit d'auteur et le droit des marques, ou utilisés avec l'accord de leurs titulaires.",
+          "L'ensemble du site et chacun de ses éléments pris séparément, à savoir les textes, les photographies, le logo, les visuels et les éléments graphiques, sont protégés par le droit d'auteur et le droit des marques, ou utilisés avec l'accord de leurs titulaires.",
           "Toute reproduction, représentation, diffusion ou réutilisation, totale ou partielle, sur quelque support que ce soit, est interdite sauf autorisation écrite préalable du cabinet.",
           "Les photographies illustrent des interventions réelles du cabinet. Leur publication suppose l'accord des personnes reconnaissables ; toute demande de retrait peut être adressée à contact.cmc@gmail.com."
         ]
@@ -728,7 +728,7 @@
       {
         "title": "Contact",
         "paragraphs": [
-          "Pour toute question relative au site : contact.cmc@gmail.com — +236 72 11 19 14."
+          "Pour toute question relative au site : contact.cmc@gmail.com, +236 72 11 19 14."
         ]
       }
     ]
@@ -813,7 +813,7 @@
       {
         "title": "Contact",
         "paragraphs": [
-          "Pour toute question relative au site ou à ces conditions : contact.cmc@gmail.com — +236 72 11 19 14."
+          "Pour toute question relative au site ou à ces conditions : contact.cmc@gmail.com, +236 72 11 19 14."
         ]
       }
     ]
@@ -825,15 +825,15 @@
       {
         "title": "Responsable du traitement",
         "paragraphs": [
-          "Cabinet Yo Mbi Consulting — 5e arrondissement, avenue du Lieutenant Koudoukou, face au croisement de la rue Madou, Bangui, République centrafricaine.",
-          "Contact : contact.cmc@gmail.com — +236 72 11 19 14."
+          "Cabinet Yo Mbi Consulting, 5e arrondissement, avenue du Lieutenant Koudoukou, face au croisement de la rue Madou, Bangui, République centrafricaine.",
+          "Contact : contact.cmc@gmail.com, +236 72 11 19 14."
         ]
       },
       {
         "title": "Données collectées",
         "paragraphs": [
           "Le site ne crée aucun compte et ne collecte aucune donnée automatiquement : il n'utilise ni cookie de mesure d'audience, ni traceur publicitaire, ni profil utilisateur.",
-          "Le formulaire de contact ne transmet rien à un serveur : il compose un courriel dans votre propre messagerie. Les informations que vous y saisissez ne nous parviennent que si vous envoyez ce message."
+          "Le formulaire de contact transmet votre demande à notre serveur, qui l'enregistre dans notre base de données afin que l'équipe du cabinet puisse la traiter. Les informations enregistrées sont celles que vous saisissez dans le formulaire."
         ],
         "items": [
           "Nom et organisation que vous indiquez",
@@ -848,9 +848,9 @@
           "Les informations reçues sont utilisées pour les finalités suivantes, avec les durées correspondantes :"
         ],
         "items": [
-          "Répondre à votre demande : mesures précontractuelles prises à votre demande — 24 mois à compter du dernier échange.",
-          "Préparer une proposition de mission : intérêt légitime du cabinet à répondre aux sollicitations — 24 mois.",
-          "Assurer le suivi administratif et comptable d'une mission : exécution du contrat — durée de la relation, puis archivage légal."
+          "Répondre à votre demande : mesures précontractuelles prises à votre demande, conservées 24 mois à compter du dernier échange.",
+          "Préparer une proposition de mission : intérêt légitime du cabinet à répondre aux sollicitations, conservées 24 mois.",
+          "Assurer le suivi administratif et comptable d'une mission : exécution du contrat, pendant la durée de la relation, puis archivage légal."
         ]
       },
       {
@@ -862,7 +862,7 @@
       {
         "title": "Transferts hors du pays",
         "paragraphs": [
-          "Le site est hébergé par un prestataire établi aux États-Unis (Vercel Inc.). Cet hébergement concerne les pages du site, pas le contenu de vos courriels, qui restent dans votre messagerie jusqu'à ce que vous nous les adressiez.",
+          "Le site est hébergé par un prestataire établi aux États-Unis (Vercel Inc.). Les messages envoyés via le formulaire de contact sont enregistrés dans une base de données PostgreSQL hébergée par notre prestataire Neon (neon.tech), susceptible d'être située hors du pays.",
           "Si un transfert de données personnelles vers un pays tiers devait avoir lieu, le cabinet mettrait en place les garanties appropriées prévues par la réglementation applicable."
         ]
       },
@@ -876,7 +876,7 @@
       {
         "title": "Sécurité",
         "paragraphs": [
-          "Le cabinet met en œuvre des mesures raisonnables pour protéger les informations qu'il reçoit : accès limité aux personnes concernées, messagerie protégée et sauvegardes des documents de travail."
+          "Le cabinet met en œuvre des mesures raisonnables pour protéger les informations qu'il reçoit : accès limité aux personnes concernées, messagerie protégée, base de données à accès restreint et sauvegardes des documents de travail."
         ]
       },
       {
@@ -944,7 +944,7 @@
       {
         "title": "Contact",
         "paragraphs": [
-          "Pour toute question relative aux cookies : contact.cmc@gmail.com — +236 72 11 19 14."
+          "Pour toute question relative aux cookies : contact.cmc@gmail.com, +236 72 11 19 14."
         ]
       }
     ]
