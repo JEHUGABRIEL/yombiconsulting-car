@@ -130,7 +130,13 @@ export default async function AdminDashboardPage() {
   const maxContent = Math.max(...content.map((c) => c.value), 1);
 
   return (
-    <AdminShell admin={{ email: admin.email, role: admin.role }} unread={unread}>
+    <AdminShell admin={{
+          email: admin.email,
+          role: admin.role,
+          displayName: admin.displayName,
+          jobTitle: admin.jobTitle,
+          avatarUrl: admin.avatarUrl,
+        }} unread={unread}>
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-8">
         <div>
           <h1 className="text-[26px] sm:text-[30px] font-bold tracking-[-0.025em] leading-tight">

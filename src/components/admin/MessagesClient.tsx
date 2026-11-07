@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { Check, ChevronDown, Mail, Phone, RotateCcw, Search, Trash2, Building2 } from 'lucide-react';
+import ConfirmDialog, { type ConfirmOptions } from '@/components/admin/ConfirmDialog';
 
 export type AdminMessage = {
   id: string;
@@ -38,6 +39,10 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
   const [expanded, setExpanded] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
+  const [confirm, setConfirm] = useState<(ConfirmOptions & { action: () => Promise<void> }) | null>(
+    null
+  );
+  const [confirmBusy, setConfirmBusy] = useState(false);
 
   const unreadCount = messages.filter((m) => !m.read).length;
 
@@ -74,8 +79,29 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
     }
   }
 
-  async function remove(message: AdminMessage) {
-    if (!window.confirm(`Supprimer définitivement le message de ${message.name} ?`)) return;
+  function askRemove(message: AdminMessage) {
+    setConfirm({
+      title: `Supprimer le message de ${message.name} ?`,
+      description:
+        'Le message sera définitivement supprimé de la base. Cette action est irréversible.',
+      confirmLabel: 'Supprimer',
+      tone: 'danger',
+      action: () => deleteMessage(message),
+    });
+  }
+
+  async function runConfirmed() {
+    if (!confirm) return;
+    setConfirmBusy(true);
+    try {
+      await confirm.action();
+    } finally {
+      setConfirmBusy(false);
+      setConfirm(null);
+    }
+  }
+
+  async function deleteMessage(message: AdminMessage) {
     setError(null);
     setBusy(message.id);
     const previous = messages;
@@ -210,7 +236,7 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
                         {message.read ? <RotateCcw size={16} /> : <Check size={16} />}
                       </button>
                       <button
-                        onClick={() => remove(message)}
+                        onClick={() => askRemove(message)}
                         disabled={busy === message.id}
                         title="Supprimer"
                         aria-label="Supprimer le message"
@@ -278,6 +304,16 @@ export default function MessagesClient({ initial }: { initial: AdminMessage[] })
         {filtered.length} message{filtered.length > 1 ? 's' : ''} affiché
         {filtered.length > 1 ? 's' : ''} · {unreadCount} non lu{unreadCount > 1 ? 's' : ''}
       </p>
+
+      <ConfirmDialog
+        open={Boolean(confirm)}
+        options={confirm}
+        busy={confirmBusy}
+        onConfirm={runConfirmed}
+        onCancel={() => {
+          if (!confirmBusy) setConfirm(null);
+        }}
+      />
     </div>
   );
 }

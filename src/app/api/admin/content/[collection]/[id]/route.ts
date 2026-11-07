@@ -1,7 +1,8 @@
 import { revalidatePath } from 'next/cache';
 import { requireAdmin } from '@/lib/auth';
-import { deleteRecord, isUniqueViolation, updateRecord } from '@/lib/admin-content';
-import { getCollection, type CollectionDef } from '@/lib/content-config';
+import { recordAudit } from '@/lib/audit';
+import { contentMeta, deleteRecord, isUniqueViolation, updateRecord } from '@/lib/admin-content';
+import { asBilingualText, asText, getCollection, type CollectionDef } from '@/lib/content-config';
 import { error, internalError, isSameOrigin, json, readJson } from '@/lib/http';
 import { limitAdminWrites } from '@/lib/rate-limit';
 
@@ -36,9 +37,28 @@ export async function PATCH(req: Request, { params }: Params) {
   }
 
   try {
+    // État avant écriture : permet de dire si c'est une publication ou une simple édition.
+    const before = await contentMeta(def, id);
+
     const result = await updateRecord(def, id, body.values);
     if ('error' in result) return error(result.error, 422);
     if ('missing' in result) return error('Contenu introuvable.', 404);
+
+    const published = result.record.values.published === true;
+    const action =
+      before && before.published !== published
+        ? published
+          ? 'content.publish'
+          : 'content.unpublish'
+        : 'content.update';
+
+    await recordAudit({
+      req,
+      admin,
+      action,
+      target: `${def.key}/${asText(result.record.values.slug)}`,
+      detail: asBilingualText(result.record.values.title).fr,
+    });
 
     revalidatePath('/', 'layout');
     return json({ record: result.record });
@@ -63,8 +83,17 @@ export async function DELETE(req: Request, { params }: Params) {
   if (!UUID.test(id)) return error('Identifiant invalide.', 422);
 
   try {
+    const before = await contentMeta(def, id);
     const removed = await deleteRecord(def, id);
     if (!removed) return error('Contenu introuvable.', 404);
+
+    await recordAudit({
+      req,
+      admin,
+      action: 'content.delete',
+      target: `${def.key}/${id}`,
+      detail: before?.title ?? '',
+    });
 
     revalidatePath('/', 'layout');
     return json({ ok: true });

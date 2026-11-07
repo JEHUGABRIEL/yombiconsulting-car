@@ -133,6 +133,15 @@ export default function Footer() {
               {t('usefulLinks')}
             </p>
             <ul className="space-y-1.5">
+              <li>
+                <a
+                  href="/yo_presentation.pdf"
+                  download
+                  className="block text-[14.5px] font-semibold py-1.5 text-[#AABBD4] hover:text-white transition-colors"
+                >
+                  {t('plaquette')}
+                </a>
+              </li>
               {Object.entries(links)
                 .filter(([key]) => key in linkRoutes)
                 .map(([key, label]) => (

@@ -7,24 +7,29 @@ import { useScrollRevealContainer } from '@/hooks/useScrollReveal';
 
 export default function ValeurAjoutee() {
   const t = useTranslations('valeur');
+  const tp = useTranslations('pourquoi');
   const items = t.raw('items');
   const sectionRef = useScrollRevealContainer();
 
   return (
-    <section id="valeur" className="py-20" ref={sectionRef}>
+    <section
+      id="pourquoi-nous"
+      className="relative z-10 -mt-8 rounded-t-[32px] bg-[#FAFBFD] pt-16 pb-20"
+      ref={sectionRef}
+    >
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-[72px] items-start">
           <div className="lg:sticky lg:top-[110px]">
             <ScrollReveal>
               <h2 className="font-extrabold text-[clamp(1.85rem,3.4vw,2.6rem)] leading-[1.15] tracking-[-0.02em] mb-4">
-                {t('title')} <span className="text-blue">{t('titleHighlight')}</span> {t('titleSuffix')}
+                {tp('title')} <span className="text-blue">{tp('titleHighlight')}</span>
               </h2>
-              <p className="text-mut max-w-[640px] mb-9">{t('description')}</p>
+              <p className="text-mut max-w-[640px] mb-9">{tp('description')}</p>
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-[14.5px] font-bold btn btn-primary"
               >
-                {t('cta')}
+                {tp('cta')}
                 <ArrowRight size={18} strokeWidth={1.75} />
               </a>
             </ScrollReveal>

@@ -34,10 +34,21 @@
   --line: #E2E9F3;
   --line-2: #CBD7E8;
   --err: #D64545;
+  /* Mouvement : départ franc, arrivée amortie — jamais de vitesse constante. */
+  --ease-organic: cubic-bezier(0.22, 1, 0.28, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-spring: cubic-bezier(0.34, 1.28, 0.64, 1);
 }
 
 html {
   scroll-behavior: smooth;
+  /* Les ancres ne se cachent plus derrière l'en-tête fixe. */
+  scroll-padding-top: 88px;
+}
+
+/* Menus et modales ouverts : la page derrière ne défile plus. */
+body.no-scroll {
+  overflow: hidden;
 }
 
 body {
@@ -56,11 +67,15 @@ body {
 
 /* Animations */
 @keyframes fadeInUp {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(26px);
   }
-  to {
+  /* L'opacité arrive avant le mouvement : la matière se pose, elle ne glisse pas. */
+  60% {
+    opacity: 1;
+  }
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
@@ -87,7 +102,7 @@ body {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  animation: fadeInUp 0.78s var(--ease-organic) forwards;
 }
 
 .animate-float {
@@ -95,7 +110,7 @@ body {
 }
 
 .animate-slide-in-right {
-  animation: slideInFromRight 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  animation: slideInFromRight 0.8s var(--ease-organic) forwards;
 }
 
 .delay-100 { animation-delay: 0.1s; }
@@ -106,30 +121,32 @@ body {
 /* ============ Scroll Reveal ============ */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(16px);
+  /* Un souffle d'échelle en plus du déplacement : l'élément avance vers nous. */
+  transform: translateY(18px) scale(0.994);
   transition:
-    opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.68s var(--ease-soft),
+    transform 0.86s var(--ease-organic);
 }
 
 .scroll-reveal.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-/* Cascade : le parent porte data-stagger, chaque enfant hérite d'un retard court */
+/* Cascade : le parent porte data-stagger, chaque enfant hérite d'un retard court.
+   Les écarts sont volontairement inégaux : une cadence régulière sonne mécanique. */
 [data-stagger] .scroll-reveal:nth-child(1) { transition-delay: 0ms; }
-[data-stagger] .scroll-reveal:nth-child(2) { transition-delay: 60ms; }
-[data-stagger] .scroll-reveal:nth-child(3) { transition-delay: 120ms; }
-[data-stagger] .scroll-reveal:nth-child(4) { transition-delay: 180ms; }
-[data-stagger] .scroll-reveal:nth-child(5) { transition-delay: 240ms; }
-[data-stagger] .scroll-reveal:nth-child(6) { transition-delay: 300ms; }
-[data-stagger] .scroll-reveal:nth-child(7) { transition-delay: 360ms; }
-[data-stagger] .scroll-reveal:nth-child(8) { transition-delay: 420ms; }
+[data-stagger] .scroll-reveal:nth-child(2) { transition-delay: 70ms; }
+[data-stagger] .scroll-reveal:nth-child(3) { transition-delay: 155ms; }
+[data-stagger] .scroll-reveal:nth-child(4) { transition-delay: 210ms; }
+[data-stagger] .scroll-reveal:nth-child(5) { transition-delay: 295ms; }
+[data-stagger] .scroll-reveal:nth-child(6) { transition-delay: 350ms; }
+[data-stagger] .scroll-reveal:nth-child(7) { transition-delay: 435ms; }
+[data-stagger] .scroll-reveal:nth-child(8) { transition-delay: 490ms; }
 
 /* Slider */
 .hero-slide {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fadeInUp 0.85s var(--ease-organic);
 }
 
 /* Héros : fondu enchaîné + léger zoom lent sur l'image active */
@@ -139,7 +156,8 @@ body {
 }
 
 .hero-image-active {
-  animation: heroZoom 8s linear forwards;
+  /* Zoom lent qui ralentit : la photo s'installe au lieu de défiler. */
+  animation: heroZoom 9s cubic-bezier(0.25, 0.55, 0.3, 1) forwards;
 }
 
 @keyframes heroProgress {
@@ -187,6 +205,7 @@ body {
   --card-border: #ECEFF6;
   --card-border-hover: #DCE3EF;
   --ease-out: cubic-bezier(0.22, 0.7, 0.28, 1);
+  --shadow-card: 0 14px 34px rgba(12, 36, 64, 0.08);
 }
 
 .card {
@@ -198,16 +217,18 @@ body {
   border-radius: 18px;
   overflow: hidden;
   transition:
-    transform 0.3s var(--ease-out),
-    background-color 0.3s ease,
-    border-color 0.25s ease;
+    transform 0.42s var(--ease-organic),
+    background-color 0.32s var(--ease-soft),
+    border-color 0.3s var(--ease-soft),
+    box-shadow 0.42s var(--ease-organic);
 }
 
 a.card:hover,
 a.card:focus-visible {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   background: var(--card-bg-hover);
   border-color: var(--card-border-hover);
+  box-shadow: var(--shadow-card);
 }
 
 a.card:focus-visible {
@@ -228,11 +249,11 @@ a.card:focus-visible {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s var(--ease-out);
+  transition: transform 0.9s var(--ease-organic);
 }
 
 a.card:hover .card__media img {
-  transform: scale(1.025);
+  transform: scale(1.035);
 }
 
 .card__body {
@@ -263,15 +284,17 @@ a.card:hover .card__media img {
   border-radius: 10px;
   transform: translateY(0);
   transition:
-    transform 0.18s var(--ease-out),
-    box-shadow 0.18s var(--ease-out),
-    background-color 0.18s ease,
-    border-color 0.18s ease,
-    color 0.18s ease;
+    transform 0.26s var(--ease-spring),
+    box-shadow 0.26s var(--ease-soft),
+    background-color 0.24s var(--ease-soft),
+    border-color 0.24s var(--ease-soft),
+    color 0.24s var(--ease-soft);
 }
 
 .btn:active {
-  transform: translateY(0) scale(0.985);
+  transform: translateY(0) scale(0.98);
+  /* L'appui est plus court que le relâchement : c'est ce qui donne la sensation de matière. */
+  transition-duration: 0.09s;
 }
 
 .btn:focus-visible {
@@ -286,7 +309,8 @@ a.card:hover .card__media img {
 
 .btn-primary:hover {
   background-color: var(--blue-deep);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(37, 87, 230, 0.22);
 }
 
 .btn-outline {
@@ -298,7 +322,8 @@ a.card:hover .card__media img {
 .btn-outline:hover {
   border-color: var(--blue);
   color: var(--blue);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(12, 36, 64, 0.07);
 }
 
 .btn-light {
@@ -308,7 +333,8 @@ a.card:hover .card__media img {
 
 .btn-light:hover {
   background-color: #E9F0FD;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .btn-dark {
@@ -318,7 +344,8 @@ a.card:hover .card__media img {
 
 .btn-dark:hover {
   background-color: #132F52;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(12, 36, 64, 0.2);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -335,7 +362,7 @@ a.card:hover .card__media img {
 
 /* Rangeau de cartes horizontaux (compteur + flèches, façon éditorial) */
 .carousel-track {
-  transition: transform 0.62s cubic-bezier(0.32, 0.72, 0, 1);
+  transition: transform 0.72s var(--ease-organic);
   will-change: transform;
 }
 
@@ -349,13 +376,18 @@ a.card:hover .card__media img {
   border: 1px solid var(--line-2);
   background: transparent;
   color: var(--ink);
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.24s var(--ease-soft),
+    border-color 0.24s var(--ease-soft),
+    color 0.24s var(--ease-soft),
+    transform 0.3s var(--ease-spring);
 }
 
 .carousel-btn:hover:not(:disabled) {
   background: var(--ink);
   border-color: var(--ink);
   color: #fff;
+  transform: scale(1.05);
 }
 
 .carousel-btn:disabled {
@@ -375,7 +407,7 @@ a.card:hover .card__media img {
   line-height: 1.38;
   letter-spacing: -0.01em;
   color: var(--ink);
-  transition: color 0.2s ease;
+  transition: color 0.3s var(--ease-soft);
 }
 
 a.card:hover .card__title {
@@ -399,6 +431,16 @@ a.card:hover .card__title {
   color: var(--blue);
 }
 
+/* La flèche accompagne le survol d'un léger décalage, comme un geste. */
+.card__cta svg {
+  transition: transform 0.34s var(--ease-organic);
+}
+
+a:hover .card__cta svg,
+.group:hover .card__cta svg {
+  transform: translateX(3px);
+}
+
 .card--plain {
   background: #F4F7FC;
 }
@@ -420,7 +462,7 @@ a.card--light:hover {
   padding: 0.75rem 0.875rem;
   font-size: 14.5px;
   color: var(--ink);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.22s var(--ease-soft), box-shadow 0.22s var(--ease-soft);
 }
 
 .field::placeholder {
@@ -430,7 +472,7 @@ a.card--light:hover {
 .field:focus {
   outline: none;
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(37, 87, 230, 0.14);
+  box-shadow: 0 0 0 4px rgba(37, 87, 230, 0.13);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -460,6 +502,76 @@ a.card--light:hover {
 
 .loader-bar {
   animation: loaderBar 1.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+/* Anneau de progression qui tourne autour du logo de la page de chargement. */
+@keyframes loaderRingSpin {
+  to { transform: rotate(360deg); }
+}
+
+.loader-ring {
+  position: absolute;
+  inset: -13px;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(37, 87, 230, 0) 0deg,
+    rgba(37, 87, 230, 0.55) 120deg,
+    rgba(37, 87, 230, 0) 250deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+  animation: loaderRingSpin 1.5s linear infinite;
+}
+
+/* Modale de confirmation du back-office. */
+@keyframes dialogBackdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dialogPanelIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.dialog-backdrop {
+  animation: dialogBackdropIn 0.2s ease both;
+}
+
+.dialog-panel {
+  animation: dialogPanelIn 0.24s var(--ease-organic) both;
+}
+
+/* Panneau latéral du back-office (menu mobile). */
+@keyframes drawerPanelIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.drawer-panel {
+  animation: drawerPanelIn 0.22s var(--ease-organic) both;
+}
+
+/* Panneau de notifications (cloche du back-office). */
+@keyframes bellPanelIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.bell-panel {
+  animation: bellPanelIn 0.18s var(--ease-organic) both;
+  transform-origin: top right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-ring,
+  .dialog-backdrop,
+  .dialog-panel,
+  .drawer-panel,
+  .bell-panel {
+    animation: none;
+  }
 }
 
 .skeleton {
@@ -565,20 +677,20 @@ a.card--light:hover {
 
 .menu-link-in {
   opacity: 0;
-  animation: menuLinkIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: menuLinkIn 0.46s var(--ease-organic) forwards;
 }
 
-.menu-link-in:nth-child(1) { animation-delay: 50ms; }
-.menu-link-in:nth-child(2) { animation-delay: 100ms; }
-.menu-link-in:nth-child(3) { animation-delay: 150ms; }
-.menu-link-in:nth-child(4) { animation-delay: 200ms; }
-.menu-link-in:nth-child(5) { animation-delay: 250ms; }
-.menu-link-in:nth-child(6) { animation-delay: 300ms; }
-.menu-link-in:nth-child(7) { animation-delay: 350ms; }
+.menu-link-in:nth-child(1) { animation-delay: 55ms; }
+.menu-link-in:nth-child(2) { animation-delay: 115ms; }
+.menu-link-in:nth-child(3) { animation-delay: 165ms; }
+.menu-link-in:nth-child(4) { animation-delay: 240ms; }
+.menu-link-in:nth-child(5) { animation-delay: 295ms; }
+.menu-link-in:nth-child(6) { animation-delay: 370ms; }
+.menu-link-in:nth-child(7) { animation-delay: 425ms; }
 
 /* Burger animation */
 .burger-line {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transition: transform 0.34s var(--ease-organic), opacity 0.22s var(--ease-soft);
 }
 
 .burger-open .burger-line-1 {

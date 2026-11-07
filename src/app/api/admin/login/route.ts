@@ -3,7 +3,13 @@ import { error, internalError, isSameOrigin, json, readJson } from '@/lib/http';
 import { checkRateLimit, createRateLimiter, peekRateLimit } from '@/lib/rate-limit';
 import { query } from '@/lib/db';
 import { burnPasswordCheck, verifyPassword } from '@/lib/password';
-import { createSessionToken, isAuthConfigured, sessionCookie } from '@/lib/auth';
+import { recordAudit } from '@/lib/audit';
+import {
+  createMfaChallenge,
+  createSessionToken,
+  isAuthConfigured,
+  sessionCookie,
+} from '@/lib/auth';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -40,17 +46,26 @@ export async function POST(req: Request) {
     peekRateLimit(accountKey, ACCOUNT_LIMIT),
   ]);
   if (!ipAllowed || !accountAllowed) {
+    await recordAudit({
+      req,
+      action: 'login.blocked',
+      target: email,
+      detail: ipAllowed ? 'Compte temporairement bloqué' : 'IP temporairement bloquée',
+    });
     return error('Trop de tentatives. Réessayez dans quelques minutes.', 429);
   }
 
   try {
     const rows = await query<{
       id: string;
+      email: string;
       password_hash: string | null;
       status: string;
       session_version: number | null;
+      totp_enabled_at: string | null;
     }>(
-      'SELECT id, password_hash, status, session_version FROM admins WHERE lower(email) = $1 OR username = $1',
+      `SELECT id, email, password_hash, status, session_version, totp_enabled_at
+         FROM admins WHERE lower(email) = $1 OR username = $1`,
       email
     );
 
@@ -60,17 +75,32 @@ export async function POST(req: Request) {
       // Coût de hachage équivalent : le chronomètre ne dit pas si le compte existe.
       await burnPasswordCheck(password);
       await checkRateLimit(accountKey, ACCOUNT_LIMIT);
+      await recordAudit({ req, action: 'login.failure', target: email, detail: 'Identifiants incorrects' });
       return error('Identifiants incorrects.', 401);
     }
     if (!(await verifyPassword(password, admin.password_hash))) {
       await checkRateLimit(accountKey, ACCOUNT_LIMIT);
+      await recordAudit({ req, action: 'login.failure', target: email, detail: 'Mot de passe erroné' });
       return error('Identifiants incorrects.', 401);
+    }
+
+    // Second facteur activé : le mot de passe seul n'ouvre pas de session.
+    // Le défi est signé et expire en 5 minutes ; le compteur d'échecs du compte
+    // n'est pas consommé ici (le mot de passe était correct).
+    if (admin.totp_enabled_at) {
+      return json({ ok: true, mfaRequired: true, challenge: createMfaChallenge(admin.id) });
     }
 
     await query('UPDATE admins SET last_login_at = now() WHERE id = $1', admin.id);
 
     const token = createSessionToken(admin.id, Number(admin.session_version ?? 0));
     (await cookies()).set(sessionCookie(token));
+
+    await recordAudit({
+      req,
+      admin: { id: admin.id, email: admin.email },
+      action: 'login.success',
+    });
 
     return json({ ok: true });
   } catch (err) {

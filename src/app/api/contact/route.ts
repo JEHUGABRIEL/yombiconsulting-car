@@ -1,6 +1,7 @@
 import { error, internalError, isSameOrigin, json, readJson } from '@/lib/http';
 import { createRateLimiter } from '@/lib/rate-limit';
 import { hasDb, query } from '@/lib/db';
+import { recordAudit } from '@/lib/audit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -20,17 +21,40 @@ const clean = (value: unknown, max: number): string =>
   typeof value === 'string' ? value.replace(/\s+/g, ' ').trim().slice(0, max) : '';
 
 export async function POST(req: Request) {
-  if (!isSameOrigin(req)) return error('Origine non autorisée.', 403);
+  // Les refus et les envois aboutis sont tracés : le back-office doit savoir
+  // ce qui se passe sur le site public, pas seulement ce qu'il y fait.
+  if (!isSameOrigin(req)) {
+    await recordAudit({
+      req,
+      action: 'contact.blocked',
+      target: 'site/contact',
+      detail: 'Origine non autorisée',
+    });
+    return error('Origine non autorisée.', 403);
+  }
 
   if (!(await limiter(req))) {
+    await recordAudit({
+      req,
+      action: 'contact.blocked',
+      target: 'site/contact',
+      detail: 'Limite de fréquence atteinte',
+    });
     return error('Trop de demandes envoyées. Merci de réessayer dans quelques minutes.', 429);
   }
 
   const body = await readJson<Payload>(req, 32 * 1024);
   if (!body) return error('Requête invalide.', 400);
 
-  // Champ piège : un humain ne le remplit jamais.
+  // Champ piège : un humain ne le remplit jamais. Tracé sans alerte : le bruit
+  // des robots ne doit pas faire sonner la cloche.
   if (clean(body.company, 80).length > 0) {
+    await recordAudit({
+      req,
+      action: 'contact.spam',
+      target: 'site/contact',
+      detail: 'Champ piège rempli',
+    });
     return json({ ok: true });
   }
 
@@ -68,6 +92,13 @@ export async function POST(req: Request) {
       subject || 'Demande de contact',
       message
     );
+
+    await recordAudit({
+      req,
+      action: 'contact.submit',
+      target: 'site/contact',
+      detail: `${name}${subject ? ` · ${subject}` : ''}`,
+    });
 
     return json({ ok: true }, 201);
   } catch (err) {

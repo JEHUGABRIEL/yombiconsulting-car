@@ -2,12 +2,14 @@
 
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Services from '@/components/Services';
+import SavoirFaire from '@/components/SavoirFaire';
+import ImageBand from '@/components/ImageBand';
 import Cabinet from '@/components/Cabinet';
 import Terrain from '@/components/Terrain';
 import Formations from '@/components/Formations';
 import ValeurAjoutee from '@/components/ValeurAjoutee';
 import Partenariats from '@/components/Partenariats';
+import Ressources from '@/components/Ressources';
 import Actualites from '@/components/Actualites';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
@@ -32,12 +34,16 @@ export default function HomeClient({
       <Header />
       <main>
         <Hero />
-        <Services items={services} />
+        <SavoirFaire items={services} />
         <Cabinet />
         <Terrain />
         <Formations items={formations} />
-        <ValeurAjoutee />
+        <div className="relative">
+          <ImageBand />
+          <ValeurAjoutee />
+        </div>
         <Partenariats />
+        <Ressources />
         <Actualites items={actualites} />
         <Testimonials />
         <Contact />

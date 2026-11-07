@@ -87,8 +87,47 @@ export const services: Service[] = [
       'Accompagnement des PME',
       'Suivi après formation',
     ],
-    subject: 'Développement d\'entreprise',
+    subject: 'Développement d’entreprise',
     image: '/images/formation-participantes-notes.jpeg',
+  },
+  {
+    slug: 'premiers-secours-travail',
+    title: 'Premiers secours au travail',
+    description:
+      'Former des salariés capables d’intervenir dans les premières minutes d’un accident : gestes qui sauvent, alerte et organisation des secours.',
+    list: [
+      'Formation de secouristes au travail',
+      'Gestes de premiers secours et défibrillation',
+      'Organisation de l’alerte et des secours internes',
+    ],
+    subject: 'Formation premiers secours',
+    image: '/images/formation-formatrice-debout.jpeg',
+  },
+  {
+    slug: 'formation-formateurs',
+    title: 'Formation des formateurs',
+    description:
+      'Transmettre vos savoir-faire en interne : concevoir un module, animer un groupe et évaluer les acquis avec des méthodes simples et reproductibles.',
+    list: [
+      'Ingénierie pédagogique et construction de modules',
+      'Animation de groupe et gestion du temps',
+      'Évaluation des acquis et suivi post-formation',
+    ],
+    subject: 'Formation des formateurs',
+    image: '/images/formation-paperboard-2.jpeg',
+  },
+  {
+    slug: 'conduite-changement',
+    title: 'Conduite du changement',
+    description:
+      'Accompagner vos équipes quand l’organisation change : nouvelles procédures, nouveaux outils, nouvelles habitudes à installer durablement.',
+    list: [
+      'Diagnostic des résistances et des relais internes',
+      'Plan de communication et d’accompagnement',
+      'Suivi des nouveaux usages après déploiement',
+    ],
+    subject: 'Conduite du changement',
+    image: '/images/salle-reunion-2.jpeg',
   },
 ];
 
@@ -174,6 +213,45 @@ export const servicesEn: Service[] = [
     ],
     subject: 'Business development',
     image: '/images/formation-participantes-notes.jpeg',
+  },
+  {
+    slug: 'premiers-secours-travail',
+    title: 'First aid at work',
+    description:
+      'Train employees to act in the first minutes of an accident: life-saving gestures, alerting and organising internal response.',
+    list: [
+      'Workplace first-aider training',
+      'First aid gestures and defibrillation',
+      'Alert and internal emergency response',
+    ],
+    subject: 'First aid training',
+    image: '/images/formation-formatrice-debout.jpeg',
+  },
+  {
+    slug: 'formation-formateurs',
+    title: 'Train the trainers',
+    description:
+      'Pass on your know-how internally: design a module, lead a group and assess learning with simple, repeatable methods.',
+    list: [
+      'Instructional design and module building',
+      'Group facilitation and time management',
+      'Assessing learning and post-training follow-up',
+    ],
+    subject: 'Train the trainers',
+    image: '/images/formation-paperboard-2.jpeg',
+  },
+  {
+    slug: 'conduite-changement',
+    title: 'Change management',
+    description:
+      'Support your teams when the organisation changes: new procedures, new tools, new habits that need to stick.',
+    list: [
+      'Diagnosing resistance and internal champions',
+      'Communication and support plan',
+      'Tracking new practices after rollout',
+    ],
+    subject: 'Change management',
+    image: '/images/salle-reunion-2.jpeg',
   },
 ];
 

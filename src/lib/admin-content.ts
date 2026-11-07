@@ -87,6 +87,23 @@ export async function updateRecord(
   return { record: toAdminRecord(def, rows[0]) };
 }
 
+/**
+ * État d'un contenu avant modification : sert au journal d'audit (distinguer
+ * une publication d'une simple édition) et à garder son titre après suppression.
+ */
+export async function contentMeta(
+  def: CollectionDef,
+  id: string
+): Promise<{ published: boolean; title: string } | null> {
+  const rows = await query<{ published: boolean; title_fr: string | null }>(
+    `SELECT published, title_fr FROM ${def.key} WHERE id = $1`,
+    id
+  );
+  const row = rows[0];
+  if (!row) return null;
+  return { published: row.published === true, title: row.title_fr ?? '' };
+}
+
 export async function deleteRecord(def: CollectionDef, id: string): Promise<boolean> {
   const rows = await query(`DELETE FROM ${def.key} WHERE id = $1 RETURNING id`, id);
   return rows.length > 0;

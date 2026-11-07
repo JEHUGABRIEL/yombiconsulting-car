@@ -1,6 +1,7 @@
 import { error, internalError, isSameOrigin, json, readJson } from '@/lib/http';
 import { hasDb, query } from '@/lib/db';
 import { requireAdmin } from '@/lib/auth';
+import { recordAudit } from '@/lib/audit';
 import { limitAdminWrites } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
@@ -28,6 +29,14 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   try {
     const rows = await query('UPDATE messages SET read = $2 WHERE id = $1 RETURNING id', id, body.read);
     if (rows.length === 0) return error('Message introuvable.', 404);
+
+    await recordAudit({
+      req,
+      admin,
+      action: body.read ? 'message.read' : 'message.unread',
+      target: id,
+    });
+
     return json({ ok: true });
   } catch (err) {
     return internalError(err, 'admin/messages/patch');
@@ -50,6 +59,9 @@ export async function DELETE(req: Request, { params }: { params: Promise<{ id: s
   try {
     const rows = await query('DELETE FROM messages WHERE id = $1 RETURNING id', id);
     if (rows.length === 0) return error('Message introuvable.', 404);
+
+    await recordAudit({ req, admin, action: 'message.delete', target: id });
+
     return json({ ok: true });
   } catch (err) {
     return internalError(err, 'admin/messages/delete');

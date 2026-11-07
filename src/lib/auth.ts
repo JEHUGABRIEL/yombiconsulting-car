@@ -20,6 +20,9 @@ export type AdminUser = {
   id: string;
   email: string;
   username: string | null;
+  displayName: string;
+  jobTitle: string;
+  avatarUrl: string;
   role: 'superadmin' | 'admin';
   status: 'active' | 'blocked';
 };
@@ -85,9 +88,47 @@ function parseSessionToken(token: string): SessionPayload | null {
 /**
  * Révoque tous les jetons déjà émis pour cet admin (vol de cookie, départ…).
  * Toute session ouverte sur ce compte devra se reconnecter.
+ * Renvoie la nouvelle version, pour réémettre un jeton au compte courant.
  */
-export async function revokeAdminSessions(adminId: string): Promise<void> {
-  await query('UPDATE admins SET session_version = session_version + 1 WHERE id = $1', adminId);
+export async function revokeAdminSessions(adminId: string): Promise<number> {
+  const rows = await query<{ session_version: number }>(
+    'UPDATE admins SET session_version = session_version + 1 WHERE id = $1 RETURNING session_version',
+    adminId
+  );
+  return Number(rows[0]?.session_version ?? 0);
+}
+
+/** Durée du défi entre le mot de passe et le code à 6 chiffres. */
+const MFA_CHALLENGE_MS = 5 * 60 * 1000;
+
+/**
+ * Jeton de transition `mfa.<adminId>.<exp>.<signature>` : preuve que le mot de
+ * passe a été vérifié, sans ouvrir de session. Il ne donne aucun autre droit.
+ */
+export function createMfaChallenge(adminId: string): string {
+  const exp = String(Date.now() + MFA_CHALLENGE_MS);
+  const payload = `mfa.${adminId}.${exp}`;
+  return `${payload}.${sign(payload)}`;
+}
+
+/** Renvoie l'identifiant du compte, ou null si le défi est invalide ou expiré. */
+export function parseMfaChallenge(token: string): string | null {
+  try {
+    const parts = token.split('.');
+    if (parts.length !== 4 || parts[0] !== 'mfa') return null;
+
+    const [, adminId, exp, sig] = parts;
+    if (!adminId || !/^\d+$/.test(exp) || Date.now() > Number(exp)) return null;
+
+    const expected = sign(`mfa.${adminId}.${exp}`);
+    const a = Buffer.from(sig);
+    const b = Buffer.from(expected);
+    if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) return null;
+
+    return adminId;
+  } catch {
+    return null;
+  }
 }
 
 export function sessionCookie(token: string) {
@@ -116,8 +157,21 @@ export async function getSessionAdmin(): Promise<AdminUser | null> {
     const payload = parseSessionToken(token);
     if (!payload) return null;
 
-    const rows = await query<AdminUser & { password_changed_at: string | null; session_version: number | null }>(
-      'SELECT id, email, username, role, status, password_changed_at, session_version FROM admins WHERE id = $1',
+    const rows = await query<{
+      id: string;
+      email: string;
+      username: string | null;
+      display_name: string | null;
+      job_title: string | null;
+      avatar_url: string | null;
+      role: 'superadmin' | 'admin';
+      status: 'active' | 'blocked';
+      password_changed_at: string | null;
+      session_version: number | null;
+    }>(
+      `SELECT id, email, username, display_name, job_title, avatar_url, role, status,
+              password_changed_at, session_version
+         FROM admins WHERE id = $1`,
       payload.adminId
     );
     const admin = rows[0];
@@ -131,7 +185,16 @@ export async function getSessionAdmin(): Promise<AdminUser | null> {
       if (Number.isFinite(changedAt) && payload.iat < changedAt) return null;
     }
 
-    return { id: admin.id, email: admin.email, username: admin.username, role: admin.role, status: admin.status };
+    return {
+      id: admin.id,
+      email: admin.email,
+      username: admin.username,
+      displayName: admin.display_name ?? '',
+      jobTitle: admin.job_title ?? '',
+      avatarUrl: admin.avatar_url ?? '',
+      role: admin.role,
+      status: admin.status,
+    };
   } catch {
     return null;
   }

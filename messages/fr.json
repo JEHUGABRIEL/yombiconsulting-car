@@ -12,6 +12,7 @@
     "actualites": "Actualités",
     "partenariats": "Partenariats",
     "contact": "Contact",
+    "language": "Langue du site",
     "cta": "Nous contacter"
   },
   "hero": {
@@ -636,6 +637,43 @@
     "ctaFormations": "Voir nos formations",
     "ctaContact": "Nous contacter"
   },
+  "ressources": {
+    "chip": "Ressources",
+    "title": "La plaquette du cabinet, en",
+    "titleHighlight": "un document",
+    "description": "Domaines d'intervention, méthodologie, catalogue de formations et références : l'essentiel du Cabinet Yo Mbi Consulting dans un document à partager en interne.",
+    "note": "Document public, aucune inscription requise.",
+    "document": {
+      "title": "Plaquette de présentation",
+      "meta": "PDF",
+      "cta": "Télécharger la plaquette"
+    },
+    "contactText": "Vous préférez un échange direct avec le cabinet ?",
+    "contactCta": "Prendre rendez-vous"
+  },
+  "savoirfaire": {
+    "chip": "Nos prestations",
+    "title": "Plongez dans notre",
+    "titleHighlight": "savoir-faire",
+    "description": "Neuf domaines d'intervention, du diagnostic des risques à la conduite du changement. Survolez une carte pour découvrir le détail de la prestation ; sur mobile, la carte lue s'ouvre d'elle-même.",
+    "details": "Détails",
+    "all": "Toutes les prestations"
+  },
+  "pourquoi": {
+    "chip": "Pourquoi nous",
+    "title": "Pourquoi nous",
+    "titleHighlight": "choisir",
+    "description": "Ce que le cabinet apporte à chaque mission : une expertise pluridisciplinaire, des méthodes éprouvées sur le terrain et un engagement dans la durée.",
+    "cta": "Discutons de votre projet"
+  },
+  "commentaires": {
+    "chip": "Commentaires",
+    "title": "Ce que nos clients disent de",
+    "titleHighlight": "nous",
+    "description": "La satisfaction de nos clients est notre meilleure carte de visite. Voici leurs retours d'expérience, sans filtre.",
+    "cta": "Partager votre expérience",
+    "ctaText": "Vous avez travaillé avec le cabinet ? Votre avis aide les autres entreprises à se décider."
+  },
   "footer": {
     "newsletter": {
       "title": "Abonnez-vous à notre lettre d'information",
@@ -656,6 +694,7 @@
     },
     "copyright": "Tous droits réservés.",
     "mentions": "Mentions & confidentialité",
+    "plaquette": "Plaquette (PDF)",
     "legalLinks": {
       "mentions": "Mentions légales",
       "cgu": "CGU",

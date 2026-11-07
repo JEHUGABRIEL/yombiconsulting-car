@@ -76,51 +76,55 @@ export default function Contact() {
   const fieldClass = 'field';
 
   return (
-    <section id="contact" className="py-20 bg-sky" ref={sectionRef}>
+    <section
+      id="contact"
+      className="relative z-20 -mt-10 rounded-t-[36px] bg-blue py-20 shadow-[0_-24px_60px_rgba(12,36,64,0.22)]"
+      ref={sectionRef}
+    >
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-12 lg:gap-16 items-start">
           <div>
             <ScrollReveal>
-              <h2 className="font-extrabold text-[clamp(1.85rem,3.4vw,2.6rem)] leading-[1.15] tracking-[-0.02em] mb-3">
+              <h2 className="font-extrabold text-[clamp(1.85rem,3.4vw,2.6rem)] leading-[1.15] tracking-[-0.02em] mb-3 text-white">
                 {t('title')} <span className="text-blue">{t('titleHighlight')}</span>
               </h2>
-              <p className="text-mut text-[15.5px] mb-9 max-w-[440px]">{t('description')}</p>
+              <p className="text-white/70 text-[15.5px] mb-9 max-w-[440px]">{t('description')}</p>
             </ScrollReveal>
 
-            <ul className="border-t border-line" data-stagger>
+            <ul className="border-t border-white/20" data-stagger>
               <ScrollReveal>
-                <li className="flex gap-4 py-5 border-b border-line">
-                  <MapPin size={18} strokeWidth={1.75} className="text-blue shrink-0 mt-0.5" />
+                <li className="flex gap-4 py-5 border-b border-white/20">
+                  <MapPin size={18} strokeWidth={1.75}                  className="text-white/80 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11.5px] font-bold tracking-[0.1em] uppercase text-mut block mb-1">
+                    <span className="text-[11.5px] font-bold tracking-[0.1em] uppercase text-white/60 block mb-1">
                       {t('address.label')}
                     </span>
-                    <span className="text-[15px] font-semibold text-ink block">{t('address.value')}</span>
-                    <span className="text-[13.5px] text-mut mt-0.5 block">{t('address.detail')}</span>
+                    <span className="text-[15px] font-semibold text-white block">{t('address.value')}</span>
+                    <span className="text-[13.5px] text-white/70 mt-0.5 block">{t('address.detail')}</span>
                   </div>
                 </li>
               </ScrollReveal>
               <ScrollReveal>
-                <li className="flex gap-4 py-5 border-b border-line">
-                  <Phone size={18} strokeWidth={1.75} className="text-blue shrink-0 mt-0.5" />
+                <li className="flex gap-4 py-5 border-b border-white/20">
+                  <Phone size={18} strokeWidth={1.75}                  className="text-white/80 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11.5px] font-bold tracking-[0.1em] uppercase text-mut block mb-1">
+                    <span className="text-[11.5px] font-bold tracking-[0.1em] uppercase text-white/60 block mb-1">
                       {t('phone.label')}
                     </span>
-                    <a href="tel:+23672111914" className="text-[15px] font-semibold text-ink hover:text-blue transition-colors">
+                    <a href="tel:+23672111914"                      className="text-[15px] font-semibold text-white hover:text-white/80 transition-colors">
                       {t('phone.value')}
                     </a>
                   </div>
                 </li>
               </ScrollReveal>
               <ScrollReveal>
-                <li className="flex gap-4 py-5 border-b border-line">
-                  <Mail size={18} strokeWidth={1.75} className="text-blue shrink-0 mt-0.5" />
+                <li className="flex gap-4 py-5 border-b border-white/20">
+                  <Mail size={18} strokeWidth={1.75}                  className="text-white/80 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11.5px] font-bold tracking-[0.1em] uppercase text-mut block mb-1">
+                    <span className="text-[11.5px] font-bold tracking-[0.1em] uppercase text-white/60 block mb-1">
                       {t('email.label')}
                     </span>
-                    <a href={`mailto:${CONTACT_EMAIL}`} className="text-[15px] font-semibold text-ink hover:text-blue transition-colors">
+                    <a href={`mailto:${CONTACT_EMAIL}`}                      className="text-[15px] font-semibold text-white hover:text-white/80 transition-colors">
                       {t('email.value')}
                     </a>
                   </div>
@@ -133,17 +137,13 @@ export default function Contact() {
                 <a
                   href="https://wa.me/23672111914"
                   target="_blank"
-                  rel="noopener"
-                  className="btn btn-outline px-5 py-2.5 text-[13.5px]"
-                >
+                  rel="noopener"                  className="btn bg-white/10 text-white hover:bg-white/20 px-5 py-2.5 text-[13.5px]">
                   <MessageCircle size={16} strokeWidth={1.75} /> {t('whatsapp')}
                 </a>
                 <a
                   href="https://www.facebook.com/search/top?q=cabinet%20yo%20mbi%20consulting"
                   target="_blank"
-                  rel="noopener"
-                  className="btn btn-outline px-5 py-2.5 text-[13.5px]"
-                >
+                  rel="noopener"                  className="btn bg-white/10 text-white hover:bg-white/20 px-5 py-2.5 text-[13.5px]">
                   <Facebook size={16} strokeWidth={1.75} /> {t('facebook')}
                 </a>
               </div>
@@ -151,7 +151,7 @@ export default function Contact() {
           </div>
 
           <ScrollReveal delay={100}>
-            <div className="bg-[#FCFDFE] border border-line rounded-[16px] p-6 md:p-8">
+            <div className="bg-[#FCFDFE] text-ink border border-line rounded-[16px] p-6 md:p-8">
               {status === 'success' ? (
                 <div className="py-6 text-center" role="status">
                   <span className="w-12 h-12 rounded-full bg-tint text-blue flex items-center justify-center mx-auto mb-4">

@@ -12,6 +12,7 @@
     "actualites": "News",
     "partenariats": "Partnerships",
     "contact": "Contact",
+    "language": "Site language",
     "cta": "Contact us"
   },
   "hero": {
@@ -636,6 +637,43 @@
     "ctaFormations": "View our training programs",
     "ctaContact": "Contact us"
   },
+  "ressources": {
+    "chip": "Resources",
+    "title": "The firm's brochure, as",
+    "titleHighlight": "a single document",
+    "description": "Areas of expertise, methodology, training catalogue and references: the essentials of Yo Mbi Consulting in one document you can share internally.",
+    "note": "Public document, no sign-up required.",
+    "document": {
+      "title": "Company brochure",
+      "meta": "PDF",
+      "cta": "Download the brochure"
+    },
+    "contactText": "Would you rather talk to the firm directly?",
+    "contactCta": "Book a meeting"
+  },
+  "savoirfaire": {
+    "chip": "Our services",
+    "title": "Explore our",
+    "titleHighlight": "expertise",
+    "description": "Nine areas of expertise, from risk assessment to change management. Hover a card to see what the service covers; on mobile the card in view opens by itself.",
+    "details": "Details",
+    "all": "All services"
+  },
+  "pourquoi": {
+    "chip": "Why us",
+    "title": "Why choose",
+    "titleHighlight": "us",
+    "description": "What the firm brings to every assignment: cross-disciplinary expertise, methods proven in the field and a long-term commitment.",
+    "cta": "Let's discuss your project"
+  },
+  "commentaires": {
+    "chip": "Comments",
+    "title": "What our clients say about",
+    "titleHighlight": "us",
+    "description": "Client satisfaction is our best calling card. Here is what they tell us, unfiltered.",
+    "cta": "Share your experience",
+    "ctaText": "Have you worked with the firm? Your feedback helps other organisations decide."
+  },
   "footer": {
     "newsletter": {
       "title": "Subscribe to our newsletter",
@@ -656,6 +694,7 @@
     },
     "copyright": "All rights reserved.",
     "mentions": "Legal & Privacy",
+    "plaquette": "Brochure (PDF)",
     "legalLinks": {
       "mentions": "Legal notice",
       "cgu": "Terms of use",

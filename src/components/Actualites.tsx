@@ -43,7 +43,7 @@ export default function Actualites({ items }: { items: Actualite[] }) {
                 src={lead.image}
                 alt={lead.title}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.28,1)] group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent" />
 
@@ -82,7 +82,7 @@ export default function Actualites({ items }: { items: Actualite[] }) {
                       src={article.image}
                       alt={article.title}
                       loading="lazy"
-                      className="w-full h-full min-h-[150px] object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+                      className="w-full h-full min-h-[150px] object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.28,1)] group-hover:scale-[1.04]"
                     />
                   </div>
                   <div className="flex flex-col justify-center p-4 sm:p-5 min-w-0">

@@ -3,11 +3,49 @@
 import { useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { useState, useEffect, useCallback } from 'react';
-import { X } from 'lucide-react';
+import { ChevronDown, X } from 'lucide-react';
 import { locales, type Locale } from '@/i18n/config';
+import { getServices } from '@/data/services';
+
+function LanguageSelect({
+  value,
+  onChange,
+  label,
+  full = false,
+}: {
+  value: Locale;
+  onChange: (locale: string) => void;
+  label: string;
+  full?: boolean;
+}) {
+  return (
+    <div className={`relative ${full ? 'w-full' : ''}`}>
+      <select
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        aria-label={label}
+        className={`appearance-none cursor-pointer rounded-[9px] border border-line bg-[#FFFFFF] pl-3 pr-9 py-2 text-[12px] font-bold uppercase tracking-[0.06em] text-ink transition-colors hover:border-blue/40 focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/15 ${
+          full ? 'w-full' : ''
+        }`}
+      >
+        {locales.map((loc) => (
+          <option key={loc} value={loc}>
+            {loc}
+          </option>
+        ))}
+      </select>
+      <ChevronDown
+        size={14}
+        strokeWidth={2}
+        className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-mut"
+      />
+    </div>
+  );
+}
 
 export default function Header() {
   const t = useTranslations('nav');
+  const tServices = useTranslations('services');
   const pathname = usePathname();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -56,6 +94,7 @@ export default function Header() {
   }, [mobileOpen, closeMenu]);
 
   const locale = pathname.split('/')[1] as Locale;
+  const serviceMenu = getServices(locale);
 
   const navLinks = [
     { href: `/${locale}`, label: t('home') },
@@ -80,7 +119,7 @@ export default function Header() {
           boxShadow: scrolled
             ? '0 8px 30px rgba(13,36,70,.1)'
             : '0 1px 4px rgba(13,36,70,.06)',
-          transition: 'box-shadow 0.25s ease',
+          transition: 'box-shadow 0.3s cubic-bezier(0.22,1,0.28,1)',
         }}
       >
         <div
@@ -108,20 +147,61 @@ export default function Header() {
                 link.href === `/${locale}`
                   ? pathname === link.href
                   : pathname.startsWith(link.href);
+              const linkClass = `relative text-[14.5px] font-medium transition-colors py-1 ${
+                active ? 'text-blue' : 'text-ink hover:text-blue'
+              }`;
+              const underlineClass = `absolute -bottom-0.5 left-0 right-0 h-[2px] rounded-full bg-blue transition-opacity ${
+                active ? 'opacity-100' : 'opacity-0'
+              }`;
+
+              // « Services » déroule les six domaines, comme les menus du site de référence.
+              if (link.href === `/${locale}/services`) {
+                return (
+                  <div key={link.href} className="relative group">
+                    <a
+                      href={link.href}
+                      className={`${linkClass} inline-flex items-center gap-1`}
+                      aria-haspopup="true"
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={14}
+                        strokeWidth={2}
+                        className="transition-transform duration-[280ms] ease-[cubic-bezier(0.22,1,0.28,1)] group-hover:rotate-180"
+                      />
+                      <span className={underlineClass} />
+                    </a>
+
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 invisible opacity-0 translate-y-1.5 scale-[0.98] origin-top transition-all duration-[280ms] ease-[cubic-bezier(0.22,1,0.28,1)] group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100">
+                      <ul className="w-[330px] bg-white border border-line rounded-[14px] shadow-[0_18px_50px_rgba(13,36,70,0.14)] p-2">
+                        {serviceMenu.map((service) => (
+                          <li key={service.slug}>
+                            <a
+                              href={`/${locale}/services/${service.slug}`}
+                              className="block px-3 py-2.5 rounded-[9px] text-[13.5px] font-medium text-ink hover:bg-sky hover:text-blue transition-colors"
+                            >
+                              {service.title}
+                            </a>
+                          </li>
+                        ))}
+                        <li className="mt-1 pt-1 border-t border-line">
+                          <a
+                            href={`/${locale}/services`}
+                            className="block px-3 py-2.5 rounded-[9px] text-[13px] font-semibold text-blue hover:bg-sky transition-colors"
+                          >
+                            {tServices('allServices')}
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                );
+              }
+
               return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`relative text-[14.5px] font-medium transition-colors py-1 ${
-                    active ? 'text-blue' : 'text-ink hover:text-blue'
-                  }`}
-                >
+                <a key={link.href} href={link.href} className={linkClass}>
                   {link.label}
-                  <span
-                    className={`absolute -bottom-0.5 left-0 right-0 h-[2px] rounded-full bg-blue transition-opacity ${
-                      active ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  />
+                  <span className={underlineClass} />
                 </a>
               );
             })}
@@ -129,21 +209,11 @@ export default function Header() {
 
           {/* Desktop Right */}
           <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-0.5 bg-sky rounded-[9px] p-1">
-              {locales.map((loc) => (
-                <button
-                  key={loc}
-                  onClick={() => switchLocale(loc)}
-                  className="px-2.5 py-1 rounded-[7px] text-[11.5px] font-bold uppercase border-none cursor-pointer transition-colors"
-                  style={{
-                    backgroundColor: currentLocale === loc ? '#2557E6' : 'transparent',
-                    color: currentLocale === loc ? '#fff' : '#5B6C86',
-                  }}
-                >
-                  {loc}
-                </button>
-              ))}
-            </div>
+            <LanguageSelect
+              value={currentLocale}
+              onChange={switchLocale}
+              label={t('language')}
+            />
             <a
               href={`/${locale}#contact`}
               className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-bold btn btn-primary"
@@ -251,22 +321,15 @@ export default function Header() {
               }}
             >
               {/* Language Switcher */}
-              <div className="flex gap-2">
-                {locales.map((loc) => (
-                  <button
-                    key={loc}
-                    onClick={() => { switchLocale(loc); closeMenu(); }}
-                    className="flex-1 py-2.5 rounded-[8px] text-[14px] font-bold uppercase cursor-pointer transition-colors border"
-                    style={{
-                      border: currentLocale === loc ? 'none' : '1.5px solid #CBD7E8',
-                      backgroundColor: currentLocale === loc ? '#2557E6' : 'transparent',
-                      color: currentLocale === loc ? '#fff' : '#5B6C86',
-                    }}
-                  >
-                    {loc}
-                  </button>
-                ))}
-              </div>
+              <LanguageSelect
+                value={currentLocale}
+                onChange={(loc) => {
+                  switchLocale(loc);
+                  closeMenu();
+                }}
+                label={t('language')}
+                full
+              />
 
               {/* CTA */}
               <a

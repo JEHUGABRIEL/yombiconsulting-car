@@ -30,7 +30,13 @@ export default async function AdminMessagesPage() {
   const unread = messages.filter((m) => !m.read).length;
 
   return (
-    <AdminShell admin={{ email: admin.email, role: admin.role }} unread={unread}>
+    <AdminShell admin={{
+          email: admin.email,
+          role: admin.role,
+          displayName: admin.displayName,
+          jobTitle: admin.jobTitle,
+          avatarUrl: admin.avatarUrl,
+        }} unread={unread}>
       <div className="mb-7">
         <h1 className="text-[24px] sm:text-[26px] font-bold tracking-[-0.025em]">Messages</h1>
         <p className="text-[13px] text-white/55 mt-1.5">

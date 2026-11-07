@@ -1,111 +1,78 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Quote, Star } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
+/** Section entièrement consacrée aux commentaires laissés par les clients. */
 export default function Testimonials() {
   const t = useTranslations('testimonials');
-  const items = t.raw('items');
-  const [current, setCurrent] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(3);
-
-  const maxIndex = Math.max(0, items.length - visibleCount);
-  const safeCurrent = Math.min(current, maxIndex);
-
-  useEffect(() => {
-    const update = () => {
-      const w = window.innerWidth;
-      if (w >= 1024) setVisibleCount(3);
-      else if (w >= 768) setVisibleCount(2);
-      else setVisibleCount(1);
-    };
-    update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
-  }, []);
-
-  useEffect(() => {
-    setCurrent((prev) => Math.min(prev, Math.max(0, items.length - visibleCount)));
-  }, [visibleCount, items.length]);
+  const tc = useTranslations('commentaires');
+  const items = t.raw('items') as {
+    name: string;
+    role: string;
+    text: string;
+    rating?: number;
+  }[];
 
   return (
-    <section id="testimonials" className="py-20 bg-white overflow-hidden">
+    <section id="commentaires" className="py-20 bg-[#F1F5FB]">
       <div className="max-w-[1200px] mx-auto px-6">
         <ScrollReveal>
-          <div className="bg-[#EFF4FD] rounded-[24px] px-5 sm:px-9 py-8 sm:py-10">
-            <div className="flex flex-wrap items-end justify-between gap-5 mb-7">
-              <div className="max-w-[620px]">
-                <h2 className="font-extrabold text-[clamp(1.5rem,2.6vw,2rem)] leading-[1.2] tracking-[-0.02em] mb-2">
-                  {t('title')} <span className="text-blue">{t('titleHighlight')}</span>
-                </h2>
-                <p className="text-mut text-[14px]">{t('description')}</p>
-              </div>
+          <div className="max-w-[640px] mb-10">
+            <p className="text-[11.5px] font-bold tracking-[0.16em] uppercase text-blue mb-3">
+              {tc('chip')}
+            </p>
+            <h2 className="font-extrabold text-[clamp(1.9rem,3.6vw,2.6rem)] leading-[1.1] tracking-[-0.03em]">
+              {tc('title')} <span className="text-blue">{tc('titleHighlight')}</span>
+            </h2>
+            <p className="text-mut text-[15.5px] leading-[1.7] mt-4">{tc('description')}</p>
+          </div>
+        </ScrollReveal>
 
-              <div className="flex items-center gap-3">
-                <span className="text-[13px] font-medium text-mut tabular-nums">
-                  {safeCurrent + 1} / {maxIndex + 1}
-                </span>
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setCurrent(Math.max(0, safeCurrent - 1))}
-                    disabled={safeCurrent === 0}
-                    className="carousel-btn"
-                    aria-label="Témoignages précédents"
-                  >
-                    <ChevronLeft size={18} strokeWidth={1.75} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setCurrent(Math.min(maxIndex, safeCurrent + 1))}
-                    disabled={safeCurrent >= maxIndex}
-                    className="carousel-btn"
-                    aria-label="Témoignages suivants"
-                  >
-                    <ChevronRight size={18} strokeWidth={1.75} />
-                  </button>
-                </div>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4" data-stagger>
+          {items.map((item, index) => (
+            <ScrollReveal key={item.name + index} className="h-full">
+              <figure className="h-full bg-[#FCFDFE] border border-line rounded-[20px] p-6 sm:p-7 flex flex-col">
+                <Quote size={22} className="text-blue/25" strokeWidth={1.75} />
 
-            <div className="overflow-hidden -mx-2">
-              <div
-                className="carousel-track flex"
-                style={{ transform: `translateX(-${safeCurrent * (100 / visibleCount)}%)` }}
-              >
-                {items.map((item: any, i: number) => (
-                  <div
-                    key={i}
-                    className="shrink-0 px-2"
-                    style={{ width: `${100 / visibleCount}%` }}
-                  >
-                    <figure className="card card--light h-full">
-                      <div className="card__body gap-4">
-                        <blockquote className="text-ink text-[14.5px] leading-[1.7]">
-                          {item.text}
-                        </blockquote>
-                        <figcaption className="mt-auto pt-4 border-t border-line flex items-center gap-3">
-                          <span className="w-8 h-8 rounded-full bg-tint text-blue font-bold text-[11px] flex items-center justify-center">
-                            {item.name
-                              .split(' ')
-                              .map((n: string) => n[0])
-                              .join('')}
-                          </span>
-                          <span>
-                            <span className="block text-[13px] font-semibold text-ink">
-                              {item.name}
-                            </span>
-                            <span className="block text-[12px] text-mut">{item.role}</span>
-                          </span>
-                        </figcaption>
-                      </div>
-                    </figure>
-                  </div>
-                ))}
-              </div>
-            </div>
+                <blockquote className="text-ink text-[16px] sm:text-[16.5px] leading-[1.7] mt-4">
+                  {item.text}
+                </blockquote>
+
+                <figcaption className="mt-auto pt-6 flex items-center gap-3">
+                  <span className="w-10 h-10 rounded-full bg-tint text-blue font-bold text-[12.5px] flex items-center justify-center">
+                    {item.name
+                      .split(' ')
+                      .map((part) => part[0])
+                      .join('')
+                      .slice(0, 2)}
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-[14px] font-semibold text-ink">{item.name}</span>
+                    <span className="block text-[12.5px] text-mut truncate">{item.role}</span>
+                  </span>
+                  <span className="ml-auto flex items-center gap-0.5" aria-label={`${item.rating ?? 5}/5`}>
+                    {Array.from({ length: item.rating ?? 5 }).map((_, star) => (
+                      <Star key={star} size={13} className="star-filled" fill="currentColor" strokeWidth={0} />
+                    ))}
+                  </span>
+                </figcaption>
+              </figure>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        <ScrollReveal delay={120}>
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
+            <p className="text-mut text-[14.5px]">{tc('ctaText')}</p>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-6 py-3.5 text-[14px] font-semibold btn btn-primary"
+            >
+              {tc('cta')}
+              <ArrowRight size={18} strokeWidth={1.75} />
+            </a>
           </div>
         </ScrollReveal>
       </div>

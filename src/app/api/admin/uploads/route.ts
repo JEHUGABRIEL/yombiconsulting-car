@@ -1,4 +1,5 @@
 import { requireAdmin } from '@/lib/auth';
+import { recordAudit } from '@/lib/audit';
 import { isUploadConfigured, MAX_UPLOAD_BYTES, sniffImageType, uploadImage } from '@/lib/cloudinary';
 import { error, internalError, isSameOrigin, json } from '@/lib/http';
 import { limitAdminWrites } from '@/lib/rate-limit';
@@ -44,6 +45,15 @@ export async function POST(req: Request) {
     }
 
     const { url } = await uploadImage(bytes, mimeType);
+
+    await recordAudit({
+      req,
+      admin,
+      action: 'media.upload',
+      target: url,
+      detail: `${mimeType} · ${Math.round(file.size / 1024)} Ko`,
+    });
+
     return json({ url }, 201);
   } catch (err) {
     return internalError(err, 'admin/uploads');

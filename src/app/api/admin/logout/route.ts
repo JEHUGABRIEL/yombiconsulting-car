@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { clearedSessionCookie, getSessionAdmin, revokeAdminSessions } from '@/lib/auth';
+import { recordAudit } from '@/lib/audit';
 import { isSameOrigin } from '@/lib/http';
 
 export const runtime = 'nodejs';
@@ -19,6 +20,7 @@ export async function POST(req: Request) {
     } catch (err) {
       console.error('logout revoke error:', err);
     }
+    await recordAudit({ req, admin, action: 'logout' });
   }
 
   const res = NextResponse.redirect(new URL('/admin/login', req.url), 303);

@@ -1,5 +1,6 @@
 import { revalidatePath } from 'next/cache';
 import { requireAdmin } from '@/lib/auth';
+import { recordAudit } from '@/lib/audit';
 import { seedCollection } from '@/lib/admin-content';
 import { getCollection } from '@/lib/content-config';
 import { error, internalError, isSameOrigin, json } from '@/lib/http';
@@ -26,6 +27,15 @@ export async function POST(
 
   try {
     const result = await seedCollection(def);
+
+    await recordAudit({
+      req,
+      admin,
+      action: 'content.seed',
+      target: def.key,
+      detail: `${result.inserted} contenu(s) importé(s)`,
+    });
+
     revalidatePath('/', 'layout');
     return json(result);
   } catch (err) {

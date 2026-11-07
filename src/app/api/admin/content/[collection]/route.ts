@@ -1,7 +1,8 @@
 import { revalidatePath } from 'next/cache';
 import { requireAdmin, UnauthorizedError } from '@/lib/auth';
+import { recordAudit } from '@/lib/audit';
 import { createRecord, isUniqueViolation, listRecords } from '@/lib/admin-content';
-import { getCollection, type CollectionDef } from '@/lib/content-config';
+import { asBilingualText, asText, getCollection, type CollectionDef } from '@/lib/content-config';
 import { error, internalError, isSameOrigin, json, readJson } from '@/lib/http';
 import { limitAdminWrites } from '@/lib/rate-limit';
 
@@ -52,6 +53,14 @@ export async function POST(req: Request, { params }: Params) {
   try {
     const result = await createRecord(def, body.values);
     if ('error' in result) return error(result.error, 422);
+
+    await recordAudit({
+      req,
+      admin,
+      action: 'content.create',
+      target: `${def.key}/${asText(result.record.values.slug)}`,
+      detail: asBilingualText(result.record.values.title).fr,
+    });
 
     revalidatePath('/', 'layout');
     return json({ record: result.record }, 201);

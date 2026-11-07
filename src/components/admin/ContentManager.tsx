@@ -24,6 +24,7 @@ import {
   type FieldValue,
   type Values,
 } from '@/lib/content-config';
+import ConfirmDialog, { type ConfirmOptions } from '@/components/admin/ConfirmDialog';
 
 const inputClass =
   'w-full rounded-[9px] bg-white/[0.04] border border-white/[0.09] px-3.5 py-2.5 text-[13px] text-white placeholder:text-white/40 focus:outline-none focus:border-blue/70 focus:bg-white/[0.06] transition-colors';
@@ -308,6 +309,10 @@ export default function ContentManager({
   const [busy, setBusy] = useState<string | null>(null);
   const [seeding, setSeeding] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [confirm, setConfirm] = useState<(ConfirmOptions & { action: () => Promise<void> }) | null>(
+    null
+  );
+  const [confirmBusy, setConfirmBusy] = useState(false);
 
   function startCreate() {
     setError(null);
@@ -365,7 +370,7 @@ export default function ContentManager({
     }
   }
 
-  async function togglePublished(record: AdminRecord) {
+  async function applyPublish(record: AdminRecord) {
     setError(null);
     setBusy(record.id);
 
@@ -391,10 +396,7 @@ export default function ContentManager({
     }
   }
 
-  async function remove(record: AdminRecord) {
-    const title = asBilingualText(record.values.title).fr || 'ce contenu';
-    if (!window.confirm(`Supprimer définitivement « ${title} » ?`)) return;
-
+  async function deleteRecord(record: AdminRecord) {
     setError(null);
     setBusy(record.id);
 
@@ -414,7 +416,7 @@ export default function ContentManager({
     }
   }
 
-  async function seed() {
+  async function runSeed() {
     setSeeding(true);
     setError(null);
 
@@ -433,6 +435,52 @@ export default function ContentManager({
     }
   }
 
+  function askDelete(record: AdminRecord) {
+    const title = asBilingualText(record.values.title).fr || 'ce contenu';
+    setConfirm({
+      title: `Supprimer « ${title} » ?`,
+      description:
+        'Cette action est définitive : le contenu est retiré de la base et n’apparaîtra plus sur le site public.',
+      confirmLabel: 'Supprimer',
+      tone: 'danger',
+      action: () => deleteRecord(record),
+    });
+  }
+
+  function askPublish(record: AdminRecord) {
+    const title = asBilingualText(record.values.title).fr || 'ce contenu';
+    const published = asBoolean(record.values.published);
+    setConfirm({
+      title: published ? `Dépublier « ${title} » ?` : `Publier « ${title} » ?`,
+      description: published
+        ? 'Le contenu passera en brouillon et ne sera plus visible sur le site public.'
+        : 'Le contenu deviendra immédiatement visible sur le site public.',
+      confirmLabel: published ? 'Dépublier' : 'Publier',
+      action: () => applyPublish(record),
+    });
+  }
+
+  function askSeed() {
+    setConfirm({
+      title: `Importer le contenu actuel dans « ${def.label} » ?`,
+      description:
+        'Les contenus d’origine du site seront recopiés en base de données pour être modifiables ici.',
+      confirmLabel: 'Importer',
+      action: runSeed,
+    });
+  }
+
+  async function runConfirmed() {
+    if (!confirm) return;
+    setConfirmBusy(true);
+    try {
+      await confirm.action();
+    } finally {
+      setConfirmBusy(false);
+      setConfirm(null);
+    }
+  }
+
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
@@ -444,7 +492,7 @@ export default function ContentManager({
           {records.length === 0 && (
             <button
               type="button"
-              onClick={seed}
+              onClick={askSeed}
               disabled={seeding}
               className="inline-flex items-center gap-2 rounded-[9px] border border-white/[0.12] px-4 py-2.5 text-[12.5px] font-semibold text-white/75 hover:text-white hover:bg-white/[0.05] transition-colors disabled:opacity-50"
             >
@@ -580,7 +628,7 @@ export default function ContentManager({
                   </button>
                   <button
                     type="button"
-                    onClick={() => togglePublished(record)}
+                    onClick={() => askPublish(record)}
                     disabled={busy === record.id}
                     title={published ? 'Dépublier' : 'Publier'}
                     aria-label={published ? `Dépublier ${title}` : `Publier ${title}`}
@@ -590,7 +638,7 @@ export default function ContentManager({
                   </button>
                   <button
                     type="button"
-                    onClick={() => remove(record)}
+                    onClick={() => askDelete(record)}
                     disabled={busy === record.id}
                     title="Supprimer"
                     aria-label={`Supprimer ${title}`}
@@ -604,6 +652,16 @@ export default function ContentManager({
           })}
         </ul>
       )}
+
+      <ConfirmDialog
+        open={Boolean(confirm)}
+        options={confirm}
+        busy={confirmBusy}
+        onConfirm={runConfirmed}
+        onCancel={() => {
+          if (!confirmBusy) setConfirm(null);
+        }}
+      />
     </div>
   );
 }
